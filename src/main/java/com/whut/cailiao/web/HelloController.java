@@ -1,18 +1,17 @@
-package com.whut.cailiao;
+package com.whut.cailiao.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by niuyang on 16/1/24.
+ * Created by niuyang on 16/1/26.
  */
 @Controller
-public class TestController {
+public class HelloController {
 
     @RequestMapping("/test.html")
-    public @ResponseBody String test() {
-        return "test";
+    public @ResponseBody String hello() {
+        return "test message";
     }
-
 }
