@@ -14,4 +14,10 @@ public class HelloController {
     public @ResponseBody String hello() {
         return "test message";
     }
+
+
+    @RequestMapping("/hellopage.html")
+    public String hellopage() {
+        return "hello";
+    }
 }
