@@ -3,6 +3,7 @@ package com.whut.cailiao.web;
 import com.alibaba.fastjson.JSON;
 import com.whut.cailiao.dao.example.StudentDao;
 import com.whut.cailiao.model.example.Student;
+import org.apache.commons.collections4.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,9 @@ public class HelloController {
         Map<String, Object> map = new HashMap<>();
         map.put("name", "java");
         map.put("age", 19);
-        studentDao.insertNewItem(map);
+        if (MapUtils.isNotEmpty(map)) {
+            studentDao.insertNewItem(map);
+        }
         return "SUCCESS";
     }
 }

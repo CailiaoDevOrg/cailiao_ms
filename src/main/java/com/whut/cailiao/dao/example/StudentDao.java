@@ -4,14 +4,14 @@ import com.whut.cailiao.model.example.Student;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 /**
  * Created by niuyang on 16/1/28.
  */
-@MapperScan
+@Component
 public interface StudentDao {
 
     @Select("SELECT * FROM ms_tb_student WHERE name = #{name}")
