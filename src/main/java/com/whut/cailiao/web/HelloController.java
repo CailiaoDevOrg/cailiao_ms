@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -45,12 +46,12 @@ public class HelloController {
     }
 
     @RequestMapping("insert.html")
+    @Transactional
     public @ResponseBody String insertStudentItem() {
         Map<String, Object> map = new HashMap<>();
         map.put("name", "java");
         map.put("age", 19);
         studentDao.insertNewItem(map);
-
         return "SUCCESS";
     }
 }
