@@ -59,6 +59,13 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <!-- druid dbcp -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.16</version>
+        </dependency>
+
         <!-- commons utils -->
         <dependency>
             <groupId>org.apache.commons</groupId>
