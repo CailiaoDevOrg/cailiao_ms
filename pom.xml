@@ -28,6 +28,13 @@
             </exclusions>
         </dependency>
 
+        <!-- config own meta-data -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!-- log4j -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

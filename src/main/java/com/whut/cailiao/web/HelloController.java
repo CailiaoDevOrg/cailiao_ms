@@ -8,11 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,7 +53,12 @@ public class HelloController {
         map.put("name", "java");
         map.put("age", 19);
         if (MapUtils.isNotEmpty(map)) {
-            studentDao.insertNewItem(map);
+            long begin = System.currentTimeMillis();
+            int i = 0;
+            while (i++ < 100)
+                studentDao.insertNewItem(map);
+            long end = System.currentTimeMillis();
+            System.out.println(end - begin);
         }
         return "SUCCESS";
     }

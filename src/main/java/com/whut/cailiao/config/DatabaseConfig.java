@@ -2,17 +2,11 @@ package com.whut.cailiao.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.sql.DataSource;
 
@@ -23,22 +17,31 @@ import javax.sql.DataSource;
 public class DatabaseConfig {
 
     @Autowired
-    private DataSource dataSource;
+    private DruidConfig druidConfig;
 
-    @Bean
+    /*@Bean
     public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        *//*DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUsername("root");
         dataSource.setPassword("sql123");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/db_ms");
-        return dataSource;
-    }
+        dataSource.setUrl("jdbc:mysql://localhost:3306/db_ms");*//*
+
+    }*/
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
-        final SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource);
+    public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        System.out.println(druidConfig.getUrl());
+        System.out.println(druidConfig.getPassword());
+        sqlSessionFactoryBean.setDataSource(druidConfig.mysqlDataSource());
         return sqlSessionFactoryBean.getObject();
     }
+
+
+    @Bean
+    public DataSourceTransactionManager transactionManager() throws Exception {
+        return new DataSourceTransactionManager(druidConfig.mysqlDataSource());
+    }
+
 }
