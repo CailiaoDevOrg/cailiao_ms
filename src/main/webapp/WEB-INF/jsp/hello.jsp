@@ -12,7 +12,6 @@
     <title>hello</title>
 </head>
 <body>
-    <h1>Test h1</h1>
-
+    <h1><a href="sql.html">Test h1</a></h1>
 </body>
 </html>

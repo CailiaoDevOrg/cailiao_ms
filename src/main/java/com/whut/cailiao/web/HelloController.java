@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
@@ -33,12 +34,12 @@ public class HelloController {
         return "test message";
     }
 
-    @RequestMapping("/hellopage.html")
+    @RequestMapping("/helloPage.html")
     public String helloPage() {
         return "hello";
     }
 
-    @RequestMapping("sql.html")
+    @RequestMapping(value = "/sql.html", method = RequestMethod.GET)
     public @ResponseBody String getStudentInfo() {
         String name = "test";
         Student stu = studentDao.selectBeanByName(name);
@@ -46,8 +47,7 @@ public class HelloController {
         return JSON.toJSONString(stu);
     }
 
-    @RequestMapping("insert.html")
-    @Transactional
+    @RequestMapping("/insert.html")
     public @ResponseBody String insertStudentItem() {
         Map<String, Object> map = new HashMap<>();
         map.put("name", "java");
