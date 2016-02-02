@@ -1,4 +1,8 @@
 /.idea/
 /target/
+/cailiao_ms_api/target/
+/cailiao_ms_war/target/
 /log/
 *.log
+/cailiao_ms_api/.idea/
+/cailiao_ms_war/.idea/

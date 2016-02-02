@@ -1,18 +1,16 @@
-package com.whut.cailiao.web;
+package com.whut.cailiao.web.example;
 
 import com.alibaba.fastjson.JSON;
-import com.whut.cailiao.dao.example.StudentDao;
 import com.whut.cailiao.model.example.Student;
-import org.apache.commons.collections4.MapUtils;
+import com.whut.cailiao.service.example.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.sql.Timestamp;
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,8 +22,8 @@ public class HelloController {
 
     private static Logger logger = LoggerFactory.getLogger(HelloController.class);
 
-    @Autowired
-    private StudentDao studentDao;
+    @Resource(name = "studentService")
+    private StudentService studentService;
 
     @RequestMapping("/test.html")
     public @ResponseBody String hello() {
@@ -41,9 +39,10 @@ public class HelloController {
 
     @RequestMapping(value = "/sql.html", method = RequestMethod.GET)
     public @ResponseBody String getStudentInfo() {
-        String name = "test";
-        Student stu = studentDao.selectBeanByName(name);
-
+        long begin = System.currentTimeMillis();
+        Student stu = studentService.getBeanByName("test");
+        long end = System.currentTimeMillis();
+        System.out.println("========time=======" + (end - begin));
         return JSON.toJSONString(stu);
     }
 
@@ -52,14 +51,14 @@ public class HelloController {
         Map<String, Object> map = new HashMap<>();
         map.put("name", "java");
         map.put("age", 19);
-        if (MapUtils.isNotEmpty(map)) {
+        /*if (MapUtils.isNotEmpty(map)) {
             long begin = System.currentTimeMillis();
             int i = 0;
             while (i++ < 100)
                 studentDao.insertNewItem(map);
             long end = System.currentTimeMillis();
             System.out.println(end - begin);
-        }
+        }*/
         return "SUCCESS";
     }
 }

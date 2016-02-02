@@ -1,9 +1,13 @@
 package com.whut.cailiao.model.example;
 
+import java.io.Serializable;
+
 /**
  * Created by niuyang on 16/1/28.
  */
-public class Student {
+public class Student implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Long id;
 
