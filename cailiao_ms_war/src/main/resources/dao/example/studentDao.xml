@@ -6,4 +6,8 @@
         SELECT * From ms_tb_student ts WHERE ts.name = #{name}
     </select>
 
+    <insert id="insertNewItem" parameterType="java.lang.String">
+        INSERT INTO ms_tb_student (name, age)
+    </insert>
+
 </mapper>

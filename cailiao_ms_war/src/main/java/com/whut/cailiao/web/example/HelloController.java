@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -25,18 +26,30 @@ public class HelloController {
     @Resource(name = "studentService")
     private StudentService studentService;
 
-    @RequestMapping("/test.html")
+    @RequestMapping("/ajaxTest.html")
     public @ResponseBody String hello() {
         logger.error("error :[log4j testing]");
         logger.warn("warn : {hello warning}");
         return "test message";
     }
 
+    /**
+     * 测试页面跳转
+     * @return
+     */
     @RequestMapping("/helloPage.html")
-    public String helloPage() {
-        return "hello";
+    public ModelAndView helloPage() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("hello");
+        return modelAndView;
     }
 
+
+    /**
+     * 测试数据库连接池
+     * redis缓存
+     * @return
+     */
     @RequestMapping(value = "/sql.html", method = RequestMethod.GET)
     public @ResponseBody String getStudentInfo() {
         long begin = System.currentTimeMillis();
@@ -46,19 +59,15 @@ public class HelloController {
         return JSON.toJSONString(stu);
     }
 
+    /**
+     * 测试mybatis基本功能
+     * @return
+     */
     @RequestMapping("/insert.html")
     public @ResponseBody String insertStudentItem() {
         Map<String, Object> map = new HashMap<>();
         map.put("name", "java");
         map.put("age", 19);
-        /*if (MapUtils.isNotEmpty(map)) {
-            long begin = System.currentTimeMillis();
-            int i = 0;
-            while (i++ < 100)
-                studentDao.insertNewItem(map);
-            long end = System.currentTimeMillis();
-            System.out.println(end - begin);
-        }*/
         return "SUCCESS";
     }
 }

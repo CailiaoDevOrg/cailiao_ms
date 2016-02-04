@@ -1,5 +1,6 @@
 package com.whut.cailiao.interceptor;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,7 +19,12 @@ public class TestInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
-        System.out.println("TestInterceptor post========");
+        String url = httpServletRequest.getRequestURI();
+        String query = httpServletRequest.getQueryString();
+        if (StringUtils.isNotBlank(query)) {
+            url += "?" + query;
+        }
+        System.out.println(url);
     }
 
     @Override
