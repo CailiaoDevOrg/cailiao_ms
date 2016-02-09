@@ -1,9 +1,9 @@
-package com.whut.cailiao.service.impl.example;
+package com.whut.cailiao.war.sevice.impl.example;
 
-import com.whut.cailiao.dao.example.StudentDao;
-import com.whut.cailiao.utils.redis.RedisSupport;
-import com.whut.cailiao.model.example.Student;
-import com.whut.cailiao.service.example.StudentService;
+import com.whut.cailiao.war.dao.example.StudentDao;
+import com.whut.cailiao.war.utils.redis.RedisSupport;
+import com.whut.cailiao.api.model.example.Student;
+import com.whut.cailiao.api.service.example.StudentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

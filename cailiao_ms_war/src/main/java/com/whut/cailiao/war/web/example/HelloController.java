@@ -1,8 +1,8 @@
-package com.whut.cailiao.web.example;
+package com.whut.cailiao.war.web.example;
 
 import com.alibaba.fastjson.JSON;
-import com.whut.cailiao.model.example.Student;
-import com.whut.cailiao.service.example.StudentService;
+import com.whut.cailiao.api.model.example.Student;
+import com.whut.cailiao.api.service.example.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

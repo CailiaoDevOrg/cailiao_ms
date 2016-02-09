@@ -1,6 +1,6 @@
-package com.whut.cailiao.service.example;
+package com.whut.cailiao.api.service.example;
 
-import com.whut.cailiao.model.example.Student;
+import com.whut.cailiao.api.model.example.Student;
 
 /**
  * Created by niuyang on 16/2/2.

@@ -17,6 +17,6 @@
     <dubbo:protocol name="dubbo" port="20880" />
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="com.whut.cailiao.service.example.StudentService" ref="studentService" />
+    <dubbo:service interface="com.whut.cailiao.api.service.example.StudentService" ref="studentService" />
 
 </beans>

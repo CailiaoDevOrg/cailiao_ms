@@ -1,6 +1,6 @@
-package com.whut.cailiao.config;
+package com.whut.cailiao.war.config;
 
-import com.whut.cailiao.interceptor.TestInterceptor;
+import com.whut.cailiao.war.interceptor.TestInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;

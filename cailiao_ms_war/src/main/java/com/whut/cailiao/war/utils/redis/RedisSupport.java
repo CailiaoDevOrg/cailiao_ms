@@ -1,4 +1,4 @@
-package com.whut.cailiao.utils.redis;
+package com.whut.cailiao.war.utils.redis;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.whut.cailiao.config;
+package com.whut.cailiao.war.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;

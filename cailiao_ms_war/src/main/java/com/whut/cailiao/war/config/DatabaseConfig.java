@@ -1,4 +1,4 @@
-package com.whut.cailiao.config;
+package com.whut.cailiao.war.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

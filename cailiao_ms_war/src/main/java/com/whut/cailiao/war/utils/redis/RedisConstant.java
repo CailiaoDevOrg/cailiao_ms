@@ -1,4 +1,4 @@
-package com.whut.cailiao.utils.redis;
+package com.whut.cailiao.war.utils.redis;
 
 /**
  * Created by niuyang on 16/2/1.

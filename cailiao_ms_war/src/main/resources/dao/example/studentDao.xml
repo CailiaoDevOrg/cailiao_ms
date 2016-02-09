@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.whut.cailiao.dao.example.StudentDao">
+<mapper namespace="com.whut.cailiao.war.dao.example.StudentDao">
 
     <select id="selectBeanByName" resultType="Student" parameterType="java.lang.String">
         SELECT * From ms_tb_student ts WHERE ts.name = #{name}

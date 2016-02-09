@@ -1,4 +1,4 @@
-package com.whut.cailiao.config;
+package com.whut.cailiao.war.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

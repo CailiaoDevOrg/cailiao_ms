@@ -1,4 +1,4 @@
-package com.whut.cailiao.interceptor;
+package com.whut.cailiao.war.interceptor;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;

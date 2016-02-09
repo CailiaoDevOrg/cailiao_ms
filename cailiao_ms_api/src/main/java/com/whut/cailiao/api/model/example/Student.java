@@ -1,4 +1,4 @@
-package com.whut.cailiao.model.example;
+package com.whut.cailiao.api.model.example;
 
 import java.io.Serializable;
 
