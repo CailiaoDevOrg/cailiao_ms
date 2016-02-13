@@ -22,7 +22,6 @@ public class RedisSupport {
         }
     }
 
-
     @SuppressWarnings("unchecked")
 	public Object getTestData(String key) {
         if (StringUtils.isBlank(key)) {
