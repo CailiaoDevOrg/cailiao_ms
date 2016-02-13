@@ -1,19 +1,20 @@
 package com.whut.cailiao.war.web.example;
 
-import com.alibaba.fastjson.JSON;
-import com.whut.cailiao.api.model.example.Student;
-import com.whut.cailiao.api.service.example.StudentService;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.Map;
+import com.alibaba.fastjson.JSON;
+import com.whut.cailiao.api.model.example.Student;
+import com.whut.cailiao.api.service.example.StudentService;
 
 /**
  * Created by niuyang on 16/1/26.
@@ -27,7 +28,7 @@ public class HelloController {
     private StudentService studentService;
 
     @RequestMapping("/ajaxTest.html")
-    public @ResponseBody String hello() {
+    public @ResponseBody String ajaxTest() {
         logger.error("error :[log4j testing]");
         logger.warn("warn : {hello warning}");
         return "test message";
@@ -37,11 +38,9 @@ public class HelloController {
      * 测试页面跳转
      * @return
      */
-    @RequestMapping("/helloPage.html")
-    public ModelAndView helloPage() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("hello");
-        return modelAndView;
+    @RequestMapping("/hello.html")
+    public String hello() {
+        return "hello";
     }
 
 

@@ -11,17 +11,20 @@ import org.springframework.stereotype.Component;
 @Component
 public class RedisSupport {
 
-    @Autowired
+    @SuppressWarnings("rawtypes")
+	@Autowired
     private RedisTemplate redisTemplate;
 
-    public void setTestData(String key, Object obj) {
+    @SuppressWarnings("unchecked")
+	public void setTestData(String key, Object obj) {
         if (StringUtils.isNotBlank(key)) {
             this.redisTemplate.opsForHash().put(RedisConstant.KEY_TEST_DATE, key, obj);
         }
     }
 
 
-    public Object getTestData(String key) {
+    @SuppressWarnings("unchecked")
+	public Object getTestData(String key) {
         if (StringUtils.isBlank(key)) {
             return null;
         }

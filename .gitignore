@@ -6,3 +6,12 @@
 *.log
 /cailiao_ms_api/.idea/
 /cailiao_ms_war/.idea/
+/.settings
+/.project
+/cailiao_ms_api/.project
+/cailiao_ms_api/.classpath
+/cailiao_ms_api/.settings
+/cailiao_ms_war/.project
+/cailiao_ms_war/.settings
+/cailiao_ms_war/.classpath
+/cailiao_ms_war/.factorypath
