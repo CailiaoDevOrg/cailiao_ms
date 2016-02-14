@@ -1,47 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<header>
-    <nav class="top-nav">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a class="page-title" style="font-size: 34px">问卷管理</a>
-            </div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">信息平台后台管理系统</a>
         </div>
-    </nav>
-    <ul id="nav-mobile" class="side-nav fixed collapsible collapsible-accordion" style="width: 240px;">
-        <li class="bold no-padding">
-            <a class="collapsible-header waves-effect waves-teal">问卷管理</a>
-            <div class="collapsible-body" style="">
-                <ul>
-                    <li><a href="color.html">问卷列表</a></li>
-                    <li><a href="#">收发统计</a></li>
-                </ul>
-            </div>
-        </li>
-        <!-- <li class="bold">
-            <a href="about.html" class="waves-effect waves-teal">问卷管理</a>
-        </li>
-        <li class="bold">
-            <a href="getting-started.html" class="waves-effect waves-teal">Getting Started</a>
-        </li> -->
-        <!-- <li class="bold no-padding">
-            <a class="collapsible-header waves-effect waves-teal">问卷管理</a>
-            <div class="collapsible-body" style="">
-                <ul>
-                    <li><a href="color.html">问卷列表</a></li>
-                    <li><a href="grid.html">Grid</a></li>
-                    <li><a href="helpers.html">Helpers</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="bold no-padding">
-            <a class="collapsible-header waves-effect waves-teal">Components</a>
-            <div class="collapsible-body" style="display: block;">
-                <ul>
-                    <li><a href="badges.html">Badges</a></li>
-                    <li><a href="buttons.html">Buttons</a></li>
-                    <li><a href="breadcrumbs.html">Breadcrumbs</a></li>
-                </ul>
-            </div>
-        </li> -->
-    </ul>
-</header>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
