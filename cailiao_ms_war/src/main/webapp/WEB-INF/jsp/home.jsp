@@ -16,6 +16,7 @@
 <!-- Bootstrap core CSS -->
 <!-- <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> -->
 <link href="assets/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="assets/global/0.0.1-SNAPSHOT/css/dashboard.css" rel="stylesheet">
 </head>
@@ -40,5 +41,6 @@
 	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
 	<script type="text/javascript" src="assets/jquery/2.2.0/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 </body>
 </html>
