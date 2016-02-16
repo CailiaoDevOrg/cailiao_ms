@@ -29,5 +29,12 @@ public class RedisSupport {
         }
         return this.redisTemplate.opsForHash().get(RedisConstant.KEY_TEST_DATE, key);
     }
+    
+    @SuppressWarnings("unchecked")
+    public void deleteTestData(String key) {
+        if (StringUtils.isNotBlank(key)) {
+            this.redisTemplate.opsForHash().delete(RedisConstant.KEY_TEST_DATE, key);
+        }
+    }
 
 }
