@@ -25,6 +25,11 @@ public class QuestionnaireController {
     @Autowired
     private QuestionnaireBaseService questionnaireBaseService;
     
+    @RequestMapping("/go.html")
+    public String go() {
+        return "home";
+    }
+    
     @RequestMapping("/{id}.html")
     @ResponseBody
     public String getQuestionnairebyId(@PathVariable int id) {
