@@ -1,3 +1,4 @@
+
 package com.whut.cailiao.war.sevice.impl.questionnaire;
 
 import java.io.IOException;
@@ -87,15 +88,16 @@ public class QuestionnaireBaseServiceImpl extends RedisSupport implements Questi
             questionnaire = this.questionnaireDao.selectQuestionnaireById(id);
             setTestData(key, questionnaire);
         }
-        try {
+        /**try {
             createIndex(questionnaire);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         return questionnaire;
     }
     
     
+    @SuppressWarnings("unused")
     private void createIndex(Questionnaire questionnaire) throws IOException {
         
         if (questionnaire == null) {
