@@ -20,7 +20,7 @@
 </div>
 <div class="footer-copyright">
     <div class="container">
-        武汉理工大学版权所有 © 2016 Copyright 
+        武汉理工大学版权所有  © 2016 Copyright 
         <a class="grey-text text-lighten-4 right" href="http://www.whut.edu.cn/2015web/index.htm">武汉理工大学</a>
     </div>
 </div>
