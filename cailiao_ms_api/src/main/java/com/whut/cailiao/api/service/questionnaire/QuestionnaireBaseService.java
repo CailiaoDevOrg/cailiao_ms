@@ -17,7 +17,7 @@ public interface QuestionnaireBaseService {
     
     /**
      * 更新问卷信息
-     * @param Questionnaire questionnaire
+     * @param questionnaire
      */
     void updateQuestionnaire(Questionnaire questionnaire);
     

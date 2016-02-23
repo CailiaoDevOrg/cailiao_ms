@@ -30,7 +30,7 @@ import com.whut.cailiao.war.dao.questionnaire.QuestionnaireDao;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
 
 
-@Service
+@Service("questionnaireBaseService")
 public class QuestionnaireBaseServiceImpl extends RedisSupport implements QuestionnaireBaseService {
     
     @Autowired
