@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.whut.cailiao.war.dao.exhaustEmissionPart.ExhaustEmissionPartDao">
+	<sql id="base_quert">
+		id,exhaustEmissionItemList,ammoniaJetting,isSNCR,isFractionalCombustion,isOneAndTwo,isOther
+	</sql>
+	<!-- 查询 -->
+	<select id="findExhaustEmissionPart" parameterType="java.lang.Integer"
+		resultType="ExhaustEmissionPart">
+		select
+		<include refid="base_query" />
+		from ms_tb_exhaustEmissionPart
+		where
+		id=#{id}
+	</select>
+
+	<!-- 插入 -->
+	<insert id="saveExhaustEmissionPart" parameterType="java.util.Map">
+		insert into
+		ms_tb_exhaustEmissionPart(
+		exhaustEmissionItemList,
+		ammoniaJetting,
+		isSNCR,
+		isFractionalCombustion,
+		isOneAndTwo,
+		isOther
+		)
+		values(
+		#{exhaustEmissionItemList},
+		#{ammoniaJetting},
+		#{isSNCR},
+		#{isFractionalCombustion},
+		#{isOneAndTwo},
+		#{isOther}
+		)
+
+	</insert>
+
+	<!-- delete方法 -->
+	<delete id="deleteExhaustEmissionPart" parameterType="java.lang.Integer">
+		delete from
+		ms_tb_exhaustEmissionPart
+		where id=#{id}
+	</delete>
+
+	<!-- update -->
+	<update id="updateExhaustEmissionPart" parameterType="java.util.Map">
+		update ms_tb_exhaustEmissionPart
+		<set>
+			<if test="exhaustEmissionItemList!=null">
+				exhaustEmissionItemList=#{exhaustEmissionItemList}
+			</if>
+			<if test="ammoniaJetting!=null">
+				ammoniaJetting=#{ammoniaJetting}
+			</if>
+			isSNCR=#{isSNCR},
+			isFractionalCombustion=#{isFractionalCombustion},
+			isOneAndTwo=#{isOneAndTwo},
+			isOther=#{isOther}
+
+		</set>
+	</update>
+</mapper>

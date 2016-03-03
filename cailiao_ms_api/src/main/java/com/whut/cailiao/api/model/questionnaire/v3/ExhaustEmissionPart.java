@@ -13,6 +13,8 @@ public class ExhaustEmissionPart implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private int id;
+    
     /** 排放项数据列表 */
     private List<ExhaustEmissionItem> exhaustEmissionItemList;
     /** 喷氨(kg/t熟料) */
@@ -23,7 +25,16 @@ public class ExhaustEmissionPart implements Serializable {
     private boolean isOneAndTwo; // 1+2
     private boolean isOther; // 其他
 
-    public List<ExhaustEmissionItem> getExhaustEmissionItemList() {
+    
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public List<ExhaustEmissionItem> getExhaustEmissionItemList() {
         return exhaustEmissionItemList;
     }
 

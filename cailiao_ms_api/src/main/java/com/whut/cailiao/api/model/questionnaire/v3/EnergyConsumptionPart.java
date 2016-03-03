@@ -11,8 +11,21 @@ import java.io.Serializable;
 public class EnergyConsumptionPart implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    /**
+     * 主键id
+     */
+    private int id;
 
-    /** 生料粉末工段电耗(kWh/t) */
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/** 生料粉末工段电耗(kWh/t) */
     private float powerConsumptionBySlfm;
     /** 可比熟料综合煤耗(kgce/t) */
     private float coalConsumptionByKbsl;

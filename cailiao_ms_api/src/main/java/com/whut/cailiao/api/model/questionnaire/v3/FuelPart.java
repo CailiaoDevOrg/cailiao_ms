@@ -11,10 +11,20 @@ public class FuelPart implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
+    private int id;
     /** 表中数据 */
     private List<FuelItem> fuelItemList;
     
-    public List<FuelItem> getFuelItemList() {
+    
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public List<FuelItem> getFuelItemList() {
         return fuelItemList;
     }
 
