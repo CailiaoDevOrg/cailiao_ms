@@ -2,6 +2,7 @@ package com.whut.cailiao.war.web.questionnaire;
 
 import java.sql.Timestamp;
 
+import com.whut.cailiao.api.commons.WebResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,7 @@ public class QuestionnaireController {
     @RequestMapping("/{id}.html")
     @ResponseBody
     public String getQuestionnairebyId(@PathVariable int id) {
+        WebResponse response = new WebResponse();
         long beginTime = System.currentTimeMillis();
         Questionnaire questionnaire = this.questionnaireBaseService.getQuestionnaireById(id);
         Long endTime = System.currentTimeMillis();
@@ -40,7 +42,8 @@ public class QuestionnaireController {
         if (questionnaire == null) {
             return null;
         }
-        return JSON.toJSONString(questionnaire);
+        response.setBody("questionnaire", questionnaire);
+        return response.toJsonString();
     }
     
     @RequestMapping("/new.html")
