@@ -13,12 +13,22 @@ public class CementStonePart implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    /** 表中数据 */
+   /** 表的id **/
+    private int id;  
+	/** 表中数据 */
     private List<CementStone> cementStoneList;
     /** 熟料产量 */
     private float clinkerProduction;
     /** 水泥产量 */
     private float cementProduction;
+    
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
     
     public float getClinkerProduction() {
         return clinkerProduction;
