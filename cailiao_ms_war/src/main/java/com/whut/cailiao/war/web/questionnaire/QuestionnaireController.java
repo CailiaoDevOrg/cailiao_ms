@@ -79,4 +79,13 @@ public class QuestionnaireController {
         return "SUCCESS";
     }
 
+    @RequestMapping("/test.html")
+    @ResponseBody
+    public String test(@RequestParam String test) {
+
+        System.out.println(test);
+        return "SUCCESS";
+
+    }
+
 }
