@@ -50,7 +50,7 @@ public class ExhaustEmissionPart implements Serializable {
         this.ammoniaJetting = ammoniaJetting;
     }
 
-    public boolean isSNCR() {
+    public boolean getIsSNCR() {
         return isSNCR;
     }
 
@@ -58,7 +58,7 @@ public class ExhaustEmissionPart implements Serializable {
         this.isSNCR = isSNCR;
     }
 
-    public boolean isFractionalCombustion() {
+    public boolean getIsFractionalCombustion() {
         return isFractionalCombustion;
     }
 
@@ -66,7 +66,7 @@ public class ExhaustEmissionPart implements Serializable {
         this.isFractionalCombustion = isFractionalCombustion;
     }
 
-    public boolean isOneAndTwo() {
+    public boolean getIsOneAndTwo() {
         return isOneAndTwo;
     }
 
@@ -74,7 +74,7 @@ public class ExhaustEmissionPart implements Serializable {
         this.isOneAndTwo = isOneAndTwo;
     }
 
-    public boolean isOther() {
+    public boolean getIsOther() {
         return isOther;
     }
 

@@ -1,4 +1,4 @@
-package com.whut.cailiao.war.sevice.impl.fuelPart;
+package com.whut.cailiao.war.sevice.impl.questionnaire;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.whut.cailiao.api.model.questionnaire.v3.FuelPart;
 import com.whut.cailiao.api.service.fuelPart.FuelPartService;
-import com.whut.cailiao.war.dao.fuelPart.FuelPartDao;
+import com.whut.cailiao.war.dao.questionnaire.FuelPartDao;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
 /**
  * FuelSerive的实现类

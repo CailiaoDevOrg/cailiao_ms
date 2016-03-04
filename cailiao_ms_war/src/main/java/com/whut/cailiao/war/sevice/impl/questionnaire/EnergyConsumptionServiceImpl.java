@@ -1,4 +1,4 @@
-package com.whut.cailiao.war.sevice.impl.energyConsumption;
+package com.whut.cailiao.war.sevice.impl.questionnaire;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.whut.cailiao.api.model.questionnaire.v3.EnergyConsumptionPart;
 import com.whut.cailiao.api.service.energyConsumption.EnergyConsumptionService;
-import com.whut.cailiao.war.dao.energyConsumptionPart.EnergyConsumptionPartDao;
+import com.whut.cailiao.war.dao.questionnaire.EnergyConsumptionPartDao;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
 
 /**

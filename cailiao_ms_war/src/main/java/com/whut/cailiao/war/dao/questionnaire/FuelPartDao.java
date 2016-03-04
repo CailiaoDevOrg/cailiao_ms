@@ -1,4 +1,4 @@
-package com.whut.cailiao.war.dao.fuelPart;
+package com.whut.cailiao.war.dao.questionnaire;
 
 import java.util.Map;
 

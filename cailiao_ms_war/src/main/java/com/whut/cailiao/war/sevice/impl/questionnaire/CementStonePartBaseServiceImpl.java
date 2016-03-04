@@ -1,4 +1,4 @@
-package com.whut.cailiao.war.sevice.impl.cementStonePart;
+package com.whut.cailiao.war.sevice.impl.questionnaire;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.whut.cailiao.api.model.questionnaire.v3.CementStonePart;
 import com.whut.cailiao.api.service.cementStonePart.CementStonePartBaseService;
-import com.whut.cailiao.war.dao.cementStonePart.CementStonePartDao;
+import com.whut.cailiao.war.dao.questionnaire.CementStonePartDao;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
 
 @Service("cementStonePartBaseService")

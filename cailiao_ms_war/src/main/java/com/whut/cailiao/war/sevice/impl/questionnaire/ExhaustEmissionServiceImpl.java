@@ -1,4 +1,4 @@
-package com.whut.cailiao.war.sevice.impl.exhaustEmission;
+package com.whut.cailiao.war.sevice.impl.questionnaire;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.whut.cailiao.api.model.questionnaire.v3.ExhaustEmissionPart;
 import com.whut.cailiao.api.service.exhaustEmission.ExhaustEmissionService;
-import com.whut.cailiao.war.dao.exhaustEmissionPart.ExhaustEmissionPartDao;
+import com.whut.cailiao.war.dao.questionnaire.ExhaustEmissionPartDao;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
 /**
  * service的实现类
@@ -21,13 +21,16 @@ public class ExhaustEmissionServiceImpl extends RedisSupport implements ExhaustE
 	private ExhaustEmissionPartDao exhaustEmissionPartDao;
 	@Override
 	public void saveExhaustEmission(ExhaustEmissionPart exhaustEmissionpart) {
+		if(exhaustEmissionpart==null||exhaustEmissionpart.getId()<=0){
+			return ;
+		}
 		Map<String,Object> map=new HashMap<>();
 		map.put("ammoniaJetting", exhaustEmissionpart.getAmmoniaJetting());
 		map.put("exhaustEmissionItemList", exhaustEmissionpart.getExhaustEmissionItemList());
-		map.put("isFractionalCombustion", exhaustEmissionpart.isFractionalCombustion());
-		map.put("isOneAndTwo", exhaustEmissionpart.isOneAndTwo());
-		map.put("isOther", exhaustEmissionpart.isOther());
-		map.put("isSNCR", exhaustEmissionpart.isSNCR());
+		map.put("isFractionalCombustion", exhaustEmissionpart.getIsFractionalCombustion());
+		map.put("isOneAndTwo", exhaustEmissionpart.getIsOneAndTwo());
+		map.put("isOther", exhaustEmissionpart.getIsOther());
+		map.put("isSNCR", exhaustEmissionpart.getIsSNCR());
 		this.exhaustEmissionPartDao.saveExhaustEmissionPart(map);
 	}
 
@@ -49,10 +52,10 @@ public class ExhaustEmissionServiceImpl extends RedisSupport implements ExhaustE
 		Map<String,Object> map=new HashMap<>();
 		map.put("ammoniaJetting", exhaustEmissionpart.getAmmoniaJetting());
 		map.put("exhaustEmissionItemList", exhaustEmissionpart.getExhaustEmissionItemList());
-		map.put("isFractionalCombustion", exhaustEmissionpart.isFractionalCombustion());
-		map.put("isOneAndTwo", exhaustEmissionpart.isOneAndTwo());
-		map.put("isOther", exhaustEmissionpart.isOther());
-		map.put("isSNCR", exhaustEmissionpart.isSNCR());
+		map.put("isFractionalCombustion", exhaustEmissionpart.getIsFractionalCombustion());
+		map.put("isOneAndTwo", exhaustEmissionpart.getIsOneAndTwo());
+		map.put("isOther", exhaustEmissionpart.getIsOther());
+		map.put("isSNCR", exhaustEmissionpart.getIsSNCR());
 		this.exhaustEmissionPartDao.updateExhaustEmissionPart(map);
 		String key="ExhaustEmission"+exhaustEmissionpart.getId();
 		deleteTestData(key);

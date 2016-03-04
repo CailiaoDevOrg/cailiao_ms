@@ -1,4 +1,4 @@
-package com.whut.cailiao.war.dao.energyConsumptionPart;
+package com.whut.cailiao.war.dao.questionnaire;
 
 import java.util.Map;
 

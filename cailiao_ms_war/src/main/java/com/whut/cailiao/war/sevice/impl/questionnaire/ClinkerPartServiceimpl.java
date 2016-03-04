@@ -1,4 +1,4 @@
-package com.whut.cailiao.war.sevice.impl.clinkerPart;
+package com.whut.cailiao.war.sevice.impl.questionnaire;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.whut.cailiao.api.model.questionnaire.v3.ClinkerPart;
 import com.whut.cailiao.api.service.clinkerPart.ClinkerPartBaseService;
-import com.whut.cailiao.war.dao.clinkerPart.ClinkerPartDao;
+import com.whut.cailiao.war.dao.questionnaire.ClinkerPartDao;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
 
 /**

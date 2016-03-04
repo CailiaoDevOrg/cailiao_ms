@@ -11,7 +11,29 @@ public class QueContent4V3 implements Serializable {
 
     /** 记录ID */
     private int id;
-    /** 问卷ID */
+    /** 生产线名称**/
+
+    private String productionLine;
+    
+    /** 水泥厂名称**/
+    private String corName;
+    public String getProductionLine() {
+		return productionLine;
+	}
+
+	public void setProductionLine(String productionLine) {
+		this.productionLine = productionLine;
+	}
+
+	public String getCorName() {
+		return corName;
+	}
+
+	public void setCorName(String corName) {
+		this.corName = corName;
+	}
+
+	/** 问卷ID */
     private int questionnaireId;
     /** 年份 */
     private int year;
