@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.whut.cailiao.api.model.questionnaire.v3.ExhaustEmissionPart;
-import com.whut.cailiao.api.service.exhaustEmission.ExhaustEmissionService;
+import com.whut.cailiao.api.service.questionnaire.ExhaustEmissionService;
 import com.whut.cailiao.war.dao.questionnaire.ExhaustEmissionPartDao;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
 /**

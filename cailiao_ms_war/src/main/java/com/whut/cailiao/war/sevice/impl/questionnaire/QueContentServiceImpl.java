@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.whut.cailiao.api.model.questionnaire.v3.QueContent4V3;
-import com.whut.cailiao.api.service.queContent4V3.QueContent4V3Service;
+import com.whut.cailiao.api.service.questionnaire.QueContent4V3Service;
 import com.whut.cailiao.war.dao.questionnaire.QueContent4V3Dao;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
 /**

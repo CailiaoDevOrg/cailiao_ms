@@ -1,4 +1,4 @@
-package com.whut.cailiao.api.service.fuelPart;
+package com.whut.cailiao.api.service.questionnaire;
 
 import com.whut.cailiao.api.model.questionnaire.v3.FuelPart;
 

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.whut.cailiao.api.model.questionnaire.v3.ClinkerPart;
-import com.whut.cailiao.api.service.clinkerPart.ClinkerPartBaseService;
+import com.whut.cailiao.api.service.questionnaire.ClinkerPartBaseService;
 import com.whut.cailiao.war.dao.questionnaire.ClinkerPartDao;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
 

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.whut.cailiao.api.model.questionnaire.v3.EnergyConsumptionPart;
-import com.whut.cailiao.api.service.energyConsumption.EnergyConsumptionService;
+import com.whut.cailiao.api.service.questionnaire.EnergyConsumptionService;
 import com.whut.cailiao.war.dao.questionnaire.EnergyConsumptionPartDao;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
 

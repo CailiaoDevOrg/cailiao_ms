@@ -1,4 +1,4 @@
-package com.whut.cailiao.api.service.queContent4V3;
+package com.whut.cailiao.api.service.questionnaire;
 
 import com.whut.cailiao.api.model.questionnaire.v3.QueContent4V3;
 
