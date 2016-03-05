@@ -28,7 +28,7 @@
 		<div class="row">
 		    <jsp:include page="global/sidebar.jsp"></jsp:include>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-			    <jsp:include page="questionnaire/version3/createNew.jsp"></jsp:include>
+			    <jsp:include page="questionnaireTemplate/version3/createNew.jsp"></jsp:include>
 			</div>
 		</div>
 	</div>

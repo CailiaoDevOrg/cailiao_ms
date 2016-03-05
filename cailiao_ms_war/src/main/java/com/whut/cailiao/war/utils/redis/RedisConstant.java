@@ -5,5 +5,6 @@ package com.whut.cailiao.war.utils.redis;
  */
 public class RedisConstant {
 
-    public static final String KEY_TEST_DATE = "test_data_key";
+    public static final String KEY_DATAIL_DATA = "datail_data_key";
+    public static final String KEY_USER_DATA = "user_data_key";
 }

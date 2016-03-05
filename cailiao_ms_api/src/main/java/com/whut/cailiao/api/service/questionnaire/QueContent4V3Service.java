@@ -1,6 +1,6 @@
 package com.whut.cailiao.api.service.questionnaire;
 
-import com.whut.cailiao.api.model.questionnaire.v3.QueContent4V3;
+import com.whut.cailiao.api.model.questionnaire.v3.QuestionnaireContent;
 
 /**
  * QueContent4V3Service接口
@@ -19,18 +19,18 @@ public interface QueContent4V3Service {
 	 * save
 	 * @param queContent
 	 */
-	public void saveQueContent4V3(QueContent4V3 queContent);
+	public void saveQueContent4V3(QuestionnaireContent queContent);
 	
 	/**
 	 * update
 	 * @param queContent
 	 */
-	public void updateQueContent4V3(QueContent4V3 queContent);
+	public void updateQueContent4V3(QuestionnaireContent queContent);
 	
 	/**
 	 * find
 	 * @param id
 	 * @return
 	 */
-	public QueContent4V3 findQueContent4V3(int id);
+	public QuestionnaireContent findQueContent4V3(int id);
 }

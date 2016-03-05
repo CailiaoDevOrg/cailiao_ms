@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ import java.util.Map;
  * Created by niuyang on 16/3/3.
  * 用于controller的返回
  */
-public class WebResponse {
+public class ApiResponse implements Serializable {
 
     // 返回码
     private int retCode;
@@ -20,9 +21,16 @@ public class WebResponse {
     // 返回内容
     private Map<String, Object> body;
 
-    public WebResponse() {
-        this.retCode = WebResponseCode.SUCCESS;
-        this.retDesc = WebResponseCode.getDesc(retCode);
+    public ApiResponse() {
+        this.retCode = ApiResponseCode.SUCCESS;
+        this.retDesc = ApiResponseCode.getDesc(retCode);
+    }
+
+    public static ApiResponse createCallErrorApiResponse() {
+        ApiResponse response = new ApiResponse();
+        response.setRetCode(ApiResponseCode.CALL_ERROR);
+        response.setRetDesc(ApiResponseCode.getDesc(ApiResponseCode.CALL_ERROR));
+        return response;
     }
 
     public void setRetCode(int retCode) {
@@ -33,7 +41,7 @@ public class WebResponse {
         this.retDesc = retDesc;
     }
 
-    public void setBody(String key, Object object) {
+    public void addBody(String key, Object object) {
         if (StringUtils.isBlank(key) || object == null) {
             return;
         }
@@ -43,7 +51,4 @@ public class WebResponse {
         body.put(key, object);
     }
 
-    public String toJsonString() {
-        return JSON.toJSONString(this);
-    }
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * version3 问卷详细内容表,用于保存文件详细内容
  */
-public class QueContent4V3 implements Serializable {
+public class QuestionnaireContent implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

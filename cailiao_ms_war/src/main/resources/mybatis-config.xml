@@ -2,9 +2,9 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.whut.cailiao.api.model.questionnaire.Questionnaire" alias="Questionnaire"/>
+        <typeAlias type="com.whut.cailiao.api.model.questionnaireTemplate.QuestionnaireTemplate" alias="Questionnaire"/>
     </typeAliases>
     <mappers>
-        <mapper resource="dao/questionnaire/questionnaireDao.xml"/>
+        <mapper resource="dao/questionnaireTemplate/questionnaireDao.xml"/>
     </mappers>
 </configuration>

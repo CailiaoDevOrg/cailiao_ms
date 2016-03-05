@@ -8,17 +8,15 @@ import java.sql.Timestamp;
  * @author niuyang
  *
  */
-public class Questionnaire implements Serializable {
+public class QuestionnaireTemplate implements Serializable {
 
     private static final long serialVersionUID = 1L;
     /** 问卷id */
-    private int id;
+    private Integer id;
     /** 问卷名 */
     private String name;
     /** 问卷描述 */
     private String description;
-    /** 问卷创建人 */
-    private String createPerson;
     /** 问卷创建时间 */
     private Timestamp createTime;
     /** 问卷最后更改时间 */
@@ -29,16 +27,18 @@ public class Questionnaire implements Serializable {
     private Timestamp endTime;
     /** 问卷模板jsp页面 */
     private String templateJspUrl;
-    /** 问卷时间状态（仅根据时间判断的状态） */
-    private int status4Time;
-    /** 问卷控制状态（应对问卷发布之后认为的状态变更） */
-    private int status4Op;
+    /**
+     * 问卷控制状态
+     * 编辑中
+     * 已发布
+     */
+    private int status;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -56,14 +56,6 @@ public class Questionnaire implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getCreatePerson() {
-        return createPerson;
-    }
-
-    public void setCreatePerson(String createPerson) {
-        this.createPerson = createPerson;
     }
 
     public Timestamp getCreateTime() {
@@ -106,20 +98,12 @@ public class Questionnaire implements Serializable {
         this.templateJspUrl = templateJspUrl;
     }
 
-    public int getStatus4Time() {
-        return status4Time;
+    public int getStatus() {
+        return status;
     }
 
-    public void setStatus4Time(int status4Time) {
-        this.status4Time = status4Time;
-    }
-
-    public int getStatus4Op() {
-        return status4Op;
-    }
-
-    public void setStatus4Op(int status4Op) {
-        this.status4Op = status4Op;
+    public void setStatus(int status) {
+        this.status = status;
     }
     
 }

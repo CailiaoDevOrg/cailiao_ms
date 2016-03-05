@@ -1,6 +1,6 @@
 package com.whut.cailiao.api.service.questionnaire;
 
-import com.whut.cailiao.api.model.questionnaire.Questionnaire;
+import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 
 /**
  * 问卷管理模块基础服务
@@ -11,15 +11,15 @@ public interface QuestionnaireBaseService {
     
     /**
      * 保存问卷信息
-     * @param questionnaire
+     * @param questionnaireTemplate
      */
-    void saveQuestionnaire(Questionnaire questionnaire);
+    void saveQuestionnaire(QuestionnaireTemplate questionnaireTemplate);
     
     /**
      * 更新问卷信息
-     * @param questionnaire
+     * @param questionnaireTemplate
      */
-    void updateQuestionnaire(Questionnaire questionnaire);
+    void updateQuestionnaire(QuestionnaireTemplate questionnaireTemplate);
     
     /**
      * 根据id删除问卷信息
@@ -32,6 +32,6 @@ public interface QuestionnaireBaseService {
      * @param id
      * @return
      */
-    Questionnaire getQuestionnaireById(int id);
+    QuestionnaireTemplate getQuestionnaireById(int id);
 
 }

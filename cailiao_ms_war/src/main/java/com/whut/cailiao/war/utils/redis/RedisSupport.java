@@ -16,24 +16,24 @@ public class RedisSupport {
     private RedisTemplate redisTemplate;
 
     @SuppressWarnings("unchecked")
-	public void setTestData(String key, Object obj) {
+	public void setCacheData(String key, Object obj) {
         if (StringUtils.isNotBlank(key)) {
-            this.redisTemplate.opsForHash().put(RedisConstant.KEY_TEST_DATE, key, obj);
+            this.redisTemplate.opsForHash().put(RedisConstant.KEY_DATAIL_DATA, key, obj);
         }
     }
 
     @SuppressWarnings("unchecked")
-	public Object getTestData(String key) {
+	public Object getCacheData(String key) {
         if (StringUtils.isBlank(key)) {
             return null;
         }
-        return this.redisTemplate.opsForHash().get(RedisConstant.KEY_TEST_DATE, key);
+        return this.redisTemplate.opsForHash().get(RedisConstant.KEY_DATAIL_DATA, key);
     }
     
     @SuppressWarnings("unchecked")
-    public void deleteTestData(String key) {
+    public void deleteCacheData(String key) {
         if (StringUtils.isNotBlank(key)) {
-            this.redisTemplate.opsForHash().delete(RedisConstant.KEY_TEST_DATE, key);
+            this.redisTemplate.opsForHash().delete(RedisConstant.KEY_DATAIL_DATA, key);
         }
     }
 

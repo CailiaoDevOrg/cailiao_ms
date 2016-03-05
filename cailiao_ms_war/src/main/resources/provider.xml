@@ -15,6 +15,6 @@
 
     <dubbo:protocol name="dubbo" port="20880" />
 
-    <dubbo:service interface="com.whut.cailiao.api.service.questionnaire.QuestionnaireBaseService" ref="questionnaireBaseService" />
+    <dubbo:service interface="com.whut.cailiao.api.service.questionnaireTemplate.QuestionnaireBaseService" ref="questionnaireBaseService" />
 
 </beans>
