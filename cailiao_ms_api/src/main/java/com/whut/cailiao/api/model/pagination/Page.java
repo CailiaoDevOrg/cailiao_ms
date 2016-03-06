@@ -17,10 +17,8 @@ public class Page<T extends Serializable> implements Serializable {
     private List<T> list;
     /** 第几页 */
     private int currentPage;
-    /** 共几页 */
-    private int totalPage;
     /** 每页显示的记录数 */
-    private int rowNum;
+    private int pageSize;
     /** 总记录数 */
     private int totalNum;
 
@@ -40,20 +38,12 @@ public class Page<T extends Serializable> implements Serializable {
         this.currentPage = currentPage;
     }
 
-    public int getTotalPage() {
-        return totalPage;
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public void setTotalPage(int totalPage) {
-        this.totalPage = totalPage;
-    }
-
-    public int getRowNum() {
-        return rowNum;
-    }
-
-    public void setRowNum(int rowNum) {
-        this.rowNum = rowNum;
+    public int getPageSize() {
+        return this.pageSize;
     }
 
     public int getTotalNum() {

@@ -28,55 +28,6 @@ public class QuestionnaireController {
     @Autowired
     private QuestionnaireService questionnaireService;
 
-
-    /************************ 关于问卷模板 *************************/
-    /**
-     * 获取问卷模板列表
-     * @param currentPage
-     * @param pageSize
-     */
-    @RequestMapping("/getQuestionnaireTemplateList/{currentPage}/{pageSize}.html")
-    public String getQuestionnaireTemplateList(@PathVariable int currentPage, @PathVariable int pageSize) {
-        return null;
-    }
-
-    /**
-     * 获取问卷模板详细内容
-     */
-    @RequestMapping("/getQuestionnaireTemplate/{questionnaireTemplateId}.html")
-    public String getQuestionnaireTemplate(@PathVariable int questionnaireTemplateId) {
-        ApiResponse response = this.questionnaireService.getQuestionnaireTemplate(questionnaireTemplateId);
-        return convertApiResponseToJSONString(response);
-    }
-
-    /**
-     * 临时保存问卷模板
-     * @param questionnaireTemplate
-     */
-    @RequestMapping(value = "/saveQuestionnaireTemplate.html", method = RequestMethod.POST)
-    public String saveQuestionnaireTemplate(@RequestBody QuestionnaireTemplate questionnaireTemplate) {
-        ApiResponse response = this.questionnaireService.saveQuestionnaireTemplate(questionnaireTemplate);
-        return convertApiResponseToJSONString(response);
-    }
-
-    /**
-     * 发布问卷模板
-     * @param questionnaireTemplate
-     */
-    @RequestMapping(value = "/publishQuestionnaireTemplate.html", method = RequestMethod.POST)
-    public String publishQuestionnaireTemplate(@RequestBody QuestionnaireTemplate questionnaireTemplate) {
-        return null;
-    }
-
-    /**
-     * 删除问卷模板
-     * @param id
-     */
-    @RequestMapping(value = "/deleteQuestionnaireTemplate/{id}.html", method = RequestMethod.DELETE)
-    public String deleteQuestionnaireTemplate(@PathVariable int id) {
-        return null;
-    }
-
     /********************** 关于问卷查看与审核 ************************/
     /**
      * 获取某一问卷模板下的问卷提交列表
@@ -125,9 +76,5 @@ public class QuestionnaireController {
         return null;
     }
 
-    private String convertApiResponseToJSONString(ApiResponse response) {
-        response = (response == null ? ApiResponse.createCallErrorApiResponse() : response);
-        return JSON.toJSONString(response);
-    }
 
 }

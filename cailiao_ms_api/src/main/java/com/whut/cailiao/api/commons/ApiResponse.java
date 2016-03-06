@@ -21,24 +21,17 @@ public class ApiResponse implements Serializable {
     // 返回内容
     private Map<String, Object> body;
 
-    public ApiResponse() {
-        this.retCode = ApiResponseCode.SUCCESS;
-        this.retDesc = ApiResponseCode.getDesc(retCode);
-    }
+    private ApiResponse() {
 
-    public static ApiResponse createCallErrorApiResponse() {
-        ApiResponse response = new ApiResponse();
-        response.setRetCode(ApiResponseCode.CALL_ERROR);
-        response.setRetDesc(ApiResponseCode.getDesc(ApiResponseCode.CALL_ERROR));
-        return response;
     }
 
     public void setRetCode(int retCode) {
         this.retCode = retCode;
+        this.retDesc = ApiResponseCode.getDesc(retCode);
     }
 
-    public void setRetDesc(String retDesc) {
-        this.retDesc = retDesc;
+    public int getRetCode() {
+        return retCode;
     }
 
     public void addBody(String key, Object object) {
@@ -49,6 +42,18 @@ public class ApiResponse implements Serializable {
             body = new HashMap<>();
         }
         body.put(key, object);
+    }
+
+    public static ApiResponse createCallErrorApiResponse() {
+        ApiResponse response = new ApiResponse();
+        response.setRetCode(ApiResponseCode.CALL_ERROR);
+        return response;
+    }
+
+    public static ApiResponse createDefaultApiResponse() {
+        ApiResponse response = new ApiResponse();
+        response.setRetCode(ApiResponseCode.SUCCESS);
+        return response;
     }
 
 }

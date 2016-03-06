@@ -21,6 +21,8 @@ public class QuestionnaireTemplate implements Serializable {
     private Timestamp createTime;
     /** 问卷最后更改时间 */
     private Timestamp modifyTime;
+    /** 问卷上次修改时间 */
+    private Timestamp lastModifyTime;
     /** 问卷生效时间 */
     private Timestamp beginTime;
     /** 问卷失效时间 */
@@ -72,6 +74,14 @@ public class QuestionnaireTemplate implements Serializable {
 
     public void setModifyTime(Timestamp modifyTime) {
         this.modifyTime = modifyTime;
+    }
+
+    public Timestamp getLastModifyTime() {
+        return lastModifyTime;
+    }
+
+    public void setLastModifyTime(Timestamp lastModifyTime) {
+        this.lastModifyTime = lastModifyTime;
     }
 
     public Timestamp getBeginTime() {

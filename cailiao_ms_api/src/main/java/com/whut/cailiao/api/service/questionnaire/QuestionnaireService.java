@@ -8,10 +8,6 @@ import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
  */
 public interface QuestionnaireService {
 
-    ApiResponse saveQuestionnaireTemplate(QuestionnaireTemplate questionnaireTemplate);
 
-    ApiResponse getQuestionnaireTemplate(int questionnaireTemplateItemId);
-
-    ApiResponse publishQuestionnaireTemplate(QuestionnaireTemplate questionnaireTemplate);
 
 }

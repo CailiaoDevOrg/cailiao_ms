@@ -10,6 +10,32 @@ public interface QuestionnaireTemplateDao {
 
     /**
      * 插入问卷模板
+     * 插入到正式表
+     * @param questionnaireTemplate
      */
-    void insertQuestionnaireTemplate(QuestionnaireTemplate questionnaireTemplate);
+    int insertQuestionnaireTemplate(QuestionnaireTemplate questionnaireTemplate);
+
+    /**
+     * 获取已发布的模板数据
+     * 从正式表中获取
+     * @param questionnaireTemplateId
+     * @return
+     */
+    QuestionnaireTemplate getQuestionnaireTemplate(int questionnaireTemplateId);
+
+    /**
+     * 更新已发布的数据模板
+     * 从正式表中
+     * @param questionnaireTemplate
+     */
+    int updateQuestionnaireTemplate(QuestionnaireTemplate questionnaireTemplate);
+
+    /**
+     * 删除问卷模板记录
+     * 在正式表中删除
+     * @param questionnaireTemplateId
+     * @return
+     */
+    int deleteQuestionnaireTemplate(int questionnaireTemplateId);
+
 }
