@@ -72,6 +72,26 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
     }
 
     /**
+     * 查看问卷填写详情
+     * @param questionnaireContentId
+     * @return
+     */
+    @Override
+    public ApiResponse getQuestionnaireContent(int questionnaireContentId) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (questionnaireContentId <= 0) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            logger.error("get questionnaire content fail, input param error");
+            return response;
+        }
+        QuestionnaireContent questionnaireContent = this.questionnaireContentDao.getQuestionnaireContent(questionnaireContentId);
+        if (questionnaireContent != null) {
+            response.addBody("questionnaireContent", questionnaireContent);
+        }
+        return response;
+    }
+
+    /**
      * finished
      * 删除填写的某条问卷
      * @param questionnaireContentId
@@ -112,6 +132,54 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
     }
 
     /**
+     * 分页获取某模板下提交的问卷
+     * @param questionnaireTemplateId
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    @Override
+    public ApiResponse getQuestionnaireContentCommitList(int questionnaireTemplateId, int currentPage, int pageSize) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (questionnaireTemplateId <= 0 || currentPage <= 0 || pageSize <= 0) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            logger.error("getQuestionnaireContentCommitList fail, input param error");
+            return response;
+        }
+        List<QuestionnaireContent> questionnaireContentList = this.questionnaireContentDao.getQuestionnaireContentCommitList(questionnaireTemplateId, currentPage, pageSize);
+        if (CollectionUtils.isNotEmpty(questionnaireContentList)) {
+            response.addBody("questionnaireContentList", questionnaireContentList);
+        }
+        return response;
+    }
+
+    /**
+     * 审核提交的问卷
+     * @param questionnaireContentId
+     * @param isPass
+     * @param rejectReason
+     * @return
+     */
+    @Override
+    public ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass, String rejectReason) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (questionnaireContentId <= 0 || (!isPass && StringUtils.isBlank(rejectReason))) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            logger.error("examineCommittedQuestionnaireContent fail, input error");
+            return response;
+        }
+        QuestionnaireContent questionnaireContent = new QuestionnaireContent();
+        questionnaireContent.setId(questionnaireContentId);
+        if (isPass) {
+            questionnaireContent.setStatus(QuestionnaireConstant.QuestionnaireContentStatus.PASS.value());
+        } else {
+            questionnaireContent.setStatus(QuestionnaireConstant.QuestionnaireContentStatus.EDITING.value());
+        }
+        questionnaireContent.setRejectReason(rejectReason);
+        return response;
+    }
+
+    /**
      * finished
      * 保存填写的问卷
      * @param questionnaireContent
@@ -121,9 +189,7 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
     private ApiResponse saveQuestionnaireContentTemp(QuestionnaireContent questionnaireContent, QuestionnaireConstant.QuestionnaireContentStatus status) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
         if (questionnaireContent == null
-                || (questionnaireContent.getId() != null && questionnaireContent.getId().compareTo(0) <= 0)
-                || questionnaireContent.getQuestionnaireTemplateId() <= 0
-                || StringUtils.isBlank(questionnaireContent.getCementFactoryId())) {
+                || (questionnaireContent.getId() != null && questionnaireContent.getId().compareTo(0) <= 0)) {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
             logger.error("saveQuestionnaireContentTemp fail, input param error");
             return response;

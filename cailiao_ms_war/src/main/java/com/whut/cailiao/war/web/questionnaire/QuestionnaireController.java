@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireService;
+import com.whut.cailiao.war.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +24,11 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("/qms")
-public class QuestionnaireController {
+public class QuestionnaireController extends BaseController {
 
     @Autowired
     private QuestionnaireService questionnaireService;
 
-    /********************** 关于问卷查看与审核 ************************/
     /**
      * 获取某一问卷模板下的问卷提交列表
      * @param currentPage
@@ -37,44 +37,35 @@ public class QuestionnaireController {
      */
     @RequestMapping(value = "/getQuestionnaireCommitList/{questionnaireTemplateId}/{currentPage}/{pageSize}.html",
             method = RequestMethod.GET)
-    public String getQuestionnaireCommitList(@PathVariable int questionnaireTemplateId,
-                                             @PathVariable int currentPage,
-                                             @PathVariable int pageSize) {
-        return null;
+    public String getQuestionnaireContentCommitList(@PathVariable int questionnaireTemplateId,
+                                                    @PathVariable int currentPage,
+                                                    @PathVariable int pageSize) {
+        ApiResponse response = this.questionnaireService.getQuestionnaireContentCommitList(questionnaireTemplateId, currentPage, pageSize);
+        return convertApiResponseToJSONString(response);
     }
 
     /**
-     * 获取某一问卷提交记录下的各生产线问卷详情(不需要分页)
-     * @param questionnaireCommitId
+     * 查看提交的问卷详情
+     * @param questionnaireContentId
      */
-    @RequestMapping(value = "/getQuestionnaireFillDetailList/{questionnaireCommitId}.html", method = RequestMethod.GET)
-    public String getQuestionnaireDetailList(@PathVariable int questionnaireCommitId) {
-        return null;
+    @RequestMapping(value = "/getCommittedQuestionnaireContent/{questionnaireContentId}.html", method = RequestMethod.GET)
+    public String getCommittedQuestionnaireContent(@PathVariable int questionnaireContentId) {
+        ApiResponse response = this.questionnaireService.getQuestionnaireContent(questionnaireContentId);
+        return convertApiResponseToJSONString(response);
     }
 
     /**
-     * 查看各个生产线问卷详情
-     * @param detailItemId
+     * 审核问卷填写情况
+     * @param isPass
+     * @param questionnaireContentId
+     * @param rejectReason
      */
-    @RequestMapping(value = "/getQuestionnaireDetailItem/{detailItemId}.html", method = RequestMethod.GET)
-    public String getQuestionnaireDetailItem(@PathVariable int detailItemId) {
-        return null;
+    @RequestMapping(value = "/examineQuestionnaireDetailItem/{questionnaireContentId}.html", method = RequestMethod.PUT)
+    public String examineCommittedQuestionnaireContent(@PathVariable int questionnaireContentId,
+                                                       @RequestParam boolean isPass,
+                                                       @RequestParam(required = false) String  rejectReason) {
+        ApiResponse response = this.questionnaireService.examineCommittedQuestionnaireContent(questionnaireContentId, isPass, rejectReason);
+        return convertApiResponseToJSONString(response);
     }
-
-    /**
-     * 审核各个生产线问卷详情(问卷填写情况)
-     */
-    @RequestMapping(value = "/examineQuestionnaireDetailItem/{detailItemId}.html", method = RequestMethod.PUT)
-    public String examineQuestionnaireDetailItem(@PathVariable int detailItemId, @RequestParam boolean isPass,
-                                                 @RequestParam(required = false) String reason) {
-        return null;
-    }
-
-    /************************* 问卷统计 ************************/
-    @RequestMapping(value = "/statisticsQuestionnaireCommitInfo.html", method = RequestMethod.GET)
-    public String statisticsQuestionnaireCommitInfo() {
-        return null;
-    }
-
 
 }

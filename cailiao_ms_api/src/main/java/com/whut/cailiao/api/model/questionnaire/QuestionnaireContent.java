@@ -25,6 +25,8 @@ public class QuestionnaireContent implements Serializable {
     private String jsonContent;
     // 状态(填写中, 已提交, 审核中, 审核通过)
     private int status;
+    // 审核意见
+    private String rejectReason;
 
     public Integer getId() {
         return id;
@@ -90,12 +92,11 @@ public class QuestionnaireContent implements Serializable {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "QuestionnaireContent [id=" + id + ", questionnaireTemplateId=" + questionnaireTemplateId
-                + ", cementFactoryId=" + cementFactoryId + ", productionLine=" + productionLine + ", modifyTime="
-                + modifyTime + ", lastModifyTime=" + lastModifyTime + ", jsonContent=" + jsonContent + ", status="
-                + status + "]";
+    public String getRejectReason() {
+        return rejectReason;
     }
 
+    public void setRejectReason(String rejectReason) {
+        this.rejectReason = rejectReason;
+    }
 }

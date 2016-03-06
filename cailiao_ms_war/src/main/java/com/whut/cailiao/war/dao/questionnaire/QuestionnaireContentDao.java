@@ -20,6 +20,13 @@ public interface QuestionnaireContentDao {
     List<QuestionnaireContent> getQuestionnaireContentListByCementId(int questionnaireTemplateId, String cementFactoryId);
 
     /**
+     * 查看填写的问卷的详情内容
+     * @param questionnaireContentId
+     * @return
+     */
+    QuestionnaireContent getQuestionnaireContent(int questionnaireContentId);
+
+    /**
      * 删除填写的问卷
      * @param questionnaireContentId
      * @return
@@ -37,4 +44,16 @@ public interface QuestionnaireContentDao {
      * @param questionnaireContent
      */
     void insertQuestionnaireContent(QuestionnaireContent questionnaireContent);
+
+    /**
+     * 获取提交的问卷列表,分页显示
+     * @param questionnaireTemplateId
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    List<QuestionnaireContent> getQuestionnaireContentCommitList(int questionnaireTemplateId, int currentPage, int pageSize);
+
+
+
 }

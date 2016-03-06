@@ -24,6 +24,13 @@ public interface QuestionnaireService {
     ApiResponse getQuestionnaireContentList(int questionnaireTemplateId, String cementFactoryId);
 
     /**
+     * 查看问卷填写详情
+     * @param questionnaireContentId
+     * @return
+     */
+    ApiResponse getQuestionnaireContent(int questionnaireContentId);
+
+    /**
      * 删除填写的某条问卷
      * @param questionnaireContentId
      * @return
@@ -43,5 +50,23 @@ public interface QuestionnaireService {
      * @return
      */
     ApiResponse commitQuestionnaireContent(QuestionnaireContent questionnaireContent);
+
+    /**
+     * 分页获取某模板下提交的问卷
+     * @param questionnaireTemplateId
+     * @param currentPage
+     * @param pageSize
+     * @return
+     */
+    ApiResponse getQuestionnaireContentCommitList(int questionnaireTemplateId, int currentPage, int pageSize);
+
+    /**
+     * 审核提交的问卷
+     * @param questionnaireContentId
+     * @param isPass
+     * @param rejectReason
+     * @return
+     */
+    ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass, String rejectReason);
 
 }
