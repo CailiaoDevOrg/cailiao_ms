@@ -1,13 +1,12 @@
 package com.whut.cailiao.war.web;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.lang3.StringUtils;
+
 import com.alibaba.fastjson.JSON;
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.war.utils.http.HttpUtil;
-import org.apache.catalina.Session;
-import org.apache.commons.lang3.StringUtils;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * Created by niuyang on 16/3/6.

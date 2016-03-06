@@ -121,12 +121,12 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
         // 正式表中插入模板数据
         // 1.正式表中读取数据
         QuestionnaireTemplate questionnaireTemplatePublished = this.questionnaireTemplateDao.getQuestionnaireTemplate(questionnaireTemplate.getId());
-        questionnaireTemplate.setLastModifyTime(questionnaireTemplatePublished.getModifyTime());
         // 2.分情况处理
         if (questionnaireTemplatePublished == null) {
             // 如果主键重复则会有异常,事务回退
             this.questionnaireTemplateDao.insertQuestionnaireTemplate(questionnaireTemplate);
         } else {
+            questionnaireTemplate.setLastModifyTime(questionnaireTemplatePublished.getModifyTime());
             // 进行修改时间的判断, 防止并发用户的非正常修改
             int col = this.questionnaireTemplateDao.updateQuestionnaireTemplate(questionnaireTemplate);
             if (col > 0) {

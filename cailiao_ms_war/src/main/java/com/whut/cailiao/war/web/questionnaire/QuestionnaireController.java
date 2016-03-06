@@ -1,13 +1,15 @@
 package com.whut.cailiao.war.web.questionnaire;
 
-import com.alibaba.fastjson.JSON;
-import com.whut.cailiao.api.commons.ApiResponse;
-import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
-import com.whut.cailiao.api.service.questionnaire.QuestionnaireService;
-import com.whut.cailiao.war.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.whut.cailiao.api.commons.ApiResponse;
+import com.whut.cailiao.api.service.questionnaire.QuestionnaireService;
+import com.whut.cailiao.war.web.BaseController;
 
 /**
  * 问卷管理
