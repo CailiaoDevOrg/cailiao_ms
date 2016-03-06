@@ -146,7 +146,7 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
             logger.error("getQuestionnaireContentCommitList fail, input param error");
             return response;
         }
-        List<QuestionnaireContent> questionnaireContentList = this.questionnaireContentDao.getQuestionnaireContentCommitList(questionnaireTemplateId, currentPage, pageSize);
+        List<QuestionnaireContent> questionnaireContentList = this.questionnaireContentDao.getQuestionnaireContentCommitList(questionnaireTemplateId, (currentPage - 1) * pageSize, pageSize);
         if (CollectionUtils.isNotEmpty(questionnaireContentList)) {
             response.addBody("questionnaireContentList", questionnaireContentList);
         }

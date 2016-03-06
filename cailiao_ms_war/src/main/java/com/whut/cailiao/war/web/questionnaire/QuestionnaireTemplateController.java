@@ -60,7 +60,7 @@ public class QuestionnaireTemplateController extends BaseController {
      * 删除问卷模板
      * @param questionnaireTemplateId
      */
-    @RequestMapping(value = "/deleteQuestionnaireTemplate/{questionnaireTemplateId}.html", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteQuestionnaireTemplate/{questionnaireTemplateId}.html", method = RequestMethod.GET)
     public String deleteQuestionnaireTemplate(@PathVariable int questionnaireTemplateId) {
         ApiResponse response = this.questionnaireTemplateService.deleteQuestionnaireTemplate(questionnaireTemplateId);
         return convertApiResponseToJSONString(response);

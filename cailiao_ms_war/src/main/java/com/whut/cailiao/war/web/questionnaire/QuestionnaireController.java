@@ -60,7 +60,7 @@ public class QuestionnaireController extends BaseController {
      * @param questionnaireContentId
      * @param rejectReason
      */
-    @RequestMapping(value = "/examineQuestionnaireDetailItem/{questionnaireContentId}.html", method = RequestMethod.PUT)
+    @RequestMapping(value = "/examineQuestionnaireDetailItem/{questionnaireContentId}.html", method = RequestMethod.POST)
     public String examineCommittedQuestionnaireContent(@PathVariable int questionnaireContentId,
                                                        @RequestParam boolean isPass,
                                                        @RequestParam(required = false) String  rejectReason) {

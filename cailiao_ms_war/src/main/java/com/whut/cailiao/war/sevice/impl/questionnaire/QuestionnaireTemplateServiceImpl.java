@@ -186,7 +186,7 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
         }
         int totalNum = this.questionnaireTemplateEditDao.getQuestionnaireTemplateCount();
         if (totalNum > 0 && totalNum > (currentPage - 1) * pageSize) {
-            List<QuestionnaireTemplate> questionnaireTemplateList = this.questionnaireTemplateEditDao.getQuestionnaireTemplateList(currentPage, pageSize);
+            List<QuestionnaireTemplate> questionnaireTemplateList = this.questionnaireTemplateEditDao.getQuestionnaireTemplateList((currentPage - 1) * pageSize, pageSize);
             if (CollectionUtils.isNotEmpty(questionnaireTemplateList)) {
                 Page<QuestionnaireTemplate> page = new Page<>();
                 page.setList(questionnaireTemplateList);
