@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whut.cailiao.war.dao.questionnaire.QuestionnaireContentDao">
+    
+    <select id="getQuestionnaireContent" parameterType="java.lang.Integer" resultType="QuestionnaireContent">
+        SELECT
+            id, questionnaireTemplateId, cementFactoryId, productionLine, modifyTime, lastModifyTime, jsonContent, status
+        FROM tb_questionnaire_content
+        WHERE id = #{questionnaireContentId}
+    </select>
+
+    <delete id="deleteQuestionnaireContent" parameterType="java.lang.Integer">
+        DELETE FROM tb_questionnaire_content WHERE id = #{questionnaireContentId}
+    </delete>
+
+    <insert id="insertQuestionnaireContent" parameterType="QuestionnaireContent">
+        INSERT INTO tb_questionnaire_content
+        (
+            questionnaireTemplateId,
+            cementFactoryId,
+            productionLine,
+            modifyTime,
+            lastModifyTime,
+            jsonContent,
+            status
+        )
+        VALUES
+        (
+            #{questionnaireTemplateId},
+            #{cementFactoryId},
+            #{productionLine},
+            #{modifyTime},
+            #{lastModifyTime},
+            #{jsonContent},
+            #{status}
+        )
+    </insert>
+
+
+    <select id="getQuestionnaireContentCommitList" resultType="QuestionnaireContent">
+        SELECT
+            id, questionnaireTemplateId, cementFactoryId, productionLine, modifyTime, lastModifyTime, jsonContent, status
+        FROM tb_questionnaire_content
+        WHERE questionnaireTemplateId = #{questionnaireTemplateId} AND status = 3
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="getQuestionnaireContentListByCementId" resultType="QuestionnaireContent">
+        SELECT
+            id, questionnaireTemplateId, cementFactoryId, productionLine, modifyTime, lastModifyTime, jsonContent, status
+        FROM tb_questionnaire_content
+        WHERE questionnaireTemplateId = #{questionnaireTemplateId} AND cementFactoryId = #{cementFactoryId}
+    </select>
+
+    <update id="updateQuestionnaireContent" parameterType="QuestionnaireContent">
+        UPDATE tb_questionnaire_content
+        <set>
+            <if test="jsonContent != null and jsonContent != '' ">
+                jsonContent = #{jsonContent, jdbcType=VARCHAR},
+            </if>
+            productionLine = #{productionLine},
+            modifyTime = #{modifyTime},
+            lastModifyTime = #{lastModifyTime},
+            status = #{status}
+        </set>
+        WHERE id = #{id}
+    </update>
+
+
+</mapper>

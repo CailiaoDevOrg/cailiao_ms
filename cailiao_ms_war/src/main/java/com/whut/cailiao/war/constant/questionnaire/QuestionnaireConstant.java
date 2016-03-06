@@ -23,9 +23,8 @@ public class QuestionnaireConstant {
 
     public enum QuestionnaireContentStatus {
         EDITING(1),
-        COMMITED(2),
-        EXAMINING(3),
-        PASS(4);
+        COMMITTED(2),
+        PASS(3);
 
         QuestionnaireContentStatus(int value) {
             this.value = value;

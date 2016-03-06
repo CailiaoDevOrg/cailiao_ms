@@ -105,7 +105,7 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
             logger.error("delete questionnaire content fail, input param error");
             return response;
         }
-        this.questionnaireTemplateDao.deleteQuestionnaireTemplate(questionnaireContentId);
+        this.questionnaireContentDao.deleteQuestionnaireContent(questionnaireContentId);
         return response;
     }
 
@@ -128,7 +128,7 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
      */
     @Override
     public ApiResponse commitQuestionnaireContent(QuestionnaireContent questionnaireContent) {
-        return saveQuestionnaireContentTemp(questionnaireContent, QuestionnaireConstant.QuestionnaireContentStatus.COMMITED);
+        return saveQuestionnaireContentTemp(questionnaireContent, QuestionnaireConstant.QuestionnaireContentStatus.COMMITTED);
     }
 
     /**
