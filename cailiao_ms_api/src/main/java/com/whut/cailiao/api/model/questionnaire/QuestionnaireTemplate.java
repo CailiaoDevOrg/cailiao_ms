@@ -17,8 +17,6 @@ public class QuestionnaireTemplate implements Serializable {
     private String name;
     /** 问卷描述 */
     private String description;
-    /** 问卷创建时间 */
-    private Timestamp createTime;
     /** 问卷最后更改时间 */
     private Timestamp modifyTime;
     /** 问卷上次修改时间 */
@@ -29,6 +27,7 @@ public class QuestionnaireTemplate implements Serializable {
     private Timestamp endTime;
     /** 问卷模板jsp页面 */
     private String templateJspUrl;
+    
     /**
      * 问卷控制状态
      * 编辑中
@@ -58,14 +57,6 @@ public class QuestionnaireTemplate implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Timestamp getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
     }
 
     public Timestamp getModifyTime() {

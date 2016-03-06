@@ -79,12 +79,10 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
             logger.error("save fail, param error : questionnaireTemplate is null or id is not bigger than zero");
             return response;
         }
-        Timestamp now = new Timestamp(System.currentTimeMillis());
         questionnaireTemplate.setLastModifyTime(questionnaireTemplate.getModifyTime());
-        questionnaireTemplate.setModifyTime(now);
+        questionnaireTemplate.setModifyTime(new Timestamp(System.currentTimeMillis()));
         questionnaireTemplate.setStatus(status.value());
         if (questionnaireTemplate.getId() == null) {
-            questionnaireTemplate.setCreateTime(now);
             // 多人重复创建则会产生多条记录,不会有影响
             this.questionnaireTemplateEditDao.insertQuestionnaireTemplate(questionnaireTemplate);
             logger.info("create new questionnaire template success");
@@ -114,15 +112,8 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
     @Transactional
     @Override
     public ApiResponse publishQuestionnaireTemplate(QuestionnaireTemplate questionnaireTemplate) {
-        ApiResponse response = ApiResponse.createDefaultApiResponse();
-        if (questionnaireTemplate == null || questionnaireTemplate.getId() == null ||
-                questionnaireTemplate.getId().compareTo(0) < 0) {
-            response.setRetCode(ApiResponseCode.PARAM_ERROR);
-            logger.error("public fail, questionnaireTemplate is null or questionnaireTemplateId is not bigger than zero");
-            return response;
-        }
+        ApiResponse response = this.saveQuestionnaireTemplateTemp(questionnaireTemplate, QuestionnaireConstant.QuestionnaireTemplateStatus.PUBLISHED);
         // 修改编辑表状态
-        response = this.saveQuestionnaireTemplateTemp(questionnaireTemplate, QuestionnaireConstant.QuestionnaireTemplateStatus.PUBLISHED);
         if (response.getRetCode() != ApiResponseCode.SUCCESS) {
             logger.error("public fail, modify edit table error, questionnaireTemplateId = ", questionnaireTemplate.getId());
             throw new TransactionExecuteException();

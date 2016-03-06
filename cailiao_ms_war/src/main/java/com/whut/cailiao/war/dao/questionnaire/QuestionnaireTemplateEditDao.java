@@ -8,7 +8,7 @@ import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 /**
  * 问卷DAO
  * @author niuyang
- * 编辑表
+ * 问卷模板编辑表
  *
  */
 public interface QuestionnaireTemplateEditDao {

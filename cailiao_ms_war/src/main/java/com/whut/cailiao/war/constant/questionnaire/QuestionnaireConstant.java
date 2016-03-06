@@ -20,4 +20,22 @@ public class QuestionnaireConstant {
             return this.value;
         }
     }
+
+    public enum QuestionnaireContentStatus {
+        EDITING(1),
+        COMMITED(2),
+        EXAMINING(3),
+        PASS(4);
+
+        QuestionnaireContentStatus(int value) {
+            this.value = value;
+        }
+
+        private int value;
+
+        public int value() {
+            return this.value;
+        }
+    }
+
 }

@@ -2,9 +2,11 @@ package com.whut.cailiao.war.dao.questionnaire;
 
 import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 
+import java.util.List;
+
 /**
  * Created by niuyang on 16/3/6.
- * 问卷模板发布表
+ * 问卷模板发布表(正式表)
  */
 public interface QuestionnaireTemplateDao {
 
@@ -37,5 +39,11 @@ public interface QuestionnaireTemplateDao {
      * @return
      */
     int deleteQuestionnaireTemplate(int questionnaireTemplateId);
+
+    /**
+     * 获取正在使用的问卷模板
+     * @return
+     */
+    List<QuestionnaireTemplate> getUsingQuestionnaireTemplateList();
 
 }
