@@ -5,5 +5,6 @@ package com.whut.cailiao.war.exception;
  */
 public class TransactionExecuteException extends RuntimeException {
 
+    private static final long serialVersionUID = 1L;
 
 }

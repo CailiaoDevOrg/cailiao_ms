@@ -58,12 +58,6 @@ public class QuestionnaireController extends BaseController {
         ApiResponse response = this.questionnaireService.getQuestionnaireContent(questionnaireContentId);
         return convertApiResponseToJSONString(response);
     }
-    
-    @RequestMapping(value = "/test.html", method = RequestMethod.GET)
-    @ResponseBody
-    public String getTest() {
-        return "SUCCESS";
-    }
 
     /**
      * 审核问卷填写情况

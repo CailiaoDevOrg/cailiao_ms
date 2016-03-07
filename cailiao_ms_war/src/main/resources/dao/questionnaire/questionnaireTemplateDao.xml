@@ -30,7 +30,7 @@
     <select id="getQuestionnaireTemplate" parameterType="java.lang.Integer" resultType="QuestionnaireTemplate">
         SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateJspUrl, status
         FROM tb_questionnaire_template
-        WHERE questionnaireTemplateId = #{questionnaireTemplateId} AND status = 2
+        WHERE id = #{questionnaireTemplateId} AND status = 2
     </select>
 
     <update id="updateQuestionnaireTemplate" parameterType="QuestionnaireTemplate">

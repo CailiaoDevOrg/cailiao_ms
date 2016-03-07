@@ -51,7 +51,7 @@ public interface QuestionnaireTemplateEditDao {
      * @param pageSize
      * @return
      */
-    List<QuestionnaireTemplate> getQuestionnaireTemplateList(@Param("currentPage") int currentPage, 
+    List<QuestionnaireTemplate> getQuestionnaireTemplateList(@Param("offset") int offset, 
             @Param("pageSize") int pageSize);
 
     /**

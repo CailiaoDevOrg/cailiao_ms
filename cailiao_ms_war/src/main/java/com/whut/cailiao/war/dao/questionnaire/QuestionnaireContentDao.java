@@ -56,7 +56,7 @@ public interface QuestionnaireContentDao {
      * @return
      */
     List<QuestionnaireContent> getQuestionnaireContentCommitList(@Param("questionnaireTemplateId") int questionnaireTemplateId, 
-            @Param("currentPage") int currentPage, 
+            @Param("offset") int offset, 
             @Param("pageSize") int pageSize);
 
 }

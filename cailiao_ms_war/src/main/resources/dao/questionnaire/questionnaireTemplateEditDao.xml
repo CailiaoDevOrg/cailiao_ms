@@ -5,7 +5,7 @@
     <select id="getQuestionnaireTemplate" parameterType="java.lang.Integer" resultType="QuestionnaireTemplate">
         SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateJspUrl, status
         FROM tb_questionnaire_template_edit
-        WHERE questionnaireTemplateId = #{questionnaireTemplateId}
+        WHERE id = #{questionnaireTemplateId}
     </select>
 
     <insert id="insertQuestionnaireTemplate" parameterType="QuestionnaireTemplate">
