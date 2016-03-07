@@ -6,10 +6,7 @@ import com.whut.cailiao.api.service.questionnaire.QuestionnaireTemplateService;
 import com.whut.cailiao.war.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by niuyang on 16/3/6.
@@ -28,6 +25,7 @@ public class QuestionnaireTemplateController extends BaseController {
      * 不论是否上线都从编辑表中获取数据
      */
     @RequestMapping(value = "/getQuestionnaireTemplate/{questionnaireTemplateId}.html", method = RequestMethod.GET)
+    @ResponseBody
     public String getQuestionnaireTemplate(@PathVariable int questionnaireTemplateId) {
         ApiResponse response = this.questionnaireTemplateService.getQuestionnaireTemplate(questionnaireTemplateId);
         return convertApiResponseToJSONString(response);
@@ -39,6 +37,7 @@ public class QuestionnaireTemplateController extends BaseController {
      * @param questionnaireTemplate
      */
     @RequestMapping(value = "/saveQuestionnaireTemplateTemp.html", method = RequestMethod.POST)
+    @ResponseBody
     public String saveQuestionnaireTemplateTemp(@RequestBody QuestionnaireTemplate questionnaireTemplate) {
         ApiResponse response = this.questionnaireTemplateService.saveQuestionnaireTemplateTemp(questionnaireTemplate);
         return convertApiResponseToJSONString(response);
@@ -50,6 +49,7 @@ public class QuestionnaireTemplateController extends BaseController {
      * @param questionnaireTemplate
      */
     @RequestMapping(value = "/publishQuestionnaireTemplate.html", method = RequestMethod.POST)
+    @ResponseBody
     public String publishQuestionnaireTemplate(@RequestBody QuestionnaireTemplate questionnaireTemplate) {
         ApiResponse response = this.questionnaireTemplateService.publishQuestionnaireTemplate(questionnaireTemplate);
         return convertApiResponseToJSONString(response);
@@ -61,6 +61,7 @@ public class QuestionnaireTemplateController extends BaseController {
      * @param questionnaireTemplateId
      */
     @RequestMapping(value = "/deleteQuestionnaireTemplate/{questionnaireTemplateId}.html", method = RequestMethod.GET)
+    @ResponseBody
     public String deleteQuestionnaireTemplate(@PathVariable int questionnaireTemplateId) {
         ApiResponse response = this.questionnaireTemplateService.deleteQuestionnaireTemplate(questionnaireTemplateId);
         return convertApiResponseToJSONString(response);
@@ -73,6 +74,7 @@ public class QuestionnaireTemplateController extends BaseController {
      * @param pageSize
      */
     @RequestMapping(value = "/getQuestionnaireTemplateList/{currentPage}/{pageSize}.html", method = RequestMethod.GET)
+    @ResponseBody
     public String getQuestionnaireTemplateList(@PathVariable int currentPage, @PathVariable int pageSize) {
         ApiResponse response = this.questionnaireTemplateService.getQuestionnaireTemplateList(currentPage, pageSize);
         return convertApiResponseToJSONString(response);

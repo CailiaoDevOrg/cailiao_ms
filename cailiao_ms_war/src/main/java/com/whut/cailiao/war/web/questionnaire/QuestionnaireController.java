@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireService;
@@ -39,6 +40,7 @@ public class QuestionnaireController extends BaseController {
      */
     @RequestMapping(value = "/getQuestionnaireCommitList/{questionnaireTemplateId}/{currentPage}/{pageSize}.html",
             method = RequestMethod.GET)
+    @ResponseBody
     public String getQuestionnaireContentCommitList(@PathVariable int questionnaireTemplateId,
                                                     @PathVariable int currentPage,
                                                     @PathVariable int pageSize) {
@@ -51,9 +53,16 @@ public class QuestionnaireController extends BaseController {
      * @param questionnaireContentId
      */
     @RequestMapping(value = "/getCommittedQuestionnaireContent/{questionnaireContentId}.html", method = RequestMethod.GET)
+    @ResponseBody
     public String getCommittedQuestionnaireContent(@PathVariable int questionnaireContentId) {
         ApiResponse response = this.questionnaireService.getQuestionnaireContent(questionnaireContentId);
         return convertApiResponseToJSONString(response);
+    }
+    
+    @RequestMapping(value = "/test.html", method = RequestMethod.GET)
+    @ResponseBody
+    public String getTest() {
+        return "SUCCESS";
     }
 
     /**
@@ -62,7 +71,8 @@ public class QuestionnaireController extends BaseController {
      * @param questionnaireContentId
      * @param rejectReason
      */
-    @RequestMapping(value = "/examineQuestionnaireDetailItem/{questionnaireContentId}.html", method = RequestMethod.POST)
+    @RequestMapping(value = "/examineCommittedQuestionnaireContent/{questionnaireContentId}.html", method = RequestMethod.POST)
+    @ResponseBody
     public String examineCommittedQuestionnaireContent(@PathVariable int questionnaireContentId,
                                                        @RequestParam boolean isPass,
                                                        @RequestParam(required = false) String  rejectReason) {
