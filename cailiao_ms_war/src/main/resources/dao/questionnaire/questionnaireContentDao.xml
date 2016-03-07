@@ -58,12 +58,15 @@
             <if test="jsonContent != null and jsonContent != '' ">
                 jsonContent = #{jsonContent, jdbcType=VARCHAR},
             </if>
+            <if test="lastModifyTime != null">
+                lastModifyTime = #{lastModifyTime, jdbcType=TIMESTAMP},
+            </if>
             productionLine = #{productionLine},
             modifyTime = #{modifyTime},
             lastModifyTime = #{lastModifyTime},
             status = #{status}
         </set>
-        WHERE id = #{id}
+        WHERE id = #{id} AND modifyTime = #{lastModifyTime}
     </update>
 
 

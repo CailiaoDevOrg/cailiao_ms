@@ -4,6 +4,8 @@ import com.whut.cailiao.api.model.questionnaire.QuestionnaireContent;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 /**
  * Created by niuyang on 16/3/7.
  * 问卷填写详情表操作接口
@@ -17,7 +19,8 @@ public interface QuestionnaireContentDao {
      * @param cementFactoryId
      * @return
      */
-    List<QuestionnaireContent> getQuestionnaireContentListByCementId(int questionnaireTemplateId, String cementFactoryId);
+    List<QuestionnaireContent> getQuestionnaireContentListByCementId(@Param("questionnaireTemplateId") int questionnaireTemplateId, 
+            @Param("cementFactoryId") String cementFactoryId);
 
     /**
      * 查看填写的问卷的详情内容
@@ -52,8 +55,8 @@ public interface QuestionnaireContentDao {
      * @param pageSize
      * @return
      */
-    List<QuestionnaireContent> getQuestionnaireContentCommitList(int questionnaireTemplateId, int currentPage, int pageSize);
-
-
+    List<QuestionnaireContent> getQuestionnaireContentCommitList(@Param("questionnaireTemplateId") int questionnaireTemplateId, 
+            @Param("currentPage") int currentPage, 
+            @Param("pageSize") int pageSize);
 
 }

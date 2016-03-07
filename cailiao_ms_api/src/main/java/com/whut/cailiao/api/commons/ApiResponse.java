@@ -1,12 +1,11 @@
 package com.whut.cailiao.api.commons;
 
-import com.alibaba.fastjson.JSON;
-import org.apache.commons.collections4.MapUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by niuyang on 16/3/3.
@@ -14,6 +13,7 @@ import java.util.Map;
  */
 public class ApiResponse implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     // 返回码
     private int retCode;
     // 返回描述
@@ -32,6 +32,22 @@ public class ApiResponse implements Serializable {
 
     public int getRetCode() {
         return retCode;
+    }
+    
+    public String getRetDesc() {
+        return retDesc;
+    }
+
+    public void setRetDesc(String retDesc) {
+        this.retDesc = retDesc;
+    }
+
+    public Map<String, Object> getBody() {
+        return body;
+    }
+
+    public void setBody(Map<String, Object> body) {
+        this.body = body;
     }
 
     public void addBody(String key, Object object) {

@@ -1,7 +1,8 @@
 package com.whut.cailiao.war.dao.questionnaire;
 
 import java.util.List;
-import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 
 import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 
@@ -50,7 +51,8 @@ public interface QuestionnaireTemplateEditDao {
      * @param pageSize
      * @return
      */
-    List<QuestionnaireTemplate> getQuestionnaireTemplateList(int currentPage, int pageSize);
+    List<QuestionnaireTemplate> getQuestionnaireTemplateList(@Param("currentPage") int currentPage, 
+            @Param("pageSize") int pageSize);
 
     /**
      * 获取问卷模板的总条数
