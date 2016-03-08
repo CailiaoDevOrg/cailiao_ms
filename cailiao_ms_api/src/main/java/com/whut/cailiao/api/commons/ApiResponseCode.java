@@ -15,6 +15,7 @@ public class ApiResponseCode {
     public static final int SQL_EXCEPTION = 203; // sql执行异常
     public static final int CONCURRENT_CONFLICT = 204; // 并发执行冲突
     public static final int EDIT_LOCKED = 205; // 编辑状态被锁定
+    public static final int IO_EXCEPTION = 206; // io异常
 
 
     private static final Map<Integer, String> CodeMap = new HashMap<>();
@@ -27,6 +28,7 @@ public class ApiResponseCode {
         CodeMap.put(ApiResponseCode.SQL_EXCEPTION, "sql执行异常");
         CodeMap.put(ApiResponseCode.CONCURRENT_CONFLICT, "并发冲突");
         CodeMap.put(ApiResponseCode.EDIT_LOCKED, "编辑状态锁定");
+        CodeMap.put(ApiResponseCode.IO_EXCEPTION, "IO异常");
     }
 
     public static String getDesc(int code) {
