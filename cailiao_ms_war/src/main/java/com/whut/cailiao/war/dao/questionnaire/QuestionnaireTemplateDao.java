@@ -45,5 +45,11 @@ public interface QuestionnaireTemplateDao {
      * @return
      */
     List<QuestionnaireTemplate> getUsingQuestionnaireTemplateList();
+    
+    /**
+     * 获取发布过的问卷模板列表
+     * @return
+     */
+    List<QuestionnaireTemplate> getPublishedQuestionnaireTemplateList();
 
 }

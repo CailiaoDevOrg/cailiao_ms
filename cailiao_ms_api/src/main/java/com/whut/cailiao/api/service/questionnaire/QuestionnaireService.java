@@ -67,5 +67,12 @@ public interface QuestionnaireService {
      * @return
      */
     ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass, String rejectReason);
+    
+    /**
+     * 获取某一问卷模板下的问卷总数量
+     * @param questionnaireTemplateId
+     * @return
+     */
+    ApiResponse getQuestionnaireContentCount(int questionnaireTemplateId);
 
 }

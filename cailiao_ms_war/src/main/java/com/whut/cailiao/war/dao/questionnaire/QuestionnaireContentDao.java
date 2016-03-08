@@ -58,5 +58,12 @@ public interface QuestionnaireContentDao {
     List<QuestionnaireContent> getQuestionnaireContentCommitList(@Param("questionnaireTemplateId") int questionnaireTemplateId, 
             @Param("offset") int offset, 
             @Param("pageSize") int pageSize);
+    
+    /**
+     * 获取问卷总记录数
+     * @param questionnaireTemplateId
+     * @return
+     */
+    int getQuestionnaireContentCount(int questionnaireTemplateId);
 
 }

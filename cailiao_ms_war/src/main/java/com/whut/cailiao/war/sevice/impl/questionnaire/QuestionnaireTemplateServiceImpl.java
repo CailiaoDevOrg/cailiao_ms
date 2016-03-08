@@ -199,4 +199,18 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
         return response;
     }
 
+    /**
+     * 获取发布过的问卷模板列表
+     * 从问卷模板的发布表中读取(正式表)
+     */
+    @Override
+    public ApiResponse getPublishedQuestionnaireTemplateList() {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        List<QuestionnaireTemplate> questionnaireTemplateList = this.questionnaireTemplateDao.getPublishedQuestionnaireTemplateList();
+        if (CollectionUtils.isNotEmpty(questionnaireTemplateList)) {
+            response.addBody("questionnaireTemplateList", questionnaireTemplateList);
+        }
+        return response;
+    }
+
 }

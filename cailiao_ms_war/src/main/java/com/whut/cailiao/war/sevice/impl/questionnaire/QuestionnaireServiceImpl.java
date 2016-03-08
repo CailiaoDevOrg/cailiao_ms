@@ -1,7 +1,18 @@
 package com.whut.cailiao.war.sevice.impl.questionnaire;
 
+import java.sql.Timestamp;
+import java.util.List;
+
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.commons.ApiResponseCode;
+import com.whut.cailiao.api.model.pagination.Page;
 import com.whut.cailiao.api.model.questionnaire.QuestionnaireContent;
 import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireService;
@@ -10,15 +21,6 @@ import com.whut.cailiao.war.dao.questionnaire.QuestionnaireContentDao;
 import com.whut.cailiao.war.dao.questionnaire.QuestionnaireTemplateDao;
 import com.whut.cailiao.war.exception.TransactionExecuteException;
 import com.whut.cailiao.war.utils.redis.RedisSupport;
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.sql.Timestamp;
-import java.util.List;
 
 /**
  * Created by niuyang on 16/3/5.
@@ -146,9 +148,17 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
             logger.error("getQuestionnaireContentCommitList fail, input param error");
             return response;
         }
-        List<QuestionnaireContent> questionnaireContentList = this.questionnaireContentDao.getQuestionnaireContentCommitList(questionnaireTemplateId, (currentPage - 1) * pageSize, pageSize);
-        if (CollectionUtils.isNotEmpty(questionnaireContentList)) {
-            response.addBody("questionnaireContentList", questionnaireContentList);
+        int totalNum = this.questionnaireContentDao.getQuestionnaireContentCount(questionnaireTemplateId);
+        if (totalNum > 0 && totalNum > (currentPage - 1) * pageSize) {
+            List<QuestionnaireContent> questionnaireContentList = this.questionnaireContentDao.getQuestionnaireContentCommitList(questionnaireTemplateId, (currentPage - 1) * pageSize, pageSize);
+            if (CollectionUtils.isNotEmpty(questionnaireContentList)) {
+                Page<QuestionnaireContent> page = new Page<>();
+                page.setList(questionnaireContentList);
+                page.setCurrentPage(currentPage);
+                page.setPageSize(pageSize);
+                page.setTotalNum(totalNum);
+                response.addBody("page", page);
+            }
         }
         return response;
     }
@@ -220,4 +230,21 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
         return response;
     }
 
+    /**
+     * 获取问卷总记录数
+     * @param questionnaireTemplateId
+     * @return
+     */
+    @Override
+    public ApiResponse getQuestionnaireContentCount(int questionnaireTemplateId) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (questionnaireTemplateId <= 0) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            logger.error("getQuestionnaireContentCount fail, input param error, questionnaireTemplateId = ", questionnaireTemplateId);
+            return response;
+        }
+        int count = this.questionnaireContentDao.getQuestionnaireContentCount(questionnaireTemplateId);
+        response.addBody("totalNum", count);
+        return response;
+    }
 }

@@ -51,6 +51,11 @@ public interface QuestionnaireTemplateService {
      * @return
      */
     ApiResponse getQuestionnaireTemplateList(int currentPage, int pageSize);
-
+    
+    /**
+     * 获取发布过的问卷模板列表
+     * 从问卷模板的发布表中读取(正式表)
+     */
+    ApiResponse getPublishedQuestionnaireTemplateList();
 
 }

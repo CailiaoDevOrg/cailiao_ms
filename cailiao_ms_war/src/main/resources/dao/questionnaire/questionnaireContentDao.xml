@@ -68,6 +68,8 @@
         </set>
         WHERE id = #{id} AND modifyTime = #{lastModifyTime}
     </update>
-
-
+    
+    <select id="getQuestionnaireContentCount" parameterType="java.lang.Integer">
+        SELECT count(id) FROM tb_questionnaire_content WHERE questionnaireTemplateId = #{questionnaireTemplateId}
+    </select>
 </mapper>

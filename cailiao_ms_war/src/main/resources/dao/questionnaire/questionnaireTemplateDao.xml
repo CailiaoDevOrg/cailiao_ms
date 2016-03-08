@@ -58,7 +58,11 @@
         FROM tb_questionnaire_template
         WHERE status = 2 AND unix_timestamp(now()) >= unix_timestamp(beginTime) AND unix_timestamp(endTime) >= unix_timestamp(now())
     </select>
-
-
+    
+    <select id="getPublishedQuestionnaireTemplateList" resultType="QuestionnaireTemplate">
+        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateJspUrl, status
+        FROM tb_questionnaire_template
+        WHERE status = 2
+    </select>
 
 </mapper>
