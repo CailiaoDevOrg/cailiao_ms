@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableCaching
 @EnableTransactionManagement
 @SpringBootApplication
-@ImportResource({"classpath:provider.xml", "classpath:consumer.xml"})
+@ImportResource("classpath:provider.xml")
 public class MSApplication extends SpringBootServletInitializer {
 
     @Override
