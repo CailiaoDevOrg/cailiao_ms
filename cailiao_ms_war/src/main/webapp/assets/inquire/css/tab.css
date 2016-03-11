@@ -1,0 +1,4 @@
+#tab ul li a{ text-decoration: none;}
+#tab .active a{text-decoration: none;}
+#energy_comsume input,#gas_emit input{width: 80px;}
+#denitrification input{width: auto;}
