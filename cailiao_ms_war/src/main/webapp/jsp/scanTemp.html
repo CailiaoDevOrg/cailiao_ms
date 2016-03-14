@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="sacnTempApp">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- 开启高速模式渲染页面 -->
+        <meta name="renderer" content="webkit">
+        <!-- 项目logo -->
+        <!-- <link rel="icon" href="../../favicon.ico"> -->
+        <title>我国水泥工业环境状况调查信息共享平台</title>
+        <link rel="stylesheet" type="text/css" href="/assets/bootstrap/3.3.5/css/bootstrap.min.css">
+        <style type="text/css">
+          .content{ width: 80%; margin: 30px auto;}
+          .content input{ width: 500px;}
+        </style>
+    </head>
+    <body ng-controller="scanTempController">
+        <div id="nav" >
+          <div class="container">
+            <div class="row">
+              <div class="span6">
+                <ul class="nav nav-tabs">
+                  <li ><a href="#">创建模板</a></li> 
+                  <li class="active"><a href="#">模板列表</a></li>
+                  <li><a href="#">问卷查看 </a></li> 
+                </ul>
+              </div>
+            </div>
+        </div>
+        </div>
+        <div class="content">
+            <form role="form">
+             <div class="form-group">
+                <label for="name">问卷名称</label>
+                <input type="text" class="form-control" id="name" ng-model="name" placeholder="请输入名称">
+             </div>
+             <div class="form-group">
+                <label for="description">问卷描述</label>
+                <input type="text" class="form-control" id="description" ng-model="description" placeholder="请输入描述">
+             </div>
+              <div class="form-group">
+                <label for="templateJspUrl">问卷模板jsp页面</label>
+                <input type="text" class="form-control" id="templateJspUrl" ng-model="templateJspUrl" placeholder="请输入URL">
+             </div>
+             <div class="input-append date" >
+                <label for="beginTime">生效时间</label>
+                <input size="16" type="text" readonly style="width:250px;"id="startTime" class="form-control" ng-model="startTime">
+                <span class="add-on"><i class="icon-th"></i></span>
+             </div>
+             <div class="input-append date " >
+                <label for="endTime">失效时间</label>
+                <input type="text"  id="endTime"  readonly style="width:250px;" class="form-control" ng-model="endTime">
+                <span class="add-on"><i class="icon-calendar"></i></span>
+             </div>
+             <button type="button" class="btn btn-success btn-lg" style="margin-top:20px;" ng-click="submit()">保存模板</button>
+            </form>
+        </div>
+        <div class="footer"></div>
+      <script type="text/javascript" src="/assets/jquery/2.2.0/jquery.min.js"></script>
+      <script type="text/javascript" src="/assets/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+      <script type="text/javascript">
+        $("#startTime").datetimepicker({
+            format: "yyyy-mm-dd ",
+            autoclose: true,
+            todayBtn: true,
+            pickerPosition: "bottom-left",
+            minView:2
+        });
+        $("#endTime").datetimepicker({
+            format:"yyyy-mm-dd ",
+            autoclose: true,
+            todayBtn: true,
+            pickerPosition: "bottom-left",
+            minView:2
+        });
+    </script> 
+      <script type="text/javascript" src="/assets/angularjs/angular.min.js"></script>
+      <script type="text/javascript" src="/assets/templateController/scanTempController.js"></script>
+    </body>
+</html>

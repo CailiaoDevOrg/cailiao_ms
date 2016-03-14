@@ -1,0 +1,12 @@
+{
+	"data":{
+		"id":"",
+		"name":"",
+		"description":"",
+		"modifyTime":"",
+		"lastModifyTime":"",
+		"beginTime":"",
+		"endTime":"",
+		"templateJspUrl":""
+	}
+}
