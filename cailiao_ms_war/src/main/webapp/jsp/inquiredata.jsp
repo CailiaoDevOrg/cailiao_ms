@@ -1,8 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java"%>
-<%  
-	String path = request.getContextPath();  
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";  
-%>
+<!-- fff -->
 <!DOCTYPE html>
 <html lang="zh-CN" ng-app="inquireApp">
 	<head>
