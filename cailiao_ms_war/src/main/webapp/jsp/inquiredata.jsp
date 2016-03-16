@@ -14,8 +14,9 @@
 		<!-- <link rel="icon" href="../../favicon.ico"> -->
 		<title>我国水泥工业环境状况调查信息共享平台</title>
 	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/3.3.5/css/bootstrap.min.css">
-	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/3.3.5/css/bootstrap-table.min.css">
-	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/3.3.5/css/bootstrap-table.css">
+	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-table.min.css">
+	 	 <link rel="stylesheet" type="text/css" href="/assets/inquire/css/record.css">
+	 	 <link href="/assets/inquire/css/main.css" rel="stylesheet" media="screen, print">
 <!-- 	 	 <link href="/assets/home/main.css" rel="stylesheet" media="screen, print"> -->
 	 	 <link rel="stylesheet" type="text/css" href="/assets/inquire/css/tab.css">
 		  
@@ -44,10 +45,14 @@
 		
 		<div id="content">
 			<div ng-include="'/jsp/pages/inquire.html'"></div>
+			<div id="resultList">
+				<table id="search_result"></table>
+			</div>
 		</div>
 		<script type="text/javascript" src="/assets/jquery/jquery.min.js"></script>
 	  	 <script type="text/javascript" src="/assets/angularjs/angular.min.js"></script>
 	    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap-table.min.js"></script>
 	    <script type="text/javascript" src="/assets/inquire/js/inquiredataController.js"></script>
 	</body>
 </html>
