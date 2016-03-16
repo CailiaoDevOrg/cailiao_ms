@@ -14,18 +14,56 @@
             "name":"第一模板",
             "status": 1,
             "url": "0.html",
+            "modifyTime":"2016-03-01",
+            "lastModifyTime":"2016-03-13"
         },
         {
             "id": 1,
             "name":"第二模板",
             "status": 0,
-            "url": "1.html"
+            "url": "1.html",
+            "modifyTime":"2016-03-02",
+            "lastModifyTime":"2016-03-15"
         },
         {
             "id": 2,
             "name":"第三模板",
             "status": 1,
-            "url": "2.html"
+            "url": "2.html",
+            "modifyTime":"2016-03-03",
+            "lastModifyTime":"2016-03-16"
+        },
+        {
+            "id": 4,
+            "name":"第四模板",
+            "status": 0,
+            "url": "1.html",
+            "modifyTime":"2016-03-02",
+            "lastModifyTime":"2016-03-15"
+        },
+        {
+            "id": 5,
+            "name":"第五模板",
+            "status": 1,
+            "url": "2.html",
+            "modifyTime":"2016-03-03",
+            "lastModifyTime":"2016-03-16"
+        },
+        {
+            "id": 6,
+            "name":"第六模板",
+            "status": 0,
+            "url": "1.html",
+            "modifyTime":"2016-03-02",
+            "lastModifyTime":"2016-03-15"
+        },
+        {
+            "id": 7,
+            "name":"第七模板",
+            "status": 1,
+            "url": "2.html",
+            "modifyTime":"2016-03-03",
+            "lastModifyTime":"2016-03-16"
         }
     ];
 
@@ -56,6 +94,16 @@
                                 width:150
                             }, 
                             {
+                               title: '创建时间',
+                                field: 'modifyTime',
+                                width:100
+                            }, 
+                            {
+                               title: '最近修改',
+                                field: 'lastModifyTime',
+                                width:100
+                            }, 
+                            {
                                title: 'url',
                                 field: 'url',
                                 width:100
@@ -80,10 +128,7 @@
       var $this=this;
       var id=$this.id;
       window.open("/jsp/scanTemp.html?="+id,"_blank");
-    })  
-
- 
-    
+    })      
 }); 	
  	function codeFormatter(value,row,index){
       return index+1;
