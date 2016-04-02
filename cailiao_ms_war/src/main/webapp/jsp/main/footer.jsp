@@ -7,7 +7,7 @@
 				href="#"
 				target="_blank">WHUT</a> All rights reserved.
 			</span> <span class="right"> Design and Developed by <a
-				class="grey-text text-lighten-4" href="#">WHUT</a></span>
+				class="grey-text text-lighten-4" href="#">Ours</a></span>
 		</div>
 	</div>
 </footer>

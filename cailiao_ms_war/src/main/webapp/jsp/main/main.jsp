@@ -14,6 +14,9 @@
 <link href="assets/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
 <link href="assets/materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
 <link href="assets/materialize/css/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+<link href="assets/materialize/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+<link href="assets/materialize/css/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
+<link href="assets/materialize/css/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 </head>
 
 <body>
@@ -23,15 +26,29 @@
 		<!-- START WRAPPER -->
 		<div class="wrapper">
 		    <jsp:include page="sidebar.jsp" />
+			<section id="content">
+				<!--start container-->
+				<div class="mainContent">
+				
+				</div>
+				<!--end container-->
+			</section>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
 	
 	<!-- jQuery Library -->
     <script type="text/javascript" src="assets/jquery/jquery.min.js"></script>    
     <!--materialize js-->
     <script type="text/javascript" src="assets/materialize/js/materialize.js"></script>
+    <script type="text/javascript" src="assets/materialize/js/prism.js"></script>
     <!--scrollbar-->
     <script type="text/javascript" src="assets/materialize/js/perfect-scrollbar.min.js"></script>
+    
+    <script type="text/javascript" src="assets/materialize/js/jquery.dataTables.min.js"></script>
+    <!-- <script type="text/javascript" src="assets/materialize/js/chartist.min.js"></script> -->
+    <!-- <script type="text/javascript" src="assets/materialize/js/plugins.js"></script> -->
+    
+    <script type="text/javascript" src="jsp/main/js/sidebar_goto.js"></script>
+    
 </body>
 </html>

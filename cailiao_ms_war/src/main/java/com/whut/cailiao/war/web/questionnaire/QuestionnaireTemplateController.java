@@ -74,10 +74,11 @@ public class QuestionnaireTemplateController extends BaseController {
      * @param pageSize
      */
     @RequestMapping(value = "/getQuestionnaireTemplateList/{currentPage}/{pageSize}.html", method = RequestMethod.GET)
-    @ResponseBody
+    // @ResponseBody
     public String getQuestionnaireTemplateList(@PathVariable int currentPage, @PathVariable int pageSize) {
-        ApiResponse response = this.questionnaireTemplateService.getQuestionnaireTemplateList(currentPage, pageSize);
-        return convertApiResponseToJSONString(response);
+        // ApiResponse response = this.questionnaireTemplateService.getQuestionnaireTemplateList(currentPage, pageSize);
+        // return convertApiResponseToJSONString(response);
+        return "wjtemplate/templateList";
     }
 
 }
