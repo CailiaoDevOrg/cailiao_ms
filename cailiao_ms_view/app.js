@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var login = require('./routes/login');
+var login = require('./routes/login_route');
 var home = require('./routes/home');
 var wjt = require('./routes/wjtemplate');
 
