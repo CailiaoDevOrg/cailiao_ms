@@ -4,6 +4,7 @@
 		<div class="col s12 m12 l12">
 			<div id="data-table-simple_wrapper" class="dataTables_wrapper">
 				<h4 class="header">问卷模板管理</h4>
+			    <a class="btn waves-effect waves-light blue" id="createNewTemplateBtn">创建新模板</a>
 				<table id="data-table-simple"
 					class="responsive-table display dataTable" cellspacing="0"
 					role="grid" aria-describedby="data-table-simple_info">
@@ -12,27 +13,27 @@
 							<th class="sorting" tabindex="0"
 								aria-controls="data-table-simple" rowspan="1" colspan="1"
 								aria-label="Name: activate to sort column ascending"
-								style="width: 135px;">Name</th>
+								style="width: 135px;">＃</th>
 							<th class="sorting_asc" tabindex="0"
 								aria-controls="data-table-simple" rowspan="1" colspan="1"
 								aria-label="Position: activate to sort column descending"
-								style="width: 222px;" aria-sort="ascending">Position</th>
+								style="width: 222px;" aria-sort="ascending">问卷名称</th>
 							<th class="sorting" tabindex="0"
 								aria-controls="data-table-simple" rowspan="1" colspan="1"
 								aria-label="Office: activate to sort column ascending"
-								style="width: 96px;">Office</th>
+								style="width: 96px;">问卷描述</th>
 							<th class="sorting" tabindex="0"
 								aria-controls="data-table-simple" rowspan="1" colspan="1"
 								aria-label="Age: activate to sort column ascending"
-								style="width: 37px;">Age</th>
+								style="width: 37px;">生效时间</th>
 							<th class="sorting" tabindex="0"
 								aria-controls="data-table-simple" rowspan="1" colspan="1"
 								aria-label="Start date: activate to sort column ascending"
-								style="width: 84px;">Start date</th>
+								style="width: 84px;">失效时间</th>
 							<th class="sorting" tabindex="0"
 								aria-controls="data-table-simple" rowspan="1" colspan="1"
 								aria-label="Salary: activate to sort column ascending"
-								style="width: 75px;">Salary</th>
+								style="width: 75px;">状态</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -139,7 +140,7 @@
 		</div>
 	</div>
 </div>
+<br/>
 
-<script type="text/javascript"
-	src="assets/materialize/js/data-tables-script.js"></script>
+<script type="text/javascript" src="jsp/wjtemplate/js/wjtemplate.js"></script>
 

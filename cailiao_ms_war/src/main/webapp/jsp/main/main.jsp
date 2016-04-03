@@ -35,7 +35,6 @@
 			</section>
 		</div>
 	</div>
-	
 	<!-- jQuery Library -->
     <script type="text/javascript" src="assets/jquery/jquery.min.js"></script>    
     <!--materialize js-->
@@ -45,8 +44,8 @@
     <script type="text/javascript" src="assets/materialize/js/perfect-scrollbar.min.js"></script>
     
     <script type="text/javascript" src="assets/materialize/js/jquery.dataTables.min.js"></script>
-    <!-- <script type="text/javascript" src="assets/materialize/js/chartist.min.js"></script> -->
-    <!-- <script type="text/javascript" src="assets/materialize/js/plugins.js"></script> -->
+    <!-- <script type="text/javascript" src="assets/materialize/js/chartist.min.js"></script>
+    <script type="text/javascript" src="assets/materialize/js/plugins.js"></script> -->
     
     <script type="text/javascript" src="jsp/main/js/sidebar_goto.js"></script>
     
