@@ -6,13 +6,21 @@
         }
 
         LoginPage.prototype.init = function() {
-            this.loginBth.on('click', loginBtnOnClick);
+            this.loginBth.on('click', __loginBtnOnClick);
+            document.onkeydown = __onKeyDown;
         }
 
         var loginPage = new LoginPage();
         loginPage.init();
 
-        function loginBtnOnClick() {
+        function __onKeyDown(e) {
+            var ev = document.all ? window.event : e;
+            if (ev.keyCode == 13) {
+                __loginBtnOnClick();
+            }
+        }
+
+        function __loginBtnOnClick() {
             var userName = $('#userName').val();
             var password = $('#password').val();
             if (userName === undefined || userName.trim() === '') {
