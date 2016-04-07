@@ -1,4 +1,4 @@
-(function($, $$){
+(function($){
     
     $(function() {
         
@@ -13,7 +13,7 @@
         }
   
         WJTemplateManager.prototype.load_data = function() {
-            $$.get('/custom/wjt/list_data.json', function(data) {
+            $.getJSON('/custom/wjt/list_data.json', function(data) {
                 var container = $('#wjt_table_body').empty();
                 $.map(data.list, function(item, i) {
                     if (i % 2 == 0) {
@@ -46,4 +46,4 @@
         wjTemplateManager.load_data();
     });
     
-})(jQuery, ajax);
+})(jQuery);
