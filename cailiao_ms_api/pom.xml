@@ -10,7 +10,7 @@
     <parent>
         <groupId>com.whut.cailiao</groupId>
         <artifactId>cailiao_ms</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </parent>
 
     <dependencies>
