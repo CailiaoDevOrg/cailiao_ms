@@ -2,17 +2,11 @@
     
     $(function() {
         
-        function WJTemplateListPage() {
-            this.createNewTemplateBtn = $("#createNewTemplateBtn");
-        }
-        
-        WJTemplateListPage.prototype.init = function () {
-            this.createNewTemplateBtn.on('click', function() {
+        (function() {
+            $("#createNewTemplateBtn").on('click', function() {
                 $(".mainContent").load('/wjt/create.html');
             });
-        }
-  
-        WJTemplateListPage.prototype.load_data = function() {
+            
             $('#example').DataTable({
                 ajax: {
                     url: '/custom/wjt/list_data.json',
@@ -26,11 +20,8 @@
                     { data: 'status' }
                 ]
             });
-        }
-
-        var wjTemplateListPage = new WJTemplateListPage();
-        wjTemplateListPage.init();  
-        wjTemplateListPage.load_data();
+            
+        })();
+        
     });
-    
 })(jQuery);
