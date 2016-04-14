@@ -1,4 +1,4 @@
-(function($) {
+(function($, $$) {
     
     $(function() {
 
@@ -15,9 +15,11 @@
                         endTime: $('#endTime').val(),
                         pageUrl: $('#pageUrl').val()
                     }
-                    $.post('/wjt/new/save.html', data, function() {
+                    $.post('/wjt/new/tempsave.html', data, function(data) {
                         _resetForm(objArr);
                         alert('新建成功');
+                    }).fail(function() {
+                        alert('网络出现问题，请稍后重试');
                     });
                 } else {
                     alert('please check input param');
@@ -60,4 +62,4 @@
         }
     });
     
-})(jQuery);
+})(jQuery, ajax);

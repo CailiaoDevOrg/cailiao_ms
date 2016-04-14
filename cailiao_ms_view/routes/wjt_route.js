@@ -10,8 +10,7 @@ router.get('/wjt/create.html', function(req, res, next) {
     res.render('wjt/create'); 
 });
 
-router.post('/wjt/new/save.html', function(req, res, next) {
-    console.log(req.body);
+router.post('/wjt/new/tempsave.html', function(req, res, next) {
     var data = {
         name: req.body.name,
         description: req.body.desc,
@@ -21,21 +20,22 @@ router.post('/wjt/new/save.html', function(req, res, next) {
         status: 1
     }
     data = JSON.stringify(data);
-    var opt = {  
-        method: "POST",  
-        host: "localhost",  
-        port: 7878,  
-        path: "/qtms/saveQuestionnaireTemplateTemp.html",  
-        headers: {  
+    var opt = {
+        method: "POST",
+        host: "localhost",
+        port: 7878,
+        path: "/qtms/saveQuestionnaireTemplateTemp.html",
+        headers: {
             "Content-Type": 'application/json'
-        }  
+        }
     };
+    
     var req = http.request(opt, function(serverFeedback) {
         if (serverFeedback.statusCode == 200) {
             var body = "";
-            serverFeedback.on('data', function(data) { 
-                body += data; 
-            }).on('end', function() { 
+            serverFeedback.on('data', function(data) {
+                body += data;
+            }).on('end', function() {
                 var retCode = JSON.parse(body).retCode;
                 if (retCode == 200) {
                     res.send(200, body);
@@ -46,8 +46,8 @@ router.post('/wjt/new/save.html', function(req, res, next) {
         } else {
             res.send(500, "error");
         }
-    });  
-    req.write(data + "\n");  
+    });
+    req.write(data + "\n");
     req.end();
 });
 

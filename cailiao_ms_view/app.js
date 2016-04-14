@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var ejs = require('ejs');
+var domain = require('domain');
 
 var login_route = require('./routes/login_route');
 var home_route = require('./routes/home_route');
@@ -57,11 +58,17 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 /*app.use(function(err, req, res, next) {
   res.status(err.status || 500);
+  res.send(500, err.message);
+  res.end();
   res.render('error', {
     message: err.message,
     error: {}
   });
 });*/
 
+
+process.on("uncaughtException", function() {
+    console.log('uncaughtException');
+})
 
 module.exports = app;
