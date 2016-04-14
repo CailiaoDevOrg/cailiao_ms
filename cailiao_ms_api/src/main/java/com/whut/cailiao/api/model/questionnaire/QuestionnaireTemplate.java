@@ -14,7 +14,7 @@ public class QuestionnaireTemplate implements Serializable {
     /** 问卷id */
     private Integer id;
     /** 问卷名 */
-    private String name;
+    private String qtName;
     /** 问卷描述 */
     private String description;
     /** 问卷最后更改时间 */
@@ -26,14 +26,14 @@ public class QuestionnaireTemplate implements Serializable {
     /** 问卷失效时间 */
     private Timestamp endTime;
     /** 问卷模板jsp页面 */
-    private String templateJspUrl;
+    private String templateUrl;
     
     /**
      * 问卷控制状态
      * 编辑中
      * 已发布
      */
-    private int status;
+    private int qtStatus;
 
     public Integer getId() {
         return id;
@@ -43,12 +43,20 @@ public class QuestionnaireTemplate implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getQtName() {
+        return qtName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setQtName(String qtName) {
+        this.qtName = qtName;
+    }
+
+    public int getQtStatus() {
+        return qtStatus;
+    }
+
+    public void setQtStatus(int qtStatus) {
+        this.qtStatus = qtStatus;
     }
 
     public String getDescription() {
@@ -91,20 +99,27 @@ public class QuestionnaireTemplate implements Serializable {
         this.endTime = endTime;
     }
 
-    public String getTemplateJspUrl() {
-        return templateJspUrl;
+    public String getTemplateUrl() {
+        return templateUrl;
     }
 
-    public void setTemplateJspUrl(String templateJspUrl) {
-        this.templateJspUrl = templateJspUrl;
+    public void setTemplateUrl(String templateUrl) {
+        this.templateUrl = templateUrl;
     }
 
-    public int getStatus() {
-        return status;
-    }
 
-    public void setStatus(int status) {
-        this.status = status;
+    @Override
+    public String toString() {
+        return "QuestionnaireTemplate{" +
+                "id=" + id +
+                ", name='" + qtName + '\'' +
+                ", description='" + description + '\'' +
+                ", modifyTime=" + modifyTime +
+                ", lastModifyTime=" + lastModifyTime +
+                ", beginTime=" + beginTime +
+                ", endTime=" + endTime +
+                ", templateUrl='" + templateUrl + '\'' +
+                ", status=" + qtStatus +
+                '}';
     }
-    
 }

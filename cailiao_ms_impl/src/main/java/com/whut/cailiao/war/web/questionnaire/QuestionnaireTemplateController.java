@@ -21,6 +21,20 @@ public class QuestionnaireTemplateController extends BaseController {
 
     /**
      * finished
+     * 临时保存问卷模板
+     * @param questionnaireTemplate
+     */
+    @RequestMapping(value = "/saveQuestionnaireTemplateTemp.html", method = RequestMethod.POST)
+    @ResponseBody
+    public String saveQuestionnaireTemplateTemp(@RequestBody QuestionnaireTemplate questionnaireTemplate) {
+
+        System.out.println(questionnaireTemplate);
+        ApiResponse response = this.questionnaireTemplateService.saveQuestionnaireTemplateTemp(questionnaireTemplate);
+        return convertApiResponseToJSONString(response);
+    }
+
+    /**
+     * finished
      * 获取问卷模板详细内容
      * 不论是否上线都从编辑表中获取数据
      */
@@ -28,18 +42,6 @@ public class QuestionnaireTemplateController extends BaseController {
     @ResponseBody
     public String getQuestionnaireTemplate(@PathVariable int questionnaireTemplateId) {
         ApiResponse response = this.questionnaireTemplateService.getQuestionnaireTemplate(questionnaireTemplateId);
-        return convertApiResponseToJSONString(response);
-    }
-
-    /**
-     * finished
-     * 临时保存问卷模板
-     * @param questionnaireTemplate
-     */
-    @RequestMapping(value = "/saveQuestionnaireTemplateTemp.html", method = RequestMethod.POST)
-    @ResponseBody
-    public String saveQuestionnaireTemplateTemp(@RequestBody QuestionnaireTemplate questionnaireTemplate) {
-        ApiResponse response = this.questionnaireTemplateService.saveQuestionnaireTemplateTemp(questionnaireTemplate);
         return convertApiResponseToJSONString(response);
     }
 

@@ -11,7 +11,7 @@
             lastModifyTime,
             beginTime,
             endTime,
-            templateJspUrl,
+            templateUrl,
             status
         )
         VALUES
@@ -22,13 +22,13 @@
             lastModifyTime = ${lastModifyTime},
             beginTime = ${beginTime},
             endTime = ${endTime},
-            templateJspUrl = ${templateJspUrl},
+            templateUrl = ${templateUrl},
             status = 2
         )
     </insert>
 
     <select id="getQuestionnaireTemplate" parameterType="java.lang.Integer" resultType="QuestionnaireTemplate">
-        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateJspUrl, status
+        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
         FROM tb_questionnaire_template
         WHERE id = #{questionnaireTemplateId} AND status = 2
     </select>
@@ -44,7 +44,7 @@
             lastModifyTime = #{lastModifyTime},
             beginTime = #{beginTime},
             endTime = #{endTime},
-            templateJspUrl = #{templateJspUrl},
+            templateUrl = #{templateUrl},
         </set>
         WHERE id = #{id} AND status = 2
     </update>
@@ -54,13 +54,13 @@
     </delete>
 
     <select id="getUsingQuestionnaireTemplateList" resultType="QuestionnaireTemplate">
-        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateJspUrl, status
+        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
         FROM tb_questionnaire_template
         WHERE status = 2 AND unix_timestamp(now()) >= unix_timestamp(beginTime) AND unix_timestamp(endTime) >= unix_timestamp(now())
     </select>
     
     <select id="getPublishedQuestionnaireTemplateList" resultType="QuestionnaireTemplate">
-        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateJspUrl, status
+        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
         FROM tb_questionnaire_template
         WHERE status = 2
     </select>

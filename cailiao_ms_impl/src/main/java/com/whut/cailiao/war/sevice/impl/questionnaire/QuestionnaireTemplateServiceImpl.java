@@ -81,9 +81,10 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
         }
         questionnaireTemplate.setLastModifyTime(questionnaireTemplate.getModifyTime());
         questionnaireTemplate.setModifyTime(new Timestamp(System.currentTimeMillis()));
-        questionnaireTemplate.setStatus(status.value());
+        questionnaireTemplate.setQtStatus(status.value());
         if (questionnaireTemplate.getId() == null) {
             // 多人重复创建则会产生多条记录,不会有影响
+            System.err.println("service==" + questionnaireTemplate);
             this.questionnaireTemplateEditDao.insertQuestionnaireTemplate(questionnaireTemplate);
             logger.info("create new questionnaire template success");
         } else {

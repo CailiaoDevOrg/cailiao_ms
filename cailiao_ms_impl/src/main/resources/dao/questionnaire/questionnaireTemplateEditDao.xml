@@ -2,36 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.whut.cailiao.war.dao.questionnaire.QuestionnaireTemplateEditDao">
 
-    <select id="getQuestionnaireTemplate" parameterType="java.lang.Integer" resultType="QuestionnaireTemplate">
-        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateJspUrl, status
-        FROM tb_questionnaire_template_edit
-        WHERE id = #{questionnaireTemplateId}
-    </select>
-
     <insert id="insertQuestionnaireTemplate" parameterType="QuestionnaireTemplate">
         INSERT INTO tb_questionnaire_template_edit
         (
-            name,
+            qtName,
             description,
             modifyTime,
             lastModifyTime,
             beginTime,
             endTime,
-            templateJspUrl,
-            status
+            templateUrl,
+            qtStatus
         )
         VALUES
         (
-            name = #{name},
-            description = #{description},
+            qtName = ${qtName},
+            description = ${description},
             modifyTime = ${modifyTime},
             lastModifyTime = ${lastModifyTime},
             beginTime = ${beginTime},
             endTime = ${endTime},
-            templateJspUrl = ${templateJspUrl},
-            status = #{status}
+            templateUrl = ${templateUrl},
+            qtStatus = ${qtStatus}
         )
     </insert>
+
+    <select id="getQuestionnaireTemplate" parameterType="java.lang.Integer" resultType="QuestionnaireTemplate">
+        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
+        FROM tb_questionnaire_template_edit
+        WHERE id = #{questionnaireTemplateId}
+    </select>
 
     <update id="updateQuestionnaireTemplate" parameterType="QuestionnaireTemplate">
         UPDATE tb_questionnaire_template_edit
@@ -44,7 +44,7 @@
             lastModifyTime = #{lastModifyTime},
             beginTime = #{beginTime},
             endTime = #{endTime},
-            templateJspUrl = #{templateJspUrl},
+            templateUrl = #{templateUrl},
             status = #{status}
         </set>
         WHERE id = #{id}
@@ -55,7 +55,7 @@
     </delete>
 
     <select id="getQuestionnaireTemplateList" resultType="QuestionnaireTemplate">
-        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateJspUrl, status
+        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
         FROM tb_questionnaire_template_edit
         LIMIT #{offset}, #{pageSize}
     </select>

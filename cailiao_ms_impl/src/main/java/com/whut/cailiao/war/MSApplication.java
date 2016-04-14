@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableCaching
 @EnableTransactionManagement
 @SpringBootApplication
-@ImportResource("classpath:provider.xml")
+//@ImportResource("classpath:provider.xml")
 public class MSApplication {
 
     public static void main(String[] args) {
