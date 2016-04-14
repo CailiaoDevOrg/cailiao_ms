@@ -9,6 +9,8 @@
             
             $('#wjTemplateTable').DataTable({
                 ordering: false,
+                searching: false,
+                lengthChange: false,
                 ajax: {
                     url: '/custom/wjt/list_data.json',
                     dataSrc: 'list'
@@ -19,7 +21,7 @@
                     { data: 'beginTime' },
                     { data: 'endTime' },
                     { data: 'status' },
-                    { title : 'ops' }
+                    { title: 'ops' }
                 ],
                 columnDefs: [
                     {
