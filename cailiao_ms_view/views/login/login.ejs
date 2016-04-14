@@ -5,68 +5,30 @@
 <title>登录</title>
 <meta charset="utf-8">
 <!-- CORE CSS-->
-<link href="/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
-<link href="/materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
-<link href="/materialize/css/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
-<link href="/materialize/css/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
+<link href="/custom/login/css/style.css">
 </head>
 <body class="cyan loaded">
-	<div id="login-page" class="row">
-		<div class="col s12 z-depth-4 card-panel">
-			<form class="login-form">
-				<div class="row">
-					<div class="input-field col s12 center">
-						<img
-							src="/materialize/img/login-logo.png"
-							alt="" class="circle responsive-img valign profile-image-login">
-						<p class="center login-form-text">水泥工业环境状况调查后台管理系统</p>
-					</div>
-				</div>
-				<div class="row margin">
-					<div class="input-field col s12">
-						<i class="mdi-social-person-outline prefix"></i> <input
-							id="userName" type="text"> <label for="username"
-							class="center-align">Username</label>
-					</div>
-				</div>
-				<div class="row margin">
-					<div class="input-field col s12">
-						<i class="mdi-action-lock-outline prefix"></i> <input
-							id="password" type="password"> <label for="password"
-							class="">Password</label>
-					</div>
-				</div>
-				<!-- <div class="row">
-					<div class="input-field col s12 m12 l12  login-text">
-						<input type="checkbox" id="remember-me"> <label
-							for="remember-me">Remember me</label>
-					</div>
-				</div> -->
-				<div class="row">
-					<div class="input-field col s12">
-						<a href="javascript:void(0);" class="btn waves-effect waves-light col s12" id="loginBtn">Login</a>
-					</div>
-				</div>
-				<!-- <div class="row">
-					<div class="input-field col s6 m6 l6">
-						<p class="margin medium-small">
-							<a
-								href="#">Register
-								Now!</a>
-						</p>
-					</div>
-					<div class="input-field col s6 m6 l6">
-						<p class="margin right-align medium-small">
-							<a
-								href="#">Forgot
-								password ?</a>
-						</p>
-					</div>
-				</div>-->
-
-			</form>
-		</div>
-	</div>
+	<section class="container">
+        <div class="login">
+        <h1>水泥工业环境状况调查后台管理系统</h1>
+        <form method="post" action="">
+            <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
+            <p><input type="password" name="password" value="" placeholder="Password"></p>
+            <p class="remember_me">
+            <label>
+                <input type="checkbox" name="remember_me" id="remember_me">
+                记住密码
+            </label>
+            </p>
+            <p class="submit " id="login_p"><input type="submit" name="login" value="登录"></p>
+            <p class="submit _hidden" id="register_p"><input type="submit" name="register" value="注册"></p>
+        </form>
+        </div>
+        <div class="login-help">
+            <p id="now_register_p" class="">没有账号 <a href="javascript:void(0)" id="now_register">现在注册</a></p>
+            <p id="now_login_p" class="_hidden">已有账号 <a href="javascript:void(0)" id="now_login">现在登录</a></p>
+        </div>
+  </section>
 	
 	<!-- jQuery Library -->
     <script type="text/javascript" src="/jquery/jquery.min.js"></script>    
@@ -74,6 +36,21 @@
     <script type="text/javascript" src="/materialize/js/materialize.js"></script>
     <!--scrollbar-->
     <script type="text/javascript" src="/materialize/js/perfect-scrollbar.min.js"></script>
-    <script type="text/javascript" src="/custom/login/login_page.js"></script>
+     <script>
+      $(function(){
+          $("#now_register").click(function(){
+              $("#login_p").addClass("_hidden");
+              $("#register_p").removeClass("_hidden");
+              $("#now_register_p").addClass("_hidden");
+              $("#now_login_p").removeClass("_hidden");
+          });
+          $("#now_login").click(function(){
+              $("#register_p").addClass("_hidden");
+              $("#login_p").removeClass("_hidden");
+              $("#now_login_p").addClass("_hidden");
+              $("#now_register_p").removeClass("_hidden");
+          });
+      })
+  </script>
 </body>
 </html>
