@@ -27,8 +27,6 @@ public class QuestionnaireTemplateController extends BaseController {
     @RequestMapping(value = "/saveQuestionnaireTemplateTemp.html", method = RequestMethod.POST)
     @ResponseBody
     public String saveQuestionnaireTemplateTemp(@RequestBody QuestionnaireTemplate questionnaireTemplate) {
-
-        System.out.println(questionnaireTemplate);
         ApiResponse response = this.questionnaireTemplateService.saveQuestionnaireTemplateTemp(questionnaireTemplate);
         return convertApiResponseToJSONString(response);
     }

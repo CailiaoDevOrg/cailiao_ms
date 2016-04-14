@@ -5,25 +5,23 @@
     <insert id="insertQuestionnaireTemplate" parameterType="QuestionnaireTemplate">
         INSERT INTO tb_questionnaire_template_edit
         (
-            qtName,
+            name,
             description,
             modifyTime,
-            lastModifyTime,
             beginTime,
             endTime,
             templateUrl,
-            qtStatus
+            status
         )
         VALUES
         (
-            qtName = ${qtName},
-            description = ${description},
-            modifyTime = ${modifyTime},
-            lastModifyTime = ${lastModifyTime},
-            beginTime = ${beginTime},
-            endTime = ${endTime},
-            templateUrl = ${templateUrl},
-            qtStatus = ${qtStatus}
+            #{name, jdbcType=VARCHAR},
+            #{description, jdbcType=VARCHAR},
+            #{modifyTime, jdbcType=TIMESTAMP},
+            #{beginTime, jdbcType=TIMESTAMP},
+            #{endTime, jdbcType=TIMESTAMP},
+            #{templateUrl, jdbcType=VARCHAR},
+            #{status, jdbcType=INTEGER}
         )
     </insert>
 

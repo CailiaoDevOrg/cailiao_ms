@@ -13,12 +13,12 @@ router.get('/wjt/create.html', function(req, res, next) {
 router.post('/wjt/new/save.html', function(req, res, next) {
     console.log(req.body);
     var data = {
-        qtName: req.body.name,
+        name: req.body.name,
         description: req.body.desc,
         beginTime: req.body.beginTime,
         endTime: req.body.endTime,
         templateUrl: req.body.pageUrl,
-        qtStatus: 1
+        status: 1
     }
     data = JSON.stringify(data);
     var opt = {  
@@ -36,7 +36,12 @@ router.post('/wjt/new/save.html', function(req, res, next) {
             serverFeedback.on('data', function(data) { 
                 body += data; 
             }).on('end', function() { 
-                res.send(200, body); 
+                var retCode = JSON.parse(body).retCode;
+                if (retCode == 200) {
+                    res.send(200, body);
+                } else {
+                    res.send(500, "error");
+                }
             });
         } else {
             res.send(500, "error");

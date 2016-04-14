@@ -14,7 +14,7 @@ public class QuestionnaireTemplate implements Serializable {
     /** 问卷id */
     private Integer id;
     /** 问卷名 */
-    private String qtName;
+    private String name;
     /** 问卷描述 */
     private String description;
     /** 问卷最后更改时间 */
@@ -33,7 +33,7 @@ public class QuestionnaireTemplate implements Serializable {
      * 编辑中
      * 已发布
      */
-    private int qtStatus;
+    private int status;
 
     public Integer getId() {
         return id;
@@ -43,20 +43,20 @@ public class QuestionnaireTemplate implements Serializable {
         this.id = id;
     }
 
-    public String getQtName() {
-        return qtName;
+    public String getName() {
+        return name;
     }
 
-    public void setQtName(String qtName) {
-        this.qtName = qtName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getQtStatus() {
-        return qtStatus;
+    public int getStatus() {
+        return status;
     }
 
-    public void setQtStatus(int qtStatus) {
-        this.qtStatus = qtStatus;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public String getDescription() {
@@ -112,14 +112,14 @@ public class QuestionnaireTemplate implements Serializable {
     public String toString() {
         return "QuestionnaireTemplate{" +
                 "id=" + id +
-                ", name='" + qtName + '\'' +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", modifyTime=" + modifyTime +
                 ", lastModifyTime=" + lastModifyTime +
                 ", beginTime=" + beginTime +
                 ", endTime=" + endTime +
                 ", templateUrl='" + templateUrl + '\'' +
-                ", status=" + qtStatus +
+                ", status=" + status +
                 '}';
     }
 }

@@ -36,26 +36,6 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
 
     /**
      * finished
-     * 获取问卷模板对象
-     * (从编辑表中)
-     * @param questionnaireTemplateId
-     * @return
-     */
-    @Override
-    public ApiResponse getQuestionnaireTemplate(int questionnaireTemplateId) {
-        ApiResponse response = ApiResponse.createDefaultApiResponse();
-        if (questionnaireTemplateId <= 0) {
-            response.setRetCode(ApiResponseCode.PARAM_ERROR);
-            logger.error("param error : questionnaireTemplateId is not bigger than zero");
-            return response;
-        }
-        QuestionnaireTemplate questionnaireTemplate = this.questionnaireTemplateEditDao.getQuestionnaireTemplate(questionnaireTemplateId);
-        response.addBody("questionnaireTemplate", questionnaireTemplate);
-        return response;
-    }
-
-    /**
-     * finished
      * 临时保存问卷模板
      * 保存到编辑表中
      * @param questionnaireTemplate
@@ -81,10 +61,9 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
         }
         questionnaireTemplate.setLastModifyTime(questionnaireTemplate.getModifyTime());
         questionnaireTemplate.setModifyTime(new Timestamp(System.currentTimeMillis()));
-        questionnaireTemplate.setQtStatus(status.value());
+        questionnaireTemplate.setStatus(status.value());
         if (questionnaireTemplate.getId() == null) {
             // 多人重复创建则会产生多条记录,不会有影响
-            System.err.println("service==" + questionnaireTemplate);
             this.questionnaireTemplateEditDao.insertQuestionnaireTemplate(questionnaireTemplate);
             logger.info("create new questionnaire template success");
         } else {
@@ -99,6 +78,26 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
                         questionnaireTemplate.getId() + ", maybe somebody who modify this item at the same time");
             }
         }
+        return response;
+    }
+
+    /**
+     * finished
+     * 获取问卷模板对象
+     * (从编辑表中)
+     * @param questionnaireTemplateId
+     * @return
+     */
+    @Override
+    public ApiResponse getQuestionnaireTemplate(int questionnaireTemplateId) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (questionnaireTemplateId <= 0) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            logger.error("param error : questionnaireTemplateId is not bigger than zero");
+            return response;
+        }
+        QuestionnaireTemplate questionnaireTemplate = this.questionnaireTemplateEditDao.getQuestionnaireTemplate(questionnaireTemplateId);
+        response.addBody("questionnaireTemplate", questionnaireTemplate);
         return response;
     }
 
