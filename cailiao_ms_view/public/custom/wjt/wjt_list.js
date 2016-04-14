@@ -7,7 +7,7 @@
                 $(".mainContent").load('/wjt/create.html');
             });
             
-            $('#example').DataTable({
+            $('#wjTemplateTable').DataTable({
                 ordering: false,
                 ajax: {
                     url: '/custom/wjt/list_data.json',
@@ -26,13 +26,23 @@
                         targets: -1,
                         data: 'id',
                         render: function(data, type, full) {
-                            return '<button class="btn btn-primary btn-xs btn-modify" data-id="' + data + '">修改</button>\
+                            return '<button class="btn btn-primary btn-xs btn-edit" data-id="' + data + '">编辑</button>\
                                          <button class="btn btn-primary btn-xs btn-delete" data-id="' + data + '">删除</button>';
                         }
                     }
                 ]
             });
-
+            
+            $('#wjTemplateTable tbody').on('click', 'button.btn-edit', function() {
+                var id = $(this).data('id');
+                alert(id);
+            });
+            
+            $('#wjTemplateTable tbody').on('click', 'button.btn-delete', function() {
+                var id = $(this).data('id');
+                alert(id);
+            });
+            
         })();
         
     });
