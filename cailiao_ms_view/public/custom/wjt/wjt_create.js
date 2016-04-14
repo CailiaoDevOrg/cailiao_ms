@@ -25,7 +25,7 @@
             });
             
             $('#showWjTemplateList').on('click', function() {
-                 $(".mainContent").load('/wjt/list');
+                 $(".mainContent").load('/wjt/list.html');
             });
         })();
         

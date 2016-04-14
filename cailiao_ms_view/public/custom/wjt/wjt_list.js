@@ -4,7 +4,7 @@
         
         (function() {
             $("#createNewTemplateBtn").on('click', function() {
-                $(".mainContent").load('/wjt/create');
+                $(".mainContent").load('/wjt/create.html');
             });
             
             $('#wjTemplateTable').DataTable({
