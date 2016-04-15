@@ -22,6 +22,7 @@
                         data: JSON.stringify(data),
                         contentType: 'application/json',
                         success: function(data) {
+                        	data = JSON.parse(data);
                         	if (data.retCode == 200) {
                         		_resetForm(objArr);
                                 alert('新建成功');
@@ -33,7 +34,6 @@
                         	alert('网络出现问题，请稍后重试');
                         }
                     });
-                    
                 } else {
                     alert('please check input param');
                 }

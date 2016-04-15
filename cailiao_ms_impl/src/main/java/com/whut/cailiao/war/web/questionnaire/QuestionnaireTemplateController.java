@@ -42,7 +42,7 @@ public class QuestionnaireTemplateController extends BaseController {
     }
 
     /**
-     * finished
+     * 已经通过
      * 获取问卷模板列表
      * @param currentPage
      */
@@ -50,6 +50,18 @@ public class QuestionnaireTemplateController extends BaseController {
     @ResponseBody
     public String getQuestionnaireTemplateList(@PathVariable int currentPage) {
         ApiResponse response = this.questionnaireTemplateService.getQuestionnaireTemplateList(currentPage, 10);
+        return convertApiResponseToJSONString(response);
+    }
+
+    /**
+     * finished
+     * 删除问卷模板
+     * @param questionnaireTemplateId
+     */
+    @RequestMapping(value = "/deleteWJT/{questionnaireTemplateId}.html", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String deleteQuestionnaireTemplate(@PathVariable int questionnaireTemplateId) {
+        ApiResponse response = this.questionnaireTemplateService.deleteQuestionnaireTemplate(questionnaireTemplateId);
         return convertApiResponseToJSONString(response);
     }
 
@@ -76,19 +88,6 @@ public class QuestionnaireTemplateController extends BaseController {
         ApiResponse response = this.questionnaireTemplateService.publishQuestionnaireTemplate(questionnaireTemplate);
         return convertApiResponseToJSONString(response);
     }
-
-    /**
-     * finished
-     * 删除问卷模板
-     * @param questionnaireTemplateId
-     */
-    @RequestMapping(value = "/deleteQuestionnaireTemplate/{questionnaireTemplateId}.html", method = RequestMethod.GET)
-    @ResponseBody
-    public String deleteQuestionnaireTemplate(@PathVariable int questionnaireTemplateId) {
-        ApiResponse response = this.questionnaireTemplateService.deleteQuestionnaireTemplate(questionnaireTemplateId);
-        return convertApiResponseToJSONString(response);
-    }
-
 
 
 }
