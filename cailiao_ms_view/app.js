@@ -69,6 +69,6 @@ if (app.get('env') === 'development') {
 
 process.on("uncaughtException", function() {
     console.log('uncaughtException');
-})
+});
 
 module.exports = app;

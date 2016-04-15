@@ -1,8 +1,9 @@
-(function($, $$) {
+(function($) {
     
     $(function() {
 
         (function() {
+            
             _registerDatePicker([$('#beginTime'), $('#endTime')]);
             var objArr = [$('#name'), $('#desc'), $('#pageUrl'), $('#beginTime'), $('#endTime')];
             $('#submit').on('click', function() {
@@ -12,14 +13,27 @@
                         description: $('#desc').val(),
                         beginTime: $('#beginTime').val(),
                         endTime: $('#endTime').val(),
-                        templateUrl: $('#pageUrl').val()
-                    }
-                    $$.post('/wjt/saveTemp.html', JSON.stringify(data), function() {
-                        _resetForm(objArr);
-                        alert('新建成功');
-                    }, function() {
-                        alert('网络出现问题，请稍后重试');
+                        templateUrl: $('#pageUrl').val(),
+                        status: 1
+                    };
+                    $.ajax({
+                        url: '/wjt/saveTemp.html',
+                        method: 'POST',
+                        data: JSON.stringify(data),
+                        contentType: 'application/json',
+                        success: function(data) {
+                        	if (data.retCode == 200) {
+                        		_resetForm(objArr);
+                                alert('新建成功');
+                        	} else {
+                        		alert('系统忙，请稍后重试');
+                        	}
+                        },
+                        error: function(data) {
+                        	alert('网络出现问题，请稍后重试');
+                        }
                     });
+                    
                 } else {
                     alert('please check input param');
                 }
@@ -61,4 +75,4 @@
         }
     });
     
-})(jQuery, ajax);
+})(jQuery);

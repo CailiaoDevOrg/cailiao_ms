@@ -1,20 +1,6 @@
-var express = require('express');
 var http = require('http');
-var router = express.Router();
 
-router.get('/wjt/list.html', function(req, res, next) {
-    res.render('wjt/list');
-});
-
-router.get('/wjt/list_data.html', function(req, res, next) {
-    console.log('cp = ' + req.query.cp);
-});
-
-router.get('/wjt/create.html', function(req, res, next) {
-    res.render('wjt/create'); 
-});
-
-router.post('/wjt/new/tempsave.html', function(req, res, next) {
+exports.post = function (req, res, data) {
     var data = {
         name: req.body.name,
         description: req.body.desc,
@@ -52,6 +38,4 @@ router.post('/wjt/new/tempsave.html', function(req, res, next) {
     });
     req.write(data + "\n");
     req.end();
-});
-
-module.exports = router;
+}

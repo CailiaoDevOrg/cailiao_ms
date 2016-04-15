@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value = {"/", "/login.html", "/index.html"})
+    @RequestMapping(value = "/login.html")
     public String index() {
         return "login/login";
     }
 
-    @RequestMapping(value = "/main.html", method = RequestMethod.GET)
-    public String toMain() {
-        return "main/main";
+    @RequestMapping(value = "/home.html", method = RequestMethod.GET)
+    public String home() {
+        return "home/home";
     }
 
 }

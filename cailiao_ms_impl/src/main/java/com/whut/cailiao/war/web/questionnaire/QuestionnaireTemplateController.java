@@ -13,18 +13,28 @@ import org.springframework.web.bind.annotation.*;
  * qtms 问卷模板管理
  */
 @Controller
-@RequestMapping("/qtms")
+@RequestMapping("/wjt")
 public class QuestionnaireTemplateController extends BaseController {
 
     @Autowired
     private QuestionnaireTemplateService questionnaireTemplateService;
+
+    @RequestMapping(value = "/create.html", method = RequestMethod.GET)
+    public String navigateToCreateNewWJPage() {
+        return "wjt/create";
+    }
+
+    @RequestMapping(value = "/list.html", method = RequestMethod.GET)
+    public String navigateToWJListPage() {
+        return "wjt/list";
+    }
 
     /**
      * finished
      * 临时保存问卷模板
      * @param questionnaireTemplate
      */
-    @RequestMapping(value = "/saveQuestionnaireTemplateTemp.html", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveTemp.html", method = RequestMethod.POST)
     @ResponseBody
     public String saveQuestionnaireTemplateTemp(@RequestBody QuestionnaireTemplate questionnaireTemplate) {
         ApiResponse response = this.questionnaireTemplateService.saveQuestionnaireTemplateTemp(questionnaireTemplate);
