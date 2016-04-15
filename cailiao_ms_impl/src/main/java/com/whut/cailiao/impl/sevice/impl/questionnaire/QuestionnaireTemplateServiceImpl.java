@@ -109,13 +109,13 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
      * @param questionnaireTemplateId
      * @return
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public ApiResponse publishQuestionnaireTemplate(int questionnaireTemplateId) {
         QuestionnaireTemplate questionnaireTemplate = this.questionnaireTemplateEditDao.getQuestionnaireTemplate(questionnaireTemplateId);
         ApiResponse response = this.saveQuestionnaireTemplateTemp(questionnaireTemplate, QuestionnaireConstant.QuestionnaireTemplateStatus.PUBLISHED);
         // 修改编辑表状态
-        if (response.getRetCode() == ApiResponseCode.SUCCESS) {
+        if (response.getRetCode() != ApiResponseCode.SUCCESS) {
             logger.error("public fail, modify edit table error, questionnaireTemplateId = ", questionnaireTemplate.getId());
             throw new TransactionExecuteException();
         }
