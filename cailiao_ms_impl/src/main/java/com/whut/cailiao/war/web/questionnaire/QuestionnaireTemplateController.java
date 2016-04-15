@@ -3,10 +3,15 @@ package com.whut.cailiao.war.web.questionnaire;
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireTemplateService;
+import com.whut.cailiao.war.utils.bean.BeanHelper;
 import com.whut.cailiao.war.web.BaseController;
+import org.apache.commons.collections4.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * Created by niuyang on 16/3/6.
@@ -82,11 +87,19 @@ public class QuestionnaireTemplateController extends BaseController {
      * 获取问卷模板详细内容
      * 不论是否上线都从编辑表中获取数据
      */
-    @RequestMapping(value = "/getQuestionnaireTemplate/{questionnaireTemplateId}.html", method = RequestMethod.GET)
-    @ResponseBody
-    public String getQuestionnaireTemplate(@PathVariable int questionnaireTemplateId) {
+    @RequestMapping(value = "/getWJT/{questionnaireTemplateId}.html", method = RequestMethod.GET)
+    public String getQuestionnaireTemplate(@PathVariable int questionnaireTemplateId, Model model) {
         ApiResponse response = this.questionnaireTemplateService.getQuestionnaireTemplate(questionnaireTemplateId);
-        return convertApiResponseToJSONString(response);
+        if (response.getRetCode() == 200) {
+            QuestionnaireTemplate questionnaireTemplate  = (QuestionnaireTemplate) response.getData("questionnaireTemplate");
+            Map<String, Object> objMap = BeanHelper.convertObjToMap(questionnaireTemplate);
+            if (MapUtils.isEmpty(objMap)) {
+                return "wjt/list";
+            }
+            model.addAllAttributes(objMap);
+            return "wjt/edit";
+        }
+        return "wjt/list";
     }
 
 }

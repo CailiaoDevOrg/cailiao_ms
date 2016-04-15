@@ -38,7 +38,7 @@
             
             $('#wjTemplateTable tbody').on('click', 'button.btn-edit', function() {
                 var id = $(this).data('id');
-                alert(id);
+                $('.mainContent').load('/wjt/getWJT/' + id + '.html');
             });
             
             $('#wjTemplateTable tbody').on('click', 'button.btn-delete', function() {

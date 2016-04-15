@@ -60,6 +60,13 @@ public class ApiResponse implements Serializable {
         body.put(key, object);
     }
 
+    public Object getData(String key) {
+        if (StringUtils.isBlank(key) || MapUtils.isEmpty(this.body) || !this.body.containsKey(key)) {
+            return null;
+        }
+        return this.body.get(key);
+    }
+
     public static ApiResponse createCallErrorApiResponse() {
         ApiResponse response = new ApiResponse();
         response.setRetCode(ApiResponseCode.CALL_ERROR);
