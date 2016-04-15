@@ -106,12 +106,13 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
      * 发布问卷模板
      * 编辑表中问卷状态修改
      * 正式表中插入模板数据
-     * @param questionnaireTemplate
+     * @param questionnaireTemplateId
      * @return
      */
     @Transactional
     @Override
-    public ApiResponse publishQuestionnaireTemplate(QuestionnaireTemplate questionnaireTemplate) {
+    public ApiResponse publishQuestionnaireTemplate(int questionnaireTemplateId) {
+        QuestionnaireTemplate questionnaireTemplate = this.questionnaireTemplateEditDao.getQuestionnaireTemplate(questionnaireTemplateId);
         ApiResponse response = this.saveQuestionnaireTemplateTemp(questionnaireTemplate, QuestionnaireConstant.QuestionnaireTemplateStatus.PUBLISHED);
         // 修改编辑表状态
         if (response.getRetCode() != ApiResponseCode.SUCCESS) {
@@ -120,7 +121,7 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
         }
         // 正式表中插入模板数据
         // 1.正式表中读取数据
-        QuestionnaireTemplate questionnaireTemplatePublished = this.questionnaireTemplateDao.getQuestionnaireTemplate(questionnaireTemplate.getId());
+        QuestionnaireTemplate questionnaireTemplatePublished = this.questionnaireTemplateDao.getQuestionnaireTemplate(questionnaireTemplateId);
         // 2.分情况处理
         if (questionnaireTemplatePublished == null) {
             // 如果主键重复则会有异常,事务回退

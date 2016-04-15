@@ -28,10 +28,10 @@ public interface QuestionnaireTemplateService {
      * 发布问卷模板
      * 编辑表中问卷状态修改
      * 正式表中插入模板数据
-     * @param questionnaireTemplate
+     * @param questionnaireTemplateId
      * @return
      */
-    ApiResponse publishQuestionnaireTemplate(QuestionnaireTemplate questionnaireTemplate);
+    ApiResponse publishQuestionnaireTemplate(int questionnaireTemplateId);
 
     /**
      * 删除问卷模板

@@ -28,34 +28,34 @@
     <select id="getQuestionnaireTemplate" parameterType="java.lang.Integer" resultType="QuestionnaireTemplate">
         SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
         FROM tb_questionnaire_template_edit
-        WHERE id = #{questionnaireTemplateId}
+        WHERE id = #{questionnaireTemplateId, jdbcType=INTEGER}
     </select>
 
     <update id="updateQuestionnaireTemplate" parameterType="QuestionnaireTemplate">
         UPDATE tb_questionnaire_template_edit
         <set>
             <if test="description != null and description != '' ">
-                description = #{description},
+                description = #{description, jdbcType=VARCHAR},
             </if>
-            name = #{name},
-            modifyTime = #{modifyTime},
+            name = #{name, jdbcType=VARCHAR},
+            modifyTime = #{modifyTime, jdbcType=TIMESTAMP},
             lastModifyTime = #{lastModifyTime},
-            beginTime = #{beginTime},
-            endTime = #{endTime},
-            templateUrl = #{templateUrl},
-            status = #{status}
+            beginTime = #{beginTime, jdbcType=TIMESTAMP},
+            endTime = #{endTime, jdbcType=TIMESTAMP},
+            templateUrl = #{templateUrl, jdbcType=VARCHAR},
+            status = #{status, jdbcType=INTEGER}
         </set>
-        WHERE id = #{id}
+        WHERE id = #{id, jdbcType=INTEGER}
     </update>
 
     <delete id="deleteQuestionnaireTemplate" parameterType="java.lang.Integer">
-        DELETE FROM tb_questionnaire_template_edit WHERE id = #{questionnaireTemplateId};
+        DELETE FROM tb_questionnaire_template_edit WHERE id = #{questionnaireTemplateId, jdbcType=INTEGER};
     </delete>
 
     <select id="getQuestionnaireTemplateList" resultType="QuestionnaireTemplate">
         SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
         FROM tb_questionnaire_template_edit
-        LIMIT #{offset}, #{pageSize}
+        LIMIT #{offset, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER}
     </select>
 
     <select id="getQuestionnaireTemplateCount" resultType="java.lang.Integer">

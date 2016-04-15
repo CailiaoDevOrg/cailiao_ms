@@ -29,7 +29,8 @@
                         data: 'id',
                         render: function(data, type, full) {
                             return '<button class="btn btn-primary btn-xs btn-edit" data-id="' + data + '">编辑</button>\
-                                         <button class="btn btn-primary btn-xs btn-delete" data-id="' + data + '">删除</button>';
+                                    <button class="btn btn-primary btn-xs btn-delete" data-id="' + data + '">删除</button>\
+                                    <button class="btn btn-primary btn-xs btn-publish" data-id="' + data + '">发布</button>';
                         }
                     }
                 ]
@@ -59,6 +60,27 @@
                     }
                 });
             });
+            
+            $('#wjTemplateTable tbody').on('click', 'button.btn-publish', function() {
+            	var id = $(this).data('id');
+            	$.ajax({
+                    url: '/wjt/publishWJT/' + id + '.html',
+                    method: 'PUT',
+                    success: function(data) {
+                    	data = JSON.parse(data);
+                    	if (data.retCode == 200) {
+                    		alert('发布成功');
+                            $('.mainContent').load('/wjt/list.html');
+                    	} else {
+                    		alert('系统忙，请稍后重试');
+                    	}
+                    },
+                    error: function(data) {
+                    	alert('网络出现问题，请稍后重试');
+                    }
+                });
+            });
+            
         })();
         
     });

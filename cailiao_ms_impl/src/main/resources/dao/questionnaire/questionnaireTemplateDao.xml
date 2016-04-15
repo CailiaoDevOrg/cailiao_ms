@@ -5,6 +5,7 @@
     <insert id="insertQuestionnaireTemplate" parameterType="QuestionnaireTemplate">
         INSERT INTO tb_questionnaire_template
         (
+            id,
             name,
             description,
             modifyTime,
@@ -16,41 +17,42 @@
         )
         VALUES
         (
-            name = #{name},
-            description = #{description},
-            modifyTime = ${modifyTime},
-            lastModifyTime = ${lastModifyTime},
-            beginTime = ${beginTime},
-            endTime = ${endTime},
-            templateUrl = ${templateUrl},
-            status = 2
+            #{id, jdbcType=INTEGER},
+            #{name, jdbcType=VARCHAR},
+            #{description, jdbcType=VARCHAR},
+            #{modifyTime, jdbcType=TIMESTAMP},
+            #{lastModifyTime, jdbcType=TIMESTAMP},
+            #{beginTime, jdbcType=TIMESTAMP},
+            #{endTime, jdbcType=TIMESTAMP},
+            #{templateUrl, jdbcType=VARCHAR},
+            2
         )
     </insert>
 
     <select id="getQuestionnaireTemplate" parameterType="java.lang.Integer" resultType="QuestionnaireTemplate">
         SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
         FROM tb_questionnaire_template
-        WHERE id = #{questionnaireTemplateId} AND status = 2
+        WHERE id = #{questionnaireTemplateId, jdbcType=INTEGER} AND status = 2
     </select>
 
     <update id="updateQuestionnaireTemplate" parameterType="QuestionnaireTemplate">
         UPDATE tb_questionnaire_template
         <set>
             <if test="description != null and description != '' ">
-                description = #{description},
+                description = #{description, jdbcType=VARCHAR},
             </if>
-            name = #{name},
-            modifyTime = #{modifyTime},
-            lastModifyTime = #{lastModifyTime},
-            beginTime = #{beginTime},
-            endTime = #{endTime},
-            templateUrl = #{templateUrl},
+            name = #{name, jdbcType=VARCHAR},
+            modifyTime = #{modifyTime, jdbcType=TIMESTAMP},
+            lastModifyTime = #{lastModifyTime, jdbcType=TIMESTAMP},
+            beginTime = #{beginTime, jdbcType=TIMESTAMP},
+            endTime = #{endTime, jdbcType=TIMESTAMP},
+            templateUrl = #{templateUrl, jdbcType=VARCHAR},
         </set>
-        WHERE id = #{id} AND status = 2
+        WHERE id = #{id, jdbcType=INTEGER} AND status = 2
     </update>
 
     <delete id="deleteQuestionnaireTemplate" parameterType="java.lang.Integer">
-        DELETE FROM tb_questionnaire_template WHERE id = #{questionnaireTemplateId} AND status = 2;
+        DELETE FROM tb_questionnaire_template WHERE id = #{questionnaireTemplateId, jdbcType=INTEGER} AND status = 2;
     </delete>
 
     <select id="getUsingQuestionnaireTemplateList" resultType="QuestionnaireTemplate">
