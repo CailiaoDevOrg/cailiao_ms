@@ -39,7 +39,7 @@ public class QuestionnaireTemplateController extends BaseController {
      * 临时保存问卷模板
      * @param questionnaireTemplate
      */
-    @RequestMapping(value = "/saveTemp.html", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveTemp.html", method = { RequestMethod.POST, RequestMethod.PUT })
     @ResponseBody
     public String saveQuestionnaireTemplateTemp(@RequestBody QuestionnaireTemplate questionnaireTemplate) {
         ApiResponse response = this.questionnaireTemplateService.saveQuestionnaireTemplateTemp(questionnaireTemplate);

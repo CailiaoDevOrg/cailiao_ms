@@ -35,6 +35,9 @@
                                 <label for="pageUrl">pageUrl</label>
                                 <input type="text" class="form-control" id="pageUrl" placeholder="页面Url" value="${templateUrl }">
                             </div>
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="id" value="${id}">
+                            </div>
                         </div>
                         <div class="box-footer">
                             <input type="button" class="btn btn-primary" id="submit" value="提交">

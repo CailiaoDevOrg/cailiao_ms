@@ -9,23 +9,23 @@
             $('#submit').on('click', function() {
                 if (_validIsNotNull(objArr)) {
                     var data = {
+                        id: $('#id').val(),
                         name: $('#name').val(),
                         description: $('#desc').val(),
                         beginTime: $('#beginTime').val(),
                         endTime: $('#endTime').val(),
-                        templateUrl: $('#pageUrl').val(),
-                        status: 1
+                        templateUrl: $('#pageUrl').val()
                     };
                     $.ajax({
                         url: '/wjt/saveTemp.html',
-                        method: 'POST',
+                        method: 'PUT',
                         data: JSON.stringify(data),
                         contentType: 'application/json',
                         success: function(data) {
                         	data = JSON.parse(data);
                         	if (data.retCode == 200) {
-                        		_resetForm(objArr);
-                                alert('新建成功');
+                                alert('更改成功');
+                                $('.mainContent').load('/wjt/list.html');
                         	} else {
                         		alert('系统忙，请稍后重试');
                         	}
@@ -66,13 +66,6 @@
             return false;
         }
         
-        function _resetForm(jQueryObjArr) {
-            if ($.isArray(jQueryObjArr)) {
-                for (var i = 0, len = jQueryObjArr.length; i < len; i++) {
-                    jQueryObjArr[i].val('');
-                }
-            }
-        }
     });
     
 })(jQuery);
