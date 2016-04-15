@@ -12,12 +12,12 @@
                 searching: false,
                 lengthChange: false,
                 ajax: {
-                    url: '/wjt/list_data.html',
-                    dataSrc: 'list'
+                    url: '/wjt/getWJTList/1.html',
+                    dataSrc: 'body.page.list'
                 },
                 columns: [
                     { data: 'name' },
-                    { data: 'desc' },
+                    { data: 'description' },
                     { data: 'beginTime' },
                     { data: 'endTime' },
                     { data: 'status' },

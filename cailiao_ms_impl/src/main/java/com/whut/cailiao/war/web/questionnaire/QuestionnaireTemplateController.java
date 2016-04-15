@@ -30,7 +30,7 @@ public class QuestionnaireTemplateController extends BaseController {
     }
 
     /**
-     * finished
+     * 已经通过
      * 临时保存问卷模板
      * @param questionnaireTemplate
      */
@@ -38,6 +38,18 @@ public class QuestionnaireTemplateController extends BaseController {
     @ResponseBody
     public String saveQuestionnaireTemplateTemp(@RequestBody QuestionnaireTemplate questionnaireTemplate) {
         ApiResponse response = this.questionnaireTemplateService.saveQuestionnaireTemplateTemp(questionnaireTemplate);
+        return convertApiResponseToJSONString(response);
+    }
+
+    /**
+     * finished
+     * 获取问卷模板列表
+     * @param currentPage
+     */
+    @RequestMapping(value = "/getWJTList/{currentPage}.html", method = RequestMethod.GET)
+    @ResponseBody
+    public String getQuestionnaireTemplateList(@PathVariable int currentPage) {
+        ApiResponse response = this.questionnaireTemplateService.getQuestionnaireTemplateList(currentPage, 10);
         return convertApiResponseToJSONString(response);
     }
 
@@ -77,17 +89,6 @@ public class QuestionnaireTemplateController extends BaseController {
         return convertApiResponseToJSONString(response);
     }
 
-    /**
-     * finished
-     * 获取问卷模板列表
-     * @param currentPage
-     * @param pageSize
-     */
-    @RequestMapping(value = "/getQuestionnaireTemplateList/{currentPage}/{pageSize}.html", method = RequestMethod.GET)
-    @ResponseBody
-    public String getQuestionnaireTemplateList(@PathVariable int currentPage, @PathVariable int pageSize) {
-        ApiResponse response = this.questionnaireTemplateService.getQuestionnaireTemplateList(currentPage, pageSize);
-        return convertApiResponseToJSONString(response);
-    }
+
 
 }
