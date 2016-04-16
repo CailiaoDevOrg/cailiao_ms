@@ -4,10 +4,12 @@
     <typeAliases>
         <typeAlias type="com.whut.cailiao.api.model.questionnaire.QuestionnaireContent" alias="QuestionnaireContent"/>
         <typeAlias type="com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate" alias="QuestionnaireTemplate"/>
+        <typeAlias type="com.whut.cailiao.api.model.news.News" alias="News"/>
     </typeAliases>
     <mappers>
         <mapper resource="dao/questionnaire/questionnaireContentDao.xml"/>
         <mapper resource="dao/questionnaire/questionnaireTemplateDao.xml"/>
         <mapper resource="dao/questionnaire/questionnaireTemplateEditDao.xml"/>
+        <mapper resource="dao/news/newsDao.xml"/>
     </mappers>
 </configuration>

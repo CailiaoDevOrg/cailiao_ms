@@ -1,10 +1,10 @@
-package com.whut.cailiao.impl.constant.questionnaire;
+package com.whut.cailiao.api.constant;
 
 /**
  * Created by niuyang on 16/3/6.
  * 问卷模块相关常量
  */
-public class QuestionnaireConstant {
+public final class QuestionnaireConstant {
 
     public enum QuestionnaireTemplateStatus {
         EDITING(1),

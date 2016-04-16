@@ -19,5 +19,10 @@ public class IndexController {
     public String home() {
         return "home/home";
     }
+    
+    @RequestMapping(value = "/dashboard.html", method = RequestMethod.GET)
+    public String dashboard() {
+        return "home/dashboard";
+    }
 
 }

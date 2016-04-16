@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whut.cailiao.impl.dao.news.NewsDao">
+
+    <select id="getNewsDetail" parameterType="java.lang.Integer" resultType="News">
+        SELECT
+            id, title, content, url, level, beginTime, endTime, publishedTime, status
+        FROM tb_news
+        WHERE id = #{id, jdbcType=INTEGER}
+    </select>
+
+    <select id="getNewsList" resultType="News">
+        SELECT
+            id, title, content, url, level, beginTime, endTime, publishedTime, status
+        FROM tb_news
+        ORDER BY publishedTime DESC
+    </select>
+
+    <insert id="saveNews" parameterType="News">
+        INSERT INTO tb_news (title, content, url, level, beginTime, endTime, publishedTime, status)
+        VALUES (#{title, jdbcType=VARCHAR}, #{content, jdbcType=VARCHAR}, #{url, jdbcType=VARCHAR},
+        #{level, jdbcType=INTEGER}, #{beginTime, jdbcType=TIMESTAMP}, #{endTime, jdbcType=TIMESTAMP},
+        #{publishedTime, jdbcType=TIMESTAMP}, #{status, jdbcType=INTEGER})
+    </insert>
+
+    <delete id="deleteNews" parameterType="java.lang.Integer">
+        DELETE FROM tb_news WHERE id=#{id, jdbcType=INTEGER}
+    </delete>
+
+    <select id="getNewsListSortByLevel" parameterType="java.lang.Integer" resultType="News">
+        SELECT
+            id, title, content, url, level, beginTime, endTime, publishedTime, status
+        FROM tb_news
+        ORDER BY publishedTime DESC
+        LIMIT #{topSize, jdbcType=INTEGER}
+    </select>
+
+</mapper>

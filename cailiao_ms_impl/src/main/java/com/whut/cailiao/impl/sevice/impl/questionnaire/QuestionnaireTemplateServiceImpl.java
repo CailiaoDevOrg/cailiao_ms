@@ -5,7 +5,7 @@ import com.whut.cailiao.api.commons.ApiResponseCode;
 import com.whut.cailiao.api.model.pagination.Page;
 import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireTemplateService;
-import com.whut.cailiao.impl.constant.questionnaire.QuestionnaireConstant;
+import com.whut.cailiao.api.constant.QuestionnaireConstant;
 import com.whut.cailiao.impl.dao.questionnaire.QuestionnaireTemplateDao;
 import com.whut.cailiao.impl.dao.questionnaire.QuestionnaireTemplateEditDao;
 import com.whut.cailiao.impl.exception.TransactionExecuteException;
