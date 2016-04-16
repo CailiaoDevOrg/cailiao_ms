@@ -41,6 +41,11 @@ public interface NewsService {
     ApiResponse deleteNews(int id);
 
     /**
+     * 更新状态
+     */
+    ApiResponse updateNewsStatus(int id, int status);
+
+    /**
      * 前台使用
      */
     /**
@@ -48,4 +53,5 @@ public interface NewsService {
      * 返回15条
      */
     ApiResponse getNewsFrontEndList(int topSize);
+
 }

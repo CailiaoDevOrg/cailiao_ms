@@ -35,4 +35,11 @@
         LIMIT #{topSize, jdbcType=INTEGER}
     </select>
 
+    <update id="updateNewsStatus" parameterType="News">
+        UPDATE tb_news
+        SET status=#{status, jdbcType=INTEGER},
+        publishedTime=#{publishedTime, jdbcType=TIMESTAMP}
+        WHERE id=#{id, jdbcType=INTEGER}
+    </update>
+
 </mapper>

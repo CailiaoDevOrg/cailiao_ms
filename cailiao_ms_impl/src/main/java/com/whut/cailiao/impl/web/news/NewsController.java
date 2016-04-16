@@ -1,6 +1,7 @@
 package com.whut.cailiao.impl.web.news;
 
 import com.whut.cailiao.api.commons.ApiResponse;
+import com.whut.cailiao.api.constant.NewsContant;
 import com.whut.cailiao.api.model.news.News;
 import com.whut.cailiao.api.service.news.NewsService;
 import com.whut.cailiao.impl.web.BaseController;
@@ -53,6 +54,13 @@ public class NewsController extends BaseController {
     @ResponseBody
     public String newsDetail(@PathVariable int id) {
         ApiResponse response = this.newsService.getNewsDetail(id);
+        return convertApiResponseToJSONString(response);
+    }
+
+    @RequestMapping(value = "/pause/{id}/{status}.html", method = RequestMethod.PUT)
+    @ResponseBody
+    public String pauseNews(@PathVariable int id, @PathVariable int status) {
+        ApiResponse response = this.newsService.updateNewsStatus(id, status);
         return convertApiResponseToJSONString(response);
     }
 

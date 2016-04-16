@@ -27,11 +27,19 @@
                 columnDefs: [
                     {
                         targets: -1,
-                        data: 'id',
+                        data: {id:'id', status: 'status'},
                         render: function(data, type, full) {
-                            return '<button class="btn btn-primary btn-xs btn-detail" data-id="' + data + '">查看</button>\
-                                    <button class="btn btn-primary btn-xs btn-pause" data-id="' + data + '">暂停</button>\
-                                    <button class="btn btn-primary btn-xs btn-delete" data-id="' + data + '">删除</button>';
+                            var style, text;
+                            if (data.status == 1) {
+                                style = 'btn-pause';
+                                text = '暂停';
+                            } else {
+                                style = 'btn-publish';
+                                text = '发布';
+                            }
+                            return '<button class="btn btn-primary btn-xs btn-detail" data-id="' + data.id + '">查看</button>\
+                                    <button class="btn btn-primary btn-xs ' + style + '" data-id="' + data.id + '">' + text + '</button>\
+                                    <button class="btn btn-primary btn-xs btn-delete" data-id="' + data.id + '">删除</button>';
                         }
                     }
                 ]
@@ -76,7 +84,46 @@
                     }
                 });
             });
-            
+
+            $('#newsTable tbody').on('click', 'button.btn-pause', function() {
+                var id = $(this).data('id');
+                $.ajax({
+                    url: '/news/pause/' + id + '/2.html',
+                    method: 'PUT',
+                    success: function(data) {
+                        data = JSON.parse(data);
+                        if (data.retCode == 200) {
+                            alert("暂停成功");
+                            $('.mainContent').load('/news/list.html');
+                        } else {
+                            alert('系统忙，请稍后重试');
+                        }
+                    },
+                    error: function(data) {
+                        alert('网络出现问题，请稍后重试');
+                    }
+                });
+            });
+
+            $('#newsTable tbody').on('click', 'button.btn-publish', function() {
+                var id = $(this).data('id');
+                $.ajax({
+                    url: '/news/pause/' + id + '/1.html',
+                    method: 'PUT',
+                    success: function(data) {
+                        data = JSON.parse(data);
+                        if (data.retCode == 200) {
+                            alert("发布成功");
+                            $('.mainContent').load('/news/list.html');
+                        } else {
+                            alert('系统忙，请稍后重试');
+                        }
+                    },
+                    error: function(data) {
+                        alert('网络出现问题，请稍后重试');
+                    }
+                });
+            });
         })();
         
     });

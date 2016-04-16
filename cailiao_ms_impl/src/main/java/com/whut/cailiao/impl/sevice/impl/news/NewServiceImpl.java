@@ -77,6 +77,21 @@ public class NewServiceImpl implements NewsService {
     }
 
     @Override
+    public ApiResponse updateNewsStatus(int id, int status) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (id <= 0 || status < Level.NORMAL.value() || status > Level.IMPORTANT.value()) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
+        News news = new News();
+        news.setId(id);
+        news.setStatus(status);
+        news.setPublishedTime(new Timestamp(System.currentTimeMillis()));
+        this.newsDao.updateNewsStatus(news);
+        return response;
+    }
+
+    @Override
     public ApiResponse getNewsFrontEndList(int topSize) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
         if (topSize <= 0) {

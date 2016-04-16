@@ -1,6 +1,7 @@
 package com.whut.cailiao.impl.dao.news;
 
 import com.whut.cailiao.api.model.news.News;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,5 +24,7 @@ public interface NewsDao {
     void deleteNews(int id);
 
     List<News> getNewsListSortByLevel(int topSize);
+
+    void updateNewsStatus(News news);
 
 }
