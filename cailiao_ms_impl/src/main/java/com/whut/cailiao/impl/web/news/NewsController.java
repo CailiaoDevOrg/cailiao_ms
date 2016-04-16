@@ -49,4 +49,11 @@ public class NewsController extends BaseController {
         return convertApiResponseToJSONString(response);
     }
 
+    @RequestMapping(value = "/detail/{id}.html", method = RequestMethod.GET)
+    @ResponseBody
+    public String newsDetail(@PathVariable int id) {
+        ApiResponse response = this.newsService.getNewsDetail(id);
+        return convertApiResponseToJSONString(response);
+    }
+
 }
