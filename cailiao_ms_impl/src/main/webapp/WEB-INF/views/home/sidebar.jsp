@@ -11,7 +11,7 @@
             <li class="treeview">
                 <a href="javascript:void(0);"><i class="fa fa-circle-o"></i> 消息与通知</a>
                 <ul class="nav treeview-menu">
-                    <li><a href="javascript:void(0);">新闻中心</a></li>
+                    <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/news/list.html">新闻中心</a></li>
                     <!--<li><a href="#">通知中心</a></li>
                     <li><a href="#">消息中心</a></li>-->
                 </ul>

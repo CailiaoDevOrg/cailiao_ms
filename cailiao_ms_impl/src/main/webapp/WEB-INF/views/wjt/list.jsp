@@ -19,7 +19,7 @@
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody id="wjt_table_body">
+                <tbody>
                 </tbody>
             </table>
         </div>

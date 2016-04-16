@@ -8,7 +8,9 @@ import java.sql.Timestamp;
  */
 public final class News implements Serializable {
 
-    private Integer id;
+	private static final long serialVersionUID = 1L;
+
+	private Integer id;
 
     private String title;
 
