@@ -4,7 +4,7 @@
         
         (function() {
             $("#createNewsBtn").on('click', function() {
-                $(".mainContent").load('/wjt/create.html');
+                $(".mainContent").load('/news/create.html');
             });
             
             $('#newsTable').DataTable({

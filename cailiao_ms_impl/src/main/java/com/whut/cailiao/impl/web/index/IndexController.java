@@ -15,7 +15,7 @@ public class IndexController {
         return "login/login";
     }
 
-    @RequestMapping(value = "/home.html", method = RequestMethod.GET)
+    @RequestMapping(value = { "/home.html", "/" }, method = RequestMethod.GET)
     public String home() {
         return "home/home";
     }

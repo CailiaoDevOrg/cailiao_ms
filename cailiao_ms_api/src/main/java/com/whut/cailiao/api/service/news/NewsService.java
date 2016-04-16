@@ -32,7 +32,7 @@ public interface NewsService {
      * 发送新闻
      * @return
      */
-    ApiResponse sendNews(News news, Level level);
+    ApiResponse sendNews(News news);
 
     /**
      * 删除新闻

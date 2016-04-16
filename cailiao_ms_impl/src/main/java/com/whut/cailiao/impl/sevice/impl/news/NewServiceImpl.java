@@ -43,11 +43,13 @@ public class NewServiceImpl implements NewsService {
     }
 
     @Override
-    public ApiResponse sendNews(News news, Level level) {
+    public ApiResponse sendNews(News news) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
         Timestamp publishedTime = new Timestamp(System.currentTimeMillis());
         if (news == null
                 || news.getId() != null
+                || news.getLevel() < Level.NORMAL.value()
+                || news.getLevel() > Level.IMPORTANT.value()
                 || StringUtils.isBlank(news.getTitle())
                 || StringUtils.isBlank(news.getContent())
                 || news.getBeginTime() == null
@@ -57,7 +59,6 @@ public class NewServiceImpl implements NewsService {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
             return response;
         }
-        news.setLevel(level.value());
         news.setStatus(Status.DISPLAY.value());
         news.setPublishedTime(publishedTime);
         this.newsDao.saveNews(news);
