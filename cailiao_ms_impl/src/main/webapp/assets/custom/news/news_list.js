@@ -30,22 +30,23 @@
                         data: 'id',
                         render: function(data, type, full) {
                             return '<button class="btn btn-primary btn-xs btn-show" data-id="' + data + '">查看</button>\
+                                    <button class="btn btn-primary btn-xs btn-pause" data-id="' + data + '">暂停</button>\
                                     <button class="btn btn-primary btn-xs btn-delete" data-id="' + data + '">删除</button>';
                         }
                     }
                 ]
             });
             
-            $('#wjTemplateTable tbody').on('click', 'button.btn-delete', function() {
+            $('#newsTable tbody').on('click', 'button.btn-delete', function() {
                 var id = $(this).data('id');
                 $.ajax({
-                    url: '/wjt/deleteWJT/' + id + '.html',
+                    url: '/news/delete/' + id + '.html',
                     method: 'DELETE',
                     success: function(data) {
                     	data = JSON.parse(data);
                     	if (data.retCode == 200) {
                             alert('删除成功');
-                            $('.mainContent').load('/wjt/list.html');
+                            $('.mainContent').load('/news/list.html');
                     	} else {
                     		alert('系统忙，请稍后重试');
                     	}

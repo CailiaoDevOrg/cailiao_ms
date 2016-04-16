@@ -6,10 +6,7 @@ import com.whut.cailiao.api.service.news.NewsService;
 import com.whut.cailiao.impl.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by gammaniu on 16/4/16.
@@ -42,6 +39,13 @@ public class NewsController extends BaseController {
     @ResponseBody
     public String publishNews(@RequestBody News news) {
         ApiResponse response = this.newsService.sendNews(news);
+        return convertApiResponseToJSONString(response);
+    }
+
+    @RequestMapping(value = "/delete/{id}.html", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String deleteNews(@PathVariable int id) {
+        ApiResponse response = this.newsService.deleteNews(id);
         return convertApiResponseToJSONString(response);
     }
 
