@@ -31,6 +31,7 @@
         SELECT
             id, title, content, url, level, beginTime, endTime, publishedTime, status
         FROM tb_news
+        WHERE status = 1 AND unix_timestamp(endTime) > unix_timestamp(now())
         ORDER BY publishedTime DESC
         LIMIT #{topSize, jdbcType=INTEGER}
     </select>
