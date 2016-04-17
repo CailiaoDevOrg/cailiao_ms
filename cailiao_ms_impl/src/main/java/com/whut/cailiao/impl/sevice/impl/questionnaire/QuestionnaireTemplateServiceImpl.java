@@ -2,8 +2,11 @@ package com.whut.cailiao.impl.sevice.impl.questionnaire;
 
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.commons.ApiResponseCode;
+import com.whut.cailiao.api.constant.NewsContant;
+import com.whut.cailiao.api.model.news.News;
 import com.whut.cailiao.api.model.pagination.Page;
 import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
+import com.whut.cailiao.api.service.news.NewsService;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireTemplateService;
 import com.whut.cailiao.api.constant.QuestionnaireConstant;
 import com.whut.cailiao.impl.dao.questionnaire.QuestionnaireTemplateDao;
@@ -33,6 +36,9 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
 
     @Autowired
     private QuestionnaireTemplateDao questionnaireTemplateDao;
+
+    @Autowired
+    private NewsService newsService;
 
     /**
      * finished
@@ -139,6 +145,20 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
                         questionnaireTemplate.getId() + ", maybe somebody who modify this item at the same time");
                 throw new TransactionExecuteException();
             }
+        }
+        if (response.getRetCode() == ApiResponseCode.SUCCESS) {
+        	// 发送新闻
+            Timestamp now = new Timestamp(System.currentTimeMillis());
+            News news = new News();
+            news.setLevel(NewsContant.Level.IMPORTANT.value());
+            news.setStatus(NewsContant.Status.DISPLAY.value());
+            news.setBeginTime(now);
+            news.setEndTime(questionnaireTemplate.getEndTime());
+            news.setPublishedTime(now);
+            news.setTitle("new WJ Template");
+            news.setContent(questionnaireTemplate.getDescription());
+            news.setUrl("http://localhost:6868/wj/" + questionnaireTemplateId + ".html");
+            this.newsService.sendNews(news);
         }
         return response;
     }

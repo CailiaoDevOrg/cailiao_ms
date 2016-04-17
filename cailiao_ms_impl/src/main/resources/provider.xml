@@ -16,5 +16,7 @@
     <dubbo:service interface="com.whut.cailiao.api.service.questionnaire.QuestionnaireService" ref="questionnaireService" />
     
     <dubbo:service interface="com.whut.cailiao.api.service.questionnaire.QuestionnaireTemplateService" ref="questionnaireTemplateService" />
+
+    <dubbo:service interface="com.whut.cailiao.api.service.news.NewsService" ref="newsService"/>
     
 </beans>
