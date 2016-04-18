@@ -155,7 +155,7 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
             news.setBeginTime(now);
             news.setEndTime(questionnaireTemplate.getEndTime());
             news.setPublishedTime(now);
-            news.setTitle("new WJ Template");
+            news.setTitle(questionnaireTemplate.getName());
             news.setContent(questionnaireTemplate.getDescription());
             news.setUrl("http://localhost:6868/wj/" + questionnaireTemplateId + ".html");
             this.newsService.sendNews(news);

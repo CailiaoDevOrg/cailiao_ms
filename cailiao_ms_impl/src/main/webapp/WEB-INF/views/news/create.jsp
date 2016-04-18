@@ -29,7 +29,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="level">重要等级</label>
-                                <input type="text" class="form-control" id="level" placeholder="请输入新闻重要等级">
+                                <select class="form-control" id="level">
+                                    <option value="3">重要</option>
+                                    <option value="2">临时</option>
+                                    <option value="1">普通</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="beginTime">生效时间</label>
