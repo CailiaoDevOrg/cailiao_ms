@@ -1,4 +1,4 @@
-(function($){
+(function($, $$){
     
     $(function() {
         
@@ -41,7 +41,28 @@
                                     <button class="btn btn-primary btn-xs ' + style + '" data-id="' + data.id + '">' + text + '</button>\
                                     <button class="btn btn-primary btn-xs btn-delete" data-id="' + data.id + '">删除</button>';
                         }
-                    }
+                    },
+                    {
+                        targets: 2,
+                        data: 'beginTime',
+                        render: function(data, type, full) {
+                            return $$.formatTime(data);
+                        }
+                    },
+                    {
+                        targets: 3,
+                        data: 'endTime',
+                        render: function(data, type, full) {
+                            return $$.formatTime(data);
+                        }
+                    },
+                    {
+                        targets: 4,
+                        data: 'publishedTime',
+                        render: function(data, type, full) {
+                            return $$.formatTime(data);
+                        }
+                    },
                 ]
             });
             
@@ -127,4 +148,4 @@
         })();
         
     });
-})(jQuery);
+})(jQuery, timeFormat);

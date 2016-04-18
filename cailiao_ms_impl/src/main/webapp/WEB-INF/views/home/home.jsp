@@ -54,6 +54,8 @@
     
     <script type="text/javascript" src="assets/datepicker/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="assets/datepicker/bootstrap-datepicker.zh-CN.js"></script>
+    
+    <script type="text/javascript" src="assets/custom/util/time.js"></script>
 
 </body>
 </html>
