@@ -1,5 +1,6 @@
 package com.whut.cailiao.impl.config;
 
+import com.whut.cailiao.impl.interceptor.LoginIntercepter;
 import com.whut.cailiao.impl.interceptor.ThreadLocalInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -18,6 +19,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new ThreadLocalInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(new LoginIntercepter()).addPathPatterns("/wjt/**", "/news/**");
         super.addInterceptors(registry);
     }
 }
