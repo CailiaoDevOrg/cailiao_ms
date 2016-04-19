@@ -56,7 +56,7 @@
     <!-- page -->
     <script type="text/javascript" src="assets/custom/home/sidebar_goto.js"></script>
     <script type="text/javascript" src="assets/custom/home/header.js"></script>
-    
+    <script type="text/javascript" src="assets/custom/home/home.js"></script>
     
     <!-- util -->
     <script type="text/javascript" src="assets/custom/util/time.js"></script>

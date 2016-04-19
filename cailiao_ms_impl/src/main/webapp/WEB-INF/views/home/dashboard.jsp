@@ -7,7 +7,7 @@
     <div class="content body">
         <p class="lead">您可以通过一下的快捷方式快速访问系统.</p>
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-blue">
                     <span class="info-box-icon bg-blue"><i class="fa fa-envelope-o"></i></span>
                     <div class="info-box-content">
@@ -15,8 +15,8 @@
                         <span class="info-box-number">93,139</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            </div> -->
+            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-red">
                     <span class="info-box-icon bg-red"><i class="fa fa-bell-o"></i></span>
                     <div class="info-box-content">
@@ -24,8 +24,8 @@
                         <span class="info-box-number">139</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            </div> -->
+            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-green">
                     <span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
                     <div class="info-box-content">
@@ -33,8 +33,8 @@
                         <span class="info-box-number"></span>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            </div> -->
+            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-blue">
                     <span class="info-box-icon bg-blue"><i class="fa fa-search"></i></span>
                     <div class="info-box-content">
@@ -42,12 +42,12 @@
                         <span class="info-box-number"></span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-green">
+                <div class="info-box bg-green" id="wjtTile">
                     <span class="info-box-icon bg-green"><i class="fa fa-bar-chart-o"></i></span>
                     <div class="info-box-green">
-                        <span class="info-box-text">问卷管理</span>
+                        <span class="info-box-text">问卷模板管理</span>
                         <span class="info-box-number"></span>
                     </div>
                 </div>
@@ -55,3 +55,5 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="assets/custom/home/dashboard.js"></script>
