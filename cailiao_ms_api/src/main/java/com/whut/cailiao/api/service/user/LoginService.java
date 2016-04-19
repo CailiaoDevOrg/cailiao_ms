@@ -7,6 +7,6 @@ import com.whut.cailiao.api.commons.ApiResponse;
  */
 public interface LoginService {
 
-    ApiResponse login(String accountId, String md5password);
+    ApiResponse login(String accountId, String md5password, String checkcode);
 
 }

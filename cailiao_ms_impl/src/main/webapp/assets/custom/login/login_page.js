@@ -1,4 +1,4 @@
-(function($) {
+(function($, CryptoJS) {
 
     $(function() {
     	function validateUserID(autofocus, flag) {
@@ -54,28 +54,32 @@
 
         /*login*/
         $('.form-signin').on('submit', function() {
-        	window.location.href = '/home.html';
             if (!validateInput()) {
                 return false;
             }
             var id = $('#inputUserId').val(),
-                    password = $('#inputPassword').val();
+                password = $('#inputPassword').val(),
+                checkcode = $('#captcha').val();
             var data = {
-                id : id,
-                password : password
+            	accountId : id,
+                password : CryptoJS.MD5(password).toString()
             };
             data = JSON.stringify(data);
             $.ajax({
                 type:"POST",
                 contentType:"application/json",
-                dataType:"json",
-                url:"/login.html",
+                url:"/doLogin.html?checkcode=" + checkcode,
                 data: data,
                 success : function(data) {
-                    if (data.SUCCESS == true) {
-                        window.location.href = 'index.jsp';
+                	data = JSON.parse(data);
+                    if (data.retCode == 200 && data.body.canLogin == true) {
+                    	window.location.href = '/home.html';
                     } else {
-                        alert("wrong userId or password");
+                    	if (data.retCode == 207) {
+                    		alert("验证码输入错误");
+                    	} else {
+                    		alert("用户名或密码错误");
+                    	}
                     }
                 }
             });
@@ -86,4 +90,4 @@
         $('#inputUserId').on('blur', validateUserID).on('change', validateUserID).focus();
         $('#inputPassword').on('blur', validatePassword).on('change', validatePassword);
     });
-})(jQuery);
+})(jQuery, CryptoJS);
