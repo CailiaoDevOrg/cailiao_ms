@@ -1,57 +1,89 @@
 (function($) {
 
     $(function() {
-        function LoginPage() {
-            this.loginBth = $('#loginBtn');
-        }
-
-        LoginPage.prototype.init = function() {
-            this.loginBth.on('click', __loginBtnOnClick);
-            document.onkeydown = __onKeyDown;
-        }
-
-        var loginPage = new LoginPage();
-        loginPage.init();
-
-        function __onKeyDown(e) {
-            var ev = document.all ? window.event : e;
-            if (ev.keyCode == 13) {
-                __loginBtnOnClick();
+    	function validateUserID(autofocus, flag) {
+            if($('#inputUserId').val().trim() == '') {
+                $(".bg-danger, .username-tooltip").removeClass("hidden");
+                if(autofocus === true && flag) $("#inputUserId").focus();
+                return false;
+            } else {
+                $(".username-tooltip").addClass("hidden");
+                if(!$(".bg-danger > p:not(.hidden)").length) {
+                    $(".bg-danger").addClass("hidden");
+                }
+                return true;
             }
         }
 
-        function __loginBtnOnClick() {
-            var userName = $('#userName').val();
-            var password = $('#password').val();
-            if (userName === undefined || userName.trim() === '') {
-                alert('用户名不能为空');
-                return;
+        function validatePassword(autofocus, flag) {
+            if($('#inputPassword').val().trim() == '') {
+                $(".bg-danger, .password-tooltip").removeClass("hidden");
+                if(autofocus === true && flag) $("#inputPassword").focus();
+                return false;
+            } else {
+                $(".password-tooltip").addClass("hidden");
+                if(!$(".bg-danger > p:not(.hidden)").length) {
+                    $(".bg-danger").addClass("hidden");
+                }
+                return true;
             }
-            if (password === undefined || password.trim() === '') {
-                alert('密码不能为空');
-                return;
-            }
+        }
 
+        function validateInput() {
+            var flag = true;
+            if(!validateUserID(true, flag)) {
+                flag = false;
+            }
+            if(!validatePassword(true, flag)) {
+                flag = false;
+            }
+            return flag;
+        }
+
+        $(".captcha-wrapper > a").on("click", function() {
+            var $img = $(this).find("img"), url = $img.attr("src");
+            if(url.indexOf("_t=") > -1) {
+                url = url.replace(/_t=\d+/, "_t=" + (new Date()).getTime());
+            } else {
+                url += (url.indexOf("?") > -1 ? "&" : "?") + "_t=" + (new Date()).getTime();
+            }
+            $img.attr("src", url);
+            $(this).closest(".captcha-wrapper").find("input").focus().select();
+            return false;
+        });
+
+        /*login*/
+        $('.form-signin').on('submit', function() {
+        	window.location.href = '/home.html';
+            if (!validateInput()) {
+                return false;
+            }
+            var id = $('#inputUserId').val(),
+                    password = $('#inputPassword').val();
             var data = {
-                userName: userName,
-                password: password
+                id : id,
+                password : password
             };
-
+            data = JSON.stringify(data);
             $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                dataType: "json",
-                url: "/login_check.html",
-                data: JSON.stringify(data),
-                success: function(data) {
-                    if (data == true) {
-                        window.location.href = '/home.html';
+                type:"POST",
+                contentType:"application/json",
+                dataType:"json",
+                url:"/login.html",
+                data: data,
+                success : function(data) {
+                    if (data.SUCCESS == true) {
+                        window.location.href = 'index.jsp';
                     } else {
-                        $('#password').select();
-                        alert('用户名或密码错误');
+                        alert("wrong userId or password");
                     }
                 }
             });
-        }
+            return false;
+        });
+
+        /*validate*/
+        $('#inputUserId').on('blur', validateUserID).on('change', validateUserID).focus();
+        $('#inputPassword').on('blur', validatePassword).on('change', validatePassword);
     });
 })(jQuery);

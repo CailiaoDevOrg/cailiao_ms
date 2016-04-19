@@ -22,19 +22,17 @@ public class UserConstant {
 
     public enum Method {
 
-        GET(1), POST(2), PUT(3), DELETE(4);
+        GET("GET"), POST("POST"), PUT("PUT"), DELETE("DELETE");
 
-        private int value;
+        private String value;
 
-        Method(int value) {
+        Method(String value) {
             this.value = value;
         }
 
-        public int value() {
+        public String value() {
             return this.value;
         }
     }
-
-
 
 }

@@ -8,7 +8,7 @@ public class Privilege {
     private Integer id;
 
     private String url;
-    private int method;
+    private String method;
 
     public Integer getId() {
         return id;
@@ -26,11 +26,11 @@ public class Privilege {
         this.url = url;
     }
 
-    public int getMethod() {
+    public String getMethod() {
         return method;
     }
 
-    public void setMethod(int method) {
+    public void setMethod(String method) {
         this.method = method;
     }
 
