@@ -2,6 +2,7 @@ package com.whut.cailiao.impl.web;
 
 import javax.servlet.http.HttpSession;
 
+import com.whut.cailiao.api.model.user.User;
 import org.apache.commons.lang3.StringUtils;
 
 import com.alibaba.fastjson.JSON;
@@ -24,16 +25,28 @@ public class BaseController {
     }
 
     /**
-     * 获取当前用户名
+     * 获取当前用户信息
      * 该方法需要修改,要修改成没有参数的形式
      * @return
      */
-    protected String getAccountId() {
+    protected User getUserInfo() {
         HttpSession session = HttpUtil.getSession();
         if (session == null) {
+            return null;
+        }
+        return (User) session.getAttribute("user");
+    }
+
+    /**
+     * 获取用户名
+     * @return
+     */
+    protected String getAccountId() {
+        User user = getUserInfo();
+        if (user == null) {
             return StringUtils.EMPTY;
         }
-        return (String) session.getAttribute("accountId");
+        return user.getAccountId();
     }
 
 }

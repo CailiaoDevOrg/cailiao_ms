@@ -83,19 +83,17 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-body">
-                            <!--<img src="assets/adminlte/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
                             <p>
-                                系统管理员
-                                <small>2012年1月1日注册</small>
+                                系统管理员<small>2012年1月1日注册</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">用户信息</a>
+                                <a href="javascript:void(0);" class="btn btn-default btn-flat" id="btnUserInfo">用户信息</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">注销</a>
+                                <a href="javascript:void(0);" class="btn btn-default btn-flat" id="btnSignOut">注销</a>
                             </div>
                         </li>
                     </ul>

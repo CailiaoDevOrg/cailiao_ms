@@ -45,17 +45,20 @@
     <script type="text/javascript" src="assets/adminlte/app.min.js"></script>
     <script type="text/javascript" src="assets/adminlte/jquery.slimscroll.min.js"></script>
     
-    <script type="text/javascript" src="assets/custom/home/sidebar_goto.js"></script>
-    
     <script type="text/javascript" src="assets/datatable/jquery.dataTables.js"></script>
     <script type="text/javascript" src="assets/datatable/dataTables.bootstrap.min.js"></script>
     
-    <!--<script type="text/javascript" src="/jquery-ui/jquery-ui.min.js"></script>-->
-    
     <script type="text/javascript" src="assets/datepicker/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="assets/datepicker/bootstrap-datepicker.zh-CN.js"></script>
+    
     <!--<script type="text/javascript" src="assets/fingerprint/fingerprint.js"></script>-->
     
+    <!-- page -->
+    <script type="text/javascript" src="assets/custom/home/sidebar_goto.js"></script>
+    <script type="text/javascript" src="assets/custom/home/header.js"></script>
+    
+    
+    <!-- util -->
     <script type="text/javascript" src="assets/custom/util/time.js"></script>
 
 </body>
