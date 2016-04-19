@@ -36,9 +36,9 @@ public class LoginServiceImpl implements LoginService {
     private RoleService roleService;
 
     @Override
-    public ApiResponse login(String accountId, String md5password, String checkcode) {
+    public ApiResponse login(User user, String checkcode) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
-        if (StringUtils.isBlank(accountId) || StringUtils.isBlank(md5password) || StringUtils.isBlank(checkcode)) {
+        if (user == null || StringUtils.isBlank(user.getAccountId()) || StringUtils.isBlank(user.getPassword()) || StringUtils.isBlank(checkcode)) {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
             return response;
         }
@@ -47,13 +47,13 @@ public class LoginServiceImpl implements LoginService {
             response.setRetCode(ApiResponseCode.CHECKCODE_ERROR);
             return response;
         }
-        User user = this.userDao.getUserByAccount(accountId);
-        if (user == null) {
+        User userInDB = this.userDao.getUserByAccount(user.getAccountId());
+        if (userInDB == null) {
             response.addBody("canLogin", false);
         } else {
-            if (user.getStatus() == UserConstant.Status.ACTIVE.value() && md5password.equals(user.getPassword())) {
+            if (userInDB.getStatus() == UserConstant.Status.ACTIVE.value() && user.getPassword().equals(userInDB.getPassword())) {
                 response.addBody("canLogin", true);
-                loadUserInfo(user, session);
+                loadUserInfo(userInDB, session);
             } else {
                 response.addBody("canLogin", false);
             }

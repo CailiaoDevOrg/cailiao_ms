@@ -1,15 +1,17 @@
-package com.whut.cailiao.impl.web.login;
+package com.whut.cailiao.impl.web.user;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.model.user.User;
 import com.whut.cailiao.api.service.user.LoginService;
-import com.whut.cailiao.impl.utils.http.HttpUtil;
 import com.whut.cailiao.impl.web.BaseController;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * Created by niuyang on 16/4/1.
@@ -33,7 +35,7 @@ public class LoginController extends BaseController {
     @RequestMapping(value = "/doLogin.html", method = RequestMethod.POST)
     @ResponseBody
     public String login(@RequestBody User user, @RequestParam String checkcode) {
-        ApiResponse response = this.loginService.login(user.getAccountId(), user.getPassword(), checkcode);
+        ApiResponse response = this.loginService.login(user, checkcode);
         return convertApiResponseToJSONString(response);
     }
 

@@ -52,6 +52,8 @@
 <script type="text/javascript" src="assets/crypto/core-min.js"></script>
 <script type="text/javascript" src="assets/crypto/md5-min.js"></script>
 
+<!-- <script type="text/javascript" src="assets/fingerprint/fingerprint.js"></script> -->
+
 <script type="text/javascript" src="assets/custom/login/login_page.js"></script>
 
 </body>

@@ -1,6 +1,7 @@
 (function($, CryptoJS) {
 
     $(function() {
+    	
     	function validateUserID(autofocus, flag) {
             if($('#inputUserId').val().trim() == '') {
                 $(".bg-danger, .username-tooltip").removeClass("hidden");
@@ -79,7 +80,7 @@
                 success : function(data) {
                 	data = JSON.parse(data);
                     if (data.retCode == 200 && data.body.canLogin == true) {
-                    	window.location.href = '/home.html';
+                    	window.location.href = '/main/home.html';
                     } else {
                     	if (data.retCode == 207) {
                     		alert("验证码输入错误");

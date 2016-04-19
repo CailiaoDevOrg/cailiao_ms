@@ -18,7 +18,7 @@ public class User implements Serializable {
     private String email;
 
     private int status;
-
+    
     private Set<Integer> privilegeIds;
 
     public String getAccountId() {
