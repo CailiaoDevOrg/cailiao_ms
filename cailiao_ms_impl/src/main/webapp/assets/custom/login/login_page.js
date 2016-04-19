@@ -41,16 +41,22 @@
         }
 
         $(".captcha-wrapper > a").on("click", function() {
-            var $img = $(this).find("img"), url = $img.attr("src");
+            loadCheckCode();
+            $(this).closest(".captcha-wrapper").find("input").focus().select();
+            return false;
+        });
+
+        function loadCheckCode() {
+            var $img = $("#checkcodeImg"), url = $img.attr("src");
             if(url.indexOf("_t=") > -1) {
                 url = url.replace(/_t=\d+/, "_t=" + (new Date()).getTime());
             } else {
                 url += (url.indexOf("?") > -1 ? "&" : "?") + "_t=" + (new Date()).getTime();
             }
             $img.attr("src", url);
-            $(this).closest(".captcha-wrapper").find("input").focus().select();
-            return false;
-        });
+        }
+
+        loadCheckCode();
 
         /*login*/
         $('.form-signin').on('submit', function() {
@@ -80,7 +86,12 @@
                     	} else {
                     		alert("用户名或密码错误");
                     	}
+                    	loadCheckCode();
                     }
+                },
+                error: function(data) {
+                    alert("用户名或密码错误");
+                    loadCheckCode();
                 }
             });
             return false;

@@ -35,7 +35,9 @@
         <label for="inputPassword" class="sr-only">Captcha</label>
         <div class="captcha-wrapper">
             <input type="text" name="captcha" id="captcha" class="form-control last" placeholder="Captcha" tabindex="3">
-            <a href="#"><img src="checkcode.html"></a>
+            <a>
+                <img src="checkcode.html" id="checkcodeImg">
+            </a>
         </div>
         <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" id="btnSignIn" tabindex="4" />
         <div class="bg-danger hidden">

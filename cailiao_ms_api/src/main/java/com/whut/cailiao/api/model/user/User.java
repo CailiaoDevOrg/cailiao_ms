@@ -8,7 +8,9 @@ import java.util.Set;
  */
 public class User implements Serializable {
 
-    private String accountId;
+	private static final long serialVersionUID = 1L;
+	
+	private String accountId;
     private String password;
     private String description;
 
