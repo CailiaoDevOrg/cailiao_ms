@@ -17,7 +17,7 @@
     <meta name="description" content="GENES">
     <meta name="author" content="WHUT">
     <!-- <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" /> -->
-    <title>GENES</title>
+    <title>后台管理系统</title>
     <!-- Bootstrap core CSS -->
     <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->

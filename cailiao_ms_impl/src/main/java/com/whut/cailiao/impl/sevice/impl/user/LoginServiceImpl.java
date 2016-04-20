@@ -74,7 +74,7 @@ public class LoginServiceImpl implements LoginService {
         }*/
         List<Integer> list = null;
         if ("admin".equals(user.getAccountId())) {
-            list = Arrays.asList(101, 102, 201, 301, 302, 303, 304, 305, 306, 307, 401, 402, 403, 404, 405, 406, 407, 408);
+            list = Arrays.asList(101, 102, 201, 301, 302, 303, 304, 305, 306, 307, 401, 402, 403, 404, 405, 406, 407, 408, 501);
         } else if ("user".equals(user.getAccountId())) {
             list = Arrays.asList(101, 102, 201);
         } else if ("news".equals(user.getAccountId())) {

@@ -41,6 +41,8 @@ public class PrivilegeIntercepter implements HandlerInterceptor {
         map.put(new Privilege("http://127.0.0.1:7878/wjt/deleteWJ/[1-9][0-9]*.html", "DELETE"), 406);
         map.put(new Privilege("http://127.0.0.1:7878/wjt/publishWJT/[1-9][0-9]*.html", "PUT"), 407);
         map.put(new Privilege("http://127.0.0.1:7878/wjt/getWJT/[1-9][0-9]*.html", "GET"), 408);
+        
+        map.put(new Privilege("http://127.0.0.1:7878/user/create.html", "GET"), 501);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.whut.cailiao.api.service.user;
 
+import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.model.user.Role;
+import com.whut.cailiao.api.model.user.User;
 
 import java.util.Set;
 
@@ -10,4 +12,13 @@ import java.util.Set;
 public interface UserService {
 
     Set<Role> getRolesByAccount(String accountId);
+    
+    ApiResponse getUserList(int factoryId);
+
+    ApiResponse deleteUserByAccountId(String accountId);
+
+    ApiResponse createNewUser(User user);
+
+    ApiResponse updateUser(User user);
+
 }

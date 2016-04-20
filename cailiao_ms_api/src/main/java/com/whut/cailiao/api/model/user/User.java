@@ -1,6 +1,7 @@
 package com.whut.cailiao.api.model.user;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Set;
 
 /**
@@ -19,9 +20,19 @@ public class User implements Serializable {
 
     private int status;
     
+    private Timestamp registerTime;
+    
     private Set<Integer> privilegeIds;
 
-    public String getAccountId() {
+    public Timestamp getRegisterTime() {
+		return registerTime;
+	}
+
+	public void setRegisterTime(Timestamp registerTime) {
+		this.registerTime = registerTime;
+	}
+
+	public String getAccountId() {
         return accountId;
     }
 

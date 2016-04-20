@@ -43,8 +43,8 @@
             <li class="treeview">
                 <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 用户管理</a>
                 <ul class="nav treeview-menu">
-                    <li><a href="javascript:void(0);">用户列表</a></li>
-                    <li><a href="javascript:void(0);">创建用户</a></li>
+                    <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/user/list.html">用户列表</a></li>
+                    <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/user/create.html">创建用户</a></li>
                     <!-- <li><a href="#">权限管理</a></li> -->
                 </ul>
             </li>

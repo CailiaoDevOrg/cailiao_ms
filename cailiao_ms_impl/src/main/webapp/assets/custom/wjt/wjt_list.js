@@ -21,7 +21,7 @@
                     { data: 'beginTime' },
                     { data: 'endTime' },
                     { data: 'status' },
-                    { title: 'ops' }
+                    { title: '操作' }
                 ],
                 columnDefs: [
                     {

@@ -7,7 +7,7 @@ public class UserConstant {
 
     public enum Status {
 
-        ACTIVE(1), DISABLED(2), BLACK(3);
+        ACTIVE(1), DISABLED(2);
 
         private int value;
 

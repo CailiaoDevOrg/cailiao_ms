@@ -57,8 +57,6 @@
             $img.attr("src", url);
         }
 
-        loadCheckCode();
-
         /*login*/
         $('.form-signin').on('submit', function() {
             if (!validateInput()) {

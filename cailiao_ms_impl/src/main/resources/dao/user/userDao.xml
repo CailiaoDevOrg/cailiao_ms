@@ -4,9 +4,60 @@
 
     <select id="getUserByAccount" parameterType="java.lang.String" resultType="User">
         SELECT
-            accountId, password, factoryId, email, status
+            accountId, description, password, factoryId, email, status, registerTime
         FROM tb_user
         WHERE accountId = #{accountId, jdbcType=VARCHAR}
     </select>
+    
+    <select id="getUserList" parameterType="java.lang.Integer" resultType="User">
+        SELECT
+            accountId, password, description, factoryId, email, status, registerTime
+        FROM tb_user
+        WHERE factoryId=#{factoryId, jdbcType=INTEGER}
+    </select>
 
+    <delete id="deleteUserByAccountId" parameterType="java.lang.String">
+        DELETE FROM tb_user WHERE accountId = #{accountId, jdbcType=VARCHAR}
+    </delete>
+
+    <insert id="createNewUser" parameterType="User">
+        INSERT INTO tb_user
+        (
+            accountId,
+            password,
+            description,
+            factoryId,
+            email,
+            status,
+            registerTime
+        )
+        VALUES
+        (
+            #{accountId, jdbcType=VARCHAR},
+            #{password, jdbcType=VARCHAR},
+            #{description, jdbcType=VARCHAR},
+            #{factoryId, jdbcType=INTEGER},
+            #{email, jdbcType=VARCHAR},
+            #{status, jdbcType=INTEGER},
+            #{registerTime, jdbcType=TIMESTAMP}
+        )
+    </insert>
+    
+    <update id="updateUser" parameterType="User">
+        UPDATE tb_user
+        <set>
+            <if test="description != null and description != '' ">
+                description = #{description, jdbcType=VARCHAR},
+            </if>
+            <if test="password != null and password != '' ">
+                password = #{password, jdbcType=VARCHAR},
+            </if>
+            <if test="email != null and email != '' ">
+                email = #{email, jdbcType=VARCHAR},
+            </if>
+            status = #{status, jdbcType=INTEGER}
+        </set>
+        WHERE accountId = #{accountId, jdbcType=VARCHAR}
+    </update>
+    
 </mapper>

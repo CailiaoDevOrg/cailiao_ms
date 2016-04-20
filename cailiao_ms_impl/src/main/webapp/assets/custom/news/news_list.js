@@ -22,7 +22,7 @@
                     { data: 'endTime' },
                     { data: 'publishedTime' },
                     { data: 'status' },
-                    { title: 'ops' }
+                    { title: '操作' }
                 ],
                 columnDefs: [
                     {
