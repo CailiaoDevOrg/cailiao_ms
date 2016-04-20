@@ -24,6 +24,20 @@ public class User implements Serializable {
     
     private Set<Integer> privilegeIds;
 
+    public User() {
+    }
+
+    public User(User user) {
+        if (user != null) {
+            this.accountId = user.accountId;
+            this.description = user.description;
+            this.factoryId = user.factoryId;
+            this.email = user.email;
+            this.status = user.status;
+            this.registerTime = user.registerTime;
+        }
+    }
+
     public Timestamp getRegisterTime() {
 		return registerTime;
 	}
@@ -87,4 +101,5 @@ public class User implements Serializable {
     public void setPrivilegeIds(Set<Integer> privilegeIds) {
         this.privilegeIds = privilegeIds;
     }
+
 }

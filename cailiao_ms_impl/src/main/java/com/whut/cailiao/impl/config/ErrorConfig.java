@@ -11,7 +11,7 @@ import java.util.Properties;
  */
 @Configuration
 public class ErrorConfig {
-    
+
     @Bean
     public SimpleMappingExceptionResolver handlerExceptionResolver() {
         SimpleMappingExceptionResolver handlerExceptionResolver = new SimpleMappingExceptionResolver();
@@ -20,4 +20,5 @@ public class ErrorConfig {
         handlerExceptionResolver.setExceptionMappings(exceptionMappings);
         return handlerExceptionResolver;
     }
+
 }

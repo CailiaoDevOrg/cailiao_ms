@@ -27,7 +27,7 @@ public class UserController extends BaseController {
     @RequestMapping(value = "/info.html", method = RequestMethod.GET)
     @ResponseBody
     public String getUser() {
-        User user = getUserInfo();
+        User user = new User(getUserInfo());
         return JSON.toJSONString(user);
     }
     
