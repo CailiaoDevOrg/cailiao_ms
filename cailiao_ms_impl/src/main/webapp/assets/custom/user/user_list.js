@@ -43,16 +43,16 @@
                 ]
             });
             
-            $('#newsTable tbody').on('click', 'button.btn-delete', function() {
+            $('#usersTable tbody').on('click', 'button.btn-delete', function() {
                 var accountId = $(this).data('id');
                 $.ajax({
-                    url: '/user/deleteUser/' + accountId + '.html',
+                    url: '/user/delete/' + accountId + '.html',
                     method: 'DELETE',
                     success: function(data) {
                     	data = JSON.parse(data);
                     	if (data.retCode == 200) {
                             alert('删除成功');
-                            $('.mainContent').load('/user/list.html');
+                            $('.mainContent')s.load('/user/list.html');
                     	} else {
                     		alert('系统忙，请稍后重试');
                     	}
@@ -63,7 +63,7 @@
                 });
             });
 
-            $('#newsTable tbody').on('click', 'button.btn-modify', function() {
+            $('#usersTable tbody').on('click', 'button.btn-modify', function() {
                 var id = $(this).data('id');
                 $.ajax({
                     url: '/news/detail/' + id + '.html',
