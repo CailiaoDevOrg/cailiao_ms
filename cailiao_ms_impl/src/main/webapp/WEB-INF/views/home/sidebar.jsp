@@ -50,8 +50,8 @@
             <li class="treeview">
                 <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 权限管理</a>
                 <ul class="nav treeview-menu">
-                    <li><a href="javascript:void(0);">权限列表</a></li>
-                    <li><a href="javascript:void(0);">新建权限</a></li>
+                    <li><a href="javascript:void(0);">接口列表</a></li>
+                    <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/privilege/create.html">新建接口</a></li>
                     <li><a href="javascript:void(0);">角色列表</a></li>
                     <li><a href="javascript:void(0);">新建角色</a></li>
                 </ul>
