@@ -6,46 +6,35 @@
 
     <div class="content body">
         <p class="lead">您可以创建新的REST访问接口.</p>
-        <a class="btn btn-primary" id="showNewsList">查看接口列表</a><br/><br/>
+        <a class="btn btn-primary" id="showInterfaceList">查看接口列表</a><br/><br/>
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">填写新闻信息</h3>
+                        <h3 class="box-title">填写接口信息</h3>
                     </div>
                     <form role="form">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="title">标题</label>
-                                <input type="text" class="form-control" id="title" placeholder="请输入新闻标题">
+                                <label for="url">接口地址</label>
+                                <input type="text" class="form-control" id="url" placeholder="请输入REST接口的url">
                             </div>
                             <div class="form-group">
-                                <label for="content">内容</label>
-                                <input type="text" class="form-control" id="content" placeholder="请输入新闻内容">
+                                <label for="method">方法类型</label>
+                                <div id="method">
+                                    <input type="checkbox" value="GET" name="method"> GET
+                                    <input type="checkbox" value="POST" name="method"> POST
+                                    <input type="checkbox" value="PUT" name="method"> PUT
+                                    <input type="checkbox" value="DELETE" name="method"> DELETE
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="url">跳转地址</label>
-                                <input type="text" class="form-control" id="url" placeholder="请输入新闻点击跳转地址">
-                            </div>
-                            <div class="form-group">
-                                <label for="level">重要等级</label>
-                                <select class="form-control" id="level">
-                                    <option value="3">重要</option>
-                                    <option value="2">临时</option>
-                                    <option value="1">普通</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="beginTime">生效时间</label>
-                                <input type="text" class="form-control form_datetime" id="beginTime" placeholder="请选择新闻生效时间" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="endTime">失效时间</label>
-                                <input type="text" class="form-control form_datetime" id="endTime" placeholder="请选择新闻失效时间" readonly>
+                                <label for="description">接口描述</label>
+                                <input type="text" class="form-control" id="description" placeholder="请输入接口的描述信息">
                             </div>
                         </div>
                         <div class="box-footer">
-                            <input type="button" class="btn btn-primary" id="submit" value="发布">
+                            <input type="button" class="btn btn-primary" id="submit" value="创建">
                         </div>
                     </form>
                 </div>
@@ -54,4 +43,4 @@
     </div>
 </div>
 
-<script type="text/javascript" src="assets/custom/news/news_create.js"></script>
+<script type="text/javascript" src="assets/custom/privilege/privilege_create.js"></script>

@@ -1,18 +1,35 @@
 package com.whut.cailiao.api.model.user;
 
+import java.io.Serializable;
+
 /**
  * Created by gammaniu on 16/4/18.
  */
-public class Privilege {
+public class Privilege implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
-    private Integer id;
+	private Integer id;
 
     private String url; // 请求
     private String method; // 请求方法
 
+    private String description;
+
+    public Privilege() {
+    }
+
     public Privilege(String url, String method) {
         this.url = url;
         this.method = method;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getId() {

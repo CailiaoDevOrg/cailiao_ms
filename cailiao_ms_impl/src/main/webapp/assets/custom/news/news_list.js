@@ -62,7 +62,7 @@
                         render: function(data, type, full) {
                             return $$.formatTime(data);
                         }
-                    },
+                    }
                 ]
             });
             

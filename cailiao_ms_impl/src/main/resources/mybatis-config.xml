@@ -6,6 +6,7 @@
         <typeAlias type="com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate" alias="QuestionnaireTemplate"/>
         <typeAlias type="com.whut.cailiao.api.model.news.News" alias="News"/>
         <typeAlias type="com.whut.cailiao.api.model.user.User" alias="User"/>
+        <typeAlias type="com.whut.cailiao.api.model.user.Privilege" alias="Privilege"/>
     </typeAliases>
     <mappers>
         <mapper resource="dao/questionnaire/questionnaireContentDao.xml"/>
@@ -13,5 +14,6 @@
         <mapper resource="dao/questionnaire/questionnaireTemplateEditDao.xml"/>
         <mapper resource="dao/news/newsDao.xml"/>
         <mapper resource="dao/user/userDao.xml"/>
+        <mapper resource="dao/privilege/privilegeDao.xml"/>
     </mappers>
 </configuration>
