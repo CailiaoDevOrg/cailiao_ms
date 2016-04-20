@@ -25,15 +25,15 @@
                     </div>
                 </div>
             </div> -->
-            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-green">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-green" id="userManageTile">
                     <span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">用户管理</span>
                         <span class="info-box-number"></span>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-blue">
                     <span class="info-box-icon bg-blue"><i class="fa fa-search"></i></span>

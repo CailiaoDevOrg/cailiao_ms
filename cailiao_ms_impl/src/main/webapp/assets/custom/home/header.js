@@ -32,6 +32,11 @@
 		$('#btnSignOut').on('click', function() {
 			window.location.href = '/signout.html';
 		});
+		
+		$('#logo').on('click', function() {
+			$('.mainContent').load('/main/dashboard.html');
+		});
+		
 	});
 	
 })(jQuery);

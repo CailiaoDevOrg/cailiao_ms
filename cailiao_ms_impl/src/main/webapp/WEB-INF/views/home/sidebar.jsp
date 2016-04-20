@@ -45,7 +45,15 @@
                 <ul class="nav treeview-menu">
                     <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/user/list.html">用户列表</a></li>
                     <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/user/create.html">创建用户</a></li>
-                    <!-- <li><a href="#">权限管理</a></li> -->
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 权限管理</a>
+                <ul class="nav treeview-menu">
+                    <li><a href="javascript:void(0);">权限列表</a></li>
+                    <li><a href="javascript:void(0);">新建权限</a></li>
+                    <li><a href="javascript:void(0);">角色列表</a></li>
+                    <li><a href="javascript:void(0);">新建角色</a></li>
                 </ul>
             </li>
         </ul>

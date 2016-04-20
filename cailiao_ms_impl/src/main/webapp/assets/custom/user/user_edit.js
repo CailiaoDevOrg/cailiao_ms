@@ -13,7 +13,6 @@
                         status: $('#status').val(),
                         factoryId: $('#factoryId').val()
                     };
-                    alert(JSON.stringify(data));
                     $.ajax({
                         url: '/user/update.html',
                         method: 'PUT',
