@@ -52,7 +52,7 @@
                     	data = JSON.parse(data);
                     	if (data.retCode == 200) {
                             alert('删除成功');
-                            $('.mainContent')s.load('/user/list.html');
+                            $('.mainContent').load('/user/list.html');
                     	} else {
                     		alert('系统忙，请稍后重试');
                     	}
