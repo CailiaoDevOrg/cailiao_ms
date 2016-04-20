@@ -17,6 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -63,10 +66,24 @@ public class LoginServiceImpl implements LoginService {
 
     private void loadUserInfo(User user, HttpSession session) {
         // 加载用户权限
-        Set<Role> roles = this.userService.getRolesByAccount(user.getAccountId());
+        /*Set<Role> roles = this.userService.getRolesByAccount(user.getAccountId());
         Set<Privilege> privileges = this.roleService.getPrivilegesByRoleId(roles);
         if (CollectionUtils.isNotEmpty(privileges)) {
             Set<Integer> privilegeIds = privileges.stream().map(Privilege::getId).collect(Collectors.toSet());
+            user.setPrivilegeIds(privilegeIds);
+        }*/
+        List<Integer> list = null;
+        if ("admin".equals(user.getAccountId())) {
+            list = Arrays.asList(101, 102, 201, 301, 302, 303, 304, 305, 306, 307, 401, 402, 403, 404, 405, 406, 407, 408);
+        } else if ("user".equals(user.getAccountId())) {
+            list = Arrays.asList(101, 102, 201);
+        } else if ("news".equals(user.getAccountId())) {
+            list = Arrays.asList(101, 102, 201, 301, 302, 303, 304, 305, 306, 307);
+        } else if ("wjt".equals(user.getAccountId())) {
+            list = Arrays.asList(101, 102, 201, 401, 402, 403, 404, 405, 406, 407, 408);
+        }
+        if (CollectionUtils.isNotEmpty(list)) {
+            Set<Integer> privilegeIds = new HashSet<>(list);
             user.setPrivilegeIds(privilegeIds);
         }
         // 保存在session当中

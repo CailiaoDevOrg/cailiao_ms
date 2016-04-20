@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value = { "/login.html", "/" })
+    @RequestMapping(value = { "/login.html", "/" }, method = RequestMethod.GET)
     public String index() {
         return "login/login";
     }

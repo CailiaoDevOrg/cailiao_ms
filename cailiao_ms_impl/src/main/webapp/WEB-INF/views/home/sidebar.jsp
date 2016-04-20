@@ -9,7 +9,7 @@
                 <a href="javascript:void(0);" class="sidemenu" data-navigate="/main/dashboard.html"><i class="fa fa-circle-o"></i> 主面板</a>
             </li>
             <li class="treeview">
-                <a href="javascript:void(0);"><i class="fa fa-circle-o"></i> 消息与通知</a>
+                <a href="javascript:void(0);"><i class="fa fa-circle-o"></i> 新闻与通知</a>
                 <ul class="nav treeview-menu">
                     <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/news/list.html">新闻中心</a></li>
                     <!--<li><a href="#">通知中心</a></li>
@@ -24,7 +24,7 @@
                 </ul>
             </li> -->
             <li class="treeview">
-                <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 问卷调查</a>
+                <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 问卷模板管理</a>
                 <ul class="nav treeview-menu">
                     <li><a href="javascript:void(0)" class="sidemenu" data-navigate="/wjt/create.html">新建问卷模板</a></li>
                     <li><a href="javascript:void(0)" class="sidemenu" data-navigate="/wjt/list.html">问卷模板列表</a></li>
@@ -40,14 +40,14 @@
                     <li><a href="#">系统邮箱管理</a></li>
                 </ul>
             </li>-->
-            <!--<li class="treeview">
+            <li class="treeview">
                 <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 用户管理</a>
                 <ul class="nav treeview-menu">
-                    <li><a href="#">用户管理</a></li>
-                    <li><a href="#">权限管理</a></li>
-                    <li><a href="#"></a></li>
+                    <li><a href="javascript:void(0);">用户列表</a></li>
+                    <li><a href="javascript:void(0);">创建用户</a></li>
+                    <!-- <li><a href="#">权限管理</a></li> -->
                 </ul>
-            </li>-->
+            </li>
         </ul>
     </div>
     <!-- /.sidebar -->

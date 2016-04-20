@@ -36,7 +36,7 @@
     <jsp:include page="sidebar.jsp"></jsp:include>
     
     <div class="mainContent">
-        <jsp:include page="dashboard.jsp"></jsp:include>
+
     </div>
     
     <!-- CORE js -->
