@@ -21,4 +21,6 @@ public interface UserService {
 
     ApiResponse updateUser(User user);
 
+    ApiResponse getUserByAccountId(String accountId);
+
 }

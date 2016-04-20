@@ -64,23 +64,8 @@
             });
 
             $('#usersTable tbody').on('click', 'button.btn-modify', function() {
-                var id = $(this).data('id');
-                $.ajax({
-                    url: '/news/detail/' + id + '.html',
-                    method: 'GET',
-                    success: function(data) {
-                        data = JSON.parse(data);
-                        if (data.retCode == 200) {
-                            // 添加UI
-                            alert(JSON.stringify(data.body));
-                        } else {
-                            alert('系统忙，请稍后重试');
-                        }
-                    },
-                    error: function(data) {
-                        alert('网络出现问题，请稍后重试');
-                    }
-                });
+                var accountId = $(this).data('id');
+                $('.mainContent').load('/user/edit/' + accountId + '.html');
             });
 
         })();

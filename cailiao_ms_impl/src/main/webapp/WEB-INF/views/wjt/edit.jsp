@@ -49,4 +49,4 @@
     </div>
 </div>
 
-<script type="text/javascript" src="assets/custom/wjt/wjt_edit.js"></script>
+<script type="text/javascript" src="assets/custom/user/user_edit.js"></script>

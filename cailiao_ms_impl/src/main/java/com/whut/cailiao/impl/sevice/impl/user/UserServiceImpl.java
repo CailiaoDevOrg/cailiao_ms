@@ -73,6 +73,17 @@ public class UserServiceImpl implements UserService {
         return response;
     }
 
+    @Override
+    public ApiResponse getUserByAccountId(String accountId) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (StringUtils.isBlank(accountId)) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
+        response.addBody("user", this.userDao.getUserByAccount(accountId));
+        return response;
+    }
+
     private boolean validateUserBean(User user, boolean isCreate) {
         if (user == null
                 || StringUtils.isBlank(user.getAccountId())
@@ -84,9 +95,6 @@ public class UserServiceImpl implements UserService {
                     || StringUtils.isBlank(user.getEmail())
                     || StringUtils.isBlank(user.getPassword()))) {
                 return false;
-        }
-        if (!isCreate && user.getRegisterTime() == null) {
-            return false;
         }
         return true;
 

@@ -2,12 +2,17 @@ package com.whut.cailiao.impl.web.user;
 
 import com.alibaba.fastjson.JSON;
 import com.whut.cailiao.api.commons.ApiResponse;
+import com.whut.cailiao.api.commons.ApiResponseCode;
 import com.whut.cailiao.api.model.user.User;
 import com.whut.cailiao.api.service.user.UserService;
+import com.whut.cailiao.impl.utils.bean.BeanHelper;
 import com.whut.cailiao.impl.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * Created by gammaniu on 16/4/19.
@@ -58,10 +63,30 @@ public class UserController extends BaseController {
         return convertApiResponseToJSONString(response);
     }
 
+    @RequestMapping(value = "/edit/{accountId}.html", method = RequestMethod.GET)
+    public String renderEditPage(@PathVariable String accountId, Model model) {
+        ApiResponse response = this.userService.getUserByAccountId(accountId);
+        if (response.getRetCode() == ApiResponseCode.SUCCESS) {
+            User user = (User) response.getData("user");
+            if (user == null) {
+                return "user/list";
+            } else {
+                user.setPassword("*****");
+                user.setPrivilegeIds(null);
+                Map<String, Object> objMap = BeanHelper.convertObjToMap(user);
+                model.addAllAttributes(objMap);
+                return "user/edit";
+            }
+        }
+        return "user/list";
+    }
+
     @RequestMapping(value = "/update.html", method = RequestMethod.PUT)
     @ResponseBody
     public String update(@RequestBody User user) {
         ApiResponse response = this.userService.updateUser(user);
         return convertApiResponseToJSONString(response);
     }
+
+
 }
