@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @Configuration
  * @EnableAutoConfiguration
  * @ComponentScan
+ * 测试时请注释掉ImportResource
  */
 @EnableCaching
 @EnableTransactionManagement
