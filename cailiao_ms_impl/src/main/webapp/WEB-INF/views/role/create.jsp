@@ -26,10 +26,7 @@
                             <div class="form-group">
                                 <label for="privilegeList">访问接口</label>
                                 <div id="privilegeList">
-                                    <!--<input type="checkbox" value="GET" name="privilege"> GET
-                                    <input type="checkbox" value="POST" name="privilege"> POST
-                                    <input type="checkbox" value="PUT" name="privilege"> PUT
-                                    <input type="checkbox" value="DELETE" name="privilege"> DELETE-->
+                                    
                                 </div>
                             </div>
                         </div>

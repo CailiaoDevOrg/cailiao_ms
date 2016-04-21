@@ -7,6 +7,8 @@
         <typeAlias type="com.whut.cailiao.api.model.news.News" alias="News"/>
         <typeAlias type="com.whut.cailiao.api.model.user.User" alias="User"/>
         <typeAlias type="com.whut.cailiao.api.model.user.Privilege" alias="Privilege"/>
+        <typeAlias type="com.whut.cailiao.api.model.user.Role" alias="Role"/>
+        <typeAlias type="com.whut.cailiao.api.model.user.RolePrivilege" alias="RolePrivilege"/>
     </typeAliases>
     <mappers>
         <mapper resource="dao/questionnaire/questionnaireContentDao.xml"/>
@@ -15,5 +17,7 @@
         <mapper resource="dao/news/newsDao.xml"/>
         <mapper resource="dao/user/userDao.xml"/>
         <mapper resource="dao/privilege/privilegeDao.xml"/>
+        <mapper resource="dao/privilege/roleDao.xml"/>
+        <mapper resource="dao/privilege/rolePrivilegeDao.xml"/>
     </mappers>
 </configuration>

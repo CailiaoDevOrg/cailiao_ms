@@ -13,7 +13,7 @@ public class Role implements Serializable {
     private String name;
     private String description;
 
-    private Set<Privilege> privileges;
+    private Set<Integer> privilegeIds;
 
     public Integer getId() {
         return id;
@@ -39,12 +39,21 @@ public class Role implements Serializable {
         this.description = description;
     }
 
-    public Set<Privilege> getPrivileges() {
-        return privileges;
+    public Set<Integer> getPrivilegeIds() {
+        return privilegeIds;
     }
 
-    public void setPrivileges(Set<Privilege> privileges) {
-        this.privileges = privileges;
+    public void setPrivilegeIds(Set<Integer> privilegeIds) {
+        this.privilegeIds = privilegeIds;
     }
 
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", privilegeIds=" + privilegeIds +
+                '}';
+    }
 }

@@ -3,11 +3,9 @@ package com.whut.cailiao.impl.sevice.impl.user;
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.commons.ApiResponseCode;
 import com.whut.cailiao.api.constant.UserConstant;
-import com.whut.cailiao.api.model.user.Privilege;
-import com.whut.cailiao.api.model.user.Role;
 import com.whut.cailiao.api.model.user.User;
 import com.whut.cailiao.api.service.user.LoginService;
-import com.whut.cailiao.api.service.user.RoleService;
+import com.whut.cailiao.api.service.privilege.RoleService;
 import com.whut.cailiao.api.service.user.UserService;
 import com.whut.cailiao.impl.dao.user.UserDao;
 import com.whut.cailiao.impl.utils.http.HttpUtil;
@@ -21,7 +19,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * Created by gammaniu on 16/4/18.

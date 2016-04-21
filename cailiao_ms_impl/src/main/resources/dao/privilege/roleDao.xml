@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whut.cailiao.impl.dao.privilege.RoleDao">
+
+    <insert id="createNewRole" parameterType="Role">
+        INSERT INTO tb_role
+        (
+            name,
+            description
+        )
+        VALUES
+        (
+            #{name, jdbcType=VARCHAR},
+            #{description, jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <select id="selectRoleByName" parameterType="java.lang.String" resultType="Role">
+        SELECT id, name, description FROM tb_role WHERE name=#{name, jdbcType=VARCHAR}
+    </select>
+
+</mapper>

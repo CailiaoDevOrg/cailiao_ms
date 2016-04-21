@@ -43,6 +43,42 @@
         	$div.append($table);
         }
 
+        $('#submit').on('click', function() {
+        	$.ajax({
+                url: '/role/create.html',
+                method: 'POST',
+                data: JSON.stringify(getFormData()),
+                contentType: 'application/json',
+                success: function(data) {
+                	data = JSON.parse(data);
+                	if (data.retCode == 200) {
+                        alert('新建成功');
+                        // $('.mainContent').load('/news/list.html');
+                	} else {
+                		alert('系统忙，请稍后重试');
+                	}
+                },
+                error: function(data) {
+                	alert('网络出现问题，请稍后重试');
+                }
+            });
+        });
+
+        function getFormData() {
+        	var name = $('#name').val();
+        	var description = $('#description').val();
+        	var privilegeList = [];
+        	$('input[name=privilege]:checked').each(function() {
+				privilegeList.push($(this).val());
+			});
+			var data = {
+				name: name,
+				description: description,
+				privilegeIds: privilegeList
+			}
+			return data;
+        }
+
 	});
 
 })(jQuery);
