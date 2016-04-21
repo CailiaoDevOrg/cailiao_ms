@@ -4,17 +4,17 @@
 
         (function() {
             
-            _registerDatePicker([$('#beginTime'), $('#endTime')]);
-            var objArr = [$('#name'), $('#desc'), $('#pageUrl'), $('#beginTime'), $('#endTime')];
+            _registerDatePicker([$('#beginTime'), $('#endTime')]);            
             $('#submit').on('click', function() {
-                if (_validIsNotNull(objArr)) {
-                    var data = {
+                var data = {
                         name: $('#name').val(),
                         description: $('#desc').val(),
                         beginTime: $('#beginTime').val(),
                         endTime: $('#endTime').val(),
                         templateUrl: $('#pageUrl').val()
                     };
+                if (_validIsNotNull(data)) {
+                    
                     $.ajax({
                         url: '/wjt/saveTemp.html',
                         method: 'POST',
@@ -53,16 +53,31 @@
             }
         }
         
-        function _validIsNotNull(jQueryObjArr) {
-            if ($.isArray(jQueryObjArr)) {
-                for (var i = 0, len = jQueryObjArr.length; i < len; i++) {
-                    if (jQueryObjArr[i].val() === '' || jQueryObjArr[i].val() === undefined) {
-                        return false;
-                    }
-                }
-                return true;
+        function _validIsNotNull(data) {
+            if (data==undefined) {
+                return false;
+            };
+            if(data.name==undefined||data.name==""){
+                alert('您输入的问卷模板的名称不能为空');
+                return false;
+            }else if(data.desc==undefined||data.desc==""){
+                alert('您输入的问卷模板的描述不能为空');
+                return false;
+            }else if(data.beginTime==undefined||data.beginTime==""){
+                alert('生效时间不能为空');
+                return false;
+            }else if(data.endTime==undefined||data.endTime==""){
+                alert('失效时间不能为空');
+                return false;
+            }else if(data.pageUrl==undefined||data.pageUrl==""){
+                alert('pageUrl不能为空');
+                return false;
+            }else if(data.beginTime>data.endTime){
+                alert();
+                return false;
             }
-            return false;
+              return true;
+
         }
         
     });
