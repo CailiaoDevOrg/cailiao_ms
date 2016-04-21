@@ -5,6 +5,7 @@ import com.whut.cailiao.api.commons.ApiResponseCode;
 import com.whut.cailiao.api.model.privilege.Privilege;
 import com.whut.cailiao.api.service.privilege.PrivilegeService;
 import com.whut.cailiao.impl.dao.privilege.PrivilegeDao;
+import com.whut.cailiao.impl.dao.privilege.RolePrivilegeDao;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class PrivilegeServiceImpl implements PrivilegeService {
 
     @Autowired
     private PrivilegeDao privilegeDao;
+
+    @Autowired
+    private RolePrivilegeDao rolePrivilegeDao;
 
     @Transactional
     @Override
@@ -52,6 +56,7 @@ public class PrivilegeServiceImpl implements PrivilegeService {
         return response;
     }
 
+    @Transactional
     @Override
     public ApiResponse deleteById(int id) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
@@ -60,6 +65,7 @@ public class PrivilegeServiceImpl implements PrivilegeService {
             return response;
         }
         this.privilegeDao.deleteById(id);
+        this.rolePrivilegeDao.deleteByPrivilegeId(id);
         return response;
     }
 }

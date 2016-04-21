@@ -23,4 +23,8 @@
         SELECT id, roleId, privilegeId FROM tb_role_privilege WHERE roleId=#{roleId, jdbcType=INTEGER}
     </select>
 
+    <delete id="deleteByPrivilegeId" parameterType="java.lang.Integer">
+        DELETE FROM tb_role_privilege WHERE privilegeId=#{privilegeId, jdbcType=INTEGER}
+    </delete>
+
 </mapper>

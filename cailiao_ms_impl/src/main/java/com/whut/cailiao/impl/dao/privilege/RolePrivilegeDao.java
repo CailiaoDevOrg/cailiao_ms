@@ -15,4 +15,6 @@ public interface RolePrivilegeDao {
 
     List<RolePrivilege> getRolePrivilegeMapEntryListByRoleId(int roleId);
 
+    void deleteByPrivilegeId(int privilegeId);
+
 }
