@@ -1,12 +1,11 @@
 package com.whut.cailiao.impl.web.privilege;
 
 import com.whut.cailiao.api.commons.ApiResponse;
-import com.whut.cailiao.api.model.user.Privilege;
+import com.whut.cailiao.api.model.privilege.Privilege;
 import com.whut.cailiao.api.service.privilege.PrivilegeService;
 import com.whut.cailiao.impl.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

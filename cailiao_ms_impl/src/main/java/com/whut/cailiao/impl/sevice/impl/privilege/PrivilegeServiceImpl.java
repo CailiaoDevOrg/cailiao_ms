@@ -2,10 +2,9 @@ package com.whut.cailiao.impl.sevice.impl.privilege;
 
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.commons.ApiResponseCode;
-import com.whut.cailiao.api.model.user.Privilege;
+import com.whut.cailiao.api.model.privilege.Privilege;
 import com.whut.cailiao.api.service.privilege.PrivilegeService;
 import com.whut.cailiao.impl.dao.privilege.PrivilegeDao;
-import com.whut.cailiao.impl.exception.TransactionExecuteException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

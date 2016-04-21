@@ -2,10 +2,12 @@ package com.whut.cailiao.impl.sevice.impl.privilege;
 
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.commons.ApiResponseCode;
-import com.whut.cailiao.api.model.user.Privilege;
-import com.whut.cailiao.api.model.user.Role;
-import com.whut.cailiao.api.model.user.RolePrivilege;
+import com.whut.cailiao.api.model.privilege.Privilege;
+import com.whut.cailiao.api.model.privilege.Role;
+import com.whut.cailiao.api.model.privilege.RoleEditData;
+import com.whut.cailiao.api.model.privilege.RolePrivilege;
 import com.whut.cailiao.api.service.privilege.RoleService;
+import com.whut.cailiao.impl.dao.privilege.PrivilegeDao;
 import com.whut.cailiao.impl.dao.privilege.RoleDao;
 import com.whut.cailiao.impl.dao.privilege.RolePrivilegeDao;
 import com.whut.cailiao.impl.exception.TransactionExecuteException;
@@ -15,7 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by gammaniu on 16/4/18.
@@ -28,6 +32,10 @@ public class RoleServiceImpl implements RoleService {
 
     @Autowired
     private RolePrivilegeDao rolePrivilegeDao;
+
+    @Autowired
+    private PrivilegeDao privilegeDao;
+
 
     @Override
     public Set<Privilege> getPrivilegesByRoleId(Set<Role> roles) {
@@ -73,6 +81,29 @@ public class RoleServiceImpl implements RoleService {
         }
         this.roleDao.deleteById(id);
         this.rolePrivilegeDao.deleteByRoleId(id);
+        return response;
+    }
+
+    @Override
+    public ApiResponse getRoleEditData(int id) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (id <= 0) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
+        Role role = this.roleDao.selectRoleById(id);
+        if (role == null) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
+        List<RolePrivilege> rolePrivilegeMapEntryList = this.rolePrivilegeDao.getRolePrivilegeMapEntryListByRoleId(id);
+        if (CollectionUtils.isNotEmpty(rolePrivilegeMapEntryList)) {
+            Set<Integer> privilegeIds = rolePrivilegeMapEntryList.stream().map(RolePrivilege::getId).collect(Collectors.toSet());
+            role.setPrivilegeIds(privilegeIds);
+        }
+        List<Privilege> privilegeList = this.privilegeDao.getPrivilegeList();
+        RoleEditData roleEditData = new RoleEditData(role, privilegeList);
+        response.addBody("roleEditData", roleEditData);
         return response;
     }
 }
