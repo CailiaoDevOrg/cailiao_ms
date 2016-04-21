@@ -29,7 +29,7 @@
                         data: 'id',
                         render: function(data, type, full) {
                             return '<button class="btn btn-primary btn-xs btn-edit" data-id="' + data + '">编辑</button>\
-                                    <button class="btn btn-primary btn-xs btn-delete" data-id="' + data + '">删除</button>\
+                                    <button class="btn btn-danger btn-xs btn-delete" data-id="' + data + '">删除</button>\
                                     <button class="btn btn-primary btn-xs btn-publish" data-id="' + data + '">发布</button>';
                         }
                     },
