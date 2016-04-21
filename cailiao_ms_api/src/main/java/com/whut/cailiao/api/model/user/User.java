@@ -21,6 +21,8 @@ public class User implements Serializable {
     private int status;
     
     private Timestamp registerTime;
+
+    private Set<Integer> roleIds;
     
     private Set<Integer> privilegeIds;
 
@@ -36,6 +38,14 @@ public class User implements Serializable {
             this.status = user.status;
             this.registerTime = user.registerTime;
         }
+    }
+
+    public Set<Integer> getRoleIds() {
+        return roleIds;
+    }
+
+    public void setRoleIds(Set<Integer> roleIds) {
+        this.roleIds = roleIds;
     }
 
     public Timestamp getRegisterTime() {

@@ -55,9 +55,6 @@ public class RoleServiceImpl implements RoleService {
         if (CollectionUtils.isNotEmpty(privilegeIds)) {
             Role roleInDB = this.roleDao.selectRoleByName(role.getName());
             for (Integer privilegeId : privilegeIds) {
-                if (privilegeId == null) {
-                    throw new TransactionExecuteException();
-                }
                 this.rolePrivilegeDao.createNewRolePrivilegeMapEntry(new RolePrivilege(roleInDB.getId(), privilegeId));
             }
         }

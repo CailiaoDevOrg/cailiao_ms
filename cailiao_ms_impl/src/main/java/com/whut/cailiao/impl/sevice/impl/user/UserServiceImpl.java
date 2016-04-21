@@ -4,12 +4,16 @@ import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.commons.ApiResponseCode;
 import com.whut.cailiao.api.constant.UserConstant;
 import com.whut.cailiao.api.model.privilege.Role;
+import com.whut.cailiao.api.model.privilege.UserRole;
 import com.whut.cailiao.api.model.user.User;
 import com.whut.cailiao.api.service.user.UserService;
+import com.whut.cailiao.impl.dao.privilege.UserRoleDao;
 import com.whut.cailiao.impl.dao.user.UserDao;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.util.Set;
@@ -22,6 +26,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private UserRoleDao userRoleDao;
 
     @Override
     public Set<Role> getRolesByAccount(String accountId) {
@@ -50,12 +57,19 @@ public class UserServiceImpl implements UserService {
         return response;
     }
 
+    @Transactional
     @Override
     public ApiResponse createNewUser(User user) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
         if (validateUserBean(user, true)) {
         	user.setRegisterTime(new Timestamp(System.currentTimeMillis()));
             this.userDao.createNewUser(user);
+            Set<Integer> roleIds = user.getRoleIds();
+            if (CollectionUtils.isNotEmpty(roleIds)) {
+                for (Integer roleId : roleIds) {
+                    this.userRoleDao.createUserRoleMapEntry(new UserRole(user.getAccountId(), roleId));
+                }
+            }
         } else {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
         }

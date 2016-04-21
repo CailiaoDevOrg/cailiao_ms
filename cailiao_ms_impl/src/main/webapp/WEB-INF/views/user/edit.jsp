@@ -41,6 +41,12 @@
                                     <option value="1">1</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="roleList">选择用户角色</label>
+                                <div id="roleList">
+                                    
+                                </div>
+                            </div>
                         </div>
                         <div class="box-footer">
                             <input type="button" class="btn btn-primary" id="submit" value="更新用户信息">

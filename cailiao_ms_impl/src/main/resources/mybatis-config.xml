@@ -9,6 +9,7 @@
         <typeAlias type="com.whut.cailiao.api.model.privilege.Privilege" alias="Privilege"/>
         <typeAlias type="com.whut.cailiao.api.model.privilege.Role" alias="Role"/>
         <typeAlias type="com.whut.cailiao.api.model.privilege.RolePrivilege" alias="RolePrivilege"/>
+        <typeAlias type="com.whut.cailiao.api.model.privilege.UserRole" alias="UserRole"/>
     </typeAliases>
     <mappers>
         <mapper resource="dao/questionnaire/questionnaireContentDao.xml"/>
@@ -19,5 +20,6 @@
         <mapper resource="dao/privilege/privilegeDao.xml"/>
         <mapper resource="dao/privilege/roleDao.xml"/>
         <mapper resource="dao/privilege/rolePrivilegeDao.xml"/>
+        <mapper resource="dao/privilege/userRoleDao.xml"/>
     </mappers>
 </configuration>
