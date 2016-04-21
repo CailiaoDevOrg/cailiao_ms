@@ -6,7 +6,7 @@
 
     <div class="content body">
         <p class="lead">您可以创建新闻，新闻会按照创建时间和优先级进行显示.</p>
-        <a class="btn btn-primary" id="showNewsList">查看新闻列表</a><br/><br/>
+        <a class="btn btn-primary" id="showNewsList">返回</a><br/><br/>
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">

@@ -17,7 +17,7 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="name">问卷模板名称</label>
-                                <input type="text" class="form-control" id="name" placeholder="请出入模板名称">
+                                <input type="text" class="form-control" id="name" placeholder="请输入模板名称">
                             </div>
                             <div class="form-group">
                                 <label for="desc">问卷模板描述</label>

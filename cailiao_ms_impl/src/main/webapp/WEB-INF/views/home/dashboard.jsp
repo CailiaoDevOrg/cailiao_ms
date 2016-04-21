@@ -5,7 +5,7 @@
     </div>
     
     <div class="content body">
-        <p class="lead">您可以通过一下的快捷方式快速访问系统.</p>
+        <p class="lead">您可以通过以下的快捷方式快速访问系统.</p>
         <div class="row">
             <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-blue">
