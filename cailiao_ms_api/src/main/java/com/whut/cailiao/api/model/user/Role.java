@@ -10,6 +10,11 @@ public class Role implements Serializable {
 
     private Integer id;
 
+    private String name;
+    private String description;
+
+    private Set<Privilege> privileges;
+
     public Integer getId() {
         return id;
     }
@@ -42,8 +47,4 @@ public class Role implements Serializable {
         this.privileges = privileges;
     }
 
-    private String name;
-    private String description;
-
-    private Set<Privilege> privileges;
 }

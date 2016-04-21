@@ -53,7 +53,7 @@
                     <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/privilege/list.html">接口列表</a></li>
                     <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/privilege/create.html">新建接口</a></li>
                     <li><a href="javascript:void(0);">角色列表</a></li>
-                    <li><a href="javascript:void(0);">新建角色</a></li>
+                    <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/role/create.html">新建角色</a></li>
                 </ul>
             </li>
         </ul>

@@ -40,8 +40,8 @@ public class PrivilegeIntercepter implements HandlerInterceptor {
         map.put(new Privilege("/wjt/list.html", "GET"), 402);
         map.put(new Privilege("/wjt/saveTemp.html", "POST"), 403);
         map.put(new Privilege("/wjt/saveTemp.html", "PUT"), 404);
-        map.put(new Privilege("/wjt/getWJList/[1-9][0-9]*.html", "GET"), 405);
-        map.put(new Privilege("/wjt/deleteWJ/[1-9][0-9]*.html", "DELETE"), 406);
+        map.put(new Privilege("/wjt/getWJTList/[1-9][0-9]*.html", "GET"), 405);
+        map.put(new Privilege("/wjt/deleteWJT/[1-9][0-9]*.html", "DELETE"), 406);
         map.put(new Privilege("/wjt/publishWJT/[1-9][0-9]*.html", "PUT"), 407);
         map.put(new Privilege("/wjt/getWJT/[1-9][0-9]*.html", "GET"), 408);
         

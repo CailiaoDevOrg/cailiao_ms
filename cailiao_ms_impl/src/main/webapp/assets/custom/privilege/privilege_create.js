@@ -7,7 +7,6 @@
 		});
 
 		$('#submit').on('click', function() {
-			alert(JSON.stringify(getFormData()));
 			$.ajax({
                 url: '/privilege/create.html',
                 method: 'POST',
