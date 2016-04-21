@@ -51,6 +51,11 @@
             });
         });
 
+        $('#roleTable tbody').on('click', 'button.btn-modify', function() {
+            var id = $(this).data('id');
+            $('.mainContent').load('/role/edit/' + id + '.html');
+        });
+
     });
 
 })(jQuery);

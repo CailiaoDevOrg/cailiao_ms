@@ -1,7 +1,7 @@
 package com.whut.cailiao.api.service.user;
 
 import com.whut.cailiao.api.commons.ApiResponse;
-import com.whut.cailiao.api.model.user.Role;
+import com.whut.cailiao.api.model.privilege.Role;
 import com.whut.cailiao.api.model.user.User;
 
 import java.util.Set;

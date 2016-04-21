@@ -3,7 +3,7 @@ package com.whut.cailiao.impl.sevice.impl.user;
 import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.commons.ApiResponseCode;
 import com.whut.cailiao.api.constant.UserConstant;
-import com.whut.cailiao.api.model.user.Role;
+import com.whut.cailiao.api.model.privilege.Role;
 import com.whut.cailiao.api.model.user.User;
 import com.whut.cailiao.api.service.user.UserService;
 import com.whut.cailiao.impl.dao.user.UserDao;

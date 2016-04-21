@@ -6,9 +6,9 @@
         <typeAlias type="com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate" alias="QuestionnaireTemplate"/>
         <typeAlias type="com.whut.cailiao.api.model.news.News" alias="News"/>
         <typeAlias type="com.whut.cailiao.api.model.user.User" alias="User"/>
-        <typeAlias type="com.whut.cailiao.api.model.user.Privilege" alias="Privilege"/>
-        <typeAlias type="com.whut.cailiao.api.model.user.Role" alias="Role"/>
-        <typeAlias type="com.whut.cailiao.api.model.user.RolePrivilege" alias="RolePrivilege"/>
+        <typeAlias type="com.whut.cailiao.api.model.privilege.Privilege" alias="Privilege"/>
+        <typeAlias type="com.whut.cailiao.api.model.privilege.Role" alias="Role"/>
+        <typeAlias type="com.whut.cailiao.api.model.privilege.RolePrivilege" alias="RolePrivilege"/>
     </typeAliases>
     <mappers>
         <mapper resource="dao/questionnaire/questionnaireContentDao.xml"/>

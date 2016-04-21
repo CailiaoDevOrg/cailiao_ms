@@ -2,7 +2,7 @@ package com.whut.cailiao.impl.interceptor;
 
 import com.alibaba.dubbo.common.utils.CollectionUtils;
 import com.whut.cailiao.api.constant.UserConstant;
-import com.whut.cailiao.api.model.user.Privilege;
+import com.whut.cailiao.api.model.privilege.Privilege;
 import com.whut.cailiao.api.model.user.User;
 
 import org.apache.commons.collections4.MapUtils;

@@ -1,4 +1,4 @@
-package com.whut.cailiao.api.model.user;
+package com.whut.cailiao.api.model.privilege;
 
 import java.io.Serializable;
 

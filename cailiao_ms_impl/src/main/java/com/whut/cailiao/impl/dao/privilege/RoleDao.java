@@ -1,6 +1,6 @@
 package com.whut.cailiao.impl.dao.privilege;
 
-import com.whut.cailiao.api.model.user.Role;
+import com.whut.cailiao.api.model.privilege.Role;
 
 import java.util.List;
 
@@ -16,5 +16,7 @@ public interface RoleDao {
     List<Role> selectAllRole();
 
     void deleteById(int id);
+
+    Role selectRoleById(int id);
 
 }

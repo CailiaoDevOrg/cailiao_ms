@@ -1,7 +1,7 @@
 package com.whut.cailiao.api.service.privilege;
 
 import com.whut.cailiao.api.commons.ApiResponse;
-import com.whut.cailiao.api.model.user.Privilege;
+import com.whut.cailiao.api.model.privilege.Privilege;
 
 import java.util.List;
 

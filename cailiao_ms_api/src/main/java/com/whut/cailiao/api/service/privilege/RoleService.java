@@ -1,8 +1,8 @@
 package com.whut.cailiao.api.service.privilege;
 
 import com.whut.cailiao.api.commons.ApiResponse;
-import com.whut.cailiao.api.model.user.Privilege;
-import com.whut.cailiao.api.model.user.Role;
+import com.whut.cailiao.api.model.privilege.Privilege;
+import com.whut.cailiao.api.model.privilege.Role;
 
 import java.util.Set;
 
@@ -18,4 +18,6 @@ public interface RoleService {
     ApiResponse getRoleList();
 
     ApiResponse deleteRoleById(int id);
+
+    ApiResponse getRoleEditData(int id);
 }

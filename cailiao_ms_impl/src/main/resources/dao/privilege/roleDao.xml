@@ -27,4 +27,8 @@
         DELETE FROM tb_role WHERE id=#{id, jdbcType=INTEGER}
     </delete>
 
+    <select id="selectRoleById" parameterType="java.lang.Integer" resultType="Role">
+        SELECT id, name, description FROM tb_role WHERE id=#{id, jdbcType=INTEGER}
+    </select>
+
 </mapper>
