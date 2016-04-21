@@ -15,4 +15,8 @@
         )
     </insert>
 
+    <delete id="deleteByRoleId">
+        DELETE FROM tb_role_privilege WHERE roleId=#{roleId, jdbcType=INTEGER}
+    </delete>
+
 </mapper>

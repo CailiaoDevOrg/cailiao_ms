@@ -16,4 +16,6 @@ public interface RoleService {
     ApiResponse createNewRole(Role role);
 
     ApiResponse getRoleList();
+
+    ApiResponse deleteRoleById(int id);
 }

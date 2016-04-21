@@ -62,4 +62,17 @@ public class RoleServiceImpl implements RoleService {
         response.addBody("roleList", this.roleDao.selectAllRole());
         return response;
     }
+
+    @Transactional
+    @Override
+    public ApiResponse deleteRoleById(int id) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (id <= 0) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
+        this.roleDao.deleteById(id);
+        this.rolePrivilegeDao.deleteByRoleId(id);
+        return response;
+    }
 }

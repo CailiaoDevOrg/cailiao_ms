@@ -9,4 +9,6 @@ public interface RolePrivilegeDao {
 
     void createNewRolePrivilegeMapEntry(RolePrivilege rolePrivilege);
 
+    void deleteByRoleId(int roleId);
+
 }

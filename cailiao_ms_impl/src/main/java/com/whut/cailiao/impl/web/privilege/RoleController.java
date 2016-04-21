@@ -6,10 +6,7 @@ import com.whut.cailiao.api.service.privilege.RoleService;
 import com.whut.cailiao.impl.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by gammaniu on 16/4/21.
@@ -42,6 +39,13 @@ public class RoleController extends BaseController {
     @ResponseBody
     public String getList() {
         ApiResponse response = this.roleService.getRoleList();
+        return convertApiResponseToJSONString(response);
+    }
+
+    @RequestMapping(value = "/delete/{id}.html", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String delete(@PathVariable int id) {
+        ApiResponse response = this.roleService.deleteRoleById(id);
         return convertApiResponseToJSONString(response);
     }
 }
