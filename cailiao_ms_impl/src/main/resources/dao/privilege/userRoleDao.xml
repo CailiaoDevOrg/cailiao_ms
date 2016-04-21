@@ -15,4 +15,16 @@
         )
     </insert>
 
+    <select id="getUserRoleMapEntryByAccountId" parameterType="java.lang.String" resultType="UserRole">
+        SELECT id, accountId, roleId FROM tb_user_role WHERE accountId=#{accountId, jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteEntryByAccountId" parameterType="java.lang.String">
+        DELETE FROM tb_user_role WHERE accountId=#{accountId, jdbcType=VARCHAR}
+    </delete>
+
+    <delete id="deleteEntryByRoleId" parameterType="java.lang.Integer">
+        DELETE FROM tb_user_role WHERE roleId=#{roleId, jdbcType=INTEGER}
+    </delete>
+
 </mapper>

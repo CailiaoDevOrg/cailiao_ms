@@ -65,20 +65,15 @@ public class UserController extends BaseController {
 
     @RequestMapping(value = "/edit/{accountId}.html", method = RequestMethod.GET)
     public String renderEditPage(@PathVariable String accountId, Model model) {
-        ApiResponse response = this.userService.getUserByAccountId(accountId);
-        if (response.getRetCode() == ApiResponseCode.SUCCESS) {
-            User user = (User) response.getData("user");
-            if (user == null) {
-                return "user/list";
-            } else {
-                user.setPassword("*****");
-                user.setPrivilegeIds(null);
-                Map<String, Object> objMap = BeanHelper.convertObjToMap(user);
-                model.addAllAttributes(objMap);
-                return "user/edit";
-            }
-        }
-        return "user/list";
+        model.addAttribute("accountId", accountId);
+        return "user/edit";
+    }
+
+    @RequestMapping(value = "/getUserEditData/{accountId}.html", method = RequestMethod.GET)
+    @ResponseBody
+    public String getUserEditData(@PathVariable String accountId) {
+        ApiResponse response = this.userService.getUserEditData(accountId);
+        return convertApiResponseToJSONString(response);
     }
 
     @RequestMapping(value = "/update.html", method = RequestMethod.PUT)

@@ -10,6 +10,7 @@ import com.whut.cailiao.api.service.privilege.RoleService;
 import com.whut.cailiao.impl.dao.privilege.PrivilegeDao;
 import com.whut.cailiao.impl.dao.privilege.RoleDao;
 import com.whut.cailiao.impl.dao.privilege.RolePrivilegeDao;
+import com.whut.cailiao.impl.dao.privilege.UserRoleDao;
 import com.whut.cailiao.impl.exception.TransactionExecuteException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -35,6 +36,9 @@ public class RoleServiceImpl implements RoleService {
 
     @Autowired
     private PrivilegeDao privilegeDao;
+
+    @Autowired
+    private UserRoleDao userRoleDao;
 
 
     @Override
@@ -78,6 +82,7 @@ public class RoleServiceImpl implements RoleService {
         }
         this.roleDao.deleteById(id);
         this.rolePrivilegeDao.deleteByRoleId(id);
+        this.userRoleDao.deleteEntryByRoleId(id);
         return response;
     }
 

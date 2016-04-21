@@ -21,17 +21,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">描述</label>
-                                <input type="text" class="form-control" id="description" placeholder="请输入相关描述信息" value="${description}">
+                                <input type="text" class="form-control" id="description" placeholder="请输入相关描述信息">
                             </div>
                             <div class="form-group">
                                 <label for="email">邮箱</label>
-                                <input type="text" class="form-control" id="email" placeholder="请输入邮箱" value="${email}">
+                                <input type="text" class="form-control" id="email" placeholder="请输入邮箱">
                             </div>
                             <div class="form-group">
                                 <label for="status">选择用户状态</label>
                                 <select class="form-control" id="status">
-                                    <option value="1" ${status == 1 ? 'selected':''}>激活</option>
-                                    <option value="2" ${status == 2 ? 'selected':''}>冻结</option>
+                                    <option value="1">激活</option>
+                                    <option value="2">冻结</option>
                                 </select>
                             </div>
                             <div class="form-group">

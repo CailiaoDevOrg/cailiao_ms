@@ -4,9 +4,11 @@ import com.whut.cailiao.api.commons.ApiResponse;
 import com.whut.cailiao.api.commons.ApiResponseCode;
 import com.whut.cailiao.api.constant.UserConstant;
 import com.whut.cailiao.api.model.privilege.Role;
+import com.whut.cailiao.api.model.privilege.UserEditData;
 import com.whut.cailiao.api.model.privilege.UserRole;
 import com.whut.cailiao.api.model.user.User;
 import com.whut.cailiao.api.service.user.UserService;
+import com.whut.cailiao.impl.dao.privilege.RoleDao;
 import com.whut.cailiao.impl.dao.privilege.UserRoleDao;
 import com.whut.cailiao.impl.dao.user.UserDao;
 import org.apache.commons.collections4.CollectionUtils;
@@ -16,7 +18,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by gammaniu on 16/4/18.
@@ -29,6 +34,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRoleDao userRoleDao;
+
+    @Autowired
+    private RoleDao roleDao;
 
     @Override
     public Set<Role> getRolesByAccount(String accountId) {
@@ -64,23 +72,35 @@ public class UserServiceImpl implements UserService {
         if (validateUserBean(user, true)) {
         	user.setRegisterTime(new Timestamp(System.currentTimeMillis()));
             this.userDao.createNewUser(user);
-            Set<Integer> roleIds = user.getRoleIds();
-            if (CollectionUtils.isNotEmpty(roleIds)) {
-                for (Integer roleId : roleIds) {
-                    this.userRoleDao.createUserRoleMapEntry(new UserRole(user.getAccountId(), roleId));
-                }
-            }
+            buildUserRoleRelation(user);
         } else {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
         }
         return response;
     }
 
+    private void buildUserRoleRelation(User user) {
+        if (validateUserBean(user, false)) {
+            Set<Integer> roleIds = user.getRoleIds();
+            if (CollectionUtils.isNotEmpty(roleIds)) {
+                for (Integer roleId : roleIds) {
+                    this.userRoleDao.createUserRoleMapEntry(new UserRole(user.getAccountId(), roleId));
+                }
+            }
+        }
+    }
+
+    @Transactional
     @Override
     public ApiResponse updateUser(User user) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
         if (validateUserBean(user, false)) {
+            // 更新用户基本信息
             this.userDao.updateUser(user);
+            // 删除用户的角色信息
+            this.userRoleDao.deleteEntryByAccountId(user.getAccountId());
+            // 添加用户的新的角色信息
+            buildUserRoleRelation(user);
         } else {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
         }
@@ -95,6 +115,25 @@ public class UserServiceImpl implements UserService {
             return response;
         }
         response.addBody("user", this.userDao.getUserByAccount(accountId));
+        return response;
+    }
+
+    @Override
+    public ApiResponse getUserEditData(String accountId) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (StringUtils.isBlank(accountId)) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
+        User user = this.userDao.getUserByAccount(accountId);
+        List<UserRole> userRoleMapEntryList = this.userRoleDao.getUserRoleMapEntryByAccountId(accountId);
+        if (CollectionUtils.isNotEmpty(userRoleMapEntryList)) {
+            Set<Integer> roleIds = userRoleMapEntryList.stream().map(UserRole::getRoleId).collect(Collectors.toSet());
+            user.setRoleIds(roleIds);
+        }
+        List<Role> roles = this.roleDao.selectAllRole();
+        UserEditData userEditData = new UserEditData(user, roles);
+        response.addBody("userEditData", userEditData);
         return response;
     }
 
