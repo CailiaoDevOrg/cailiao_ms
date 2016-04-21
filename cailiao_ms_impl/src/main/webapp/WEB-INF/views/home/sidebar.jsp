@@ -4,7 +4,7 @@
     <div class="sidebar" id="scrollspy">
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="nav sidebar-menu">
-            <li class="header">控制面板</li>
+            <!--<li class="header">控制面板</li>-->
             <li class="active">
                 <a href="javascript:void(0);" class="sidemenu" data-navigate="/main/dashboard.html"><i class="fa fa-circle-o"></i> 主面板</a>
             </li>

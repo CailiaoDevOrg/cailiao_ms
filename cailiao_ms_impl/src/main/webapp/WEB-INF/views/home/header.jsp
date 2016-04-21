@@ -6,7 +6,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>后台</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>信息平台后台管理系统</b></span>
+        <span class="logo-lg" align="left"><b>后台管理系统</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
