@@ -20,4 +20,6 @@ public interface RoleService {
     ApiResponse deleteRoleById(int id);
 
     ApiResponse getRoleEditData(int id);
+
+    ApiResponse updateRole(Role role);
 }

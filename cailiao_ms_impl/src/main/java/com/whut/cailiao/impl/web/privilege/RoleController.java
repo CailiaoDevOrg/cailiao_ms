@@ -62,4 +62,11 @@ public class RoleController extends BaseController {
         ApiResponse response = this.roleService.getRoleEditData(id);
         return convertApiResponseToJSONString(response);
     }
+
+    @RequestMapping(value = "/update.html", method = RequestMethod.PUT)
+    @ResponseBody
+    public String updateRole(@RequestBody Role role) {
+        ApiResponse response = this.roleService.updateRole(role);
+        return convertApiResponseToJSONString(response);
+    }
 }

@@ -98,7 +98,7 @@ public class RoleServiceImpl implements RoleService {
         }
         List<RolePrivilege> rolePrivilegeMapEntryList = this.rolePrivilegeDao.getRolePrivilegeMapEntryListByRoleId(id);
         if (CollectionUtils.isNotEmpty(rolePrivilegeMapEntryList)) {
-            Set<Integer> privilegeIds = rolePrivilegeMapEntryList.stream().map(RolePrivilege::getId).collect(Collectors.toSet());
+            Set<Integer> privilegeIds = rolePrivilegeMapEntryList.stream().map(RolePrivilege::getPrivilegeId).collect(Collectors.toSet());
             role.setPrivilegeIds(privilegeIds);
         }
         List<Privilege> privilegeList = this.privilegeDao.getPrivilegeList();
@@ -106,4 +106,22 @@ public class RoleServiceImpl implements RoleService {
         response.addBody("roleEditData", roleEditData);
         return response;
     }
+
+    @Transactional
+    @Override
+    public ApiResponse updateRole(Role role) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (role == null || role.getId() == null || StringUtils.isBlank(role.getName())) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
+        response = deleteRoleById(role.getId());
+        if (response.getRetCode() == ApiResponseCode.SUCCESS) {
+            role.setId(null);
+            response = createNewRole(role);
+        }
+        return response;
+    }
+
+
 }
