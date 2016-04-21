@@ -53,7 +53,7 @@
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('新建成功');
-                        // $('.mainContent').load('/news/list.html');
+                        $('.mainContent').load('/role/list.html');
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}
@@ -78,6 +78,10 @@
 			}
 			return data;
         }
+
+        $('#showRoleList').on('click', function() {
+            $('.mainContent').load('/role/list.html');
+        });
 
 	});
 

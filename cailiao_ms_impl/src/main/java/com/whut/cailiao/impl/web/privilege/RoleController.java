@@ -32,4 +32,16 @@ public class RoleController extends BaseController {
         ApiResponse response = this.roleService.createNewRole(role);
         return convertApiResponseToJSONString(response);
     }
+
+    @RequestMapping(value = "/list.html", method = RequestMethod.GET)
+    public String navigateToListPage() {
+        return "role/list";
+    }
+
+    @RequestMapping(value = "/getList.html", method = RequestMethod.GET)
+    @ResponseBody
+    public String getList() {
+        ApiResponse response = this.roleService.getRoleList();
+        return convertApiResponseToJSONString(response);
+    }
 }

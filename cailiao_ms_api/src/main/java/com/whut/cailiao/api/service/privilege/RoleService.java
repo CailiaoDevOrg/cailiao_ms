@@ -14,4 +14,6 @@ public interface RoleService {
     Set<Privilege> getPrivilegesByRoleId(Set<Role> roles);
 
     ApiResponse createNewRole(Role role);
+
+    ApiResponse getRoleList();
 }

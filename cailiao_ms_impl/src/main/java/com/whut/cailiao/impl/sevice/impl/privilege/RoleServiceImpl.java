@@ -43,7 +43,6 @@ public class RoleServiceImpl implements RoleService {
             return response;
         }
         this.roleDao.createNewRole(role);
-        System.out.println("role = " + role);
         Set<Integer> privilegeIds = role.getPrivilegeIds();
         if (CollectionUtils.isNotEmpty(privilegeIds)) {
             Role roleInDB = this.roleDao.selectRoleByName(role.getName());
@@ -54,6 +53,13 @@ public class RoleServiceImpl implements RoleService {
                 this.rolePrivilegeDao.createNewRolePrivilegeMapEntry(new RolePrivilege(roleInDB.getId(), privilegeId));
             }
         }
+        return response;
+    }
+
+    @Override
+    public ApiResponse getRoleList() {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        response.addBody("roleList", this.roleDao.selectAllRole());
         return response;
     }
 }

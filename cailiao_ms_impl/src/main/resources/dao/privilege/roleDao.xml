@@ -19,4 +19,8 @@
         SELECT id, name, description FROM tb_role WHERE name=#{name, jdbcType=VARCHAR}
     </select>
 
+    <select id="selectAllRole" resultType="Role">
+        SELECT id, name, description FROM tb_role
+    </select>
+
 </mapper>
