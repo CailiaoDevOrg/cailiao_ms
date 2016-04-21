@@ -5,6 +5,7 @@
         (function() {
             
             _registerDatePicker([$('#beginTime'), $('#endTime')]);
+
             var objArr = [$('#name'), $('#desc'), $('#pageUrl'), $('#beginTime'), $('#endTime')];
             $('#submit').on('click', function() {
                 if (_validIsNotNull(objArr)) {
@@ -40,7 +41,7 @@
             });
             
             $('#showWjTemplateList').on('click', function() {
-                 $(".mainContent").load('/wjt/list.html');
+                $(".mainContent").load('/wjt/list.html');
             });
         })();
         

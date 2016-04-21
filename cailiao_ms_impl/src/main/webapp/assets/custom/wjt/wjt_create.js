@@ -4,17 +4,17 @@
 
         (function() {
             
-            _registerDatePicker([$('#beginTime'), $('#endTime')]);            
+            _registerDatePicker([$('#beginTime'), $('#endTime')]);    
+
             $('#submit').on('click', function() {
                 var data = {
-                        name: $('#name').val(),
-                        description: $('#desc').val(),
-                        beginTime: $('#beginTime').val(),
-                        endTime: $('#endTime').val(),
-                        templateUrl: $('#pageUrl').val()
-                    };
+                    name: $('#name').val(),
+                    description: $('#desc').val(),
+                    beginTime: $('#beginTime').val(),
+                    endTime: $('#endTime').val(),
+                    templateUrl: $('#pageUrl').val()
+                };
                 if (_validIsNotNull(data)) {
-                    
                     $.ajax({
                         url: '/wjt/saveTemp.html',
                         method: 'POST',
@@ -33,8 +33,6 @@
                         	alert('网络出现问题，请稍后重试');
                         }
                     });
-                } else {
-                    alert('please check input param');
                 }
             });
             
@@ -54,30 +52,30 @@
         }
         
         function _validIsNotNull(data) {
-            if (data==undefined) {
-                return false;
-            };
-            if(data.name==undefined||data.name==""){
+            var now = (new Date()).getTime();
+            if (data.name == undefined || data.name == "") {
                 alert('您输入的问卷模板的名称不能为空');
                 return false;
-            }else if(data.desc==undefined||data.desc==""){
+            } else if (data.description == undefined || data.description == ""){
                 alert('您输入的问卷模板的描述不能为空');
                 return false;
-            }else if(data.beginTime==undefined||data.beginTime==""){
+            } else if (data.beginTime == undefined || data.beginTime == ""){
                 alert('生效时间不能为空');
                 return false;
-            }else if(data.endTime==undefined||data.endTime==""){
+            } else if (data.endTime == undefined || data.endTime == ""){
                 alert('失效时间不能为空');
                 return false;
-            }else if(data.pageUrl==undefined||data.pageUrl==""){
+            } else if (data.beginTime > data.endTime){
+                alert('生效时间不能在实效时间之后');
+                return false;
+            } else if (now > data.endTime) {
+                alert('失效时间不能早于当前时间');
+                return false;
+            } else if (data.templateUrl == undefined || data.templateUrl == ""){
                 alert('pageUrl不能为空');
                 return false;
-            }else if(data.beginTime>data.endTime){
-                alert();
-                return false;
-            }
-              return true;
-
+            } 
+            return true;
         }
         
     });

@@ -57,26 +57,24 @@
             
             $('#wjTemplateTable tbody').on('click', 'button.btn-delete', function() {
                 var id = $(this).data('id');
-                vat flag = comfirm('你确定要删除吗？');
-                if(flag){
+                if(confirm('你确定要删除吗？')) {
                     $.ajax({
-                    url: '/wjt/deleteWJT/' + id + '.html',
-                    method: 'DELETE',
-                    success: function(data) {
-                        data = JSON.parse(data);
-                        if (data.retCode == 200) {
-                            alert('删除成功');
-                            $('.mainContent').load('/wjt/list.html');
-                        } else {
-                            alert('系统忙，请稍后重试');
+                        url: '/wjt/deleteWJT/' + id + '.html',
+                        method: 'DELETE',
+                        success: function(data) {
+                            data = JSON.parse(data);
+                            if (data.retCode == 200) {
+                                alert('删除成功');
+                                $('.mainContent').load('/wjt/list.html');
+                            } else {
+                                alert('系统忙，请稍后重试');
+                            }
+                        },
+                        error: function(data) {
+                            alert('网络出现问题，请稍后重试');
                         }
-                    },
-                    error: function(data) {
-                        alert('网络出现问题，请稍后重试');
-                    }
-                });
+                    });
                 }
-                
             });
             
             $('#wjTemplateTable tbody').on('click', 'button.btn-publish', function() {
