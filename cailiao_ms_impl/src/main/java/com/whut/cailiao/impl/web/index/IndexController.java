@@ -12,7 +12,7 @@ public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
-        return "login/login";
+        return "index/index";
     }
 
     @RequestMapping(value = { "/main/home.html"}, method = RequestMethod.GET)

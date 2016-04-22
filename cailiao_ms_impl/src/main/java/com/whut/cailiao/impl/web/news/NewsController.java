@@ -63,6 +63,5 @@ public class NewsController extends BaseController {
         ApiResponse response = this.newsService.updateNewsStatus(id, status);
         return convertApiResponseToJSONString(response);
     }
-
-
+    
 }
