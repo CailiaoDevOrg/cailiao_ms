@@ -31,4 +31,13 @@
         SELECT id, name, description FROM tb_role WHERE id=#{id, jdbcType=INTEGER}
     </select>
 
+    <update id="updateRole" parameterType="Role">
+        UPDATE tb_role
+        <set>
+            name = #{name, jdbcType=VARCHAR},
+            description = #{description, jdbcType=VARCHAR}
+        </set>
+        WHERE id = #{id, jdbcType=VARCHAR}
+    </update>
+
 </mapper>

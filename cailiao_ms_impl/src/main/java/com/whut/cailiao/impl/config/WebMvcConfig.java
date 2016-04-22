@@ -21,7 +21,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new ThreadLocalInterceptor()).addPathPatterns("/**");
         registry.addInterceptor(new LoginIntercepter()).addPathPatterns("/wjt/**", "/news/**", "/main/**");
-        registry.addInterceptor(new PrivilegeIntercepter()).addPathPatterns("/wjt/**", "/news/**", "/main/**", "/user/**");
+        registry.addInterceptor(new PrivilegeIntercepter()).addPathPatterns("/wjt/**", "/news/**", "/main/**", "/user/**", "/role/**", "/privilege/**");
         super.addInterceptors(registry);
     }
 }

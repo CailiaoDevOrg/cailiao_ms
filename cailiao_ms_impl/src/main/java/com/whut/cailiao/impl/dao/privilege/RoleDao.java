@@ -19,4 +19,6 @@ public interface RoleDao {
 
     Role selectRoleById(int id);
 
+    void updateRole(Role role);
+
 }

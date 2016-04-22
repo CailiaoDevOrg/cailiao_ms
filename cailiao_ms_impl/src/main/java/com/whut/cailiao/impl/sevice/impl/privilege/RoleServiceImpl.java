@@ -131,10 +131,16 @@ public class RoleServiceImpl implements RoleService {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
             return response;
         }
-        response = deleteRoleById(role.getId());
-        if (response.getRetCode() == ApiResponseCode.SUCCESS) {
-            role.setId(null);
-            response = createNewRole(role);
+        // 更新角色基本信息
+        this.roleDao.updateRole(role);
+        // 删除角色关联的接口信息
+        this.rolePrivilegeDao.deleteByRoleId(role.getId());
+        // 建立接口的关联信息
+        Set<Integer> privilegeIds = role.getPrivilegeIds();
+        if (CollectionUtils.isNotEmpty(privilegeIds)) {
+            for (Integer privilegeId : privilegeIds) {
+                this.rolePrivilegeDao.createNewRolePrivilegeMapEntry(new RolePrivilege(role.getId(), privilegeId));
+            }
         }
         return response;
     }
