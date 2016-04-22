@@ -14,10 +14,28 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- CORE CSS-->
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/adminlte/AdminLTE.min.css">
 </head>
 
 <body>
-    <h1>hello</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h4 class="box-title">2015年水泥企业信息调研表</h4>－强烈建议填写时提高临时保存的频率，以免因突发状况导致提交失败
+                </div>
+            </div>
+            <form role="form">
+                <div class="box-body">
+                    <jsp:include page="baseinfo.jsp"/>
+                    <jsp:include page="zyxh.jsp"/>
+                    <jsp:include page="nyxh.jsp"/>
+                    <jsp:include page="fqpf.jsp"/>
+                    <jsp:include page="zysb.jsp"/>
+                </div>
+            </form>
+        </div>
+    <label></label>
     <!-- CORE js -->
     <script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="assets/bootstrap/bootstrap.min.js"></script>

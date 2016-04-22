@@ -23,11 +23,8 @@
     <link rel="stylesheet" href="assets/adminlte/AdminLTE.min.css">
     <link rel="stylesheet" href="assets/adminlte/_all-skins.min.css">
     <link rel="stylesheet" href="assets/adminlte/style.css">
-    
     <link rel="stylesheet" href="assets/datatable/dataTables.bootstrap.min.css">
-    
     <link rel="stylesheet" href="assets/datepicker/datepicker3.css">
-
 </head>
 
 <body class="skin-blue fixed" data-spy="scroll" data-target="#scrollspy">
