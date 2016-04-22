@@ -31,4 +31,11 @@ public class SystemParamController extends BaseController {
         return convertApiResponseToJSONString(response);
     }
 
+    @RequestMapping(value = "/signOutAll.html", method = RequestMethod.GET)
+    @ResponseBody
+    public String signOutAll() {
+        ApiResponse response = this.sysParamService.signOutAll();
+        return convertApiResponseToJSONString(response);
+    }
+
 }

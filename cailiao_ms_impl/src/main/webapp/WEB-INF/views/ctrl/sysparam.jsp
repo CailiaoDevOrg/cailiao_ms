@@ -18,6 +18,11 @@
                     <td>刷新系统访问控制列表，一般用于增加或删除访问接口的情况</td>
                     <td><button class="btn btn-primary btn-xs" id="refreshACL">刷新ACL列表</button></td>
                 </tr>
+                <tr>
+                    <td>2</td>
+                    <td>退出所有当前登录的用户</td>
+                    <td><button class="btn btn-primary btn-xs" id="signOutAll">退出登录用户</button></td>
+                </tr>
             </table>
         </div>
     </div>

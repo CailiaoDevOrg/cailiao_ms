@@ -9,4 +9,6 @@ public interface SysParamService {
 
     ApiResponse refreshACL();
 
+    ApiResponse signOutAll();
+
 }
