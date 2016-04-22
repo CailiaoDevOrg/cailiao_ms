@@ -12,14 +12,14 @@
 	<meta name="author" content="智能lab"></meta>
 	<meta name="keywords" content="我国水泥工业环境状况调查"></meta>
 	<meta name="description" content="我国水泥工业环境状况调查"></meta>
-	<link href="assets/custom/index/css/index.css" type="text/css" rel="stylesheet"/>
+	<link href="assets/custom/online/index/css/index.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 	<a name="gotop"></a>
 	<div class="header" style="border: none; background-color: rgb(247, 247, 247); background-image: none;">
 		<div class="boxall" style="background-color: rgb(247, 247, 247);">
 			<h1 class="logo">
-				<a href=""> <img src="assets/custom/index/img/logo/logo-lg.png" width="600"
+				<a href=""> <img src="assets/custom/online/index/img/logo/logo-whut-lg.png" width="600"
 					height="90" />
 				</a>
 			</h1>
@@ -48,19 +48,19 @@
 			<!--主体内容区顶大图呈现开始-->
 			<div class="H_banner_imgs" id="ADNAV">
 				<a class="active slideimg" href="" target="_blank"
-					style="display: block;"> <img src="assets/custom/index/img/home/img1.JPG"
+					style="display: block;"> <img src="assets/custom/online/index/img/home/img1.JPG"
 					width="620" height="305" />
 				</a> <a class="active slideimg" href="" target="_blank"
-					style="display: none;"> <img src="assets/custom/index/img/home/img2.JPG"
+					style="display: none;"> <img src="assets/custom/online/index/img/home/img2.JPG"
 					width="620" height="305" />
 				</a> <a class="active slideimg" href="" target="_blank"
-					style="display: none;"> <img src="assets/custom/index/img/home/img3.JPG"
+					style="display: none;"> <img src="assets/custom/online/index/img/home/img3.JPG"
 					width="620" height="305" />
 				</a> <a class="active slideimg" href="" target="_blank"
-					style="display: none;"> <img src="assets/custom/index/img/home/img4.jpg"
+					style="display: none;"> <img src="assets/custom/online/index/img/home/img4.jpg"
 					width="620" height="305" />
 				</a> <a class="active slideimg" href="" target="_blank"
-					style="display: none;"> <img src="assets/custom/index/img/home/img5.jpg"
+					style="display: none;"> <img src="assets/custom/online/index/img/home/img5.jpg"
 					width="620" height="305" />
 				</a>
 				<p class="showp">
@@ -92,7 +92,7 @@
 			<div class="newsnn01_wjh">
 				<div class="newslist">
 					<ul>
-						<li><a href=""> <img src="assets/custom/index/img/home/e.jpg"
+						<li><a href=""> <img src="assets/custom/online/index/img/home/e.jpg"
 								alt="中国水泥工业环境状况数据库及信息共享平台" width="320px" height="290px" />
 						</a></li>
 					</ul>
@@ -107,7 +107,7 @@
 					<ul>
 						<li
 							style="border: 1px solid #eee; width: 320px; height: 290px; overflow: hidden;">
-							<img src="assets/custom/index/img/home/help.jpg" width="318px"
+							<img src="assets/custom/online/index/img/home/help.jpg" width="318px"
 							height="290px" />
 						</li>
 					</ul>
@@ -120,7 +120,7 @@
 			<div class="newsnn01_wjh">
 				<div class="newslist">
 					<ul>
-						<li><img src="assets/custom/index/img/home/factory.jpg" width="320px"
+						<li><img src="assets/custom/online/index/img/home/factory.jpg" width="320px"
 							height="290px" /></li>
 					</ul>
 				</div>
@@ -145,7 +145,7 @@
 	</div>
 	<div class="footer">
 		<p>
-			<img src="assets/custom/index/img/logo/logos.png" />
+			<img src="assets/custom/online/index/img/logo/logos.png" />
 		</p>
 		<p>2014-2016 《我国水泥工业环境状况调查》科技基础性工作专题网站</p>
 		<p>
@@ -159,8 +159,8 @@
 	
 	<!--footer End  -->
 	<script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/custom/index/js/imgSlide.js"></script>
+    <script type="text/javascript" src="assets/custom/online/index/js/imgSlide.js"></script>
     <script type="text/javascript" src="assets/custom/util/time.js"></script>
-    <script type="text/javascript" src="assets/custom/index/js/index.js"></script>
+    <script type="text/javascript" src="assets/custom/online/index/js/index.js"></script>
 </body>
 </html>

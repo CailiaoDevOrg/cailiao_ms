@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Created by gammaniu on 16/4/22.
  */
 @Controller
-@RequestMapping("/online")
-public class OnlineController extends BaseController {
+@RequestMapping("/online/news")
+public class OnlineNewsController extends BaseController {
 
     @Autowired
     private NewsService newsService;
