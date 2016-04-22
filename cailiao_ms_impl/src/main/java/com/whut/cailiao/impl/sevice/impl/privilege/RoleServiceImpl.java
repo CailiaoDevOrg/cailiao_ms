@@ -11,7 +11,6 @@ import com.whut.cailiao.impl.dao.privilege.PrivilegeDao;
 import com.whut.cailiao.impl.dao.privilege.RoleDao;
 import com.whut.cailiao.impl.dao.privilege.RolePrivilegeDao;
 import com.whut.cailiao.impl.dao.privilege.UserRoleDao;
-import com.whut.cailiao.impl.exception.TransactionExecuteException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

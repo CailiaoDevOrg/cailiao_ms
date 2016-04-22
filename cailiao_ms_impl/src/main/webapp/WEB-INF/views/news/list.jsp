@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <div class="content-wrapper">
     <div class="content-header">
         <h1>新闻列表<small></small></h1>

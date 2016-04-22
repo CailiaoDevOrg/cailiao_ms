@@ -56,6 +56,12 @@
                     <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/role/create.html">新建角色</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 系统控制面板</a>
+                <ul class="nav treeview-menu">
+                    <li><a href="javascript:void(0);" class="sidemenu" data-navigate="/sysparam/ini.html">系统参数</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar -->
