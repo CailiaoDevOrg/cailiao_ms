@@ -1,9 +1,11 @@
 package com.whut.cailiao.api.model.privilege;
 
+import java.io.Serializable;
+
 /**
  * Created by gammaniu on 16/4/21.
  */
-public class UserRole {
+public class UserRole implements Serializable {
 
     private Integer id;
 

@@ -2,12 +2,13 @@ package com.whut.cailiao.api.model.privilege;
 
 import com.whut.cailiao.api.model.user.User;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by gammaniu on 16/4/22.
  */
-public class UserEditData {
+public class UserEditData implements Serializable {
 
     private User user;
 

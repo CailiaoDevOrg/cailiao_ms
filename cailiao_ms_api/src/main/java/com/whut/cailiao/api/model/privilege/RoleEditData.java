@@ -3,12 +3,13 @@ package com.whut.cailiao.api.model.privilege;
 import com.whut.cailiao.api.model.privilege.Privilege;
 import com.whut.cailiao.api.model.privilege.Role;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by gammaniu on 16/4/21.
  */
-public class RoleEditData {
+public class RoleEditData implements Serializable {
 
     private Role role;
 

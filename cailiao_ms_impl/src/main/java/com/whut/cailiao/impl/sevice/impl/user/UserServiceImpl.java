@@ -139,6 +139,7 @@ public class UserServiceImpl implements UserService {
             return response;
         }
         User user = this.userDao.getUserByAccount(accountId);
+        user.setPassword("***");
         List<UserRole> userRoleMapEntryList = this.userRoleDao.getUserRoleMapEntryByAccountId(accountId);
         if (CollectionUtils.isNotEmpty(userRoleMapEntryList)) {
             Set<Integer> roleIds = userRoleMapEntryList.stream().map(UserRole::getRoleId).collect(Collectors.toSet());
