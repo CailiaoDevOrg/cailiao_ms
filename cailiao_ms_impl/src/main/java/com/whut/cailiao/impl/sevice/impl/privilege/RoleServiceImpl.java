@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -42,8 +43,21 @@ public class RoleServiceImpl implements RoleService {
 
 
     @Override
-    public Set<Privilege> getPrivilegesByRoleId(Set<Role> roles) {
-        return null;
+    public ApiResponse getPrivilegeIdsByRoleId(Set<Integer> roleIds) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (CollectionUtils.isEmpty(roleIds)) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
+        Set<Integer> privilegeIds = new HashSet<>();
+        for (Integer roleId : roleIds) {
+            List<RolePrivilege> rolePrivilegeList = this.rolePrivilegeDao.getRolePrivilegeMapEntryListByRoleId(roleId);
+            if (CollectionUtils.isNotEmpty(rolePrivilegeList)) {
+                privilegeIds.addAll(rolePrivilegeList.stream().map(RolePrivilege::getPrivilegeId).collect(Collectors.toList()));
+            }
+        }
+        response.addBody("privilegeIds", privilegeIds);
+        return response;
     }
 
     @Transactional

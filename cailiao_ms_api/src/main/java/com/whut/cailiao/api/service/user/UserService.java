@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public interface UserService {
 
-    Set<Role> getRolesByAccount(String accountId);
+    ApiResponse getRoleIdsByAccount(String accountId);
     
     ApiResponse getUserList(int factoryId);
 

@@ -39,8 +39,19 @@ public class UserServiceImpl implements UserService {
     private RoleDao roleDao;
 
     @Override
-    public Set<Role> getRolesByAccount(String accountId) {
-        return null;
+    public ApiResponse getRoleIdsByAccount(String accountId) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (StringUtils.isBlank(accountId)) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
+        List<UserRole> userRoleList = this.userRoleDao.getUserRoleMapEntryByAccountId(accountId);
+        Set<Integer> roleIds = new HashSet<>();
+        if (CollectionUtils.isNotEmpty(userRoleList)) {
+            roleIds.addAll(userRoleList.stream().map(UserRole::getRoleId).collect(Collectors.toList()));
+        }
+        response.addBody("roleIds", roleIds);
+        return response;
     }
 
     @Override
@@ -54,6 +65,7 @@ public class UserServiceImpl implements UserService {
         return response;
     }
 
+    @Transactional
     @Override
     public ApiResponse deleteUserByAccountId(String accountId) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
@@ -62,6 +74,7 @@ public class UserServiceImpl implements UserService {
             return response;
         }
         this.userDao.deleteUserByAccountId(accountId);
+        this.userRoleDao.deleteEntryByAccountId(accountId);
         return response;
     }
 

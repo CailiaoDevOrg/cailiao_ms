@@ -33,7 +33,6 @@
             }
 
             function _renderData(data) {
-
                 var user = data.body.userEditData.user;
                 $('#name').val(user.accountId);
                 $('#description').val(user.description);

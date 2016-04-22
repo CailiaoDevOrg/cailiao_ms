@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public interface RoleService {
 
-    Set<Privilege> getPrivilegesByRoleId(Set<Role> roles);
+    ApiResponse getPrivilegeIdsByRoleId(Set<Integer> roleIds);
 
     ApiResponse createNewRole(Role role);
 
