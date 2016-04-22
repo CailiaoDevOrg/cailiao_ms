@@ -8,4 +8,5 @@ import com.whut.cailiao.api.commons.ApiResponse;
 public interface SysParamService {
 
     ApiResponse refreshACL();
+
 }
