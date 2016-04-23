@@ -15,7 +15,7 @@
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>刷新系统访问控制列表，一般用于增加或删除访问接口的情况</td>
+                    <td>刷新系统ACL，一般用于增加或删除访问接口的情况</td>
                     <td><button class="btn btn-primary btn-xs" id="refreshACL">刷新ACL列表</button></td>
                 </tr>
                 <tr>
