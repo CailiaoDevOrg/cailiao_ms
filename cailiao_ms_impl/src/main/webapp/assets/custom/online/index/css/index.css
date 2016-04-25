@@ -1,12 +1,6 @@
 ﻿@charset "utf-8";
 
 /*全局控制*/
-#poem{
-	 font-size:45px;
-     font-family:hakuyoxingshu7000Regular;
-     text-align:center;
-}
-#poem p{height:30px;line-height:30px;}
 
 body{margin:0;padding:0;font-size:12px;line-height:22px;font-family:yahei,"宋体";-webkit-text-size-adjust:none; background-color:#ffffff; color:#434343}
 html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,p{margin:0;padding:0;}
@@ -29,9 +23,6 @@ a:hover{text-decoration:underline;}
 .m10{ line-height:10px; height:10px; overflow:hidden; clear:both; }
 .m20{ line-height:10px; height:10px; overflow:hidden; clear:both; }
 
-{Stand alone fonts}
-
- /* $WEFT -- Created by: jiexiowu (139230902@qq.com) on 2012-7-10 -- */
   @font-face {
     font-family: 微软;
     font-style:  normal;
@@ -74,7 +65,7 @@ a:hover{text-decoration:underline;}
 .header .nav li{width:120px;height:40px;line-height:40px;float:left;border-right:0px solid #525252;}
 .header .nav li a{display:block;text-align:center;font-size:14px;font-weight:bold;color:rgb(255,255,255);letter-spacing:3px;border-left:1px solid rgb(255,255,255);/*color:#4e4e4e;*/}
 /*主导航条开始*/
-.header .nav li a:hover {color:rgb(255,255,0); font-weight:bold;text-decoration:none;background:rgb(0,0,0);}
+.header .nav li a:hover {color:rgb(255,255,0); font-weight:bold;text-decoration:none;background:rgb(0,153,255);}
 .header {text-decoration:none;color:#4e4e4e;}
 /*副导航条*/
 
@@ -422,7 +413,7 @@ a:hover{text-decoration:underline;}
 .caseleft{ width:300px; float:left; height:auto}
 .caseright{ width:660px; float:left; height: auto}
 
-
+.kydt{ text-align: center; width: 320px;}
 
 
 /********************* 自定义区域开始 *********************

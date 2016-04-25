@@ -12,6 +12,7 @@
 	<meta name="author" content="智能lab"></meta>
 	<meta name="keywords" content="我国水泥工业环境状况调查"></meta>
 	<meta name="description" content="我国水泥工业环境状况调查"></meta>
+	<link rel="stylesheet" type="text/css" href="assets/bootstrap/bootstrap.min.css">
 	<link href="assets/custom/online/index/css/index.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
@@ -33,7 +34,7 @@
 				<li><a href="#">项目简介</a></li>
 				<li><a href="#">支持</a></li>
 				<!-- <li><a href="http://10.141.9.168:7878/login.html">后台管理系统</a></li> -->
-				<li><a href="login.html">后台管理系统</a></li>
+				<li><a href="main/home.html">后台管理系统</a></li>
 			</div>
 		</ul>
 		<!--菜单导航结束-->
@@ -43,8 +44,7 @@
 	<div class="maincontentbox">
 		<div class="topbg"></div>
 		<!--首页幻灯片new Start-->
-		<div class="boxall"
-			style="background: rgb(61, 61, 61) no-repeat right top">
+		<div class="boxall"	style="background: rgb(61, 61, 61) no-repeat right top">
 			<!--主体内容区顶大图呈现开始-->
 			<div class="H_banner_imgs" id="ADNAV">
 				<a class="active slideimg" href="" target="_blank"
@@ -64,9 +64,11 @@
 					width="620" height="305" />
 				</a>
 				<p class="showp">
-					<i class="imgindex hover">1</i> <i class="imgindex">2</i> <i
-						class="imgindex">3</i> <i class="imgindex">4</i> <i
-						class="imgindex">5</i>
+					<i class="imgindex hover">1</i> 
+					<i class="imgindex">2</i> 
+					<i class="imgindex">3</i> 
+					<i class="imgindex">4</i>
+				    <i class="imgindex">5</i>
 				</p>
 			</div>
 			<!--主体内容区顶部大图呈现结束-->
@@ -76,8 +78,9 @@
 					<span><a href="" target="_blank">更多</a></span>
 				</div>
 				<div class="newslistbydt">
+					<div class="defaultlist"></div>
 					<ul class="centerdynomic">
-						
+					 	
 					</ul>
 				</div>
 			</div>
@@ -87,14 +90,16 @@
 		<div class="m8"></div>
 		<!--插入两个空行end-->
 
-		<div class="lmbox">
+		<div class="row" style="width:960px; margin-left:11px;">
 			<!--lmbox开始-->
-			<div class="newsnn01_wjh">
+			<div class="col-md-4">
 				<div class="newslist">
 					<ul>
-						<li><a href=""> <img src="assets/custom/online/index/img/home/e.jpg"
-								alt="中国水泥工业环境状况数据库及信息共享平台" width="320px" height="290px" />
-						</a></li>
+						<li style="width:320px;height: 290px; overflow: hidden;">
+							<a href=""> <img src="assets/custom/online/index/img/home/e.jpg"
+								alt="中国水泥工业环境状况数据库及信息共享平台"width="318px" height="290px" />
+						   </a>
+						</li>
 					</ul>
 				</div>
 				<div class="kydt">
@@ -102,11 +107,11 @@
 				</div>
 			</div>
 
-			<div class="newsnn01_wjh">
+			<div class="col-md-4">
 				<div class="newslist">
 					<ul>
 						<li
-							style="border: 1px solid #eee; width: 320px; height: 290px; overflow: hidden;">
+							style="border: 1px solid #eee;width:320px;height: 290px; overflow: hidden;">
 							<img src="assets/custom/online/index/img/home/help.jpg" width="318px"
 							height="290px" />
 						</li>
@@ -117,14 +122,15 @@
 				</div>
 			</div>
 
-			<div class="newsnn01_wjh">
+			<div class="col-md-4">
 				<div class="newslist">
 					<ul>
-						<li><img src="assets/custom/online/index/img/home/factory.jpg" width="320px"
+						<li style="width:320px;height: 290px; overflow: hidden;">
+							<img src="assets/custom/online/index/img/home/factory.jpg" width="320px"
 							height="290px" /></li>
 					</ul>
 				</div>
-				<div class="zxqyfw">
+				<div class="kydt">
 					<span><a href="" target="_blank">项目简介</a></span>
 				</div>
 			</div>
