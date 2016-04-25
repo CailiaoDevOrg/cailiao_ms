@@ -7,7 +7,28 @@
 		});
 
 		$('#commit').on('click', function() {
-			alert('提交问卷');
+			var wjtId = $('#wjtId').val();
+            var data = {
+            	'questionnaireTemplateId': wjtId,
+            	'jsonContent': JSON.stringify(getWJData())
+            };
+            $.ajax({
+                url: '/online/wj/commit.html',
+                method: 'PUT',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: function(data) {
+                	data = JSON.parse(data);
+                	if (data.retCode == 200) {
+                        alert('提交成功');
+                	} else {
+                		alert('系统忙，请稍后重试');
+                	}
+                },
+                error: function(data) {
+                	alert('网络出现问题，请稍后重试');
+                }
+            });
 		});
 
 		$('#submit').on('click', function() {
@@ -25,7 +46,6 @@
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('保存成功');
-                        $('.mainContent').load('/');
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}

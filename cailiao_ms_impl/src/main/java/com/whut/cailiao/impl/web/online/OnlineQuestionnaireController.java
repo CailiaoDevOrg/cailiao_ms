@@ -7,6 +7,7 @@ import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireService;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireTemplateService;
 import com.whut.cailiao.impl.web.BaseController;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,8 +46,25 @@ public class OnlineQuestionnaireController extends BaseController {
         if (questionnaireContent == null) {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
         } else {
-            questionnaireContent.setAccountId(getAccountId());
-            this.questionnaireService.saveQuestionnaireContentTemp(questionnaireContent);
+            if (StringUtils.isBlank(questionnaireContent.getAccountId())) {
+                questionnaireContent.setAccountId(getAccountId());
+            }
+            response = this.questionnaireService.saveQuestionnaireContentTemp(questionnaireContent);
+        }
+        return convertApiResponseToJSONString(response);
+    }
+
+    @RequestMapping(value = "/commit.html", method = RequestMethod.PUT)
+    @ResponseBody
+    public String commitWJ(@RequestBody QuestionnaireContent questionnaireContent) {
+        ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (questionnaireContent == null) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+        } else {
+            if (StringUtils.isBlank(questionnaireContent.getAccountId())) {
+                questionnaireContent.setAccountId(getAccountId());
+            }
+            response = this.questionnaireService.commitQuestionnaireContent(questionnaireContent);
         }
         return convertApiResponseToJSONString(response);
     }
