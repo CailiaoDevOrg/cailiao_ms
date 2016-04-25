@@ -38,7 +38,7 @@
                     <jsp:include page="fqpf.jsp"/>
                     <jsp:include page="zysb.jsp"/>
                 </div>
-                <input type="hidden" id="wjtId" value="${wjtId}">
+                <input type="hidden" id="wjId" value="${wjId}">
             </form>
         </div>
     <label></label>
@@ -46,6 +46,6 @@
     <script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="assets/bootstrap/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="assets/custom/online/wj/wj_create.js"></script>
+    <script type="text/javascript" src="assets/custom/online/wj/wj_edit.js"></script>
 </body>
 </html>

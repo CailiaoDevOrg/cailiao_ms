@@ -85,4 +85,20 @@ public class OnlineQuestionnaireController extends BaseController {
         return convertApiResponseToJSONString(response);
     }
 
+    @RequestMapping(value = "/edit/{wjId}.html", method = RequestMethod.GET)
+    public String navigateToEditPage(@PathVariable int wjId, Model model) {
+        if (wjId <= 0) {
+            return "online/index/index";
+        }
+        model.addAttribute("wjId", wjId);
+        return "online/wj/wj_edit";
+    }
+
+    @RequestMapping(value = "/detail/{wjId}.html", method = RequestMethod.GET)
+    @ResponseBody
+    public String getWJDetail(@PathVariable int wjId) {
+        ApiResponse response = this.questionnaireService.getQuestionnaireContent(wjId);
+        return convertApiResponseToJSONString(response);
+    }
+
 }

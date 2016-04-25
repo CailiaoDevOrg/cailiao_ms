@@ -4,9 +4,9 @@
     
     <select id="getQuestionnaireContent" parameterType="java.lang.Integer" resultType="QuestionnaireContent">
         SELECT
-            id, questionnaireTemplateId, cementFactoryId, productionLine, modifyTime, lastModifyTime, jsonContent, status
+            id, questionnaireTemplateId, modifyTime, lastModifyTime, jsonContent, status, accountId
         FROM tb_questionnaire_content
-        WHERE id = #{questionnaireContentId}
+        WHERE id = #{questionnaireContentId, jdbcType=INTEGER}
     </select>
 
     <delete id="deleteQuestionnaireContent" parameterType="java.lang.Integer">

@@ -25,6 +25,7 @@ public interface QuestionnaireService {
     ApiResponse commitQuestionnaireContent(QuestionnaireContent questionnaireContent);
 
     /**
+     * using
      * 获取某用户填写的问卷列表(某一问卷模板下)
      * @Param questionnaireTemplateId
      * @Param accountId
@@ -33,17 +34,18 @@ public interface QuestionnaireService {
     ApiResponse getQuestionnaireContentListByAccountId(int questionnaireTemplateId, String accountId);
 
     /**
-     * 正在使用中的问卷模板列表
-     * 从问卷模板的发布表中读取(正式表)
-     */
-    ApiResponse getUsingQuestionnaireTemplateList();
-
-    /**
+     * using
      * 查看问卷填写详情
      * @param questionnaireContentId
      * @return
      */
     ApiResponse getQuestionnaireContent(int questionnaireContentId);
+
+    /**
+     * 正在使用中的问卷模板列表
+     * 从问卷模板的发布表中读取(正式表)
+     */
+    ApiResponse getUsingQuestionnaireTemplateList();
 
     /**
      * 删除填写的某条问卷

@@ -26,7 +26,7 @@
 	                    data: {id: 'id', status: 'status'},
 	                    render: function(data, type, full) {
 	                    	if (data.status == 1) {
-	                    		return '<button class="btn btn-primary btn-xs btn-delete" data-id="' + data.id + '">编辑</button>';
+	                    		return '<button class="btn btn-primary btn-xs btn-edit" data-id="' + data.id + '">编辑</button>';
 	                    	} else {
                                 return '感谢提交';
 	                    	}
@@ -55,6 +55,11 @@
 	            ]
 	        });
 		}
+
+		$('#wjTable tbody').on('click', 'button.btn-edit', function() {
+            var id = $(this).data('id');
+            window.open('/online/wj/edit/' + id + '.html');
+        });
 		
 	});
 

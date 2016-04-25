@@ -49,7 +49,7 @@
     <script type="text/javascript" src="assets/datatable/dataTables.bootstrap.min.js"></script>
 
     <script type="text/javascript" src="assets/custom/util/time.js"></script>
-    <script type="text/javascript" src="assets/custom/online/wj/history.js"></script>
+    <script type="text/javascript" src="assets/custom/online/wj/wj_history.js"></script>
 
 </body>
 </html>
