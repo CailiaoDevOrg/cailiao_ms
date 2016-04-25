@@ -33,13 +33,13 @@
                     <li><a href="#">问卷查看</a></li>-->
                 </ul>
             </li>
-            <li class="treeview">
+            <!--<li class="treeview">
                 <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 问卷管理</a>
                 <ul class="nav treeview-menu">
                     <li><a href="javascript:void(0)" class="sidemenu" data-navigate="/wj/list/73.html">回收问卷列表</a></li>
                     <li><a href="javascript:void(0)">审核统计</a></li>
                 </ul>
-            </li>
+            </li>-->
             <!--<li class="treeview">
                 <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 数据管理</a>
                 <ul class="nav treeview-menu">
