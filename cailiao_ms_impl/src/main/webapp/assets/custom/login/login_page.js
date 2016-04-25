@@ -78,7 +78,7 @@
                 success : function(data) {
                 	data = JSON.parse(data);
                     if (data.retCode == 200 && data.body.canLogin == true) {
-                    	window.location.href = '/main/home.html';
+                    	window.location.href = '/';
                     } else {
                     	if (data.retCode == 207) {
                     		alert("验证码输入错误");

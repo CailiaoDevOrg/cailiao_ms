@@ -28,7 +28,6 @@
             <form role="form">
                 <div class="box-body">
                     <div class="form-group">
-                        <input type="button" class="btn btn-primary btn-xs" id="showHistoryList" value="查看填写历史">
                         <input type="button" class="btn btn-primary btn-xs" id="submit" value="保存">
                         <input type="button" class="btn btn-danger btn-xs" id="commit" value="提交">
                     </div>
@@ -39,6 +38,9 @@
                     <jsp:include page="zysb.jsp"/>
                 </div>
                 <input type="hidden" id="wjId" value="${wjId}">
+                <input type="hidden" id="wjtId" value="${wjtId}">
+                <input type="hidden" id="status" value="${status}">
+                <input type="hidden" id="modifyTime" value="${modifyTime}">
             </form>
         </div>
     <label></label>
