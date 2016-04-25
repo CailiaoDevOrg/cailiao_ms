@@ -26,6 +26,13 @@
                         render: function(data, type, full) {
                             return '<button class="btn btn-primary btn-xs btn-publish" data-id="' + data + '">审核</button>';
                         }
+                    },
+                    {
+                        targets: 2,
+                        data: 'modifyTime',
+                        render: function(data, type, full) {
+                            return $$.formatTime(data);
+                        }
                     }
                 ]
             });
