@@ -2,6 +2,7 @@ package com.whut.cailiao.impl.web.questionnaire;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,25 +27,29 @@ import com.whut.cailiao.impl.web.BaseController;
  * 7. 记录和子记录的删除
  */
 @Controller
-@RequestMapping("/qms")
+@RequestMapping("/wj")
 public class QuestionnaireController extends BaseController {
 
     @Autowired
     private QuestionnaireService questionnaireService;
 
+    @RequestMapping(value = "/list/{wjtId}.html", method = RequestMethod.GET)
+    public String navigateToWJListPage(@PathVariable int wjtId, Model model) {
+        if (wjtId <= 0) {
+            return "home/home";
+        }
+        model.addAttribute("wjtId", wjtId);
+        return "wj/list";
+    }
+
     /**
      * 获取某一问卷模板下的问卷提交列表
-     * @param currentPage
-     * @param pageSize
      * @param questionnaireTemplateId
      */
-    @RequestMapping(value = "/getQuestionnaireCommitList/{questionnaireTemplateId}/{currentPage}/{pageSize}.html",
-            method = RequestMethod.GET)
+    @RequestMapping(value = "/getList/{questionnaireTemplateId}.html", method = RequestMethod.GET)
     @ResponseBody
-    public String getQuestionnaireContentCommitList(@PathVariable int questionnaireTemplateId,
-                                                    @PathVariable int currentPage,
-                                                    @PathVariable int pageSize) {
-        ApiResponse response = this.questionnaireService.getQuestionnaireContentCommitList(questionnaireTemplateId, currentPage, pageSize);
+    public String getQuestionnaireContentCommitList(@PathVariable int questionnaireTemplateId) {
+        ApiResponse response = this.questionnaireService.getQuestionnaireContentCommitList(questionnaireTemplateId);
         return convertApiResponseToJSONString(response);
     }
 

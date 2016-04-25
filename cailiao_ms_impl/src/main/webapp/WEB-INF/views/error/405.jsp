@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="center" style="margin-top:250px;">
-        <h3 align="center">404 您访问了不存在的资源</h3>
+        <h3 align="center">405 抱歉,其他的位置更精彩</h3>
     </div>
 </body>
 </html>

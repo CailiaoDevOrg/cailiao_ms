@@ -3,23 +3,19 @@
     $(function() {
         
         (function() {
-            $("#createNewTemplateBtn").on('click', function() {
-                $(".mainContent").load('/wjt/create.html');
-            });
-            
-            $('#wjTemplateTable').DataTable({
+
+            $('#wjTable').DataTable({
                 ordering: false,
                 searching: false,
                 lengthChange: false,
                 ajax: {
-                    url: '/wjt/getWJTList/1.html',
-                    dataSrc: 'body.page.list'
+                    url: '/wj/getList/73.html',
+                    dataSrc: 'body.questionnaireContentList'
                 },
                 columns: [
-                    { data: 'name' },
-                    { data: 'description' },
-                    { data: 'beginTime' },
-                    { data: 'endTime' },
+                    { data: 'id' },
+                    { data: 'accountId' },
+                    { data: 'modifyTime' },
                     { data: 'status' },
                     { title: '操作' }
                 ],
@@ -28,34 +24,12 @@
                         targets: -1,
                         data: 'id',
                         render: function(data, type, full) {
-                            return '<button class="btn btn-primary btn-xs btn-show" data-id="' + data + '">查看问卷</button>\
-                                    <button class="btn btn-primary btn-xs btn-edit" data-id="' + data + '">编辑</button>\
-                                    <button class="btn btn-danger btn-xs btn-delete" data-id="' + data + '">删除</button>\
-                                    <button class="btn btn-primary btn-xs btn-publish" data-id="' + data + '">发布</button>';
-                        }
-                    },
-                    {
-                        targets: 2,
-                        data: 'beginTime',
-                        render: function(data, type, full) {
-                            return $$.formatTime(data);
-                        }
-                    },
-                    {
-                        targets: 3,
-                        data: 'endTime',
-                        render: function(data, type, full) {
-                            return $$.formatTime(data);
+                            return '<button class="btn btn-primary btn-xs btn-publish" data-id="' + data + '">审核</button>';
                         }
                     }
                 ]
             });
-
-            $('#wjTemplateTable tbody').on('click', 'button.btn-show', function() {
-                var id = $(this).data('id');
-                $('.mainContent').load('/wj/list/' + id + '.html');
-            });
-
+            
             $('#wjTemplateTable tbody').on('click', 'button.btn-edit', function() {
                 var id = $(this).data('id');
                 $('.mainContent').load('/wjt/getWJT/' + id + '.html');

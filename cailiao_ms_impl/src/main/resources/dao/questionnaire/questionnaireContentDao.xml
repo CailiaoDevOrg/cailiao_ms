@@ -37,10 +37,9 @@
 
     <select id="getQuestionnaireContentCommitList" resultType="QuestionnaireContent">
         SELECT
-            id, questionnaireTemplateId, modifyTime, lastModifyTime, jsonContent, status
+            id, questionnaireTemplateId, modifyTime, lastModifyTime, status, accountId
         FROM tb_questionnaire_content
-        WHERE questionnaireTemplateId = #{questionnaireTemplateId} AND status = 3
-        LIMIT #{offset}, #{pageSize}
+        WHERE questionnaireTemplateId = #{questionnaireTemplateId} AND status = 2
     </select>
 
     <select id="getQuestionnaireContentListByAccountId" resultType="QuestionnaireContent">

@@ -137,30 +137,17 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
     /**
      * 分页获取某模板下提交的问卷
      * @param questionnaireTemplateId
-     * @param currentPage
-     * @param pageSize
      * @return
      */
     @Override
-    public ApiResponse getQuestionnaireContentCommitList(int questionnaireTemplateId, int currentPage, int pageSize) {
+    public ApiResponse getQuestionnaireContentCommitList(int questionnaireTemplateId) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
-        if (questionnaireTemplateId <= 0 || currentPage <= 0 || pageSize <= 0) {
+        if (questionnaireTemplateId <= 0) {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
             logger.error("getQuestionnaireContentCommitList fail, input param error");
             return response;
         }
-        int totalNum = this.questionnaireContentDao.getQuestionnaireContentCount(questionnaireTemplateId);
-        if (totalNum > 0 && totalNum > (currentPage - 1) * pageSize) {
-            List<QuestionnaireContent> questionnaireContentList = this.questionnaireContentDao.getQuestionnaireContentCommitList(questionnaireTemplateId, (currentPage - 1) * pageSize, pageSize);
-            if (CollectionUtils.isNotEmpty(questionnaireContentList)) {
-                Page<QuestionnaireContent> page = new Page<>();
-                page.setList(questionnaireContentList);
-                page.setCurrentPage(currentPage);
-                page.setPageSize(pageSize);
-                page.setTotalNum(totalNum);
-                response.addBody("page", page);
-            }
-        }
+        response.addBody("questionnaireContentList", this.questionnaireContentDao.getQuestionnaireContentCommitList(questionnaireTemplateId));
         return response;
     }
 

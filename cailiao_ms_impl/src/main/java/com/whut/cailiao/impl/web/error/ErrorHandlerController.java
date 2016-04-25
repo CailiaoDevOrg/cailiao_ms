@@ -3,6 +3,7 @@ package com.whut.cailiao.impl.web.error;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by gammaniu on 16/4/20.
@@ -19,4 +20,5 @@ public class ErrorHandlerController implements ErrorController {
     public String getErrorPath() {
         return "/error";
     }
+
 }

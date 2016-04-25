@@ -14,6 +14,8 @@
 
 </head>
 <body>
-    <h3 align="center">500 访问的人太多，请稍后再试</h3>
+    <div class="center" style="margin-top:250px;">
+        <h3 align="center">500 访问的人太多，请稍后再试</h3>
+    </div>
 </body>
 </html>

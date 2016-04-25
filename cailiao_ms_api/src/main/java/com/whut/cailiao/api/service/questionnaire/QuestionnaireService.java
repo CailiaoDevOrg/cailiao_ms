@@ -58,11 +58,9 @@ public interface QuestionnaireService {
     /**
      * 分页获取某模板下提交的问卷
      * @param questionnaireTemplateId
-     * @param currentPage
-     * @param pageSize
      * @return
      */
-    ApiResponse getQuestionnaireContentCommitList(int questionnaireTemplateId, int currentPage, int pageSize);
+    ApiResponse getQuestionnaireContentCommitList(int questionnaireTemplateId);
 
     /**
      * 审核提交的问卷

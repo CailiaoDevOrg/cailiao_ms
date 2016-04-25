@@ -20,6 +20,11 @@ public class PrivilegeController extends BaseController {
     @Autowired
     private PrivilegeService privilegeService;
 
+    @RequestMapping(value="/low.html", method = RequestMethod.GET)
+    public String handle405() {
+        return "error/405";
+    }
+
     @RequestMapping(value = "/create.html", method = RequestMethod.GET)
     public String navigateToCreatePage() {
         return "privilege/create";
