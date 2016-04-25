@@ -203,7 +203,6 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
                 || (questionnaireContent.getId() != null && questionnaireContent.getId().compareTo(0) <= 0)
                 || questionnaireContent.getQuestionnaireTemplateId() <= 0
                 || StringUtils.isBlank(questionnaireContent.getAccountId())) {
-            System.out.println(questionnaireContent);
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
             logger.error("saveQuestionnaireContentTemp fail, input param error");
             return response;
