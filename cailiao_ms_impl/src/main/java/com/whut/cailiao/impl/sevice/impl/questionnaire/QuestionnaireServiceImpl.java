@@ -3,6 +3,7 @@ package com.whut.cailiao.impl.sevice.impl.questionnaire;
 import java.sql.Timestamp;
 import java.util.List;
 
+import com.whut.cailiao.impl.utils.http.HttpUtil;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -199,7 +200,9 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
     private ApiResponse saveQuestionnaireContentTemp(QuestionnaireContent questionnaireContent, QuestionnaireConstant.QuestionnaireContentStatus status) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
         if (questionnaireContent == null
-                || (questionnaireContent.getId() != null && questionnaireContent.getId().compareTo(0) <= 0)) {
+                || (questionnaireContent.getId() != null && questionnaireContent.getId().compareTo(0) <= 0)
+                || questionnaireContent.getQuestionnaireTemplateId() <= 0
+                || StringUtils.isBlank(questionnaireContent.getAccountId())) {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
             logger.error("saveQuestionnaireContentTemp fail, input param error");
             return response;

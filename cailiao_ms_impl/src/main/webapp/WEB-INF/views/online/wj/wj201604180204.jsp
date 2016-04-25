@@ -27,17 +27,25 @@
             </div>
             <form role="form">
                 <div class="box-body">
+                    <div class="form-group">
+                        <input type="button" class="btn btn-primary btn-xs" id="showHistoryList" value="查看填写历史">
+                        <input type="button" class="btn btn-primary btn-xs" id="submit" value="保存">
+                        <input type="button" class="btn btn-danger btn-xs" id="commit" value="提交">
+                    </div>
                     <jsp:include page="baseinfo.jsp"/>
                     <jsp:include page="zyxh.jsp"/>
                     <jsp:include page="nyxh.jsp"/>
                     <jsp:include page="fqpf.jsp"/>
                     <jsp:include page="zysb.jsp"/>
                 </div>
+                <input type="hidden" id="wjtId" value="${wjtId}">
             </form>
         </div>
     <label></label>
     <!-- CORE js -->
     <script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="assets/bootstrap/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="assets/custom/online/wj/wj.js"></script>
 </body>
 </html>

@@ -16,9 +16,8 @@
     <insert id="insertQuestionnaireContent" parameterType="QuestionnaireContent">
         INSERT INTO tb_questionnaire_content
         (
+            accountId,
             questionnaireTemplateId,
-            cementFactoryId,
-            productionLine,
             modifyTime,
             lastModifyTime,
             jsonContent,
@@ -26,20 +25,19 @@
         )
         VALUES
         (
-            #{questionnaireTemplateId},
-            #{cementFactoryId},
-            #{productionLine},
-            #{modifyTime},
-            #{lastModifyTime},
-            #{jsonContent},
-            #{status}
+            #{accountId, jdbcType=VARCHAR},
+            #{questionnaireTemplateId, jdbcType=INTEGER},
+            #{modifyTime, jdbcType=TIMESTAMP},
+            #{lastModifyTime, jdbcType=TIMESTAMP},
+            #{jsonContent, jdbcType=VARCHAR},
+            #{status, jdbcType=INTEGER}
         )
     </insert>
 
 
     <select id="getQuestionnaireContentCommitList" resultType="QuestionnaireContent">
         SELECT
-            id, questionnaireTemplateId, cementFactoryId, productionLine, modifyTime, lastModifyTime, jsonContent, status
+            id, questionnaireTemplateId, modifyTime, lastModifyTime, jsonContent, status
         FROM tb_questionnaire_content
         WHERE questionnaireTemplateId = #{questionnaireTemplateId} AND status = 3
         LIMIT #{offset}, #{pageSize}
@@ -61,12 +59,11 @@
             <if test="lastModifyTime != null">
                 lastModifyTime = #{lastModifyTime, jdbcType=TIMESTAMP},
             </if>
-            productionLine = #{productionLine},
-            modifyTime = #{modifyTime},
-            lastModifyTime = #{lastModifyTime},
-            status = #{status}
+            modifyTime = #{modifyTime, jdbcType=TIMESTAMP},
+            lastModifyTime = #{lastModifyTime, jdbcType=TIMESTAMP},
+            status = #{status, jdbcType=INTEGER}
         </set>
-        WHERE id = #{id} AND modifyTime = #{lastModifyTime}
+        WHERE id = #{id, jdbcType=INTEGER} AND modifyTime = #{lastModifyTime, jdbcType=TIMESTAMP}
     </update>
     
     <select id="getQuestionnaireContentCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">

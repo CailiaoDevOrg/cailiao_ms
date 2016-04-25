@@ -20,27 +20,27 @@
 							</tr>
 							<tr>
 								<td>年排放量，吨/年</td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_npfl_yt"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_npfl_yw"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_npfl_snm"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_npfl_mm"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_npfl_bzj"></td>
 							</tr>
 							<tr>
 								<td>排放浓度，mg/立方米</td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_pfnd_yt"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_pfnd_yw"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_pfnd_snm"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_pfnd_mm"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_pfnd_bzj"></td>
 							</tr>
 							<tr>
 								<td>除尘方式(电/袋)</td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_ccfs_yt"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_ccfs_yw"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_ccfs_snm"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_ccfs_mm"></td>
+								<td><input type="text" class="form-control" id="fqpf_klw_ccfs_bzj"></td>
 							</tr>
 						</table>
 					</div>
@@ -58,18 +58,18 @@
 							</tr>
 							<tr>
 								<td>年排放量，吨/年</td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
+								<td><input type="text" class="form-control" id="fqpf_fq_npfl_so2"></td>
+								<td><input type="text" class="form-control" id="fqpf_fq_npfl_nox"></td>
 							</tr>
 							<tr>
 								<td>排放浓度，mg/立方米</td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
+								<td><input type="text" class="form-control" id="fqpf_fq_pfnd_so2"></td>
+								<td><input type="text" class="form-control" id="fqpf_fq_pfnd_nox"></td>
 							</tr>
 							<tr>
 								<td>除尘方式(电/袋)</td>
-								<td><input type="text" class="form-control"></td>
-								<td><input type="text" class="form-control"></td>
+								<td><input type="text" class="form-control" id="fqpf_fq_ccfs_so2"></td>
+								<td><input type="text" class="form-control" id="fqpf_fq_ccfs_nox"></td>
 							</tr>
 						</table>
 						<div class="row"></div>
@@ -81,12 +81,12 @@
 					<div class="box-header">喷氮</div>
 					<div class="box-body">
 						<div class="form-group">
-							<label for="scLineName">喷氮 kg/t熟料</label> <input type="text"
-								class="form-control" id="scLineName" placeholder="喷氮 kg/t熟料">
+							<label for="fqpf_pd_sl">喷氮 kg/t熟料</label> 
+							<input type="text" class="form-control" id="fqpf_pd_sl" placeholder="喷氮 kg/t熟料">
 						</div>
 						<div class="form-group">
-							<label for="scLineName">喷氮 除尘方式(电/袋)</label> <input type="text"
-								class="form-control" id="scLineName" placeholder="喷氮 除尘方式(电/袋)">
+							<label for="fqpf_pd_ccfs">喷氮 除尘方式(电/袋)</label> 
+							<input type="text" class="form-control" id="fqpf_pd_ccfs" placeholder="喷氮 除尘方式(电/袋)">
 						</div>
 					</div>
 				</div>
@@ -96,10 +96,10 @@
 					<div class="box-header">脱硝工艺</div>
 					<div class="box-body">
 						<div class="form-group">
-							1 <input type="checkbox"> SNCR <br /> 
-							2 <input type="checkbox"> 分级燃烧 <br /> 
-							3 <input type="checkbox"> 1+2 <br /> 
-							4 <input type="checkbox"> 其他 <br />
+							1 <input type="radio" name="fqpf_txgy" value="SNCR" checked> SNCR <br /> 
+							2 <input type="radio" name="fqpf_txgy" value="分级燃烧"> 分级燃烧 <br /> 
+							3 <input type="radio" name="fqpf_txgy" value="SNCR 分级燃烧"> 1+2 <br /> 
+							4 <input type="radio" name="fqpf_txgy" value="其他"> 其他 <br />
 						</div>
 					</div>
 				</div>

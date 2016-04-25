@@ -9,14 +9,11 @@ import java.sql.Timestamp;
 public class QuestionnaireContent implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     // id, 主键
     private Integer id;
     // 问卷模板id
     private int questionnaireTemplateId;
-    // 水泥厂id
-    private String cementFactoryId;
-    // 生产线
-    private String productionLine;
     // 修改时间
     private Timestamp modifyTime;
     // 上次修改时间
@@ -27,6 +24,8 @@ public class QuestionnaireContent implements Serializable {
     private int status;
     // 审核意见
     private String rejectReason;
+    // 填写人
+    private String accountId;
 
     public Integer getId() {
         return id;
@@ -42,22 +41,6 @@ public class QuestionnaireContent implements Serializable {
 
     public void setQuestionnaireTemplateId(int questionnaireTemplateId) {
         this.questionnaireTemplateId = questionnaireTemplateId;
-    }
-
-    public String getCementFactoryId() {
-        return cementFactoryId;
-    }
-
-    public void setCementFactoryId(String cementFactoryId) {
-        this.cementFactoryId = cementFactoryId;
-    }
-
-    public String getProductionLine() {
-        return productionLine;
-    }
-
-    public void setProductionLine(String productionLine) {
-        this.productionLine = productionLine;
     }
 
     public Timestamp getModifyTime() {
@@ -98,5 +81,27 @@ public class QuestionnaireContent implements Serializable {
 
     public void setRejectReason(String rejectReason) {
         this.rejectReason = rejectReason;
+    }
+
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
+    @Override
+    public String toString() {
+        return "QuestionnaireContent{" +
+                "id=" + id +
+                ", questionnaireTemplateId=" + questionnaireTemplateId +
+                ", modifyTime=" + modifyTime +
+                ", lastModifyTime=" + lastModifyTime +
+                ", jsonContent='" + jsonContent + '\'' +
+                ", status=" + status +
+                ", rejectReason='" + rejectReason + '\'' +
+                ", accountId='" + accountId + '\'' +
+                '}';
     }
 }
