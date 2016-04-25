@@ -33,7 +33,7 @@
 				<li><a href="#">项目简介</a></li>
 				<li><a href="#">支持</a></li>
 				<!-- <li><a href="http://10.141.9.168:7878/login.html">后台管理系统</a></li> -->
-				<li><a href="login.html">后台管理系统</a></li>
+				<li><a href="main/home.html">后台管理系统</a></li>
 			</div>
 		</ul>
 		<!--菜单导航结束-->

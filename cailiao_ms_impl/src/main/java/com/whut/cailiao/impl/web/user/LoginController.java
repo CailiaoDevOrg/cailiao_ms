@@ -47,7 +47,8 @@ public class LoginController extends BaseController {
         HttpSession session = HttpUtil.getSession();
         session.removeAttribute("user");
         session.invalidate();
-        return "redirect:/login.html";
+        // return "redirect:/login.html";
+        return "redirect:/";
     }
 
 }
