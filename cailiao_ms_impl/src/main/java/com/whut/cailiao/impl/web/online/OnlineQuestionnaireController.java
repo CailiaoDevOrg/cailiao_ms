@@ -68,4 +68,21 @@ public class OnlineQuestionnaireController extends BaseController {
         }
         return convertApiResponseToJSONString(response);
     }
+
+    @RequestMapping(value = "/history/{wjtId}.html", method = RequestMethod.GET)
+    public String navigateToHistoryListPage(@PathVariable int wjtId, Model model) {
+        if (wjtId <= 0) {
+            return "online/index/index";
+        }
+        model.addAttribute("wjtId", wjtId);
+        return "online/wj/history";
+    }
+
+    @RequestMapping(value = "/getHistoryList/{wjtId}.html", method = RequestMethod.GET)
+    @ResponseBody
+    public String getHistoryList(@PathVariable int wjtId) {
+        ApiResponse response = this.questionnaireService.getQuestionnaireContentListByAccountId(wjtId, getAccountId());
+        return convertApiResponseToJSONString(response);
+    }
+
 }

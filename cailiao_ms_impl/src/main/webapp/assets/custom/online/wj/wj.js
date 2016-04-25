@@ -3,7 +3,8 @@
 	$(function() {
 
 		$('#showHistoryList').on('click', function() {
-			alert('查看已经填写的问卷列表')
+			var wjtId = $('#wjtId').val();
+			window.location.href = '/online/wj/history/' + wjtId + '.html';
 		});
 
 		$('#commit').on('click', function() {

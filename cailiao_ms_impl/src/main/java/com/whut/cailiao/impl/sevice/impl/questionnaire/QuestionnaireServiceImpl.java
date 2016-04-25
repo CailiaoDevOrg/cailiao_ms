@@ -56,18 +56,18 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
      * finished
      * 获取某水泥厂在填写某一问卷的情况
      * @param questionnaireTemplateId
-     * @param cementFactoryId
+     * @param accountId
      * @return
      */
     @Override
-    public ApiResponse getQuestionnaireContentList(int questionnaireTemplateId, String cementFactoryId) {
+    public ApiResponse getQuestionnaireContentListByAccountId(int questionnaireTemplateId, String accountId) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
-        if (questionnaireTemplateId <= 0 || StringUtils.isBlank(cementFactoryId)) {
+        if (questionnaireTemplateId <= 0 || StringUtils.isBlank(accountId)) {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
             logger.error("get questionnaire content list fail, input param error");
             return response;
         }
-        List<QuestionnaireContent> questionnaireContentList = this.questionnaireContentDao.getQuestionnaireContentListByCementId(questionnaireTemplateId, cementFactoryId);
+        List<QuestionnaireContent> questionnaireContentList = this.questionnaireContentDao.getQuestionnaireContentListByAccountId(questionnaireTemplateId, accountId);
         if (CollectionUtils.isNotEmpty(questionnaireContentList)) {
             response.addBody("questionnaireContentList", questionnaireContentList);
         }

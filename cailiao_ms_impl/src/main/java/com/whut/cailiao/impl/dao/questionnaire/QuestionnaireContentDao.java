@@ -16,11 +16,11 @@ public interface QuestionnaireContentDao {
     /**
      * 查询某水泥厂填写的某问卷
      * @param questionnaireTemplateId
-     * @param cementFactoryId
+     * @param accountId
      * @return
      */
-    List<QuestionnaireContent> getQuestionnaireContentListByCementId(@Param("questionnaireTemplateId") int questionnaireTemplateId, 
-            @Param("cementFactoryId") String cementFactoryId);
+    List<QuestionnaireContent> getQuestionnaireContentListByAccountId(@Param("questionnaireTemplateId") int questionnaireTemplateId,
+            @Param("accountId") String accountId);
 
     /**
      * 查看填写的问卷的详情内容
@@ -51,7 +51,7 @@ public interface QuestionnaireContentDao {
     /**
      * 获取提交的问卷列表,分页显示
      * @param questionnaireTemplateId
-     * @param currentPage
+     * @param offset
      * @param pageSize
      * @return
      */

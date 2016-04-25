@@ -43,11 +43,11 @@
         LIMIT #{offset}, #{pageSize}
     </select>
 
-    <select id="getQuestionnaireContentListByCementId" resultType="QuestionnaireContent">
+    <select id="getQuestionnaireContentListByAccountId" resultType="QuestionnaireContent">
         SELECT
-            id, questionnaireTemplateId, cementFactoryId, productionLine, modifyTime, lastModifyTime, jsonContent, status
+            id, questionnaireTemplateId, modifyTime, lastModifyTime, jsonContent, status, accountId
         FROM tb_questionnaire_content
-        WHERE questionnaireTemplateId = #{questionnaireTemplateId} AND cementFactoryId = #{cementFactoryId}
+        WHERE questionnaireTemplateId = #{questionnaireTemplateId, jdbcType=INTEGER} AND accountId = #{accountId, jdbcType=VARCHAR}
     </select>
 
     <update id="updateQuestionnaireContent" parameterType="QuestionnaireContent">
