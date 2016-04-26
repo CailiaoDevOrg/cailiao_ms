@@ -58,7 +58,7 @@
 
 		$('#wjTable tbody').on('click', 'button.btn-edit', function() {
             var id = $(this).data('id');
-            window.open('/online/wj/edit/' + id + '.html');
+            window.location.href = '/online/wj/edit/' + id + '.html';
         });
 		
 	});

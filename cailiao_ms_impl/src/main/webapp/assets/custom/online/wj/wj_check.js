@@ -130,6 +130,7 @@
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('已标记为通过');
+                        window.close();
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}
@@ -150,6 +151,7 @@
                     data = JSON.parse(data);
                     if (data.retCode == 200) {
                         alert('已标记为不通过');
+                        window.close();
                     } else {
                         alert('系统忙，请稍后重试');
                     }

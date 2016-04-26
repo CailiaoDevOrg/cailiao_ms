@@ -4,7 +4,7 @@
 
 		$('#showHistoryList').on('click', function() {
 			var wjtId = $('#wjtId').val();
-			window.open('/online/wj/history/' + wjtId + '.html');
+			window.location.href = '/online/wj/history/' + wjtId + '.html';
 		});
 
 		$('#commit').on('click', function() {
