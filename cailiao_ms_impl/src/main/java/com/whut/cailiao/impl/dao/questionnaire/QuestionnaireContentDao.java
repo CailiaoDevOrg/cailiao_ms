@@ -42,6 +42,8 @@ public interface QuestionnaireContentDao {
      */
     int updateQuestionnaireContent(QuestionnaireContent questionnaireContent);
 
+    void updateQuestionnaireContentStatus(QuestionnaireContent questionnaireContent);
+
     /**
      * 插入新填写的问卷
      * @param questionnaireContent

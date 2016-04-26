@@ -155,13 +155,12 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
      * 审核提交的问卷
      * @param questionnaireContentId
      * @param isPass
-     * @param rejectReason
      * @return
      */
     @Override
-    public ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass, String rejectReason) {
+    public ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
-        if (questionnaireContentId <= 0 || (!isPass && StringUtils.isBlank(rejectReason))) {
+        if (questionnaireContentId <= 0) {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
             logger.error("examineCommittedQuestionnaireContent fail, input error");
             return response;
@@ -173,7 +172,7 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
         } else {
             questionnaireContent.setStatus(QuestionnaireConstant.QuestionnaireContentStatus.EDITING.value());
         }
-        questionnaireContent.setRejectReason(rejectReason);
+        this.questionnaireContentDao.updateQuestionnaireContentStatus(questionnaireContent);
         return response;
     }
 

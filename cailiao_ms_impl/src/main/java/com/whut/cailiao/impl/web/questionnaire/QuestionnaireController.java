@@ -53,30 +53,4 @@ public class QuestionnaireController extends BaseController {
         return convertApiResponseToJSONString(response);
     }
 
-    /**
-     * 查看提交的问卷详情
-     * @param questionnaireContentId
-     */
-    @RequestMapping(value = "/getCommittedQuestionnaireContent/{questionnaireContentId}.html", method = RequestMethod.GET)
-    @ResponseBody
-    public String getCommittedQuestionnaireContent(@PathVariable int questionnaireContentId) {
-        ApiResponse response = this.questionnaireService.getQuestionnaireContent(questionnaireContentId);
-        return convertApiResponseToJSONString(response);
-    }
-
-    /**
-     * 审核问卷填写情况
-     * @param isPass
-     * @param questionnaireContentId
-     * @param rejectReason
-     */
-    @RequestMapping(value = "/examineCommittedQuestionnaireContent/{questionnaireContentId}.html", method = RequestMethod.POST)
-    @ResponseBody
-    public String examineCommittedQuestionnaireContent(@PathVariable int questionnaireContentId,
-                                                       @RequestParam boolean isPass,
-                                                       @RequestParam(required = false) String  rejectReason) {
-        ApiResponse response = this.questionnaireService.examineCommittedQuestionnaireContent(questionnaireContentId, isPass, rejectReason);
-        return convertApiResponseToJSONString(response);
-    }
-
 }

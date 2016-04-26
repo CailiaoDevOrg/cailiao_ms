@@ -66,10 +66,9 @@ public interface QuestionnaireService {
      * 审核提交的问卷
      * @param questionnaireContentId
      * @param isPass
-     * @param rejectReason
      * @return
      */
-    ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass, String rejectReason);
+    ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass);
     
     /**
      * 获取某一问卷模板下的问卷总数量

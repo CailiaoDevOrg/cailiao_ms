@@ -72,7 +72,7 @@ public class OnlineQuestionnaireController extends BaseController {
     @RequestMapping(value = "/history/{wjtId}.html", method = RequestMethod.GET)
     public String navigateToHistoryListPage(@PathVariable int wjtId, Model model) {
         if (wjtId <= 0) {
-            return "online/index/index";
+            return "error/404";
         }
         model.addAttribute("wjtId", wjtId);
         return "online/wj/history";
@@ -88,7 +88,7 @@ public class OnlineQuestionnaireController extends BaseController {
     @RequestMapping(value = "/edit/{wjId}.html", method = RequestMethod.GET)
     public String navigateToEditPage(@PathVariable int wjId, Model model) {
         if (wjId <= 0) {
-            return "online/index/index";
+            return "error/404";
         }
         model.addAttribute("wjId", wjId);
         return "online/wj/wj_edit";
@@ -101,4 +101,19 @@ public class OnlineQuestionnaireController extends BaseController {
         return convertApiResponseToJSONString(response);
     }
 
+    @RequestMapping(value = "/check/{wjId}.html", method = RequestMethod.GET)
+    public String navigateToCheckPage(@PathVariable int wjId, Model model) {
+        if (wjId <= 0) {
+            return "error/404";
+        }
+        model.addAttribute("wjId", wjId);
+        return "online/wj/wj_check";
+    }
+
+    @RequestMapping(value = "/examine/{wjId}.html", method = RequestMethod.PUT)
+    @ResponseBody
+    public String examine(@PathVariable int wjId, @RequestParam boolean isPass) {
+        ApiResponse response = this.questionnaireService.examineCommittedQuestionnaireContent(wjId, isPass);
+        return convertApiResponseToJSONString(response);
+    }
 }

@@ -22,8 +22,6 @@ public class QuestionnaireContent implements Serializable {
     private String jsonContent;
     // 状态(填写中, 已提交, 审核中, 审核通过)
     private int status;
-    // 审核意见
-    private String rejectReason;
     // 填写人
     private String accountId;
 
@@ -75,14 +73,6 @@ public class QuestionnaireContent implements Serializable {
         this.status = status;
     }
 
-    public String getRejectReason() {
-        return rejectReason;
-    }
-
-    public void setRejectReason(String rejectReason) {
-        this.rejectReason = rejectReason;
-    }
-
     public String getAccountId() {
         return accountId;
     }
@@ -100,7 +90,6 @@ public class QuestionnaireContent implements Serializable {
                 ", lastModifyTime=" + lastModifyTime +
                 ", jsonContent='" + jsonContent + '\'' +
                 ", status=" + status +
-                ", rejectReason='" + rejectReason + '\'' +
                 ", accountId='" + accountId + '\'' +
                 '}';
     }

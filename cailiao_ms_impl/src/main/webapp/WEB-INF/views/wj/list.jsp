@@ -6,6 +6,14 @@
     
     <div class="content body">
         <p class="lead">您可以对已经回收的问卷进行查看与审核.</p>
+        <a class="btn btn-primary" id="gobackToWJTPage">返回问卷模板列表</a><br/><br/>
+        <div class="form-group">
+            <label for="statusSelect">选择要查看的问卷状态</label>
+            <div id="statusSelect">
+                <input type="checkbox" name="statusSelect">已提交但未审核<br/>
+                <input type="checkbox" name="statusSelect">审核通过
+            </div>
+        </div>
         <div class="box box-body box-primary">
             <table id="wjTable" class="table table-hover table-responsive">
                 <thead>
@@ -21,6 +29,7 @@
                 </tbody>
             </table>
         </div>
+        <input type="hidden" id="wjtId" value="${wjtId}">
     </div>
 </div>
 
