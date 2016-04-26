@@ -6,7 +6,7 @@
     
     <div class="content body">
         <p class="lead">您可以创建新的接口，也可以查看接口列表.</p>
-        <a class="btn btn-primary" id="createPrivilegeBtn">新建接口</a><br/><br/>
+        <a class="btn btn-primary btn-flat" id="createPrivilegeBtn">新建接口</a><br/><br/>
         <div class="box box-body box-primary">
             <table id="privilegeTable" class="table table-hover table-responsive">
                 <thead>

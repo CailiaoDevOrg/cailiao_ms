@@ -32,7 +32,7 @@
                             targets: -1,
                             data: 'id',
                             render: function(data, type, full) {
-                                return '<button class="btn btn-primary btn-xs btn-check" data-id="' + data + '">审核</button>';
+                                return '<button class="btn btn-primary btn-xs btn-check btn-flat" data-id="' + data + '">审核</button>';
                             }
                         },
                         {

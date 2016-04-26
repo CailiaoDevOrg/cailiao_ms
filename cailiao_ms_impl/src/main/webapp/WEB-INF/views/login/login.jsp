@@ -1,60 +1,61 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 
-<%  
-	String path = request.getContextPath();  
+<%
+	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html>
-
-<html lang="en-US">
-<head>
+<html>
+  <head>
     <base href="<%=basePath%>" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="GENES">
-    <meta name="author" content="WHUT">
-    <!-- <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" /> -->
-    <title>后台管理系统</title>
-    <!-- Bootstrap core CSS -->
-    <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
+    <title>登录</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/adminlte/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/adminlte/AdminLTE.min.css">
     <link href="assets/custom/login/login.css" rel="stylesheet">
-</head>
-<body>
+  </head>
+  <body class="hold-transition login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="javascript:void(0);"><b>后台管理系统</b></a>
+      </div>
+      <div class="login-box-body">
+        <p class="login-box-msg">请输入您的用户名和密码</p>
+        <form class="form-signin">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="用户名" id="inputUserId">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="密码" id="inputPassword">
+          </div>
+          <div class="form-group captcha-wrapper">
+              <input type="text" class="form-control" placeholder="验证码" id="captcha">
+              <a><img src="checkcode.html" id="checkcodeImg"></a>
+          </div>
+          <div class="row">
+            <div class="col-xs-8"><a href="register.html" class="text-center">注册新账户</a></div>
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat" id="btnSignIn">登录</button>
+            </div>
+          </div>
+          <div class="bg-danger hidden">
+              <p class="username-tooltip hidden">请输入用户名</p>
+              <p class="password-tooltip hidden">请输入密码</p>
+          </div>
+        </form>
+      </div>
+    </div>
 
-<div class="container">
-    <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputUserId" class="sr-only">User Id</label>
-        <input type="text" name="id" id="inputUserId" class="form-control first" placeholder="User Id" tabindex="1">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" tabindex="2">
-        <label for="inputPassword" class="sr-only">Captcha</label>
-        <div class="captcha-wrapper">
-            <input type="text" name="captcha" id="captcha" class="form-control last" placeholder="Captcha" tabindex="3">
-            <a>
-                <img src="checkcode.html" id="checkcodeImg">
-            </a>
-        </div>
-        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" id="btnSignIn" tabindex="4" />
-        <div class="bg-danger hidden">
-            <p class="username-tooltip hidden">请输入用户名</p>
-            <p class="password-tooltip hidden">请输入密码</p>
-        </div>
-    </form>
-</div>
+    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="assets/bootstrap/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/crypto/core-min.js"></script>
+    <script type="text/javascript" src="assets/crypto/md5-min.js"></script>
 
-<script type="text/javascript" src="assets/crypto/core-min.js"></script>
-<script type="text/javascript" src="assets/crypto/md5-min.js"></script>
+    <script type="text/javascript" src="assets/custom/login/login_page.js"></script>
 
-<!-- <script type="text/javascript" src="assets/fingerprint/fingerprint.js"></script> -->
-
-<script type="text/javascript" src="assets/custom/login/login_page.js"></script>
-
-</body>
+  </body>
 </html>

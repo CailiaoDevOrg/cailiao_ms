@@ -37,9 +37,9 @@
                                 style = 'btn-publish';
                                 text = '发布';
                             }
-                            return '<button class="btn btn-primary btn-xs btn-detail" data-id="' + data.id + '">查看</button>\
-                                    <button class="btn btn-primary btn-xs ' + style + '" data-id="' + data.id + '">' + text + '</button>\
-                                    <button class="btn btn-danger btn-xs btn-delete" data-id="' + data.id + '">删除</button>';
+                            return '<button class="btn btn-primary btn-xs btn-detail btn-flat" data-id="' + data.id + '">查看</button>\
+                                    <button class="btn btn-primary btn-xs btn-flat ' + style + '" data-id="' + data.id + '">' + text + '</button>\
+                                    <button class="btn btn-danger btn-xs btn-delete btn-flat" data-id="' + data.id + '">删除</button>';
                         }
                     },
                     {

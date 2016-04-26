@@ -6,7 +6,7 @@
 
     <div class="content body">
         <p class="lead">您可以创建新的角色.</p>
-        <a class="btn btn-primary" id="showRoleList">查看角色列表</a><br/><br/>
+        <a class="btn btn-primary btn-flat" id="showRoleList">查看角色列表</a><br/><br/>
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="box-footer">
-                            <input type="button" class="btn btn-primary" id="submit" value="创建">
+                            <input type="button" class="btn btn-primary btn-flat" id="submit" value="创建">
                         </div>
                     </form>
                 </div>

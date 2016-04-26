@@ -28,8 +28,8 @@
             <form role="form">
                 <div class="box-body">
                     <div class="form-group">
-                        <input type="button" class="btn btn-danger btn-xs" id="pass" value="通过">
-                        <input type="button" class="btn btn-primary btn-xs" id="unpass" value="不通过">
+                        <input type="button" class="btn btn-danger btn-xs btn-flat" id="pass" value="通过">
+                        <input type="button" class="btn btn-primary btn-xs btn-flat" id="unpass" value="不通过">
                         <!--<input type="button" class="btn btn-primary btn-xs" id="edit" value="编辑">-->
                     </div>
                     <jsp:include page="baseinfo.jsp"/>

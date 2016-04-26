@@ -6,7 +6,7 @@
     
     <div class="content body">
         <p class="lead">您可以创建新的角色，也可以查看角色列表.</p>
-        <a class="btn btn-primary" id="createRoleBtn">新建角色</a><br/><br/>
+        <a class="btn btn-primary btn-flat" id="createRoleBtn">新建角色</a><br/><br/>
         <div class="box box-body box-primary">
             <table id="roleTable" class="table table-hover table-responsive">
                 <thead>

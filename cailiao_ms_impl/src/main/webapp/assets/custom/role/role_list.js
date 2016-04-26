@@ -24,8 +24,8 @@
                     targets: -1,
                     data: 'id',
                     render: function(data, type, full) {
-                        return '<button class="btn btn-primary btn-xs btn-modify" data-id="' + data + '">修改</button>\
-                                <button class="btn btn-danger btn-xs btn-delete" data-id="' + data + '">删除</button>';
+                        return '<button class="btn btn-primary btn-xs btn-modify btn-flat" data-id="' + data + '">修改</button>\
+                                <button class="btn btn-danger btn-xs btn-delete btn-flat" data-id="' + data + '">删除</button>';
                     }
                 }
             ]

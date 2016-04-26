@@ -6,7 +6,7 @@
     
     <div class="content body">
         <p class="lead">您可以创建新用户.</p>
-        <a class="btn btn-primary" id="createUserBtn">新建用户</a><br/><br/>
+        <a class="btn btn-primary btn-flat" id="createUserBtn">新建用户</a><br/><br/>
         <div class="box box-body box-primary">
             <table id="usersTable" class="table table-hover table-responsive">
                 <thead>

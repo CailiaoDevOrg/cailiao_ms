@@ -6,7 +6,7 @@
     
     <div class="content body">
         <p class="lead">您可以创建新闻，新闻会按照创建时间和优先级进行显示.</p>
-        <a class="btn btn-primary" id="createNewsBtn">新建新闻</a><br/><br/>
+        <a class="btn btn-primary btn-flat" id="createNewsBtn">新建新闻</a><br/><br/>
         <div class="box box-body box-primary">
             <table id="newsTable" class="table table-hover table-responsive">
                 <thead>

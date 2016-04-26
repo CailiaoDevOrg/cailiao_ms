@@ -6,7 +6,7 @@
 
     <div class="content body">
         <p class="lead">您可以在此处修改用户信息.</p>
-        <a class="btn btn-primary" id="showUserList">查看用户列表</a><br/><br/>
+        <a class="btn btn-primary btn-flat" id="showUserList">查看用户列表</a><br/><br/>
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="box-footer">
-                            <input type="button" class="btn btn-primary" id="submit" value="更新用户信息">
+                            <input type="button" class="btn btn-primary btn-flat" id="submit" value="更新用户信息">
                         </div>
                     </form>
                 </div>

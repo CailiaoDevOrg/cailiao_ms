@@ -28,9 +28,9 @@
             <form role="form">
                 <div class="box-body">
                     <div class="form-group">
-                        <input type="button" class="btn btn-primary btn-xs" id="showHistoryList" value="查看填写历史">
-                        <input type="button" class="btn btn-primary btn-xs" id="submit" value="保存">
-                        <input type="button" class="btn btn-danger btn-xs" id="commit" value="提交">
+                        <input type="button" class="btn btn-primary btn-xs btn-flat" id="showHistoryList" value="查看填写历史">
+                        <input type="button" class="btn btn-primary btn-xs btn-flat" id="submit" value="保存">
+                        <input type="button" class="btn btn-danger btn-xs btn-flat" id="commit" value="提交">
                     </div>
                     <jsp:include page="baseinfo.jsp"/>
                     <jsp:include page="zyxh.jsp"/>

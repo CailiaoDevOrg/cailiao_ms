@@ -6,7 +6,7 @@
 
     <div class="content body">
         <p class="lead">您可以编辑问卷模板.</p>
-        <a class="btn btn-primary" id="showWjTemplateList">查看模板列表</a><br/><br/>
+        <a class="btn btn-primary btn-flat" id="showWjTemplateList">查看模板列表</a><br/><br/>
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="box-footer">
-                            <input type="button" class="btn btn-primary" id="submit" value="提交">
+                            <input type="button" class="btn btn-primary btn-flat" id="submit" value="提交">
                         </div>
                     </form>
                 </div>

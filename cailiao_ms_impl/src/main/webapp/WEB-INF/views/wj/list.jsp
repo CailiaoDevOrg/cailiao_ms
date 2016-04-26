@@ -6,7 +6,7 @@
     
     <div class="content body">
         <p class="lead">您可以对已经回收的问卷进行查看与审核.</p>
-        <a class="btn btn-primary" id="gobackToWJTPage">返回问卷模板列表</a><br/><br/>
+        <a class="btn btn-primary btn-flat" id="gobackToWJTPage">返回问卷模板列表</a><br/><br/>
         <div class="form-group">
             <label for="statusSelect">选择要查看的问卷状态</label>
             <div id="statusSelect">

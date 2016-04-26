@@ -6,7 +6,7 @@
     
     <div class="content body">
         <p class="lead">您可以管理已经创建的问卷模板，或创建新的问卷模板.</p>
-        <a class="btn btn-primary" id="createNewTemplateBtn">创建新模板</a><br/><br/>
+        <a class="btn btn-primary btn-flat" id="createNewTemplateBtn">创建新模板</a><br/><br/>
         <div class="box box-body box-primary">
             <table id="wjTemplateTable" class="table table-hover table-responsive">
                 <thead>

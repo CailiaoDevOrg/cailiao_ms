@@ -29,12 +29,12 @@
                         data: {id: 'id', status: 'status'},
                         render: function(data, type, full) {
                             if (data.status == 1) {
-                                return '<button class="btn btn-primary btn-xs btn-edit" data-id="' + data.id + '">编辑</button>\
-                                       <button class="btn btn-danger btn-xs btn-delete" data-id="' + data.id + '">删除</button>\
-                                       <button class="btn btn-primary btn-xs btn-publish" data-id="' + data.id + '">发布</button>';
+                                return '<button class="btn btn-primary btn-xs btn-edit btn-flat" data-id="' + data.id + '">编辑</button>\
+                                       <button class="btn btn-danger btn-xs btn-delete btn-flat" data-id="' + data.id + '">删除</button>\
+                                       <button class="btn btn-primary btn-xs btn-publish btn-flat" data-id="' + data.id + '">发布</button>';
                             } else if (data.status == 2) {
-                                return '<button class="btn btn-primary btn-xs btn-show" data-id="' + data.id + '">查看问卷</button>\
-                                       <button class="btn btn-danger btn-xs btn-delete" data-id="' + data.id + '">删除</button>';
+                                return '<button class="btn btn-primary btn-xs btn-show btn-flat" data-id="' + data.id + '">查看问卷</button>\
+                                       <button class="btn btn-danger btn-xs btn-delete btn-flat" data-id="' + data.id + '">删除</button>';
                             } else {
                                 return '该项异常,请联系管理员';
                             }
