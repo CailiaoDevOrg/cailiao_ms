@@ -117,6 +117,13 @@
             <version>5.4.1</version>
         </dependency>
 
+        <!-- mail -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.4</version>
+        </dependency>
+
         <!-- zk 单机环境不要添加 -->
         <dependency>
             <groupId>com.github.sgroschupf</groupId>

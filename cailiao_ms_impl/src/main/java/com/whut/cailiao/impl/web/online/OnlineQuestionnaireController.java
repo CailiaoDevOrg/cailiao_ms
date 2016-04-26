@@ -6,6 +6,8 @@ import com.whut.cailiao.api.model.questionnaire.QuestionnaireContent;
 import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireService;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireTemplateService;
+import com.whut.cailiao.impl.utils.email.EmailUtil;
+import com.whut.cailiao.impl.utils.email.Mail;
 import com.whut.cailiao.impl.web.BaseController;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -113,6 +115,11 @@ public class OnlineQuestionnaireController extends BaseController {
     @RequestMapping(value = "/examine/{wjId}.html", method = RequestMethod.PUT)
     @ResponseBody
     public String examine(@PathVariable int wjId, @RequestParam boolean isPass) {
+        /*Mail mail = new Mail();
+        mail.setContent("test content");
+        mail.setTitle("hello");
+        mail.setToWho("");
+        EmailUtil.sendEmail(mail);*/
         ApiResponse response = this.questionnaireService.examineCommittedQuestionnaireContent(wjId, isPass);
         return convertApiResponseToJSONString(response);
     }
