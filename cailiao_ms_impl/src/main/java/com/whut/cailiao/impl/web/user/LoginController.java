@@ -29,6 +29,11 @@ public class LoginController extends BaseController {
     public String navigateToLoginPage() {
         return "login/login";
     }
+
+    @RequestMapping(value = "/register.html", method = RequestMethod.GET)
+    public String navigateToRegisterPage() {
+        return "login/register";
+    }
     
     @RequestMapping(value = "/checkcode.html", method = RequestMethod.GET)
     public String navigateToCheckcode() {

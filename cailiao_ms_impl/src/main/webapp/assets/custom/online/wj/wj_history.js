@@ -26,7 +26,7 @@
 	                    data: {id: 'id', status: 'status'},
 	                    render: function(data, type, full) {
 	                    	if (data.status == 1) {
-	                    		return '<button class="btn btn-primary btn-xs btn-edit" data-id="' + data.id + '">编辑</button>';
+	                    		return '<button class="btn btn-primary btn-xs btn-edit btn-flat" data-id="' + data.id + '">编辑</button>';
 	                    	} else {
                                 return '感谢提交';
 	                    	}
