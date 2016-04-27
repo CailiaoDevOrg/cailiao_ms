@@ -1,6 +1,10 @@
 /*
  * Documentation specific stylesheet
  */
+.content-wrapper {
+  /*min-height: 720px;*/
+  height: 100vh;
+}
 .content-wrapper p {
   padding: 0 10px;
   font-size: 16px;
