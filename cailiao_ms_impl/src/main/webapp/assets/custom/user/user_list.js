@@ -20,7 +20,6 @@
                     { data: 'description' },
                     { data: 'factoryId' },
                     { data: 'email' },
-                    { data: 'role' },
                     { data: 'status' },
                     { title: '操作' }
                 ],
@@ -42,13 +41,6 @@
                     },
                     {
                         targets: 4,
-                        data: 'role',
-                        render: function(data, type, full) {
-                            return '测试水泥厂';
-                        }
-                    },
-                    {
-                        targets: 5,
                         data: 'status',
                         render: function(data, type, full) {
                         	if (data == 1) {

@@ -2,6 +2,8 @@
     $(function() {
 
     	$('#register').on('click', function() {
+    	    var $this = $(this);
+    	    $this.attr('disabled', true);
     		$.ajax({
                 type:"POST",
                 contentType:"application/json",
@@ -14,11 +16,12 @@
                     	window.location.href = '/login.html';
                     } else {
                     	alert('系统忙，请稍后重试');
+                    	$this.removeAttr('disabled');
                     }
                 },
                 error: function(data) {
-                	alert(data)
                     alert('网络出现问题，请稍后重试');
+                	$this.removeAttr('disabled');
                 }
             });
     	});

@@ -33,12 +33,12 @@ public class PrivilegeIntercepter implements HandlerInterceptor {
         System.out.println("privilege = " + privilege);
 
         if (CollectionUtils.isEmpty(user.getPrivilegeIds())) {
-            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/privilege/low.html");
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/error/low.html");
         	return false;
         }
 
         if (MapUtils.isNotEmpty(map) && map.containsKey(privilege) && !user.getPrivilegeIds().contains(map.get(privilege))) {
-            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/privilege/low.html");
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/error/low.html");
             return false;
         }
 

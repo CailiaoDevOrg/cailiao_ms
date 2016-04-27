@@ -8,6 +8,8 @@
 
             var objArr = [$('#name'), $('#desc'), $('#pageUrl'), $('#beginTime'), $('#endTime')];
             $('#submit').on('click', function() {
+            	var $this = $(this);
+            	$this.attr('disabled', true);
                 if (_validIsNotNull(objArr)) {
                     var data = {
                         id: $('#id').val(),
@@ -29,14 +31,17 @@
                                 $('.mainContent').load('wjt/list.html');
                         	} else {
                         		alert('系统忙，请稍后重试');
+                        		$this.removeAttr('disabled');
                         	}
                         },
                         error: function(data) {
                         	alert('网络出现问题，请稍后重试');
+                        	$this.removeAttr('disabled');
                         }
                     });
                 } else {
                     alert('please check input param');
+                    $this.removeAttr('disabled');
                 }
             });
             

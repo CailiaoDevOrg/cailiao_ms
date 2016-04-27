@@ -7,6 +7,8 @@
             _registerDatePicker([$('#beginTime'), $('#endTime')]);    
 
             $('#submit').on('click', function() {
+            	var $this = $(this);
+            	$this.attr('disabled', true);
                 var data = {
                     name: $('#name').val(),
                     description: $('#desc').val(),
@@ -27,12 +29,16 @@
                                 $('.mainContent').load('wjt/list.html');
                         	} else {
                         		alert('系统忙，请稍后重试');
+                        		$this.removeAttr('disabled');
                         	}
                         },
                         error: function(data) {
                         	alert('网络出现问题，请稍后重试');
+                        	$this.removeAttr('disabled');
                         }
                     });
+                } else {
+                	$this.removeAttr('disabled');
                 }
             });
             

@@ -82,6 +82,8 @@
             
             $('#wjTemplateTable tbody').on('click', 'button.btn-delete', function() {
                 var id = $(this).data('id');
+                var $this = $(this);
+            	$this.attr('disabled', true);
                 if(confirm('你确定要删除吗？')) {
                     $.ajax({
                         url: 'wjt/deleteWJT/' + id + '.html',
@@ -93,17 +95,23 @@
                                 $('.mainContent').load('wjt/list.html');
                             } else {
                                 alert('系统忙，请稍后重试');
+                                $this.removeAttr('disabled');
                             }
                         },
                         error: function(data) {
                             alert('网络出现问题，请稍后重试');
+                            $this.removeAttr('disabled');
                         }
                     });
+                } else {
+                	$this.removeAttr('disabled');
                 }
             });
             
             $('#wjTemplateTable tbody').on('click', 'button.btn-publish', function() {
             	var id = $(this).data('id');
+            	var $this = $(this);
+            	$this.attr('disabled', true);
             	$.ajax({
                     url: 'wjt/publishWJT/' + id + '.html',
                     method: 'PUT',
@@ -114,10 +122,12 @@
                             $('.mainContent').load('wjt/list.html');
                     	} else {
                     		alert('系统忙，请稍后重试');
+                    		$this.removeAttr('disabled');
                     	}
                     },
                     error: function(data) {
                     	alert('网络出现问题，请稍后重试');
+                    	$this.removeAttr('disabled');
                     }
                 });
             });

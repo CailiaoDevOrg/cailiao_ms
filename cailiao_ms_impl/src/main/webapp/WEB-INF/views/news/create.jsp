@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="box-footer">
-                            <input type="button" class="btn btn-primary" id="submit" value="发布">
+                            <input type="button" class="btn btn-primary btn-flat" id="submit" value="发布">
                         </div>
                     </form>
                 </div>

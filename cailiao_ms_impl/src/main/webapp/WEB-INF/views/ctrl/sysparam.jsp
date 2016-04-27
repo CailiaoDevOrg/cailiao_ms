@@ -16,12 +16,12 @@
                 <tr>
                     <td>1</td>
                     <td>刷新系统ACL，一般用于增加或删除访问接口的情况</td>
-                    <td><button class="btn btn-primary btn-xs btn-flat" id="refreshACL">刷新ACL列表</button></td>
+                    <td><button class="btn btn-danger btn-xs btn-flat" id="refreshACL">刷新ACL列表</button></td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>退出所有当前登录的用户</td>
-                    <td><button class="btn btn-primary btn-xs btn-flat" id="signOutAll">退出登录用户</button></td>
+                    <td><button class="btn btn-danger btn-xs btn-flat" id="signOutAll">退出登录用户</button></td>
                 </tr>
             </table>
         </div>

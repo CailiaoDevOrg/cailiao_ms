@@ -7,6 +7,8 @@
             _registerDatePicker([$('#beginTime'), $('#endTime')]);
             
             $('#submit').on('click', function() {
+            	var $this = $(this);
+            	$this.attr('disabled', true);
                 if (true) {//补充参数校验 _validIsNotNull(objArr)
                     var data = {
                         title: $('#title').val(),
@@ -28,14 +30,17 @@
                                 $('.mainContent').load('/news/list.html');
                         	} else {
                         		alert('系统忙，请稍后重试');
+                        		$this.removeAttr('disabled');
                         	}
                         },
                         error: function(data) {
                         	alert('网络出现问题，请稍后重试');
+                        	$this.removeAttr('disabled');
                         }
                     });
                 } else {
                     alert('please check input param');
+                    $this.removeAttr('disabled');
                 }
             });
             

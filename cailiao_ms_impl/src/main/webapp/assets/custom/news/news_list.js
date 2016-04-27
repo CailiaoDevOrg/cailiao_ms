@@ -96,22 +96,30 @@
             
             $('#newsTable tbody').on('click', 'button.btn-delete', function() {
                 var id = $(this).data('id');
-                $.ajax({
-                    url: 'news/delete/' + id + '.html',
-                    method: 'DELETE',
-                    success: function(data) {
-                    	data = JSON.parse(data);
-                    	if (data.retCode == 200) {
-                            alert('删除成功');
-                            $('.mainContent').load('news/list.html');
-                    	} else {
-                    		alert('系统忙，请稍后重试');
-                    	}
-                    },
-                    error: function(data) {
-                    	alert('网络出现问题，请稍后重试');
-                    }
-                });
+                var $this = $(this);
+                $this.attr('disabled', true);
+                if (confirm('确认删除?')) {
+                	$.ajax({
+                        url: 'news/delete/' + id + '.html',
+                        method: 'DELETE',
+                        success: function(data) {
+                        	data = JSON.parse(data);
+                        	if (data.retCode == 200) {
+                                alert('删除成功');
+                                $('.mainContent').load('news/list.html');
+                        	} else {
+                        		alert('系统忙，请稍后重试');
+                        		$this.removeAttr('disabled');
+                        	}
+                        },
+                        error: function(data) {
+                        	alert('网络出现问题，请稍后重试');
+                        	$this.removeAttr('disabled');
+                        }
+                    });
+                } else {
+                	$this.removeAttr('disabled');
+                }
             });
 
             $('#newsTable tbody').on('click', 'button.btn-detail', function() {
@@ -141,6 +149,8 @@
 
             $('#newsTable tbody').on('click', 'button.btn-pause', function() {
                 var id = $(this).data('id');
+                var $this = $(this);
+                $this.attr('disabled', true);
                 $.ajax({
                     url: 'news/pause/' + id + '/2.html',
                     method: 'PUT',
@@ -151,16 +161,20 @@
                             $('.mainContent').load('news/list.html');
                         } else {
                             alert('系统忙，请稍后重试');
+                            $this.removeAttr('disabled');
                         }
                     },
                     error: function(data) {
                         alert('网络出现问题，请稍后重试');
+                        $this.removeAttr('disabled');
                     }
                 });
             });
 
             $('#newsTable tbody').on('click', 'button.btn-publish', function() {
                 var id = $(this).data('id');
+                var $this = $(this);
+                $this.attr('disabled', true);
                 $.ajax({
                     url: 'news/pause/' + id + '/1.html',
                     method: 'PUT',
@@ -171,10 +185,12 @@
                             $('.mainContent').load('news/list.html');
                         } else {
                             alert('系统忙，请稍后重试');
+                            $this.removeAttr('disabled');
                         }
                     },
                     error: function(data) {
                         alert('网络出现问题，请稍后重试');
+                        $this.removeAttr('disabled');
                     }
                 });
             });
