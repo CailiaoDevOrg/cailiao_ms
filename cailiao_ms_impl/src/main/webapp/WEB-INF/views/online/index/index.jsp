@@ -29,7 +29,7 @@
 		<!--菜单导航-->
 		<ul class="nav">
 			<div class="topbox">
-				<li><a href="#">新闻</a></li>
+				<li><a href="javascript:void(0);">新闻</a></li>
 				<li><a href="#">相关下载</a></li>
 				<li><a href="#">项目简介</a></li>
 				<li><a href="#">支持</a></li>
@@ -166,5 +166,7 @@
     <script type="text/javascript" src="assets/custom/online/index/js/imgSlide.js"></script>
     <script type="text/javascript" src="assets/custom/util/time.js"></script>
     <script type="text/javascript" src="assets/custom/online/index/js/index.js"></script>
+    <script type="text/javascript" src="assets/custom/util/navigate.js"></script>
+    
 </body>
 </html>

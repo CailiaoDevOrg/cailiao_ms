@@ -49,14 +49,16 @@
     <script type="text/javascript" src="assets/datepicker/bootstrap-datepicker.zh-CN.js"></script>
     
     <!--<script type="text/javascript" src="assets/fingerprint/fingerprint.js"></script>-->
+
+    <!-- util -->
+    <script type="text/javascript" src="assets/custom/util/time.js"></script>
+    <script type="text/javascript" src="assets/custom/util/navigate.js"></script>
     
     <!-- page -->
     <script type="text/javascript" src="assets/custom/home/sidebar_goto.js"></script>
     <script type="text/javascript" src="assets/custom/home/header.js"></script>
     <script type="text/javascript" src="assets/custom/home/home.js"></script>
-    
-    <!-- util -->
-    <script type="text/javascript" src="assets/custom/util/time.js"></script>
+
 
 </body>
 </html>

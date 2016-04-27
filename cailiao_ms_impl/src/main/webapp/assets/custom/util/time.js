@@ -6,4 +6,4 @@ var timeFormat = (function() {
 	return {
 		formatTime : getLocalTime
 	}
-})(jQuery);
+})();
