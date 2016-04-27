@@ -4,7 +4,7 @@
         
         (function() {
             $("#createUserBtn").on('click', function() {
-                $(".mainContent").load('/user/create.html');
+                $(".mainContent").load('user/create.html');
             });
             
             $('#usersTable').DataTable({
@@ -12,7 +12,7 @@
                 searching: false,
                 lengthChange: false,
                 ajax: {
-                    url: '/user/getList.html',
+                    url: 'user/getList.html',
                     dataSrc: 'body.userList'
                 },
                 columns: [
@@ -46,13 +46,13 @@
             $('#usersTable tbody').on('click', 'button.btn-delete', function() {
                 var accountId = $(this).data('id');
                 $.ajax({
-                    url: '/user/delete/' + accountId + '.html',
+                    url: 'user/delete/' + accountId + '.html',
                     method: 'DELETE',
                     success: function(data) {
                     	data = JSON.parse(data);
                     	if (data.retCode == 200) {
                             alert('删除成功');
-                            $('.mainContent').load('/user/list.html');
+                            $('.mainContent').load('user/list.html');
                     	} else {
                     		alert('系统忙，请稍后重试');
                     	}
@@ -65,7 +65,7 @@
 
             $('#usersTable tbody').on('click', 'button.btn-modify', function() {
                 var accountId = $(this).data('id');
-                $('.mainContent').load('/user/edit/' + accountId + '.html');
+                $('.mainContent').load('user/edit/' + accountId + '.html');
             });
 
         })();

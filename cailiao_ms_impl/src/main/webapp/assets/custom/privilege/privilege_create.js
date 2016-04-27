@@ -3,12 +3,12 @@
 	$(function() {
 
 		$('#showInterfaceList').on('click', function() {
-			$('.mainContent').load('/privilege/list.html');
+			$('.mainContent').load('privilege/list.html');
 		});
 
 		$('#submit').on('click', function() {
 			$.ajax({
-                url: '/privilege/create.html',
+                url: 'privilege/create.html',
                 method: 'POST',
                 data: JSON.stringify(getFormData()),
                 contentType: 'application/json',
@@ -16,7 +16,7 @@
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('新建成功');
-                        $('.mainContent').load('/privilege/list.html');
+                        $('.mainContent').load('privilege/list.html');
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}

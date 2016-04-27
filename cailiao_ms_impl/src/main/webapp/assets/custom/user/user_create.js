@@ -5,7 +5,7 @@
         (function() {
 
             $.ajax({
-                url: '/role/getList.html',
+                url: 'role/getList.html',
                 method: 'GET',
                 success: function(data) {
                     data = JSON.parse(data);
@@ -49,7 +49,7 @@
             $('#submit').on('click', function() {
                 if (true) {//补充参数校验 _validIsNotNull(objArr)
                     $.ajax({
-                        url: '/user/create.html',
+                        url: 'user/create.html',
                         method: 'POST',
                         data: JSON.stringify(getFormData()),
                         contentType: 'application/json',
@@ -57,7 +57,7 @@
                         	data = JSON.parse(data);
                         	if (data.retCode == 200) {
                                 alert('新建成功');
-                                $('.mainContent').load('/user/list.html');
+                                $('.mainContent').load('user/list.html');
                         	} else {
                         		alert('系统忙，请稍后重试');
                         	}
@@ -89,7 +89,7 @@
             }
             
             $('#showUserList').on('click', function() {
-                 $(".mainContent").load('/user/list.html');
+                 $(".mainContent").load('user/list.html');
             });
         })();
         

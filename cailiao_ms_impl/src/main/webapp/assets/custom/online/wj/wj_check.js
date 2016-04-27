@@ -20,7 +20,7 @@
 		function loadData() {
 			var wjId = $('#wjId').val();
             $.ajax({
-	            url: '/online/wj/detail/' + wjId + '.html',
+	            url: 'online/wj/detail/' + wjId + '.html',
 	            method: 'GET',
 	            contentType: 'application/json',
 	            success: function(data) {

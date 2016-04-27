@@ -3,7 +3,7 @@
 	$(function() {
 
 		$('#showRoleList').on('click', function() {
-			$('.mainContent').load('/role/list.html');
+			$('.mainContent').load('role/list.html');
 		});
 
 		loadData();
@@ -11,7 +11,7 @@
 		function loadData() {
 			var id = $('#roleId').val();
 			$.ajax({
-	            url: '/role/getRoleEditData/' + id + '.html',
+	            url: 'role/getRoleEditData/' + id + '.html',
 	            method: 'GET',
 	            success: function(data) {
 	            	data = JSON.parse(data);
@@ -62,7 +62,7 @@
 
         $('#submit').on('click', function() {
         	$.ajax({
-                url: '/role/update.html',
+                url: 'role/update.html',
                 method: 'PUT',
                 data: JSON.stringify(getFormData()),
                 contentType: 'application/json',

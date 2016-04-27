@@ -3,7 +3,7 @@
     $(function() {
 
     	$('#createRoleBtn').on('click', function() {
-    		$('.mainContent').load('/role/create.html');
+    		$('.mainContent').load('role/create.html');
     	});
 
         $('#roleTable').DataTable({
@@ -11,7 +11,7 @@
             searching: false,
             lengthChange: false,
             ajax: {
-                url: '/role/getList.html',
+                url: 'role/getList.html',
                 dataSrc: 'body.roleList'
             },
             columns: [
@@ -34,13 +34,13 @@
         $('#roleTable tbody').on('click', 'button.btn-delete', function() {
             var id = $(this).data('id');
             $.ajax({
-                url: '/role/delete/' + id + '.html',
+                url: 'role/delete/' + id + '.html',
                 method: 'DELETE',
                 success: function(data) {
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('删除成功');
-                        $('.mainContent').load('/role/list.html');
+                        $('.mainContent').load('role/list.html');
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}
@@ -53,7 +53,7 @@
 
         $('#roleTable tbody').on('click', 'button.btn-modify', function() {
             var id = $(this).data('id');
-            $('.mainContent').load('/role/edit/' + id + '.html');
+            $('.mainContent').load('role/edit/' + id + '.html');
         });
 
     });

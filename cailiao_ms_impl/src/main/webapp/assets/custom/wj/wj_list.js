@@ -5,7 +5,7 @@
         (function() {
 
             $('#gobackToWJTPage').on('click', function() {
-                $(".mainContent").load('/wjt/list.html');
+                $(".mainContent").load('wjt/list.html');
             });
 
             loadTable();
@@ -17,7 +17,7 @@
                     searching: false,
                     lengthChange: false,
                     ajax: {
-                        url: '/wj/getList/' + wjtId + '.html',
+                        url: 'wj/getList/' + wjtId + '.html',
                         dataSrc: 'body.questionnaireContentList'
                     },
                     columns: [
@@ -48,7 +48,7 @@
 
             $('#wjTable tbody').on('click', 'button.btn-check', function() {
                 var id = $(this).data('id');
-                window.open('/online/wj/check/' + id + '.html');
+                window.open('online/wj/check/' + id + '.html');
             });
 
         })();

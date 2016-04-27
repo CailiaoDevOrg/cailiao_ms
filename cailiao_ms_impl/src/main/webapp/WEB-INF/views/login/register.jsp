@@ -29,33 +29,38 @@
         <p class="login-box-msg">注册新帐号</p>
         <form>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="请输入用户名">
+                <input type="text" class="form-control" id="accountId" placeholder="请输入用户名">
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="请输入邮箱">
+                <select class="form-control" id="factoryId">
+                    <option value="-1">课题组用户</option>
+                    <option value="1">yyyy水泥厂</option>
+                    <option value="2">zzzz水泥厂</option>
+                    <option value="3">wwww水泥厂</option>
+                </select>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="请输入密码">
+                <input type="email" class="form-control" id="email" placeholder="请输入邮箱">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="请确认密码">
+                <input type="password" class="form-control" id="password" placeholder="请输入密码">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="请输入描述信息,用于加速管理员审核">
+                <input type="password" class="form-control" id="repassword" placeholder="请确认密码">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="description" placeholder="请输入描述信息,用于加速管理员审核">
             </div>
             <div class="row">
                 <div class="col-xs-8">
                     <a href="login.html" class="text-center">我已有账户</a>
                 </div>
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>
+                    <input type="button" class="btn btn-primary btn-block btn-flat" id="register" value="注册">
                 </div>
             </div>
         </form>
-
-
     </div>
-    <!-- /.form-box -->
 </div>
 
 <script src="assets/jquery/jquery.min.js"></script>
@@ -64,7 +69,7 @@
 <script type="text/javascript" src="assets/crypto/core-min.js"></script>
 <script type="text/javascript" src="assets/crypto/md5-min.js"></script>
 
-<script type="text/javascript" src="assets/custom/login/login_page.js"></script>
+<script type="text/javascript" src="assets/custom/login/register.js"></script>
 
 </body>
 

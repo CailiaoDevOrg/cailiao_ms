@@ -3,11 +3,11 @@
 	$(function() {
 		
 		$('#wjtTile').on('click', function() {
-		    $('.mainContent').load('/wjt/list.html');	
+		    $('.mainContent').load('wjt/list.html');	
 		});
 		
 		$('#userManageTile').on('click', function() {
-			$('.mainContent').load('/user/list.html');
+			$('.mainContent').load('user/list.html');
 		});
 		
 	});

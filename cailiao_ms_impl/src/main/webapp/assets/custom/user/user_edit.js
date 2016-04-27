@@ -5,7 +5,7 @@
         (function() {
 
             $('#showUserList').on('click', function() {
-                 $(".mainContent").load('/user/list.html');
+                 $(".mainContent").load('user/list.html');
             });
 
             loadData();
@@ -16,7 +16,7 @@
                     return;
                 }
                 $.ajax({
-                    url: '/user/getUserEditData/' + accountId + '.html',
+                    url: 'user/getUserEditData/' + accountId + '.html',
                     method: 'GET',
                     success: function(data) {
                         data = JSON.parse(data);
@@ -69,7 +69,7 @@
             $('#submit').on('click', function() {
                 if (true) {//补充参数校验 _validIsNotNull(objArr)
                     $.ajax({
-                        url: '/user/update.html',
+                        url: 'user/update.html',
                         method: 'PUT',
                         data: JSON.stringify(getFormData()),
                         contentType: 'application/json',
@@ -77,7 +77,7 @@
                         	data = JSON.parse(data);
                         	if (data.retCode == 200) {
                                 alert('更新成功');
-                                $('.mainContent').load('/user/list.html');
+                                $('.mainContent').load('user/list.html');
                         	} else {
                         		alert('系统忙，请稍后重试');
                         	}

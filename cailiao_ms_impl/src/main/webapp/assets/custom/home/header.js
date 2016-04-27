@@ -3,7 +3,7 @@
 	$(function() {
 		
 		$.ajax({
-            url: '/user/info.html',
+            url: 'user/info.html',
             method: 'GET',
             contentType: 'application/json',
             success: function(data) {
@@ -17,7 +17,7 @@
 		
 		$('#btnUserInfo').on('click', function() {
 			$.ajax({
-	            url: '/user/info.html',
+	            url: 'user/info.html',
 	            method: 'GET',
 	            contentType: 'application/json',
 	            success: function(data) {
@@ -30,11 +30,11 @@
 		});
 		
 		$('#btnSignOut').on('click', function() {
-			window.location.href = '/signout.html';
+			window.location.href = 'signout.html';
 		});
 		
 		$('#logo').on('click', function() {
-			$('.mainContent').load('/main/dashboard.html');
+			$('.mainContent').load('main/dashboard.html');
 		});
 		
 	});

@@ -4,7 +4,7 @@
         
         (function() {
             $("#createNewTemplateBtn").on('click', function() {
-                $(".mainContent").load('/wjt/create.html');
+                $(".mainContent").load('wjt/create.html');
             });
             
             $('#wjTemplateTable').DataTable({
@@ -12,7 +12,7 @@
                 searching: false,
                 lengthChange: false,
                 ajax: {
-                    url: '/wjt/getWJTList/1.html',
+                    url: 'wjt/getWJTList/1.html',
                     dataSrc: 'body.page.list'
                 },
                 columns: [
@@ -72,25 +72,25 @@
 
             $('#wjTemplateTable tbody').on('click', 'button.btn-show', function() {
                 var id = $(this).data('id');
-                $('.mainContent').load('/wj/list/' + id + '.html');
+                $('.mainContent').load('wj/list/' + id + '.html');
             });
 
             $('#wjTemplateTable tbody').on('click', 'button.btn-edit', function() {
                 var id = $(this).data('id');
-                $('.mainContent').load('/wjt/getWJT/' + id + '.html');
+                $('.mainContent').load('wjt/getWJT/' + id + '.html');
             });
             
             $('#wjTemplateTable tbody').on('click', 'button.btn-delete', function() {
                 var id = $(this).data('id');
                 if(confirm('你确定要删除吗？')) {
                     $.ajax({
-                        url: '/wjt/deleteWJT/' + id + '.html',
+                        url: 'wjt/deleteWJT/' + id + '.html',
                         method: 'DELETE',
                         success: function(data) {
                             data = JSON.parse(data);
                             if (data.retCode == 200) {
                                 alert('删除成功');
-                                $('.mainContent').load('/wjt/list.html');
+                                $('.mainContent').load('wjt/list.html');
                             } else {
                                 alert('系统忙，请稍后重试');
                             }
@@ -105,13 +105,13 @@
             $('#wjTemplateTable tbody').on('click', 'button.btn-publish', function() {
             	var id = $(this).data('id');
             	$.ajax({
-                    url: '/wjt/publishWJT/' + id + '.html',
+                    url: 'wjt/publishWJT/' + id + '.html',
                     method: 'PUT',
                     success: function(data) {
                     	data = JSON.parse(data);
                     	if (data.retCode == 200) {
                     		alert('发布成功');
-                            $('.mainContent').load('/wjt/list.html');
+                            $('.mainContent').load('wjt/list.html');
                     	} else {
                     		alert('系统忙，请稍后重试');
                     	}

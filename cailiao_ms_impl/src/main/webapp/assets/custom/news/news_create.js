@@ -17,7 +17,7 @@
                         level: $('#level').val()
                     };
                     $.ajax({
-                        url: '/news/publish.html',
+                        url: 'news/publish.html',
                         method: 'POST',
                         data: JSON.stringify(data),
                         contentType: 'application/json',
@@ -40,7 +40,7 @@
             });
             
             $('#showNewsList').on('click', function() {
-                 $(".mainContent").load('/news/list.html');
+                 $(".mainContent").load('news/list.html');
             });
         })();
         

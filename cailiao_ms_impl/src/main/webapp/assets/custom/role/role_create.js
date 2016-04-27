@@ -3,7 +3,7 @@
 	$(function() {
 
 		$.ajax({
-            url: '/privilege/getList.html',
+            url: 'privilege/getList.html',
             method: 'GET',
             success: function(data) {
             	data = JSON.parse(data);
@@ -45,7 +45,7 @@
 
         $('#submit').on('click', function() {
         	$.ajax({
-                url: '/role/create.html',
+                url: 'role/create.html',
                 method: 'POST',
                 data: JSON.stringify(getFormData()),
                 contentType: 'application/json',
@@ -53,7 +53,7 @@
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('新建成功');
-                        $('.mainContent').load('/role/list.html');
+                        $('.mainContent').load('role/list.html');
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}
@@ -80,7 +80,7 @@
         }
 
         $('#showRoleList').on('click', function() {
-            $('.mainContent').load('/role/list.html');
+            $('.mainContent').load('role/list.html');
         });
 
 	});

@@ -157,7 +157,7 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
             news.setPublishedTime(now);
             news.setTitle(questionnaireTemplate.getName());
             news.setContent(questionnaireTemplate.getDescription());
-            news.setUrl("/online/wj/" + questionnaireTemplateId + ".html");
+            news.setUrl("online/wj/" + questionnaireTemplateId + ".html");
             this.newsService.sendNews(news);
         }
         return response;

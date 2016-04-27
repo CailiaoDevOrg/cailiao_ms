@@ -11,7 +11,7 @@
 	            searching: false,
 	            lengthChange: false,
 	            ajax: {
-	                url: '/online/wj/getHistoryList/' + wjtId + '.html',
+	                url: 'online/wj/getHistoryList/' + wjtId + '.html',
 	                dataSrc: 'body.questionnaireContentList'
 	            },
 	            columns: [
@@ -58,7 +58,7 @@
 
 		$('#wjTable tbody').on('click', 'button.btn-edit', function() {
             var id = $(this).data('id');
-            window.location.href = '/online/wj/edit/' + id + '.html';
+            window.location.href = 'online/wj/edit/' + id + '.html';
         });
 		
 	});

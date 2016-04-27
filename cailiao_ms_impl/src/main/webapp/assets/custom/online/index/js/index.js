@@ -3,7 +3,7 @@
 	$(function() {
 		
 		$.ajax({
-            url: '/online/news/getList.html',
+            url: 'online/news/getList.html',
             method: 'GET',
             contentType: 'application/json',
             success: function(data) {

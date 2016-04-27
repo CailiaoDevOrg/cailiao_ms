@@ -18,7 +18,7 @@
                         templateUrl: $('#pageUrl').val()
                     };
                     $.ajax({
-                        url: '/wjt/saveTemp.html',
+                        url: 'wjt/saveTemp.html',
                         method: 'PUT',
                         data: JSON.stringify(data),
                         contentType: 'application/json',
@@ -26,7 +26,7 @@
                         	data = JSON.parse(data);
                         	if (data.retCode == 200) {
                                 alert('更改成功');
-                                $('.mainContent').load('/wjt/list.html');
+                                $('.mainContent').load('wjt/list.html');
                         	} else {
                         		alert('系统忙，请稍后重试');
                         	}
@@ -41,7 +41,7 @@
             });
             
             $('#showWjTemplateList').on('click', function() {
-                $(".mainContent").load('/wjt/list.html');
+                $(".mainContent").load('wjt/list.html');
             });
         })();
         

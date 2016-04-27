@@ -4,7 +4,7 @@
 
 		$('#showHistoryList').on('click', function() {
 			var wjtId = $('#wjtId').val();
-			window.location.href = '/online/wj/history/' + wjtId + '.html';
+			window.location.href = 'online/wj/history/' + wjtId + '.html';
 		});
 
 		$('#commit').on('click', function() {
@@ -15,7 +15,7 @@
             	'jsonContent': getWJData()
             };
             $.ajax({
-                url: '/online/wj/commit.html',
+                url: 'online/wj/commit.html',
                 method: 'PUT',
                 data: JSON.stringify(data),
                 contentType: 'application/json',
@@ -40,7 +40,7 @@
             	'jsonContent': getWJData()
             };
             $.ajax({
-                url: '/online/wj/saveTemp.html',
+                url: 'online/wj/saveTemp.html',
                 method: 'POST',
                 data: JSON.stringify(data),
                 contentType: 'application/json',

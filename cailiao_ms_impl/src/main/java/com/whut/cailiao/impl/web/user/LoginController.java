@@ -1,5 +1,7 @@
 package com.whut.cailiao.impl.web.user;
 
+import com.whut.cailiao.api.constant.UserConstant;
+import com.whut.cailiao.api.service.user.UserService;
 import com.whut.cailiao.impl.utils.http.HttpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,9 @@ public class LoginController extends BaseController {
 
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/login.html", method = RequestMethod.GET)
     public String navigateToLoginPage() {
@@ -53,6 +58,14 @@ public class LoginController extends BaseController {
         session.removeAttribute("user");
         session.invalidate();
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/doRegister.html", method = RequestMethod.POST)
+    @ResponseBody
+    public String register(@RequestBody User user) {
+        user.setStatus(UserConstant.Status.DISABLED.value());
+        ApiResponse response = this.userService.createNewUser(user);
+        return convertApiResponseToJSONString(response);
     }
 
 }

@@ -4,7 +4,7 @@
 
     	$('#refreshACL').on('click', function() {
     		$.ajax({
-                url: '/sysparam/refreshACL.html',
+                url: 'sysparam/refreshACL.html',
                 method: 'GET',
                 success: function(data) {
                     data = JSON.parse(data);
@@ -23,7 +23,7 @@
 
     	$('#signOutAll').on('click', function() {
     		$.ajax({
-                url: '/sysparam/signOutAll.html',
+                url: 'sysparam/signOutAll.html',
                 method: 'GET',
                 success: function(data) {
                     data = JSON.parse(data);

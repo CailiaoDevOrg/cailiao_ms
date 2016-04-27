@@ -73,12 +73,12 @@
             $.ajax({
                 type:"POST",
                 contentType:"application/json",
-                url:"/doLogin.html?checkcode=" + checkcode,
+                url:"doLogin.html?checkcode=" + checkcode,
                 data: data,
                 success : function(data) {
                 	data = JSON.parse(data);
                     if (data.retCode == 200 && data.body.canLogin == true) {
-                    	window.location.href = '/';
+                    	window.location.href = '';
                     } else {
                     	if (data.retCode == 207) {
                     		alert("验证码输入错误");

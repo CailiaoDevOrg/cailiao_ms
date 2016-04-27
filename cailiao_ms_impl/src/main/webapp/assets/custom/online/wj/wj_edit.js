@@ -8,7 +8,7 @@
 		function loadData() {
 			var wjId = $('#wjId').val();
             $.ajax({
-	            url: '/online/wj/detail/' + wjId + '.html',
+	            url: 'online/wj/detail/' + wjId + '.html',
 	            method: 'GET',
 	            contentType: 'application/json',
 	            success: function(data) {
@@ -115,7 +115,7 @@
             	'jsonContent': getWJData()
             };
             $.ajax({
-                url: '/online/wj/commit.html',
+                url: 'online/wj/commit.html',
                 method: 'PUT',
                 data: JSON.stringify(data),
                 contentType: 'application/json',
@@ -123,7 +123,7 @@
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('提交成功');
-                        window.location.href = '/online/wj/history/' + wjtId + '.html';
+                        window.location.href = 'online/wj/history/' + wjtId + '.html';
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}
@@ -147,7 +147,7 @@
             	'jsonContent': getWJData()
             };
             $.ajax({
-                url: '/online/wj/saveTemp.html',
+                url: 'online/wj/saveTemp.html',
                 method: 'POST',
                 data: JSON.stringify(data),
                 contentType: 'application/json',
@@ -155,7 +155,7 @@
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('保存成功');
-                        window.location.href = '/online/wj/history/' + wjtId + '.html';
+                        window.location.href = 'online/wj/history/' + wjtId + '.html';
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}

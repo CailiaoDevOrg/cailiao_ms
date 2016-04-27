@@ -16,7 +16,7 @@
                 };
                 if (_validIsNotNull(data)) {
                     $.ajax({
-                        url: '/wjt/saveTemp.html',
+                        url: 'wjt/saveTemp.html',
                         method: 'POST',
                         data: JSON.stringify(data),
                         contentType: 'application/json',
@@ -24,7 +24,7 @@
                         	data = JSON.parse(data);
                         	if (data.retCode == 200) {
                                 alert('新建成功');
-                                $('.mainContent').load('/wjt/list.html');
+                                $('.mainContent').load('wjt/list.html');
                         	} else {
                         		alert('系统忙，请稍后重试');
                         	}
@@ -37,7 +37,7 @@
             });
             
             $('#showWjTemplateList').on('click', function() {
-                 $(".mainContent").load('/wjt/list.html');
+                 $(".mainContent").load('wjt/list.html');
             });
         })();
         
