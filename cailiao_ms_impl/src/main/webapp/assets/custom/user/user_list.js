@@ -57,25 +57,35 @@
             
             $('#usersTable tbody').on('click', 'button.btn-delete', function() {
                 var accountId = $(this).data('id');
-                $.ajax({
-                    url: 'user/delete/' + accountId + '.html',
-                    method: 'DELETE',
-                    success: function(data) {
-                    	data = JSON.parse(data);
-                    	if (data.retCode == 200) {
-                            alert('删除成功');
-                            $('.mainContent').load('user/list.html');
-                    	} else {
-                    		alert('系统忙，请稍后重试');
-                    	}
-                    },
-                    error: function(data) {
-                    	alert('网络出现问题，请稍后重试');
-                    }
-                });
+                var $this = $(this);
+                $this.attr('disabled', true);
+                if (confirm('您确定要删除吗?')) {
+                	$.ajax({
+                        url: 'user/delete/' + accountId + '.html',
+                        method: 'DELETE',
+                        success: function(data) {
+                        	data = JSON.parse(data);
+                        	if (data.retCode == 200) {
+                                alert('删除成功');
+                                $('.mainContent').load('user/list.html');
+                        	} else {
+                        		alert('系统忙，请稍后重试');
+                        		$this.removeAttr('disabled');
+                        	}
+                        },
+                        error: function(data) {
+                        	alert('网络出现问题，请稍后重试');
+                        	$this.removeAttr('disabled');
+                        }
+                    });
+                } else {
+                	$this.removeAttr('disabled');
+                }
             });
             
             $('#usersTable tbody').on('click', 'button.btn-active', function() {
+            	var $this = $(this);
+                $this.attr('disabled', true);
                 var accountId = $(this).data('id');
                 var data = {
                 	'accountId': accountId,
@@ -93,15 +103,19 @@
                             $('.mainContent').load('user/list.html');
                     	} else {
                     		alert('系统忙，请稍后重试');
+                    		$this.removeAttr('disabled');
                     	}
                     },
                     error: function(data) {
                     	alert('网络出现问题，请稍后重试');
+                    	$this.removeAttr('disabled');
                     }
                 });
             });
             
             $('#usersTable tbody').on('click', 'button.btn-freeze', function() {
+            	var $this = $(this);
+                $this.attr('disabled', true);
                 var accountId = $(this).data('id');
                 var data = {
                 	'accountId': accountId,
@@ -119,10 +133,12 @@
                             $('.mainContent').load('user/list.html');
                     	} else {
                     		alert('系统忙，请稍后重试');
+                    		$this.removeAttr('disabled');
                     	}
                     },
                     error: function(data) {
                     	alert('网络出现问题，请稍后重试');
+                    	$this.removeAttr('disabled');
                     }
                 });
             });

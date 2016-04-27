@@ -32,23 +32,32 @@
         });
 
         $('#privilegeTable tbody').on('click', 'button.btn-delete', function() {
-            var id = $(this).data('id');
-            $.ajax({
-                url: 'privilege/delete/' + id + '.html',
-                method: 'DELETE',
-                success: function(data) {
-                	data = JSON.parse(data);
-                	if (data.retCode == 200) {
-                        alert('删除成功');
-                        $('.mainContent').load('privilege/list.html');
-                	} else {
-                		alert('系统忙，请稍后重试');
-                	}
-                },
-                error: function(data) {
-                	alert('网络出现问题，请稍后重试');
-                }
-            });
+        	var id = $(this).data('id');
+        	var $this = $(this);
+        	$this.attr('disabled', true);
+        	if (confirm('您确定要删除吗?')) {
+                $.ajax({
+                    url: 'privilege/delete/' + id + '.html',
+                    method: 'DELETE',
+                    success: function(data) {
+                    	data = JSON.parse(data);
+                    	if (data.retCode == 200) {
+                            alert('删除成功');
+                            $('.mainContent').load('privilege/list.html');
+                    	} else {
+                    		alert('系统忙，请稍后重试');
+                    		$this.removeAttr('disabled');
+                    	}
+                    },
+                    error: function(data) {
+                    	alert('网络出现问题，请稍后重试');
+                    	$this.removeAttr('disabled');
+                    }
+                });
+        	} else {
+        		$this.removeAttr('disabled');
+        	}
+            
         });
 
 	});

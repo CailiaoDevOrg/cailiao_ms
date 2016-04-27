@@ -61,6 +61,8 @@
         }
 
         $('#submit').on('click', function() {
+        	$this = $(this);
+        	$this.attr('disabled', true);
         	$.ajax({
                 url: 'role/update.html',
                 method: 'PUT',
@@ -73,10 +75,12 @@
                         $('.mainContent').load('/role/list.html');
                 	} else {
                 		alert('系统忙，请稍后重试');
+                		$this.removeAttr('disabled');
                 	}
                 },
                 error: function(data) {
                 	alert('网络出现问题，请稍后重试');
+                	$this.removeAttr('disabled');
                 }
             });
         });
