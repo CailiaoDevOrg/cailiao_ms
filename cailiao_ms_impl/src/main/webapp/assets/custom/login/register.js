@@ -8,7 +8,6 @@
                 url:"doRegister.html",
                 data: JSON.stringify(getRegisterData()),
                 success : function(data) {
-                	alert(data);
                 	data = JSON.parse(data);
                     if (data.retCode == 200) {
                     	alert('注册成功，等待管理员激活');

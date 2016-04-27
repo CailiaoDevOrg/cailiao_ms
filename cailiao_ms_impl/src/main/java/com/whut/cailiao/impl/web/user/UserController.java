@@ -82,6 +82,13 @@ public class UserController extends BaseController {
         ApiResponse response = this.userService.updateUser(user);
         return convertApiResponseToJSONString(response);
     }
+    
+    @RequestMapping(value = "/updateStatus.html", method = RequestMethod.PUT)
+    @ResponseBody
+    public String updateStatus(@RequestBody User user) {
+    	ApiResponse response = this.userService.updateUserStatus(user);
+        return convertApiResponseToJSONString(response);
+    }
 
 
 }

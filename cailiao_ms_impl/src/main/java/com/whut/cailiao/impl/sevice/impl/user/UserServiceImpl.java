@@ -61,7 +61,11 @@ public class UserServiceImpl implements UserService {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
             return response;
         }
-        response.addBody("userList", this.userDao.getUserList(factoryId));
+        if (factoryId == -1) {
+        	response.addBody("userList", this.userDao.getAllUserList());
+        } else {
+        	response.addBody("userList", this.userDao.getUserList(factoryId));
+        }
         return response;
     }
 
@@ -167,5 +171,16 @@ public class UserServiceImpl implements UserService {
 
     }
 
-
+	@Override
+	public ApiResponse updateUserStatus(User user) {
+		ApiResponse response = ApiResponse.createDefaultApiResponse();
+		if (user == null || StringUtils.isBlank(user.getAccountId()) 
+				|| user.getStatus() < UserConstant.Status.ACTIVE.value()
+				|| user.getStatus() > UserConstant.Status.DISABLED.value()) {
+			response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+		}
+		this.userDao.updateUserStatus(user);
+		return response;
+	}
 }

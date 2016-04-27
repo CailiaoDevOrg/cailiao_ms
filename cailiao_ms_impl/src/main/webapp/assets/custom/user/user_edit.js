@@ -38,6 +38,8 @@
                 $('#description').val(user.description);
                 $('#email').val(user.email);
                 // select 的选择问题明天解决
+                $('#status').val(user.status);
+                $('#factoryId').val(user.factoryId);
                 
                 var roleChecked = user.roleIds;
                 var $div = $('#roleList').empty();

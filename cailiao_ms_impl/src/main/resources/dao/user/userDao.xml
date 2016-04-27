@@ -15,6 +15,12 @@
         FROM tb_user
         WHERE factoryId=#{factoryId, jdbcType=INTEGER}
     </select>
+    
+    <select id="getAllUserList" resultType="User">
+        SELECT
+            accountId, password, description, factoryId, email, status, registerTime
+        FROM tb_user
+    </select>
 
     <delete id="deleteUserByAccountId" parameterType="java.lang.String">
         DELETE FROM tb_user WHERE accountId = #{accountId, jdbcType=VARCHAR}
@@ -57,6 +63,14 @@
             </if>
             status = #{status, jdbcType=INTEGER},
             factoryId = #{factoryId, jdbcType=INTEGER}
+        </set>
+        WHERE accountId = #{accountId, jdbcType=VARCHAR}
+    </update>
+    
+    <update id="updateUserStatus" parameterType="User">
+        UPDATE tb_user
+        <set>
+            status = #{status, jdbcType=INTEGER}
         </set>
         WHERE accountId = #{accountId, jdbcType=VARCHAR}
     </update>

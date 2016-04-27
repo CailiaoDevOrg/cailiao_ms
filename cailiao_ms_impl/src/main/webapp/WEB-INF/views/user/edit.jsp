@@ -31,7 +31,7 @@
                                 <label for="status">选择用户状态</label>
                                 <select class="form-control" id="status">
                                     <option value="1">激活</option>
-                                    <option value="2">冻结</option>
+                                    <option value="2">未激活</option>
                                 </select>
                             </div>
                             <div class="form-group">

@@ -24,5 +24,7 @@ public interface UserService {
     ApiResponse getUserByAccountId(String accountId);
 
     ApiResponse getUserEditData(String accountId);
+    
+    ApiResponse updateUserStatus(User user);
 
 }
