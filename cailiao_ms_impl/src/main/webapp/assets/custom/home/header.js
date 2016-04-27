@@ -16,17 +16,7 @@
         });	
 		
 		$('#btnUserInfo').on('click', function() {
-			$.ajax({
-	            url: 'user/info.html',
-	            method: 'GET',
-	            contentType: 'application/json',
-	            success: function(data) {
-	            	alert(data);
-	            },
-	            error: function(data) {
-	            	alert('网络出现问题，请稍后重试');
-	            }
-	        });
+			$('.mainContent').load('user/personal.html');
 		});
 		
 		$('#btnSignOut').on('click', function() {

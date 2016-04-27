@@ -6,8 +6,6 @@ import com.whut.cailiao.api.model.user.User;
 import com.whut.cailiao.impl.helper.PrivilegeHelper;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,8 +19,6 @@ import java.util.Map;
  */
 public class PrivilegeIntercepter implements HandlerInterceptor {
 
-    private Logger logger = LoggerFactory.getLogger(PrivilegeIntercepter.class);
-
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         HttpSession session = httpServletRequest.getSession();
@@ -34,7 +30,7 @@ public class PrivilegeIntercepter implements HandlerInterceptor {
         Map<Privilege, Integer> map = PrivilegeHelper.getPrivilegeMap();
 
         Privilege privilege = new Privilege(httpServletRequest.getRequestURI().substring(httpServletRequest.getContextPath().length()), httpServletRequest.getMethod());
-        logger.info("Intercepter privilege = ", privilege.getUrl());
+        System.out.println("privilege = " + privilege);
 
         if (CollectionUtils.isEmpty(user.getPrivilegeIds())) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/privilege/low.html");

@@ -73,15 +73,13 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="hidden-xs">赵老师</span>
+                        <span class="hidden-xs"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-body">
-                            <p>
-                                系统管理员<small>2012年1月1日注册</small>
-                            </p>
-                        </li>
+                        <!-- <li class="user-body">
+                            <p id="registerTime"></p>
+                        </li> -->
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">

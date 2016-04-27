@@ -31,6 +31,11 @@ public class UserController extends BaseController {
         return JSON.toJSONString(user);
     }
     
+    @RequestMapping(value = "/personal.html", method = RequestMethod.GET)
+    public String getPersonalPage() {
+        return "user/personalInfoShow";
+    }
+    
     @RequestMapping(value = "/create.html", method = RequestMethod.GET)
     public String navigateToCreatePage() {
         return "user/create";

@@ -74,7 +74,7 @@
 			<!--大图右侧新闻-->
 			<div class="newsnn01_wjh">
 				<div class="newscenter">
-					<span><a href="" target="_blank">更多</a></span>
+					<!-- <span><a href="" target="_blank">更多</a></span> -->
 				</div>
 				<div class="newslistbydt">
 					<div class="defaultlist"></div>
@@ -109,8 +109,7 @@
 			<div class="col-md-4">
 				<div class="newslist">
 					<ul>
-						<li
-							style="border: 1px solid #eee;width:320px;height: 290px; overflow: hidden;">
+						<li style="border: 1px solid #eee;width:320px;height: 290px; overflow: hidden;">
 							<img src="assets/custom/online/index/img/home/help.jpg" width="318px"
 							height="290px" />
 						</li>
