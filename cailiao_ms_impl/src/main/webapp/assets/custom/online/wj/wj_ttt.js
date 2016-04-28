@@ -21,7 +21,10 @@
                 success: function(data) {
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
+                        debugger;
                         alert('提交成功');
+                        window.opener = null;
+                        window.close();
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}
@@ -47,6 +50,8 @@
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('保存成功');
+                        window.opener = null;
+                        window.close();
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}

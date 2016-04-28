@@ -23,6 +23,7 @@
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('提交成功');
+                        window.close();
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}
@@ -48,6 +49,8 @@
                 	data = JSON.parse(data);
                 	if (data.retCode == 200) {
                         alert('保存成功');
+                        var wjtId = $('#wjtId').val();
+                        window.location.href = 'online/wj/history/' + wjtId + '.html';
                 	} else {
                 		alert('系统忙，请稍后重试');
                 	}
