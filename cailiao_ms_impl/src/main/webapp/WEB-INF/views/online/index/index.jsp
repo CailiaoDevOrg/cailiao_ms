@@ -43,7 +43,8 @@
 	<!--header End  -->
 
 	<div class="maincontentbox">
-		<div class="topbg"></div>
+		<div class="topbg">
+        </div>
 		<!--首页幻灯片new Start-->
 		<div class="boxall"	style="background: rgb(61, 61, 61) no-repeat right top">
 			<!--主体内容区顶大图呈现开始-->

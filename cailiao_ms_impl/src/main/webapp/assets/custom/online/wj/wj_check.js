@@ -1,6 +1,10 @@
 (function($) {
 
 	$(function() {
+        
+        $('#print').on('click', function() {
+            window.print(); 
+        });
 
 	    $('#edit').on('click', function() {
 	        if ($("input:text").attr('readonly') == 'readonly') {

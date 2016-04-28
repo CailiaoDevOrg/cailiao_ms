@@ -15,6 +15,9 @@
     <!-- CORE CSS-->
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="assets/adminlte/AdminLTE.min.css">
+    <style type="text/css" media=print>  
+        .noprint{display : none }  
+    </style>  
 </head>
 
 <body>
@@ -27,10 +30,11 @@
             </div>
             <form role="form">
                 <div class="box-body">
-                    <div class="form-group">
-                        <input type="button" class="btn btn-danger btn-xs btn-flat" id="pass" value="通过">
-                        <input type="button" class="btn btn-primary btn-xs btn-flat" id="unpass" value="不通过">
-                        <!--<input type="button" class="btn btn-primary btn-xs" id="edit" value="编辑">-->
+                    <div class="form-group noprint">
+                        <input type="button" class="btn btn-primary btn-sm btn-flat" id="print" value="打印">
+                        <input type="button" class="btn btn-danger btn-sm btn-flat" id="pass" value="通过">
+                        <input type="button" class="btn btn-primary btn-sm btn-flat" id="unpass" value="不通过">
+                        <!--<input type="button" class="btn btn-primary btn-sm" id="edit" value="编辑">-->
                     </div>
                     <jsp:include page="baseinfo.jsp"/>
                     <jsp:include page="zyxh.jsp"/>

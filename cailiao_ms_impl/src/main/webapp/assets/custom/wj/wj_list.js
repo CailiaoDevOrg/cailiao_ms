@@ -7,6 +7,12 @@
             $('#gobackToWJTPage').on('click', function() {
                 $(".mainContent").load('wjt/list.html');
             });
+            
+            $('#refreshList').on('click', function() {
+                alert('刷新成功');
+                var wjtId = $('#wjtId').val();
+                $('.mainContent').load('wj/list/' + wjtId + '.html');
+            });
 
             loadTable();
 
@@ -46,10 +52,8 @@
                             targets: 3,
                             data: 'status',
                             render: function(data, type, full) {
-                                if (data == 1) {
-                                    return '编辑中';
-                                } else if (data == 2) {
-                                    return '已提交';
+                                if (data == 2) {
+                                    return '待审核';
                                 } else if (data == 3) {
                                     return '已审核通过'
                                 } else {

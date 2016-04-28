@@ -47,6 +47,8 @@
                             	return '编辑中';
                             } else if (data == 2) {
                             	return '已提交';
+                            } else if (data == 3) {
+                                return '已审核通过';
                             } else {
                             	return '错误的状态，请联系系统管理员';
                             }
