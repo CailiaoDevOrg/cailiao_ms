@@ -22,7 +22,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="javascript:void(0);"><b>后台管理系统</b></a>
+        <a href="javascript:void(0);"><b>注册</b></a>
     </div>
 
     <div class="register-box-body">

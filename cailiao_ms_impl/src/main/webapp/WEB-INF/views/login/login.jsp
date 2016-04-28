@@ -22,7 +22,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="javascript:void(0);"><b>后台管理系统</b></a>
+            <a href="javascript:void(0);"><b>登录</b></a>
         </div>
         <div class="login-box-body">
             <p class="login-box-msg">请输入您的用户名和密码</p>
