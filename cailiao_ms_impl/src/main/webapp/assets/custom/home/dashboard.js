@@ -1,15 +1,15 @@
-(function($) {
+(function($, g) {
 	
 	$(function() {
 		
 		$('#wjtTile').on('click', function() {
-		    $('.mainContent').load('wjt/list.html');	
+		    g.navigateTo('wjt/list.html');
 		});
 		
 		$('#userManageTile').on('click', function() {
-			$('.mainContent').load('user/list.html');
+			g.navigateTo('user/list.html');
 		});
 		
 	});
 	
-})(jQuery);
+})(jQuery, gotoTool);

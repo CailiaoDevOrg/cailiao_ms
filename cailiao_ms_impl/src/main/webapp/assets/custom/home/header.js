@@ -1,4 +1,4 @@
-(function($) {
+(function($, g) {
 	
 	$(function() {
 		
@@ -16,7 +16,7 @@
         });	
 		
 		$('#btnUserInfo').on('click', function() {
-			$('.mainContent').load('user/personal.html');
+			g.navigateTo('user/personal.html');
 		});
 		
 		$('#btnSignOut').on('click', function() {
@@ -24,9 +24,9 @@
 		});
 		
 		$('#logo').on('click', function() {
-			$('.mainContent').load('main/dashboard.html');
+			g.navigateTo('main/dashboard.html');
 		});
 		
 	});
 	
-})(jQuery);
+})(jQuery, gotoTool);

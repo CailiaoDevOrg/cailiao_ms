@@ -1,10 +1,10 @@
-(function($, $$){
+(function($, $$, g){
     
     $(function() {
         
         (function() {
             $("#createNewsBtn").on('click', function() {
-                $(".mainContent").load('news/create.html');
+                g.navigateTo('news/create.html');
             });
             
             $('#newsTable').DataTable({
@@ -197,4 +197,4 @@
         })();
         
     });
-})(jQuery, timeFormat);
+})(jQuery, timeFormat, gotoTool);

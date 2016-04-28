@@ -1,7 +1,8 @@
-(function($) {
+(function(g) {
 
 	$(function() {
-		$('.mainContent').load('main/dashboard.html');
+		// g.navigateTo('main/dashboard.html');
+        $('.mainContent').load('main/dashboard.html');
 	});
 
-})(jQuery);
+})(gotoTool);
