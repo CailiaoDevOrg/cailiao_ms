@@ -41,6 +41,21 @@
                             render: function(data, type, full) {
                                 return $$.formatTime(data);
                             }
+                        },
+                        {
+                            targets: 3,
+                            data: 'status',
+                            render: function(data, type, full) {
+                                if (data == 1) {
+                                    return '编辑中';
+                                } else if (data == 2) {
+                                    return '已提交';
+                                } else if (data == 3) {
+                                    return '已审核通过'
+                                } else {
+                                    return '状态错误，请联系管理员'
+                                }
+                            }
                         }
                     ]
                 });

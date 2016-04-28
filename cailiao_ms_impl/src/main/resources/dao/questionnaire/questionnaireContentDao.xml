@@ -39,7 +39,7 @@
         SELECT
             id, questionnaireTemplateId, modifyTime, lastModifyTime, status, accountId
         FROM tb_questionnaire_content
-        WHERE questionnaireTemplateId = #{questionnaireTemplateId} AND status = 2
+        WHERE questionnaireTemplateId = #{questionnaireTemplateId} AND status != 1
     </select>
 
     <select id="getQuestionnaireContentListByAccountId" resultType="QuestionnaireContent">

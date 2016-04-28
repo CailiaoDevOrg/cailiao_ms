@@ -34,6 +34,8 @@
 				<li><a href="#">项目简介</a></li>
 				<li><a href="#">支持</a></li>
 				<li><a href="main/home.html">后台管理系统</a></li>
+                <li><a href="login.html">登录</a></li>
+                <li><a href="signout.html" onclick="alert('注销成功')">注销</a></li>
 			</div>
 		</ul>
 		<!--菜单导航结束-->
