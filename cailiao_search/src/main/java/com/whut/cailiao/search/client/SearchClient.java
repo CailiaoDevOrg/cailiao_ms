@@ -155,7 +155,6 @@ public class SearchClient {
         }
         Class<? extends QuestionnaireContentDetail> clazz = QuestionnaireContentDetail.class;
         java.lang.reflect.Field[] declaredFields = clazz.getDeclaredFields();
-        boolean fieldIsNotEmpty = ArrayUtils.isNotEmpty(declaredFields);
 
         for (QuestionnaireContent questionnaireContent : questionnaireContentList) {
             if (questionnaireContent == null) {
@@ -165,26 +164,44 @@ public class SearchClient {
             document.add(new TextField("id", questionnaireContent.getId().toString(), Field.Store.YES));
             document.add(new TextField("questionnaireTemplateId", String.valueOf(questionnaireContent.getQuestionnaireTemplateId()), Field.Store.YES));
 
-            if (fieldIsNotEmpty) {
-                try {
-                    QuestionnaireContentDetail questionnaireContentDetail = BeanConvertHelper.convertJsonContentToBean(questionnaireContent.getJsonContent());
-                    if (questionnaireContentDetail != null) {
-                        for (java.lang.reflect.Field field : declaredFields) {
-                            if (!"serialVersionUID".equalsIgnoreCase(field.getName())) {
-                                field.setAccessible(true);
-                                String value = (String) field.get(questionnaireContentDetail);
-                                if (StringUtils.isNotBlank(value)) {
-                                    document.add(new TextField(field.getName(), value, Field.Store.YES));
-                                }
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    continue;
-                }
+            try {
+                QuestionnaireContentDetail questionnaireContentDetail = BeanConvertHelper.convertJsonContentToBean(questionnaireContent.getJsonContent());
+                buildIndex(questionnaireContentDetail, declaredFields, document);
+            } catch (Exception e) {
+                e.printStackTrace();
+                continue;
             }
             indexWriter.addDocument(document);
+        }
+    }
+
+    private void buildIndex(Object object, java.lang.reflect.Field[] declaredFields, Document document) {
+        if (object != null && ArrayUtils.isNotEmpty(declaredFields)) {
+            for (java.lang.reflect.Field field : declaredFields) {
+                if (!"serialVersionUID".equalsIgnoreCase(field.getName())) {
+                    field.setAccessible(true);
+                    Class<?> aClass = field.getType();
+                    if (aClass == String.class) {
+                        String value = null;
+                        try {
+                            value = (String) field.get(object);
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+                        if (StringUtils.isNotBlank(value)) {
+                            System.out.println("name = " + field.getName());
+                            document.add(new TextField(field.getName(), value, Field.Store.YES));
+                        }
+                    } else {
+                        java.lang.reflect.Field[] declaredFieldsSubCls = aClass.getDeclaredFields();
+                        try {
+                            buildIndex(field.get(object), declaredFieldsSubCls, document);
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
         }
     }
 

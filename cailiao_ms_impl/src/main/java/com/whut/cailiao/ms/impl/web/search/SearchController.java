@@ -43,7 +43,7 @@ public class SearchController extends BaseController {
 
         // search
         QuestionnaireQueryBean queryBean = new QuestionnaireQueryBean();
-        queryBean.setId("47");
+        // queryBean.setId("47");
         queryBean.setBi_phoneNumber("13469969477");
         // queryBean.setQuestionnaireTemplateId(73);
 
