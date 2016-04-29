@@ -13,10 +13,10 @@
     <!-- 使用zk暴露服务地址 -->
     <dubbo:registry address="zookeeper://127.0.0.1:2181" client="zkclient"/>
 
-    <dubbo:service interface="com.whut.cailiao.api.service.questionnaire.QuestionnaireService" ref="questionnaireService" />
+    <dubbo:service interface="com.whut.cailiao.ms.api.service.questionnaire.QuestionnaireService" ref="questionnaireService" />
     
-    <dubbo:service interface="com.whut.cailiao.api.service.questionnaire.QuestionnaireTemplateService" ref="questionnaireTemplateService" />
+    <dubbo:service interface="com.whut.cailiao.ms.api.service.questionnaire.QuestionnaireTemplateService" ref="questionnaireTemplateService" />
 
-    <dubbo:service interface="com.whut.cailiao.api.service.news.NewsService" ref="newsService"/>
+    <dubbo:service interface="com.whut.cailiao.ms.api.service.news.NewsService" ref="newsService"/>
     
 </beans>

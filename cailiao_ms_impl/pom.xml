@@ -19,6 +19,12 @@
             <artifactId>cailiao_ms_api</artifactId>
             <version>0.0.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.whut.cailiao</groupId>
+            <artifactId>cailiao_search</artifactId>
+            <version>0.0.1</version>
+        </dependency>
         
         <!-- spring boot -->
         <dependency>

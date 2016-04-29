@@ -18,6 +18,7 @@
     <modules>
         <module>cailiao_ms_api</module>
         <module>cailiao_ms_impl</module>
+        <module>cailiao_search</module>
     </modules>
 
     <properties>

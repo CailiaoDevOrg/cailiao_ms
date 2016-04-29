@@ -80,10 +80,10 @@
 			</div>
 			<div class="col-md-6">
 				<div class="box box-default">
-					<div class="box-header">熟料产量</div>
+					<div class="box-header">熟料产量(万吨/年)</div>
 					<div class="box-body">
 						<div class="form-group">
-							<input type="text" class="form-control" id="zyxh_slcl" placeholder="熟料产量">
+							<input type="text" class="form-control" id="zyxh_slcl" placeholder="熟料产量:万吨/年">
 						</div>
 					</div>
 				</div>
@@ -145,8 +145,8 @@
 							</tr>
 						</table>
 						<div class="box-body">
-							<label for="zyxh_sncl">水泥产量</label> 
-							<input type="text" class="form-control" id="zyxh_sncl" placeholder="水泥产量">
+							<label for="zyxh_sncl">水泥产量(万吨/年)</label>
+							<input type="text" class="form-control" id="zyxh_sncl" placeholder="水泥产量:万吨/年">
 						</div>
 					</div>
 				</div>

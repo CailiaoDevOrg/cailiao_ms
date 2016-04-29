@@ -2,14 +2,14 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.whut.cailiao.api.model.questionnaire.QuestionnaireContent" alias="QuestionnaireContent"/>
-        <typeAlias type="com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate" alias="QuestionnaireTemplate"/>
-        <typeAlias type="com.whut.cailiao.api.model.news.News" alias="News"/>
-        <typeAlias type="com.whut.cailiao.api.model.user.User" alias="User"/>
-        <typeAlias type="com.whut.cailiao.api.model.privilege.Privilege" alias="Privilege"/>
-        <typeAlias type="com.whut.cailiao.api.model.privilege.Role" alias="Role"/>
-        <typeAlias type="com.whut.cailiao.api.model.privilege.RolePrivilege" alias="RolePrivilege"/>
-        <typeAlias type="com.whut.cailiao.api.model.privilege.UserRole" alias="UserRole"/>
+        <typeAlias type="com.whut.cailiao.ms.api.model.questionnaire.QuestionnaireContent" alias="QuestionnaireContent"/>
+        <typeAlias type="com.whut.cailiao.ms.api.model.questionnaire.QuestionnaireTemplate" alias="QuestionnaireTemplate"/>
+        <typeAlias type="com.whut.cailiao.ms.api.model.news.News" alias="News"/>
+        <typeAlias type="com.whut.cailiao.ms.api.model.user.User" alias="User"/>
+        <typeAlias type="com.whut.cailiao.ms.api.model.privilege.Privilege" alias="Privilege"/>
+        <typeAlias type="com.whut.cailiao.ms.api.model.privilege.Role" alias="Role"/>
+        <typeAlias type="com.whut.cailiao.ms.api.model.privilege.RolePrivilege" alias="RolePrivilege"/>
+        <typeAlias type="com.whut.cailiao.ms.api.model.privilege.UserRole" alias="UserRole"/>
     </typeAliases>
     <mappers>
         <mapper resource="dao/questionnaire/questionnaireContentDao.xml"/>
