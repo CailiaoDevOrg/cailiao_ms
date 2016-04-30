@@ -189,7 +189,6 @@ public class SearchClient {
                             e.printStackTrace();
                         }
                         if (StringUtils.isNotBlank(value)) {
-                            System.out.println("name = " + field.getName());
                             document.add(new TextField(field.getName(), value, Field.Store.YES));
                         }
                     } else {

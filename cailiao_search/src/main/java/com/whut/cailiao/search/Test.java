@@ -30,13 +30,13 @@ public class Test {
 
         Document document = new Document();
         document.add(new StringField("id", "2", Field.Store.YES));
-        document.add(new IntField("questionnaireTemplateId", 10, Field.Store.YES));
+        document.add(new StringField("questionnaireTemplateId", "10", Field.Store.YES));
         document.add(new StringField("jsonContent", "hello", Field.Store.YES));
         indexWriter.addDocument(document);
 
         Document document2 = new Document();
         document2.add(new StringField("id", "1", Field.Store.YES));
-        document2.add(new IntField("questionnaireTemplateId", 11, Field.Store.YES));
+        document2.add(new StringField("questionnaireTemplateId", "11", Field.Store.YES));
         document2.add(new StringField("jsonContent", "java", Field.Store.YES));
         indexWriter.addDocument(document2);
 
@@ -45,17 +45,19 @@ public class Test {
         IndexReader reader = DirectoryReader.open(directory);
         IndexSearcher searcher = new IndexSearcher(reader);
 
-        /*BooleanQuery.Builder builder = new BooleanQuery.Builder();
+        BooleanQuery.Builder builder = new BooleanQuery.Builder();
         TermQuery idQuery = new TermQuery(new Term("id", "2"));
+        TermQuery query = new TermQuery(new Term("questionnaireTemplateId", "11"));
         builder.add(idQuery, BooleanClause.Occur.MUST);
-        BooleanQuery booleanQuery = builder.build();*/
+        builder.add(query, BooleanClause.Occur.MUST);
+        BooleanQuery booleanQuery = builder.build();
 
-        TermQuery idQuery = new TermQuery(new Term("id", "1"));
+       //TermQuery idQuery = new TermQuery(new Term("id", "1"));
 
         //Term term = new Term("id", "1");
         //TermQuery termQuery = new TermQuery(term);
 
-        TopDocs topDocs = searcher.search(idQuery, 100);
+        TopDocs topDocs = searcher.search(booleanQuery, 100);
         ScoreDoc[] scoreDocs = topDocs.scoreDocs;
         for (int i = 0; i < scoreDocs.length; i++) {
             int doc = scoreDocs[i].doc;
