@@ -35,7 +35,7 @@
     </insert>
 
 
-    <select id="getQuestionnaireContentCommitList" resultType="QuestionnaireContent">
+    <select id="getQuestionnaireContentCommitList" resultType="QuestionnaireContent" parameterType="java.lang.Integer">
         SELECT
             id, questionnaireTemplateId, modifyTime, lastModifyTime, status, accountId
         FROM tb_questionnaire_content
@@ -46,7 +46,7 @@
         SELECT
             id, questionnaireTemplateId, modifyTime, lastModifyTime, status, accountId, jsonContent
         FROM tb_questionnaire_content
-        WHERE questionnaireTemplateId = #{questionnaireTemplateId} AND status != 1
+        WHERE status != 1
     </select>
 
     <select id="getQuestionnaireContentListByAccountId" resultType="QuestionnaireContent">

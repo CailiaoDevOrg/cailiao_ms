@@ -2,6 +2,8 @@ package com.whut.cailiao.ms.impl.web.ctrl;
 
 import com.whut.cailiao.ms.api.commons.ApiResponse;
 import com.whut.cailiao.ms.api.service.ctrl.SysParamService;
+import com.whut.cailiao.ms.api.service.questionnaire.QuestionnaireSearchService;
+import com.whut.cailiao.ms.api.service.questionnaire.QuestionnaireService;
 import com.whut.cailiao.ms.impl.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,9 @@ public class SystemParamController extends BaseController {
     @Autowired
     private SysParamService sysParamService;
 
+    @Autowired
+    private QuestionnaireSearchService questionnaireSearchService;
+
     @RequestMapping(value = "/ini.html",method = RequestMethod.GET)
     public String navigateToMainPage() {
         return "ctrl/sysparam";
@@ -35,6 +40,13 @@ public class SystemParamController extends BaseController {
     @ResponseBody
     public String signOutAll() {
         ApiResponse response = this.sysParamService.signOutAll();
+        return convertApiResponseToJSONString(response);
+    }
+
+    @RequestMapping(value = "/createWjIndex.html", method = RequestMethod.GET)
+    @ResponseBody
+    public String createWjIndex() {
+        ApiResponse response = this.questionnaireSearchService.createIndex();
         return convertApiResponseToJSONString(response);
     }
 

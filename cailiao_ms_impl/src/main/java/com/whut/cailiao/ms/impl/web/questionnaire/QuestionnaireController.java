@@ -1,13 +1,12 @@
 package com.whut.cailiao.ms.impl.web.questionnaire;
 
+import com.whut.cailiao.ms.api.model.search.QuestionnaireQueryBean;
+import com.whut.cailiao.ms.api.service.questionnaire.QuestionnaireSearchService;
 import com.whut.cailiao.ms.impl.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.whut.cailiao.ms.api.commons.ApiResponse;
 import com.whut.cailiao.ms.api.service.questionnaire.QuestionnaireService;
@@ -30,6 +29,9 @@ import com.whut.cailiao.ms.api.service.questionnaire.QuestionnaireService;
 public class QuestionnaireController extends BaseController {
 
     @Autowired
+    private QuestionnaireSearchService questionnaireSearchService;
+
+    @Autowired
     private QuestionnaireService questionnaireService;
 
     @RequestMapping(value = "/list/{wjtId}.html", method = RequestMethod.GET)
@@ -49,6 +51,25 @@ public class QuestionnaireController extends BaseController {
     @ResponseBody
     public String getQuestionnaireContentCommitList(@PathVariable int questionnaireTemplateId) {
         ApiResponse response = this.questionnaireService.getQuestionnaireContentCommitList(questionnaireTemplateId);
+        return convertApiResponseToJSONString(response);
+    }
+    
+    /**
+     * 跳转到问卷的搜索页面
+     */
+    @RequestMapping(value = "/search/{wjtId}.html", method = RequestMethod.GET)
+    public String navigateToWJSearchPage(@PathVariable int wjtId, Model model) {
+    	if (wjtId <= 0) {
+            return "home/home";
+        }
+        model.addAttribute("wjtId", wjtId);
+    	return "wj/search";
+    }
+
+    @RequestMapping(value = "/doSearch.html", method = RequestMethod.POST)
+    @ResponseBody
+    public String doSearch(@RequestBody QuestionnaireQueryBean questionnaireQueryBean) {
+        ApiResponse response = this.questionnaireSearchService.search(questionnaireQueryBean);
         return convertApiResponseToJSONString(response);
     }
 

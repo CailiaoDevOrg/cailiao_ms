@@ -30,9 +30,9 @@ public class SearchController extends BaseController {
     public String index() {
         SearchClient searchClient = SearchClient.getInstance();
         // index
-        List<QuestionnaireContent> questionnaireContentList = this.questionnaireContentDao.getQuestionnaireListWithDetailContent(73);
+        // List<QuestionnaireContent> questionnaireContentList = this.questionnaireContentDao.getQuestionnaireListWithDetailContent(73);
 
-        searchClient.createIndex(questionnaireContentList);
+        // searchClient.createIndex(questionnaireContentList);
 
         return "success";
     }

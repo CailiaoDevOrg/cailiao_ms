@@ -23,6 +23,11 @@
                     <td>退出所有当前登录的用户</td>
                     <td><button class="btn btn-danger btn-xs btn-flat" id="signOutAll">退出登录用户</button></td>
                 </tr>
+                <tr>
+                    <td>3</td>
+                    <td>创建问卷索引</td>
+                    <td><button class="btn btn-danger btn-xs btn-flat" id="createWjIndex">创建索引</button></td>
+                </tr>
             </table>
         </div>
     </div>

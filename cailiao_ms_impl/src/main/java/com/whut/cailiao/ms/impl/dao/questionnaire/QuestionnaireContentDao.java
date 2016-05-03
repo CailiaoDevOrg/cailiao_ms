@@ -57,7 +57,7 @@ public interface QuestionnaireContentDao {
      */
     List<QuestionnaireContent> getQuestionnaireContentCommitList(int questionnaireTemplateId);
 
-    List<QuestionnaireContent> getQuestionnaireListWithDetailContent(int questionnaireTemplateId);
+    List<QuestionnaireContent> getQuestionnaireListWithDetailContent();
     
     /**
      * 获取问卷总记录数

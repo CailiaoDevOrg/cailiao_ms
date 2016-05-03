@@ -24,13 +24,10 @@
                 </ul>
             </li> -->
             <li class="treeview">
-                <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 问卷模板管理</a>
+                <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 问卷管理</a>
                 <ul class="nav treeview-menu">
                     <li><a href="javascript:void(0)" class="sidemenu" data-navigate="wjt/create.html">新建问卷模板</a></li>
                     <li><a href="javascript:void(0)" class="sidemenu" data-navigate="wjt/list.html">问卷模板列表</a></li>
-                    <!--<li><a href="#">问卷回收监控</a></li>
-                    <li><a href="#">问卷审核</a></li>
-                    <li><a href="#">问卷查看</a></li>-->
                 </ul>
             </li>
             <!--<li class="treeview">

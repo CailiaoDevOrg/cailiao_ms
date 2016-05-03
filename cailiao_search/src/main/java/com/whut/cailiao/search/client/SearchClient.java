@@ -77,6 +77,10 @@ public class SearchClient {
     public ApiResponse createIndex(List<QuestionnaireContent> questionnaireContentList) {
         // 获取索引写入器
         ApiResponse response = ApiResponse.createDefaultApiResponse();
+        if (CollectionUtils.isEmpty(questionnaireContentList)) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
         IndexWriter indexWriter = null;
         try {
             indexWriter = getIndexWriter();
