@@ -68,10 +68,12 @@ public class LoginServiceImpl implements LoginService {
         // 加载用户权限
         ApiResponse response = this.userService.getRoleIdsByAccount(user.getAccountId());
         if (response.getRetCode() == ApiResponseCode.SUCCESS) {
-            Set<Integer> roleIds = (Set<Integer>) response.getData("roleIds");
+            @SuppressWarnings("unchecked")
+			Set<Integer> roleIds = (Set<Integer>) response.getData("roleIds");
             response = this.roleService.getPrivilegeIdsByRoleId(roleIds);
             if (response.getRetCode() == ApiResponseCode.SUCCESS) {
-                Set<Integer> privilegeIds = (Set<Integer>) response.getData("privilegeIds");
+                @SuppressWarnings("unchecked")
+				Set<Integer> privilegeIds = (Set<Integer>) response.getData("privilegeIds");
                 user.setPrivilegeIds(privilegeIds);
             }
         }

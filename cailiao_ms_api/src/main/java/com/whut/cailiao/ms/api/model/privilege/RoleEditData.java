@@ -7,6 +7,8 @@ import java.util.List;
  * Created by gammaniu on 16/4/21.
  */
 public class RoleEditData implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
     private Role role;
 

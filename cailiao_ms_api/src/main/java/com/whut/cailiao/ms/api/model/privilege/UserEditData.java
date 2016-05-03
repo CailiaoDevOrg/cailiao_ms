@@ -9,6 +9,8 @@ import java.util.List;
  * Created by gammaniu on 16/4/22.
  */
 public class UserEditData implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
     private User user;
 
