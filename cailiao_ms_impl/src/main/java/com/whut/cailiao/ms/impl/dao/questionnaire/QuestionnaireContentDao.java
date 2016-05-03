@@ -1,10 +1,9 @@
 package com.whut.cailiao.ms.impl.dao.questionnaire;
 
 import com.whut.cailiao.ms.api.model.questionnaire.QuestionnaireContent;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 
 /**
  * Created by niuyang on 16/3/7.

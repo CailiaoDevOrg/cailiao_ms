@@ -6,12 +6,11 @@ import com.whut.cailiao.ms.api.model.search.QuestionnaireQueryBean;
 import com.whut.cailiao.ms.api.service.questionnaire.QuestionnaireSearchService;
 import com.whut.cailiao.ms.impl.dao.questionnaire.QuestionnaireContentDao;
 import com.whut.cailiao.search.client.SearchClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * Created by gammaniu on 16/5/3.

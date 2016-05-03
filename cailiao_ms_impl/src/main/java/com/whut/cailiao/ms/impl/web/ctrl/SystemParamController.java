@@ -3,7 +3,6 @@ package com.whut.cailiao.ms.impl.web.ctrl;
 import com.whut.cailiao.ms.api.commons.ApiResponse;
 import com.whut.cailiao.ms.api.service.ctrl.SysParamService;
 import com.whut.cailiao.ms.api.service.questionnaire.QuestionnaireSearchService;
-import com.whut.cailiao.ms.api.service.questionnaire.QuestionnaireService;
 import com.whut.cailiao.ms.impl.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,5 @@
 package com.whut.cailiao.ms.api.constant;
 
-import java.io.Serializable;
-
 /**
  * Created by gammaniu on 16/4/15.
  */

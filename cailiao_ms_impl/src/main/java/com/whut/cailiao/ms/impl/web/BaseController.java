@@ -1,13 +1,12 @@
 package com.whut.cailiao.ms.impl.web;
 
-import javax.servlet.http.HttpSession;
-
-import com.whut.cailiao.ms.api.model.user.User;
-import org.apache.commons.lang3.StringUtils;
-
 import com.alibaba.fastjson.JSON;
 import com.whut.cailiao.ms.api.commons.ApiResponse;
+import com.whut.cailiao.ms.api.model.user.User;
 import com.whut.cailiao.ms.impl.utils.http.HttpUtil;
+import org.apache.commons.lang3.StringUtils;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by niuyang on 16/3/6.

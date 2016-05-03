@@ -1,8 +1,8 @@
 package com.whut.cailiao.ms.impl.dao.user;
 
-import java.util.List;
-
 import com.whut.cailiao.ms.api.model.user.User;
+
+import java.util.List;
 
 /**
  * Created by gammaniu on 16/4/18.

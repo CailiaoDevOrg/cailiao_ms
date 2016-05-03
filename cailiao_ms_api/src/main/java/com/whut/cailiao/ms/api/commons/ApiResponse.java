@@ -1,11 +1,11 @@
 package com.whut.cailiao.ms.api.commons;
 
+import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.apache.commons.collections4.MapUtils;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by niuyang on 16/3/3.
