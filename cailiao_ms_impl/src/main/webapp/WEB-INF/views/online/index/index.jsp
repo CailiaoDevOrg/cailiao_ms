@@ -98,7 +98,7 @@
 				<div class="newslist">
 					<ul>
 						<li style="width:320px;height: 290px; overflow: hidden;">
-							<a href=""> <img src="assets/custom/online/index/img/home/e.jpg"
+							<a href=""> <img src="assets/custom/online/index/img/home/e1.jpg"
 								alt="中国水泥工业环境状况数据库及信息共享平台"width="318px" height="290px" />
 						   </a>
 						</li>
@@ -113,7 +113,7 @@
 				<div class="newslist">
 					<ul>
 						<li style="border: 1px solid #eee;width:320px;height: 290px; overflow: hidden;">
-							<img src="assets/custom/online/index/img/home/help.jpg" width="318px"
+							<img src="assets/custom/online/index/img/home/wenjuansearch.jpg" width="318px"
 							height="290px" />
 						</li>
 					</ul>
