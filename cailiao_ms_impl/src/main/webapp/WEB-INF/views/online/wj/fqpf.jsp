@@ -27,21 +27,21 @@
 								<td><input type="text" class="form-control" id="fqpf_klw_npfl_bzj"></td>
 							</tr>
 							<tr>
-								<td>排放浓度，mg/立方米</td>
+								<td>排放浓度，mg/m3</td>
 								<td><input type="text" class="form-control" id="fqpf_klw_pfnd_yt"></td>
 								<td><input type="text" class="form-control" id="fqpf_klw_pfnd_yw"></td>
 								<td><input type="text" class="form-control" id="fqpf_klw_pfnd_snm"></td>
 								<td><input type="text" class="form-control" id="fqpf_klw_pfnd_mm"></td>
 								<td><input type="text" class="form-control" id="fqpf_klw_pfnd_bzj"></td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td>除尘方式(电/袋)</td>
 								<td><input type="text" class="form-control" id="fqpf_klw_ccfs_yt"></td>
 								<td><input type="text" class="form-control" id="fqpf_klw_ccfs_yw"></td>
 								<td><input type="text" class="form-control" id="fqpf_klw_ccfs_snm"></td>
 								<td><input type="text" class="form-control" id="fqpf_klw_ccfs_mm"></td>
 								<td><input type="text" class="form-control" id="fqpf_klw_ccfs_bzj"></td>
-							</tr>
+							</tr> -->
 						</table>
 					</div>
 				</div>
@@ -62,15 +62,15 @@
 								<td><input type="text" class="form-control" id="fqpf_fq_npfl_nox"></td>
 							</tr>
 							<tr>
-								<td>排放浓度，mg/立方米</td>
+								<td>排放浓度，mg/m3</td>
 								<td><input type="text" class="form-control" id="fqpf_fq_pfnd_so2"></td>
 								<td><input type="text" class="form-control" id="fqpf_fq_pfnd_nox"></td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td>除尘方式(电/袋)</td>
 								<td><input type="text" class="form-control" id="fqpf_fq_ccfs_so2"></td>
 								<td><input type="text" class="form-control" id="fqpf_fq_ccfs_nox"></td>
-							</tr>
+							</tr> -->
 						</table>
 						<div class="row"></div>
 					</div>
@@ -78,15 +78,15 @@
 			</div>
 			<div class="col-md-3">
 				<div class="box box-default">
-					<div class="box-header">喷氮</div>
+					<div class="box-header">喷氨</div>
 					<div class="box-body">
 						<div class="form-group">
-							<label for="fqpf_pd_sl">喷氮 kg/t熟料</label> 
-							<input type="text" class="form-control" id="fqpf_pd_sl" placeholder="喷氮 kg/t熟料">
+							<label for="fqpf_pd_sl">喷氨 kg/t熟料</label> 
+							<input type="text" class="form-control" id="fqpf_pd_sl" placeholder="喷氨 kg/t熟料">
 						</div>
 						<div class="form-group">
-							<label for="fqpf_pd_ccfs">喷氮 除尘方式(电/袋)</label> 
-							<input type="text" class="form-control" id="fqpf_pd_ccfs" placeholder="喷氮 除尘方式(电/袋)">
+							<label for="fqpf_pd_ccfs">喷氨 除尘方式(电/袋)</label> 
+							<input type="text" class="form-control" id="fqpf_pd_ccfs" placeholder="喷氨 除尘方式(电/袋)">
 						</div>
 					</div>
 				</div>

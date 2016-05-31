@@ -7,8 +7,7 @@
 			window.location.href = 'online/wj/history/' + wjtId + '.html';
 		});
 
-		$('#commit').on('click', function() {
-			
+		$('#commit').on('click', function() {			
 			var wjtId = $('#wjtId').val();			
 			if (getWJData(true)) {
 				var data = {
@@ -68,15 +67,17 @@
 		});
 
 		function getWJData(flag) {
-			if (!_getBaseInfoData(flag) || !_getZyxhData(flag)) {
+			if (!_getBaseInfoData(flag) || !_getZyxhData(flag)
+					|| !_getNyxhData(flag) || !_getFqpfData(flag)
+					|| !_getZysbData(flag)) {
 				return false;
 			}
 			return JSON.stringify({
 				'baseinfo': _getBaseInfoData(flag),
 			    'zyxh': _getZyxhData(flag),
-			    'nyxh': _getNyxhData(),
-			    'fqpf': _getFqpfData(),
-			    'zysb': _getZysbData()
+			    'nyxh': _getNyxhData(flag),
+			    'fqpf': _getFqpfData(flag),
+			    'zysb': _getZysbData(flag)
 			});
 		}
 
@@ -233,6 +234,25 @@
 	    		} else if ($('#nyxh_kbslnh').val().trim() == '' || $('#nyxh_kbslnh').val() == undefined) {
 	    			alert("可比熟料综合能耗不能为空");
 	    			return false;
+	    		} else if ($('#nyxh_kbsndh').val().trim() == '' || $('#nyxh_kbsndh').val() == undefined) {
+	    			alert('可比水泥综合电耗不能为空');
+	    			return false;
+	    		} else if ($('#nyxh_kbsnnh').val().trim() == '' || $('#nyxh_kbsnnh').val() == undefined) {
+	    			alert('可比水泥综合能耗不能为空');
+	    			return false;
+	    		} else if ($('#nyxh_dwslfdl').val().trim() == '' || $('#nyxh_dwslfdl').val() ==undefined) {
+	    			alert('单位熟料余热发电量不能为空');
+	    			return false;
+	    		} else {
+	    			return {
+	    	    		'nyxh_slfmdh': $('#nyxh_slfmdh').val(),
+	    	    		'nyxh_kbslmh': $('#nyxh_kbslmh').val(),
+	    	    		'nyxh_kbsldh': $('#nyxh_kbsldh').val(),
+	    	    		'nyxh_kbslnh': $('#nyxh_kbslnh').val(),
+	    	    		'nyxh_kbsndh': $('#nyxh_kbsndh').val(),
+	    	    		'nyxh_kbsnnh': $('#nyxh_kbsnnh').val(),
+	    	    		'nyxh_dwslfdl': $('#nyxh_dwslfdl').val()
+	    	    	}
 	    		}
 	    	}
 	    	return {
@@ -247,54 +267,173 @@
 	    }
 
 	    // module 4 获取废气排放数据
-	    function _getFqpfData() {
+	    function _getFqpfData(flag) {
+	    	if (!__getKlwTable(flag) || !__getFqTable(flag) || $('#fqpf_pd_sl').val().trim() == '' || $('#fqpf_pd_ccfs').val() == '' ) {
+	    		return false;
+	    	}
 	    	return {
-	    		'klwTable': __getKlwTable(),
-	    		'fqTable': __getFqTable(),
+	    		'klwTable': __getKlwTable(flag),
+	    		'fqTable': __getFqTable(flag),
 	    		'fqpf_pd_sl': $('#fqpf_pd_sl').val(),
 	    		'fqpf_pd_ccfs': $('#fqpf_pd_ccfs').val(),
 	    		'fqpf_txgy': $('input:radio[name=fqpf_txgy]:checked').val()
 	    	}
 	    }
 
-	    function __getKlwTable() {
+	    function __getKlwTable(flag) {
 	    	var klwTable = [];
 	    	var title = ['yt', 'yw', 'snm', 'mm', 'bzj'];
 	    	for (var i = 1; i <= 5; i++) {
-	    		klwTable.push({
-	    			'pos': title[i - 1],
-	    			'fqpf_klw_npfl': $('#fqpf_klw_npfl_' + title[i - 1]).val(),
-	    			'fqpf_klw_pfnd': $('#fqpf_klw_pfnd_' + title[i - 1]).val(),
-	    			'fqpf_klw_ccfs': $('#fqpf_klw_ccfs_' + title[i - 1]).val()
-	    		});
+	    		if (flag) {
+	    			if (i == 1) {
+	    				if ($('#fqpf_klw_npfl_' + title[i - 1]).val().trim() == '' || $('#fqpf_klw_pfnd_' + title[i - 1]).val() == '') {
+							alert('窑头数据不能为空');
+							return false;
+						} else {
+							klwTable.push({
+		    	    			'pos': title[i - 1],
+		    	    			'fqpf_klw_npfl': $('#fqpf_klw_npfl_' + title[i - 1]).val(),
+		    	    			'fqpf_klw_pfnd': $('#fqpf_klw_pfnd_' + title[i - 1]).val()
+//		    	    			'fqpf_klw_ccfs': $('#fqpf_klw_ccfs_' + title[i - 1]).val()
+		    	    		});
+						}
+	    				
+	    			} else if (i == 2) {
+	    				if ($('#fqpf_klw_npfl_' + title[i - 1]).val().trim() == '' || $('#fqpf_klw_pfnd_' + title[i - 1]).val() == '') {
+	    					alert('窑尾数据不能为空');
+							return false;
+	    				} else {
+	    					klwTable.push({
+		    	    			'pos': title[i - 1],
+		    	    			'fqpf_klw_npfl': $('#fqpf_klw_npfl_' + title[i - 1]).val(),
+		    	    			'fqpf_klw_pfnd': $('#fqpf_klw_pfnd_' + title[i - 1]).val()
+//		    	    			'fqpf_klw_ccfs': $('#fqpf_klw_ccfs_' + title[i - 1]).val()
+		    	    		});
+	    				}
+	    			} else {
+	    				klwTable.push({
+	    	    			'pos': title[i - 1],
+	    	    			'fqpf_klw_npfl': $('#fqpf_klw_npfl_' + title[i - 1]).val(),
+	    	    			'fqpf_klw_pfnd': $('#fqpf_klw_pfnd_' + title[i - 1]).val()
+//	    	    			'fqpf_klw_ccfs': $('#fqpf_klw_ccfs_' + title[i - 1]).val()
+	    	    		});
+	    			}
+	    		} else {
+	    			klwTable.push({
+		    			'pos': title[i - 1],
+		    			'fqpf_klw_npfl': $('#fqpf_klw_npfl_' + title[i - 1]).val(),
+		    			'fqpf_klw_pfnd': $('#fqpf_klw_pfnd_' + title[i - 1]).val()
+//		    			'fqpf_klw_ccfs': $('#fqpf_klw_ccfs_' + title[i - 1]).val()
+		    		});
+	    		}
+	    		
 	    	}
 	    	return klwTable;
 	    }
 
-	    function __getFqTable() {
+	    function __getFqTable(flag) {
 	    	var fqTable = [];
 	    	var title = ['so2', 'nox'];
 	    	for (var i = 1; i <= 2; i++) {
+	    		if (flag) {
+	    			if (i == 1) {
+	    				if ($('#fqpf_fq_npfl_' + title[i - 1]).val().trim() == '') {
+		    				alert('年排放量的SO2不能为空');
+		    				return false;
+		    			} else if ($('#fqpf_fq_pfnd_' + title[i - 1]).val().trim() == '') {
+		    				alert('排放浓度的SO2不能为空');
+		    				return false;
+		    			} else {
+		    				fqTable.push({
+		    	    			'pos': title[i - 1],
+		    	    			'fqpf_fq_npfl': $('#fqpf_fq_npfl_' + title[i - 1]).val(),
+		    	    			'fqpf_fq_pfnd': $('#fqpf_fq_pfnd_' + title[i - 1]).val()
+//		    	    			'fqpf_fq_ccfs': $('#fqpf_fq_ccfs_' + title[i - 1]).val()
+		    	    		});
+		    			}
+	    			} else if (i == 2) {
+	    				if ($('#fqpf_fq_npfl_' + title[i - 1]).val().trim() == '') {
+		    				alert('年排放量的NO2不能为空');
+		    				return false;
+		    			} else if ($('#fqpf_fq_pfnd_' + title[i - 1]).val().trim() == '') {
+		    				alert('排放浓度的NO2不能为空');
+		    				return false;
+		    			} else {
+		    				fqTable.push({
+		    	    			'pos': title[i - 1],
+		    	    			'fqpf_fq_npfl': $('#fqpf_fq_npfl_' + title[i - 1]).val(),
+		    	    			'fqpf_fq_pfnd': $('#fqpf_fq_pfnd_' + title[i - 1]).val()
+//		    	    			'fqpf_fq_ccfs': $('#fqpf_fq_ccfs_' + title[i - 1]).val()
+		    	    		});
+		    			}
+	    			}
+	    			
+	    		}
 	    		fqTable.push({
 	    			'pos': title[i - 1],
 	    			'fqpf_fq_npfl': $('#fqpf_fq_npfl_' + title[i - 1]).val(),
-	    			'fqpf_fq_pfnd': $('#fqpf_fq_pfnd_' + title[i - 1]).val(),
-	    			'fqpf_fq_ccfs': $('#fqpf_fq_ccfs_' + title[i - 1]).val()
+	    			'fqpf_fq_pfnd': $('#fqpf_fq_pfnd_' + title[i - 1]).val()
+//	    			'fqpf_fq_ccfs': $('#fqpf_fq_ccfs_' + title[i - 1]).val()
 	    		});
 	    	}
 	    	return fqTable;
 	    }
 
 	    // module 5 获取主要设备数据
-	    function _getZysbData() {
+	    function _getZysbData(flag) {
+	    	var zysb_slm_fmfs = $('#zysb_slm_fmfs').val();
+	    	var zysb_slm_ggxh = $('#zysb_slm_ggxh').val();
+	    	var zysb_slm_sl = $('#zysb_slm_sl').val();
+	    	var zysb_snm_fmfs = $('#zysb_snm_fmfs').val();
+	    	var zysb_snm_ggxh = $('#zysb_snm_ggxh').val();
+	    	var zysb_snm_sl = $('#zysb_snm_sl').val();
+	    	var zysb_y_gg = $('#zysb_y_gg').val();
+	    	if (flag) {
+	    		if (zysb_slm_fmfs == '') {
+	    			alert('生料磨方式不能为空');
+	    			return false;
+	    		} 
+	    		if (zysb_slm_ggxh == '') {
+	    			alert('生料磨规格型号不能为空');
+	    			return false;
+	    		} 
+	    		if (zysb_slm_sl == '') {
+	    			alert('生料磨数量不能为空');
+	    		} 
+	    		if (zysb_snm_fmfs == '') {
+	    			alert('水泥磨粉磨方式不能为空');
+	    			return false;
+	    		}
+	    		if (zysb_snm_ggxh == '') {
+	    			alert('水泥磨规格型号不能为空');
+	    			return false;
+	    		}
+	    		if (zysb_snm_sl == '') {
+	    			alert('水泥磨的数量不能为空');
+	    			return false;
+	    		}
+	    		if (zysb_y_gg == '') {
+	    			alert('窑规格不能为空');
+	    			return false;
+	    		}
+	    		return {
+		    		'zysb_slm_fmfs': zysb_slm_fmfs,
+		    		'zysb_slm_ggxh': zysb_slm_ggxh,
+		    		'zysb_slm_sl': zysb_slm_sl,
+		    		'zysb_snm_fmfs': zysb_snm_fmfs,
+		    		'zysb_snm_ggxh': zysb_snm_ggxh,
+		    		'zysb_snm_sl': zysb_snm_sl,
+		    		'zysb_y_gg': zysb_y_gg
+		    	}
+	    	}
 	    	return {
-	    		'zysb_slm_fmfs': $('#zysb_slm_fmfs').val(),
-	    		'zysb_slm_ggxh': $('#zysb_slm_ggxh').val(),
-	    		'zysb_slm_sl': $('#zysb_slm_sl').val(),
-	    		'zysb_snm_fmfs': $('#zysb_snm_fmfs').val(),
-	    		'zysb_snm_ggxh': $('#zysb_snm_ggxh').val(),
-	    		'zysb_snm_sl': $('#zysb_snm_sl').val(),
-	    		'zysb_y_gg': $('#zysb_y_gg').val()
+	    		'zysb_slm_fmfs': zysb_slm_fmfs,
+	    		'zysb_slm_ggxh': zysb_slm_ggxh,
+	    		'zysb_slm_sl': zysb_slm_sl,
+	    		'zysb_snm_fmfs': zysb_snm_fmfs,
+	    		'zysb_snm_ggxh': zysb_snm_ggxh,
+	    		'zysb_snm_sl': zysb_snm_sl,
+	    		'zysb_y_gg': zysb_y_gg
 	    	}
 	    }
 
