@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <div class="box box-primary">
-	<div class="box-header">
-		<h4>基本信息</h4>
+	<div class="box-header" >
+		<h4><b>基本信息</b></h4>
 	</div>
 	<div class="box-body">
 	    <div class="row">
@@ -25,11 +25,11 @@
 	                <input type="text" class="form-control" id="bi_qyAddress" placeholder="请输入企业所在地址">
 	            </div>
 	            <div class="form-group">
-	                <label for="bi_linkman">填表联系人</label>
+	                <label for="bi_linkman">填表联系人( *以后为用户的登录名 )</label>
 	                <input type="text" class="form-control" id="bi_linkman" placeholder="请输入填表联系人">
 	            </div>
 	            <div class="form-group">
-	                <label for="bi_phoneNumber">联系电话</label>
+	                <label for="bi_phoneNumber">联系电话( *以后为用户的登录密码 )</label>
 	                <input type="text" class="form-control" id="bi_phoneNumber" placeholder="请输入联系电话">
 	            </div>
 	        </div>

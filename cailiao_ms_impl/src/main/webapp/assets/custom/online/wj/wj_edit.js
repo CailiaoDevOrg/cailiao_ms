@@ -114,6 +114,7 @@
             	'modifyTime': modifyTime,
             	'jsonContent': getWJData()
             };
+            alert("测试数据");
             $.ajax({
                 url: 'online/wj/commit.html',
                 method: 'PUT',
@@ -138,56 +139,100 @@
 			var status = $('#status').val();
 			var wjId = $('#wjId').val();
             var wjtId = $('#wjtId').val();
-            var modifyTime = $('#modifyTime').val();
-            var data = {
-            	'id': wjId,
-            	'questionnaireTemplateId': wjtId,
-            	'status': status,
-            	'modifyTime': modifyTime,
-            	'jsonContent': getWJData()
-            };
-            $.ajax({
-                url: 'online/wj/saveTemp.html',
-                method: 'POST',
-                data: JSON.stringify(data),
-                contentType: 'application/json',
-                success: function(data) {
-                	data = JSON.parse(data);
-                	if (data.retCode == 200) {
-                        alert('保存成功');
-                        window.location.href = 'online/wj/history/' + wjtId + '.html';
-                	} else {
-                		alert('系统忙，请稍后重试');
-                	}
-                },
-                error: function(data) {
-                	alert('网络出现问题，请稍后重试');
-                }
-            });
+            var modifyTime = $('#modifyTime').val();            
+            if (getWJData(true)) {
+            	var data = {
+                    	'id': wjId,
+                    	'questionnaireTemplateId': wjtId,
+                    	'status': status,
+                    	'modifyTime': modifyTime,
+                    	'jsonContent': getWJData(true)
+                    };               
+            	$.ajax({
+                    url: 'online/wj/saveTemp.html',
+                    method: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    success: function(data) {
+                    	data = JSON.parse(data);
+                    	if (data.retCode == 200) {
+                            alert('保存成功');
+                            window.location.href = 'online/wj/history/' + wjtId + '.html';
+                    	} else {
+                    		alert('系统忙，请稍后重试');
+                    	}
+                    },
+                    error: function(data) {
+                    	alert('网络出现问题，请稍后重试');
+                    }
+                });
+            }
+            
 		});
 
 
-	    function getWJData() {
-			return JSON.stringify({
-				'baseinfo': _getBaseInfoData(),
-			    'zyxh': _getZyxhData(),
-			    'nyxh': _getNyxhData(),
-			    'fqpf': _getFqpfData(),
-			    'zysb': _getZysbData()
-			});
+	    function getWJData(flag) {
+	    	if (!_getBaseInfoData(flag)) {
+	    		return false;
+	    	}
+	    	else {
+	    		return JSON.stringify({
+					'baseinfo': _getBaseInfoData(flag),
+				    'zyxh': _getZyxhData(),
+				    'nyxh': _getNyxhData(),
+				    'fqpf': _getFqpfData(),
+				    'zysb': _getZysbData()
+				});
+	    	}
+			
 		}
 
 		// module 1
 		// 获取基本信息相关数据
-		function _getBaseInfoData() {
-			return {
-				'bi_qyName': $('#bi_qyName').val(),
-				'bi_scLineName': $('#bi_scLineName').val(),
-				'bi_scLineScale': $('#bi_scLineScale').val(),
-				'bi_qyAddress': $('#bi_qyAddress').val(),
-				'bi_linkman': $('#bi_linkman').val(),
-				'bi_phoneNumber': $('#bi_phoneNumber').val()
+		function _getBaseInfoData(flag) {
+			
+			var qyName = $('#bi_qyName').val();
+			var scLineName = $('#bi_scLineName').val();
+			var scLineScale = $('#bi_scLineScale').val();
+			var qyAddress = $('#bi_qyAddress').val();
+			var linkman = $('#bi_linkman').val();
+			var phoneNumber = $('#bi_phoneNumber').val();
+			
+			if (flag) {
+				if (qyName.trim()==''||qyName==undefined) {
+					alert("企业名称不能为空");			
+					return false;
+				}
+			    if (scLineName.trim()==''||scLineName==undefined) {
+					alert("生产线名称不能为空");
+					return false;
+				}
+			    if (scLineScale.trim()=='' || scLineScale==undefined) {
+			    	alert("生产线规模不能为空");
+			    	return false;
+			    }
+				
+				else {
+					return {
+						'bi_qyName': qyName,
+						'bi_scLineName': scLineName,
+						'bi_scLineScale': scLineScale,
+						'bi_qyAddress': qyAddress,
+						'bi_linkman': linkman,
+						'bi_phoneNumber': phoneNumber
+					}
+				}
+			} else {
+				return {
+					'bi_qyName': qyName,
+					'bi_scLineName': scLineName,
+					'bi_scLineScale': scLineScale,
+					'bi_qyAddress': qyAddress,
+					'bi_linkman': linkman,
+					'bi_phoneNumber': phoneNumber
+				}
 			}
+			
 		}
 
 		// module 2
