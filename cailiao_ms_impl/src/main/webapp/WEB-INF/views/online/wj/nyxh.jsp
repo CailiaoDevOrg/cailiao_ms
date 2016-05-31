@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<div class="box box-primary">
+<div class="box box-solid box-success">
 	<div class="box-header">
-		<h4>能源消耗</h4>
+		<h4 class="box-title">能源消耗</h4>
 	</div>
 	<div class="box-body">
 		<div class="row">

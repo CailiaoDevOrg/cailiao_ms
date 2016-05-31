@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<div class="box box-primary">
+<div class="box box-solid box-info">
 	<div class="box-header">
-		<h4>主要设备</h4>
+		<h4 class="box-title">主要设备</h4>
 	</div>
 	<div class="box-body">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="box box-default">
-					<div class="box-header">生料磨</div>
+					<div class="box-header"><strong class="stress_title">生料磨</strong></div>
 					<div class="box-body">
 						<div class="form-group">
 							<label for="zysb_slm_fmfs">生料磨粉磨方式</label> 
@@ -26,7 +26,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="box box-default">
-					<div class="box-header">水泥磨</div>
+					<div class="box-header"><strong class="stress_title">水泥磨</strong></div>
 					<div class="box-body">
 						<div class="form-group">
 							<label for="zysb_snm_fmfs">粉磨方式</label> 
@@ -45,7 +45,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="box box-default">
-					<div class="box-header">窑</div>
+					<div class="box-header"><strong class="stress_title">窑</strong></div>
 					<div class="box-body">
 						<div class="form-group">
 							<label for="zysb_y_gg">规格</label> 

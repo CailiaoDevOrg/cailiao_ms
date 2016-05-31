@@ -15,14 +15,15 @@
     <!-- CORE CSS-->
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="assets/adminlte/AdminLTE.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/custom/online/wj/wj_write.css">
 </head>
 
 <body>
     <div class="row">
         <div class="col-md-12">
-            <div class="box box-default">
-                <div class="box-header with-border">
-                    <h4 class="box-title">2015年水泥企业信息调研表</h4>－强烈建议填写时提高临时保存的频率，以免因突发状况导致提交失败
+            <div class="header_title box">
+                <div>
+                    <h2 class="online_wj_title">2015年水泥企业信息调研表</h2><span class="pull-right">－强烈建议填写时提高临时保存的频率，以免因突发状况导致提交失败</span>
                 </div>
             </div>
             <form role="form">
@@ -45,7 +46,6 @@
     <!-- CORE js -->
     <script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="assets/bootstrap/bootstrap.min.js"></script>
-
     <script type="text/javascript" src="assets/custom/online/wj/wj_create.js"></script>
 </body>
 </html>
