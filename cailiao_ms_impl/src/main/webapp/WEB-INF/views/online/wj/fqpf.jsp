@@ -12,8 +12,8 @@
 						<table class="table">
 							<tr>
 								<th>项目</th>
-								<th>窑头</th>
-								<th>窑尾</th>
+								<th>窑头<span class="redtag">*</span></th>
+								<th>窑尾<span class="redtag">*</span></th>
 								<th>水泥磨</th>
 								<th>煤磨</th>
 								<th>包装机</th>
@@ -53,8 +53,8 @@
 						<table class="table">
 							<tr>
 								<th>项目</th>
-								<th>SO<sub>2</sub>窑尾</th>
-								<th>NO<sub>x</sub>窑尾</th>
+								<th>SO<sub>2</sub>窑尾<span class="redtag">*</span></th>
+								<th>NO<sub>x</sub>窑尾<span class="redtag">*</span></th>
 							</tr>
 							<tr>
 								<td>年排放量，吨/年</td>
@@ -96,10 +96,10 @@
 					<div class="box-header">脱硝工艺</div>
 					<div class="box-body">
 						<div class="form-group">
-							1 <input type="radio" name="fqpf_txgy" value="SNCR" checked> SNCR <br /> 
-							2 <input type="radio" name="fqpf_txgy" value="分级燃烧"> 分级燃烧 <br /> 
-							3 <input type="radio" name="fqpf_txgy" value="SNCR 分级燃烧"> 1+2 <br /> 
-							4 <input type="radio" name="fqpf_txgy" value="其他"> 其他 <br />
+							1 <input type="checkbox" name="fqpf_txgy" value="SNCR" checked> SNCR <br /> 
+							2 <input type="checkbox" name="fqpf_txgy" value="分级燃烧"> 分级燃烧 <br /> 
+							3 <input type="checkbox" name="fqpf_txgy" value="SNCR 分级燃烧"> 1+2 <br /> 
+							4 <input type="checkbox" name="fqpf_txgy" value="其他"> 其他 <br />
 						</div>
 					</div>
 				</div>

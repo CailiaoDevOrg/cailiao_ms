@@ -32,6 +32,7 @@
                         <input type="button" class="btn btn-primary btn-sm btn-flat" id="showHistoryList" value="查看填写历史">
                         <input type="button" class="btn btn-primary btn-sm btn-flat" id="submit" value="保存">
                         <input type="button" class="btn btn-danger btn-sm btn-flat" id="commit" value="提交">
+                        <span style="color:red;padding-left:10px;">(其中<span class="redtag">*</span> 为必填项)</span>
                     </div>
                     <jsp:include page="baseinfo.jsp"/>
                     <jsp:include page="zyxh.jsp"/>
