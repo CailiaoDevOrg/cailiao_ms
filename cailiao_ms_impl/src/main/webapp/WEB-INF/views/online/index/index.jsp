@@ -38,7 +38,9 @@
 				<c:if test="${user==null}">
 					 <li><a href="login.html">登录</a></li>
 				</c:if>               
-                <li><a href="signout.html" style="border-right:1px solid #fff;" onclick="alert('注销成功')">注销</a></li>
+                <c:if test="${user!=null}">
+					<li><a href="signout.html" onclick="alert('注销成功')">注销</a></li>
+				</c:if>
 			</div>
 		</ul>
 		<!--菜单导航结束-->
