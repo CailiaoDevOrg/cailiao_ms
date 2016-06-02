@@ -127,7 +127,7 @@
 	    $('#pass').on('click', function() {
 			var wjId = $('#wjId').val();
             $.ajax({
-                url: '/online/wj/examine/' + wjId + '.html?isPass=true',
+                url: 'online/wj/examine/' + wjId + '.html?isPass=true',
                 method: 'PUT',
                 contentType: 'application/json',
                 success: function(data) {
@@ -147,24 +147,50 @@
 
 		$('#unpass').on('click', function() {
             var wjId = $('#wjId').val();
-            $.ajax({
-                url: '/online/wj/examine/' + wjId + '.html?isPass=false',
-                method: 'PUT',
-                contentType: 'application/json',
-                success: function(data) {
-                    data = JSON.parse(data);
-                    if (data.retCode == 200) {
-                        alert('已标记为不通过');
-                        window.close();
-                    } else {
-                        alert('系统忙，请稍后重试');
-                    }
-                },
-                error: function(data) {
-                    alert('网络出现问题，请稍后重试');
-                }
-            });
+            var d = dialog({
+			    title: '问卷不通过反馈信息',
+			    content: '<div id="unpassreson" class="noprint">'+
+                        '<textarea placeholder="不通过理由" style="width:480px;resize: none;" rows="7" id="unpassfeedback">'+
+                        '</textarea></div>',
+                width:500,
+                height:150,
+			    okValue:'发送',
+			    ok:function(){
+			    	let data=$("#unpassfeedback").val();
+			    	if(!data===''){
+				    	$.ajax({
+			                url: 'online/wj/examine/' + wjId + '.html?isPass=false',
+			                method: 'PUT',
+			                contentType: 'application/json',
+			                data:data,
+			                success: function(data) {
+			                    data = JSON.parse(data);
+			                    if (data.retCode == 200) {
+			                    	//debugger;
+			                        alert('反馈信息已成功发送！');
+			                        //window.close();
+			                       
+			                    } else {
+			                        alert('系统忙，请稍后重试');
+			                    }
+			                },
+			                error: function(data) {
+			                    alert('网络出现问题，请稍后重试');
+			                }
+			            });
+			    	}else{
+			    		d.close();
+			    		console.log("不用提交")
+			    	}
+			    },
+			    cancelValue:'取消',
+			    cancel:function(){    	
+			    }
+			});
+			d.showModal();
         });
+
+		
 
 	    function getWJData() {
 			return JSON.stringify({

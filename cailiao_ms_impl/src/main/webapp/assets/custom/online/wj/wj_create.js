@@ -388,6 +388,7 @@
 	    	var zysb_snm_ggxh = $('#zysb_snm_ggxh').val();
 	    	var zysb_snm_sl = $('#zysb_snm_sl').val();
 	    	var zysb_y_gg = $('#zysb_y_gg').val();
+	    	
 	    	if (flag) {
 	    		if (zysb_slm_fmfs == '') {
 	    			alert('生料磨方式不能为空');

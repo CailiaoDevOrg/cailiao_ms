@@ -15,8 +15,9 @@
     <!-- CORE CSS-->
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="assets/adminlte/AdminLTE.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/artdialog/dist/ui-dialog.css">
     <style type="text/css" media=print>  
-        .noprint{display : none }  
+        .noprint,#unpassreson{display : none } 
     </style>  
 </head>
 
@@ -36,11 +37,13 @@
                         <input type="button" class="btn btn-primary btn-sm btn-flat" id="unpass" value="不通过">
                         <!--<input type="button" class="btn btn-primary btn-sm" id="edit" value="编辑">-->
                     </div>
-                    <jsp:include page="baseinfo.jsp"/>
-                    <jsp:include page="zyxh.jsp"/>
-                    <jsp:include page="nyxh.jsp"/>
-                    <jsp:include page="fqpf.jsp"/>
-                    <jsp:include page="zysb.jsp"/>
+                    <div class="content">
+                        <jsp:include page="baseinfo.jsp"/>
+                        <jsp:include page="zyxh.jsp"/>
+                        <jsp:include page="nyxh.jsp"/>
+                        <jsp:include page="fqpf.jsp"/>
+                        <jsp:include page="zysb.jsp"/>
+                    </div>
                 </div>
                 <input type="hidden" id="wjId" value="${wjId}">
             </form>
@@ -49,7 +52,7 @@
     <!-- CORE js -->
     <script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="assets/bootstrap/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="assets/artdialog/dist/dialog-min.js"></script>
     <script type="text/javascript" src="assets/custom/online/wj/wj_check.js"></script>
 </body>
 </html>
