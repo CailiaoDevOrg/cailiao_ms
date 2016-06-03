@@ -15,7 +15,7 @@
 	                <input type="text" class="form-control" id="bi_scLineName" placeholder="请输入生产线名称">
 	            </div>
 	            <div class="form-group">
-	                <label for="bi_scLineScale">生产线设计规模<span class="redtag">*</span></label>
+	                <label for="bi_scLineScale">生产线设计规模(吨/天)<span class="redtag">*</span></label>
 	                <input type="text" class="form-control" id="bi_scLineScale" placeholder="请输入生产线设计规模">
 	            </div>
 	        </div>
