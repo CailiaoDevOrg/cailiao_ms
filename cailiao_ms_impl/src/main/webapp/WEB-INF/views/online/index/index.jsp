@@ -169,6 +169,8 @@
 		</p>
 	</div>
 	
+	<img src="checkcode.html" hidden />
+	
 	<!--footer End  -->
 	<script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="assets/custom/online/index/js/imgSlide.js"></script>
