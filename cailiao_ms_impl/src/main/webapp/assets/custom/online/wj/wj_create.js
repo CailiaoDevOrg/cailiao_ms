@@ -12,7 +12,7 @@
 			if (getWJData(true)) {
 				var data = {
 	                	'questionnaireTemplateId': wjtId,
-	                	'jsonContent': getWJData(true)
+	                	'jsonContent': getWJData(false)
 	                };
 				$.ajax({
 	                url: 'online/wj/commit.html',
@@ -67,18 +67,30 @@
 		});
 
 		function getWJData(flag) {
-			if (!_getBaseInfoData(flag) || !_getZyxhData(flag)
-					|| !_getNyxhData(flag) || !_getFqpfData(flag)
-					|| !_getZysbData(flag)) {
-				return false;
+			if (flag) {
+				if (!_getBaseInfoData(flag) || !_getZyxhData(flag) || !_getNyxhData(flag) || !_getFqpfData(flag) || !_getZysbData(flag) ) {
+					return false;
+				} else {
+					return JSON.stringify({
+						'baseinfo': _getBaseInfoData(flag),
+					    'zyxh': _getZyxhData(flag),
+					    'nyxh': _getNyxhData(flag),
+					    'fqpf': _getFqpfData(flag),
+					    'zysb': _getZysbData(flag)
+					});
+				}
+			} else {
+				return JSON.stringify({
+					'baseinfo': _getBaseInfoData(flag),
+				    'zyxh': _getZyxhData(flag),
+				    'nyxh': _getNyxhData(flag),
+				    'fqpf': _getFqpfData(flag),
+				    'zysb': _getZysbData(flag)
+				});
+			
 			}
-			return JSON.stringify({
-				'baseinfo': _getBaseInfoData(flag),
-			    'zyxh': _getZyxhData(flag),
-			    'nyxh': _getNyxhData(flag),
-			    'fqpf': _getFqpfData(flag),
-			    'zysb': _getZysbData(flag)
-			});
+		
+			
 		}
 
 		// module 1
@@ -91,18 +103,38 @@
 			var linkman = $('#bi_linkman').val();
 			var phoneNumber = $('#bi_phoneNumber').val();
 			if (flag) {
-				if (qyName.trim()=='' || qyName==undefined) {
+				if (qyName.trim()=='') {
 					alert("企业名不能为空");
 					return false;
-				} else if (scLineName.trim()=='' || scLineName==undefined) {
+				} 
+				if (scLineName.trim()=='') {
 					alert("生产线名称不能为空");
 					return false;
-				} else if (scLineScale.trim()=='' || scLineScale==undefined) {
+				} 
+				if(scLineScale.trim()=='') {
 					alert("生产线规模不能为空");
 					return false;
-				} else if (qyAddress.trim()=='' || qyAddress==undefined) {
+				} 
+				if (scLineScale < 0) {
+					alert('生产线规模不能小于0');
+					return false;
+				}
+				if (scLineScale > 20000) {
+					alert('生产线规模不能大于20000');
+					return false;
+				}
+				if (qyAddress.trim()=='') {
 					alert("企业地址不能为空");
 					return false;
+				} 
+				if (phoneNumber != '') {					
+					 var isMob = /^(13[0-9]{9})|(15[89][0-9]{8})$/;
+					 if(isMob.test(phoneNumber)){											
+					     return true;
+					    } else {
+					    	 alert("请输入格式正确的手机号码！");
+					    	 return false;
+					    }
 				} else {
 					return {
 						'bi_qyName': qyName,
@@ -145,6 +177,10 @@
 		// 获取熟料表格数据
 		function __getSlTable(flag) {
 			var slTable = [];
+			slTable.push({
+				'zyxh_sl_yclName':-99999,
+				'zyxh_sl_yclXhqk':-99999
+			});
 			for (var i = 1; i <= 6; i++) {
 				if (flag) {
 					if ($('#zyxh_sl_yclName_' + i).val() != ''
@@ -174,6 +210,10 @@
 		// 获取燃料表格数据
 		function __getRlTable(flag) {
 			var rlTable = [];
+			rlTable.push({
+				'zyxh_rl_yclName':-99999,
+				'zyxh_rl_yclXhqk':-99999
+			});
 			for (var i = 1; i <= 3; i++) {
 				if (flag) {
 					if ($('#zyxh_rl_yclName_' + i).val() == ''
@@ -200,6 +240,10 @@
 	    // 获取水泥表格
 	    function __getSNTable(flag) {
 	    	var snTable = [];
+	    	snTable.push({
+	    		'zyxh_sn_yclName': -99999,
+    			'zyxh_sn_yclXhqk': -99999
+	    	});
 	    	for (var i = 1; i <= 10; i++) {
 	    		if (flag) {
 	    			if ($('#zyxh_sn_yclName_' + i).val() == ''
@@ -222,25 +266,25 @@
 	    // 获取能源消耗数据
 	    function _getNyxhData(flag) {
 	    	if (flag) {
-	    		if ($('#nyxh_slfmdh').val().trim()=='' || $('#nyxh_slfmdh').val() == undefined) {
+	    		if ($('#nyxh_slfmdh').val().trim()=='') {
 	    			alert("生料粉末工段电耗不能为空");
 	    			return false;
-	    		} else if ($('#nyxh_kbslmh').val().trim() == '' || $('#nyxh_kbslmh').val() == undefined) {
+	    		} else if ($('#nyxh_kbslmh').val().trim() == '') {
 	    			alert("可比熟料综合煤耗不能为空");
 	    			return false;
-	    		} else if ($('#nyxh_kbsldh').val().trim() == '' || $('#nyxh_kbsldh').val() == undefined) {
+	    		} else if ($('#nyxh_kbsldh').val().trim() == '') {
 	    			alert("可比熟料综合电耗不能为空");
 	    			return false;
-	    		} else if ($('#nyxh_kbslnh').val().trim() == '' || $('#nyxh_kbslnh').val() == undefined) {
+	    		} else if ($('#nyxh_kbslnh').val().trim() == '') {
 	    			alert("可比熟料综合能耗不能为空");
 	    			return false;
-	    		} else if ($('#nyxh_kbsndh').val().trim() == '' || $('#nyxh_kbsndh').val() == undefined) {
+	    		} else if ($('#nyxh_kbsndh').val().trim() == '') {
 	    			alert('可比水泥综合电耗不能为空');
 	    			return false;
-	    		} else if ($('#nyxh_kbsnnh').val().trim() == '' || $('#nyxh_kbsnnh').val() == undefined) {
+	    		} else if ($('#nyxh_kbsnnh').val().trim() == '') {
 	    			alert('可比水泥综合能耗不能为空');
 	    			return false;
-	    		} else if ($('#nyxh_dwslfdl').val().trim() == '' || $('#nyxh_dwslfdl').val() ==undefined) {
+	    		} else if ($('#nyxh_dwslfdl').val().trim() == '') {
 	    			alert('单位熟料余热发电量不能为空');
 	    			return false;
 	    		} else {
@@ -268,7 +312,7 @@
 
 	    // module 4 获取废气排放数据
 	    function _getFqpfData(flag) {
-	    	if (!__getKlwTable(flag) || !__getFqTable(flag) || $('#fqpf_pd_sl').val().trim() == '' || $('#fqpf_pd_ccfs').val() == '' ) {
+	    	if (!__getKlwTable(flag) || !__getFqTable(flag)) {
 	    		return false;
 	    	}
 	    	return {
