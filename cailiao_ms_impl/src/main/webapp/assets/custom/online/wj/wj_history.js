@@ -10,6 +10,21 @@
 	            ordering: false,
 	            searching: false,
 	            lengthChange: false,
+	            language: {  
+	                'emptyTable': '没有数据',  
+	                'loadingRecords': '加载中...',  
+	                'processing': '查询中...',   
+	                'lengthMenu': '每页 _MENU_ 件',  
+	                'zeroRecords': '没有数据',  
+	                'paginate': {  
+	                    'first':      '第一页',  
+	                    'last':       '最后一页',  
+	                    'next':       '上一页',  
+	                    'previous':   '下一页'  
+	                },  
+	                'info': '第 _PAGE_ 页 / 总 _PAGES_ 页',  
+	                'infoEmpty': '没有数据',  
+           	    },
 	            ajax: {
 	                url: 'online/wj/getHistoryList/' + wjtId + '.html',
 	                dataSrc: 'body.questionnaireContentList'

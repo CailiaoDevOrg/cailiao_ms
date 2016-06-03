@@ -144,7 +144,7 @@
                 }
             });
 		});
-
+	    //unpass
 		$('#unpass').on('click', function() {
             var wjId = $('#wjId').val();
             var d = dialog({
