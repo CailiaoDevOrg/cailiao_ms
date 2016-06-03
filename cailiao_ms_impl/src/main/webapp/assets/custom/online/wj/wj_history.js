@@ -40,7 +40,7 @@
 	                    targets: -1,
 	                    data: {id: 'id', status: 'status'},
 	                    render: function(data, type, full) {
-	                    	if (data.status == 1) {
+	                    	if (data.status == 1 || data.status == 4) {
 	                    		return '<button class="btn btn-primary btn-xs btn-edit btn-flat" data-id="' + data.id + '">编辑</button>';
 	                    	} else {
 	                    		return '<button class="btn btn-primary btn-xs btn-scan btn-flat" data-id="' + data.id + '">查看</button>';
@@ -64,7 +64,9 @@
                             	return '已提交';
                             } else if (data == 3) {
                                 return '已审核通过';
-                            } else {
+                            } else if(data == 4){
+                            	return '审核未通过';
+                            }else {
                             	return '错误的状态，请联系系统管理员';
                             }
                         }
