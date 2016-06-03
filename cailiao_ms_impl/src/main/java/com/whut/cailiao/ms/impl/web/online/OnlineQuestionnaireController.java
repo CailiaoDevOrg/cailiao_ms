@@ -93,6 +93,15 @@ public class OnlineQuestionnaireController extends BaseController {
         model.addAttribute("wjId", wjId);
         return "online/wj/wj_edit";
     }
+    
+    @RequestMapping(value = "/scan/{wjId}.html", method = RequestMethod.GET)
+    public String navigateToScanPage(@PathVariable int wjId, Model model) {
+        if (wjId <= 0) {
+            return "error/404";
+        }
+        model.addAttribute("wjId", wjId);
+        return "online/wj/wj_scan";
+    }
 
     @RequestMapping(value = "/detail/{wjId}.html", method = RequestMethod.GET)
     @ResponseBody
@@ -112,12 +121,12 @@ public class OnlineQuestionnaireController extends BaseController {
 
     @RequestMapping(value = "/examine/{wjId}.html", method = RequestMethod.PUT)
     @ResponseBody
-    public String examine(@PathVariable int wjId, @RequestParam boolean isPass) {
+    public String examine(@PathVariable int wjId, @RequestParam boolean isPass,@RequestBody String message) {
         /*Mail mail = new Mail();
         mail.setContent("test content");
         mail.setTitle("hello");
         mail.setToWho("");
-        EmailUtil.sendEmail(mail);*/
+        EmailUtil.sendEmail(mail);*/    	
         ApiResponse response = this.questionnaireService.examineCommittedQuestionnaireContent(wjId, isPass);
         return convertApiResponseToJSONString(response);
     }

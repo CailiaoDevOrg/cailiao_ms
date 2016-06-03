@@ -156,7 +156,7 @@
                 height:150,
 			    okValue:'发送',
 			    ok:function(){
-			    	var data=$("#unpassfeedback").val();
+			    	var data={'message': $("#unpassfeedback").val()};
 			    	if(data != ''){			    		
 				    	$.ajax({
 			                url: 'online/wj/examine/' + wjId + '.html?isPass=false',
