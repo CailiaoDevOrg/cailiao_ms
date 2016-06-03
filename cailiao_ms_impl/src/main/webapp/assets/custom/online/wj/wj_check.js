@@ -156,8 +156,8 @@
                 height:150,
 			    okValue:'发送',
 			    ok:function(){
-			    	let data=$("#unpassfeedback").val();
-			    	if(!data===''){
+			    	var data=$("#unpassfeedback").val();
+			    	if(data != ''){			    		
 				    	$.ajax({
 			                url: 'online/wj/examine/' + wjId + '.html?isPass=false',
 			                method: 'PUT',
@@ -168,7 +168,7 @@
 			                    if (data.retCode == 200) {
 			                    	//debugger;
 			                        alert('反馈信息已成功发送！');
-			                        //window.close();
+//			                        window.close();
 			                       
 			                    } else {
 			                        alert('系统忙，请稍后重试');

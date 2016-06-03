@@ -43,7 +43,7 @@
 	                    	if (data.status == 1) {
 	                    		return '<button class="btn btn-primary btn-xs btn-edit btn-flat" data-id="' + data.id + '">编辑</button>';
 	                    	} else {
-                                return '感谢提交';
+	                    		return '<button class="btn btn-primary btn-xs btn-scan btn-flat" data-id="' + data.id + '">查看</button>';
 	                    	}
 	                    }
 	                },
@@ -78,6 +78,10 @@
             window.location.href = 'online/wj/edit/' + id + '.html';
         });
 		
+		$('#wjTable tbody').on('click', 'button.btn-scan', function() {
+            var id = $(this).data('id');
+            window.location.href = 'online/wj/scan/' + id + '.html';
+        });
 	});
 
 })(jQuery, timeFormat);
