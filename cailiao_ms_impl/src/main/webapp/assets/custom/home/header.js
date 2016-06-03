@@ -24,7 +24,7 @@
 		});
 		
 		$('#logo').on('click', function() {
-			g.navigateTo('main/dashboard.html');
+			window.location.href = '/';
 		});
 		
 	});
