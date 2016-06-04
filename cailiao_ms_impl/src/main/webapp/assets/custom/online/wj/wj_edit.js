@@ -283,8 +283,8 @@
 		function __getSlTable(flag) {
 			var slTable = [];
 			slTable.push({
-				'zyxh_sl_yclName':-99999,
-				'zyxh_sl_yclXhqk':-99999
+				'zyxh_sl_yclName':"",
+				'zyxh_sl_yclXhqk':""
 			});
 			for (var i = 1; i <= 6; i++) {
 				if (flag) {
@@ -316,8 +316,8 @@
 		function __getRlTable(flag) {
 			var rlTable = [];
 			rlTable.push({
-				'zyxh_rl_yclName':-99999,
-				'zyxh_rl_yclXhqk':-99999
+				'zyxh_rl_yclName':"",
+				'zyxh_rl_yclXhqk':""
 			});
 			for (var i = 1; i <= 3; i++) {
 				if (flag) {
@@ -346,8 +346,8 @@
 	    function __getSNTable(flag) {
 	    	var snTable = [];
 	    	snTable.push({
-	    		'zyxh_sn_yclName': -99999,
-    			'zyxh_sn_yclXhqk': -99999
+	    		'zyxh_sn_yclName': "",
+    			'zyxh_sn_yclXhqk': ""
 	    	});
 	    	for (var i = 1; i <= 10; i++) {
 	    		if (flag) {
