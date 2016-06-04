@@ -119,7 +119,7 @@
 					<ul>
 						<li style="border: 1px solid #eee;width:320px;height: 290px; overflow: hidden;">
 							<img src="assets/custom/online/index/img/home/wenjuansearch.jpg" width="318px"
-							height="290px" />
+							height="290px"  id="gotoOldSys"/>
 						</li>
 					</ul>
 				</div>

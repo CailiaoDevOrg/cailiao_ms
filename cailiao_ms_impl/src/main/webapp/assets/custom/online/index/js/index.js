@@ -2,6 +2,10 @@
 	
 	$(function() {
 		
+		$('#gotoOldSys').on('click', function() {
+			window.open('http://127.0.0.1:8080/survey_system');
+		});
+		
 		$.ajax({
             url: 'online/news/getList.html',
             method: 'GET',
