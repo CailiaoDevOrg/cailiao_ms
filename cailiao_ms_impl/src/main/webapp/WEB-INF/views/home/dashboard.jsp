@@ -21,13 +21,12 @@
                     <span class="info-box-icon bg-green"><i class="fa fa-bar-chart-o"></i></span>
                     <div class="info-box-green">
                         <span class="info-box-text">问卷模板管理</span>
-                        <span class="info-box-number"></span>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-red" id="privilegeTile">
-                    <span class="info-box-icon bg-red"><i class="fa fa-bell-o"></i></span>
+                    <span class="info-box-icon bg-red"><i class="fa fa-expeditedssl"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">权限控制</span>
                         <span class="info-box-number">谨慎操作</span>

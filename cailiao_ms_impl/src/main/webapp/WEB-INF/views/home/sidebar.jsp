@@ -30,6 +30,13 @@
                     <li><a href="javascript:void(0)" class="sidemenu" data-navigate="wjt/list.html">问卷模板列表</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 问卷邀请管理</a>
+                <ul class="nav treeview-menu">
+                    <li><a href="javascript:void(0)" class="sidemenu" data-navigate="wjInvite/create.html">登记问卷邀请</a></li>
+                    <li><a href="javascript:void(0)" class="sidemenu" data-navigate="wjInvite/list.html">问卷邀请登记列表</a></li>
+                </ul>
+            </li>
             <!--<li class="treeview">
                 <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> 问卷管理</a>
                 <ul class="nav treeview-menu">
