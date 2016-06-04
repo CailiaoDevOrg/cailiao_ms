@@ -24,7 +24,7 @@ public class OnlineQuestionnaireController extends BaseController {
     private QuestionnaireTemplateService questionnaireTemplateService;
 
     @Autowired
-    private QuestionnaireService questionnaireService;
+	private QuestionnaireService questionnaireService;
 
     @RequestMapping(value = "/{wjtId}.html", method = RequestMethod.GET)
     public String navigateToWJPage(@PathVariable int wjtId, Model model) {
@@ -121,13 +121,14 @@ public class OnlineQuestionnaireController extends BaseController {
 
     @RequestMapping(value = "/examine/{wjId}.html", method = RequestMethod.PUT)
     @ResponseBody
-    public String examine(@PathVariable int wjId, @RequestParam boolean isPass,@RequestBody String message) {
+    public String examine(@PathVariable int wjId, @RequestParam boolean isPass,@RequestBody QuestionnaireContent questionnaireContent) {
         /*Mail mail = new Mail();
         mail.setContent("test content");
         mail.setTitle("hello");
         mail.setToWho("");
         EmailUtil.sendEmail(mail);*/    	
-        ApiResponse response = this.questionnaireService.examineCommittedQuestionnaireContent(wjId, isPass);
+    	System.out.println(questionnaireContent.getRejectReason());
+        ApiResponse response = this.questionnaireService.examineCommittedQuestionnaireContent(wjId, isPass, questionnaireContent.getRejectReason());
         return convertApiResponseToJSONString(response);
     }
 }

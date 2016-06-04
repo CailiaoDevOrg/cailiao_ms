@@ -68,7 +68,7 @@ public interface QuestionnaireService {
      * @param isPass
      * @return
      */
-    ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass);
+    ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass,String message);
     
     /**
      * 获取某一问卷模板下的问卷总数量

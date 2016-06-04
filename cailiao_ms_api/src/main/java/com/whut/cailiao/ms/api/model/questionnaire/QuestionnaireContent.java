@@ -24,6 +24,8 @@ public class QuestionnaireContent implements Serializable {
     private int status;
     // 填写人
     private String accountId;
+    // 拒绝原因
+    private String rejectReason;
 
     public Integer getId() {
         return id;
@@ -80,8 +82,16 @@ public class QuestionnaireContent implements Serializable {
     public void setAccountId(String accountId) {
         this.accountId = accountId;
     }
+    
+    public String getRejectReason() {
+		return rejectReason;
+	}
 
-    @Override
+	public void setRejectReason(String rejectReason) {
+		this.rejectReason = rejectReason;
+	}
+
+	@Override
     public String toString() {
         return "QuestionnaireContent{" +
                 "id=" + id +

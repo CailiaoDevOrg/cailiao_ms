@@ -155,7 +155,7 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
      * @return
      */
     @Override
-    public ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass) {
+    public ApiResponse examineCommittedQuestionnaireContent(int questionnaireContentId, boolean isPass,String message) {
         ApiResponse response = ApiResponse.createDefaultApiResponse();
         if (questionnaireContentId <= 0) {
             response.setRetCode(ApiResponseCode.PARAM_ERROR);
@@ -163,13 +163,15 @@ public class QuestionnaireServiceImpl extends RedisSupport implements Questionna
             return response;
         }
         QuestionnaireContent questionnaireContent = new QuestionnaireContent();
-        questionnaireContent.setId(questionnaireContentId);
+        questionnaireContent.setId(questionnaireContentId);        
         if (isPass) {
             questionnaireContent.setStatus(QuestionnaireConstant.QuestionnaireContentStatus.PASS.value());
+            
         } else {
+        	questionnaireContent.setRejectReason(message);
             questionnaireContent.setStatus(QuestionnaireConstant.QuestionnaireContentStatus.EDITING.value());
         }
-        this.questionnaireContentDao.updateQuestionnaireContentStatus(questionnaireContent);
+        this.questionnaireContentDao.updateQuestionnaireContentStatus(questionnaireContent);        
         return response;
     }
 
