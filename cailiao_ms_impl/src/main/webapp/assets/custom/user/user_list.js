@@ -9,14 +9,17 @@
             
             $('#usersTable').DataTable({
                 ordering: false,
-                searching: false,
-                lengthChange: false,
+                searching: true,
+                lengthChange: true,
+                select: true,
+                bfilter: true,
                 language: {  
                     'emptyTable': '没有数据',  
                     'loadingRecords': '加载中...',  
                     'processing': '查询中...',   
-                    'lengthMenu': '每页 _MENU_ 件',  
-                    'zeroRecords': '没有数据',  
+                    'lengthMenu': '每页 _MENU_ 条',  
+                    'zeroRecords': '没有数据', 
+                    'search': '搜索:', 
                     'paginate': {  
                         'first':      '第一页',  
                         'last':       '最后一页',  
@@ -26,6 +29,7 @@
                     'info': '第 _PAGE_ 页 / 总 _PAGES_ 页',  
                     'infoEmpty': '没有数据',  
                 },
+                lengthMenu: [[10, 20, 50], ["10", "20", "50"]],
                 ajax: {
                     url: 'user/getList.html',
                     dataSrc: 'body.userList'
