@@ -94,6 +94,7 @@
 						<div class="form-group">
 							<label for="zysb_y_gg">规格<span class="redtag">*</span></label> 
 							<input type="text" class="form-control" id="zysb_y_gg" placeholder="生料磨规格型号">
+							<!-- <input type="text" class="form-control" id="zysb_y_gg1" placeholder="水泥磨规格型号"> -->
 						</div>
 					</div>
 				</div>

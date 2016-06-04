@@ -22,7 +22,7 @@
         <div class="col-md-12">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h4 class="box-title">2015年水泥企业信息调研表</h4>－强烈建议填写时提高临时保存的频率，以免因突发状况导致提交失败
+                    <h4 class="box-title">2015年水泥企业信息调研表</h4>
                 </div>
             </div>
             <form role="form">
