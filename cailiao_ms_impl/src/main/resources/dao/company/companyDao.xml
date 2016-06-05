@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whut.cailiao.ms.impl.dao.company.CompanyDao"> 
+	<select id="getCompanyByAddress" parameterType="java.lang.String" resultType="Company">
+		SELECT * FROM tb_com WHERE address LIKE '%${value}%'
+	</select>
+	
+	<select id="getAllCompany"  resultType="Company">
+		SELECT * FROM tb_com 
+	</select>
+</mapper>

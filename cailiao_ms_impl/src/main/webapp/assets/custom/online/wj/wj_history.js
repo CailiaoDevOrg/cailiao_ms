@@ -32,7 +32,7 @@
 	            columns: [
 	                { data: 'id' },
 	                { data: 'modifyTime' },
-	                { data: 'status' },
+	                { data: 'status' },	                
 	                { title: '操作' }
 	            ],
 	            columnDefs: [
