@@ -1,11 +1,16 @@
 package com.whut.cailiao.ms.impl.sevice.impl.company;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.dubbo.common.utils.CollectionUtils;
+import com.whut.cailiao.ms.api.commons.ApiResponse;
 import com.whut.cailiao.ms.api.model.company.Company;
+import com.whut.cailiao.ms.api.model.company.CompanyFacade;
 import com.whut.cailiao.ms.api.service.company.CompanyService;
 import com.whut.cailiao.ms.impl.dao.company.CompanyDao;
 
@@ -15,16 +20,29 @@ public class CompanyServiceImpl implements CompanyService {
 	private CompanyDao companyDao;
 
 	@Override
-	public List<Company> getCompanyByAddress(String address) throws Exception {
-		// TODO Auto-generated method stub
-		return this.companyDao.getCompanyByAddress(address);
+	public ApiResponse getCompanyByAddress(String address) throws Exception {
+		ApiResponse response = ApiResponse.createDefaultApiResponse();
+		response.addBody("companys", convertBaseClazzToFacade(this.companyDao.getCompanyByAddress(address)));
+		return response;
 	}
 
 	@Override
-	public List<Company> getAllCompany() throws Exception {
+	public ApiResponse getAllCompany() throws Exception {
 		// TODO Auto-generated method stub
-		return this.companyDao.getAllCompany();
+		return null;
 	}
 	
+	private List<CompanyFacade> convertBaseClazzToFacade(List<Company> companyList) {
+		if (CollectionUtils.isNotEmpty(companyList)) {
+			List<CompanyFacade> companyFacadeList = new ArrayList<>();
+			for (Company c : companyList) {
+				if (c != null) {
+					companyFacadeList.add(new CompanyFacade(c));
+				}
+			}
+			return companyFacadeList;
+		}
+		return Collections.emptyList();
+	}
 
 }
