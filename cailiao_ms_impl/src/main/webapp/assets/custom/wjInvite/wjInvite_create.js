@@ -244,8 +244,8 @@
         $("#submit").on("click",function(){
             alert("记录已保存！");
             var city_id = $('#city_select').val();
-             var city_name = $('#city_select>option[value="' + city_id + '"]').text();
-            // console.log(city_id+city_name);
+            var city_name = $('#city_select>option[value="' + city_id + '"]').text();
+            console.log(city_name);
            /* $.ajax({
                 url :'assets/test/company.json',
                 dataType : 'json',
@@ -266,6 +266,14 @@
 
                 }
             })*/
+             $.ajax({
+            	 url:'/company/getCompanyByAddress.html?address='+city_name,
+            	 method:'GET',
+            	 contentType:'application/json',
+            	 success:function(data) {
+            		 console.log(data);
+            	 }
+             });
         })
 
     });
