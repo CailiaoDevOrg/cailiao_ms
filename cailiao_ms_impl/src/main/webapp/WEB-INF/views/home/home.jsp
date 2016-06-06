@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="assets/adminlte/style.css">
     <link rel="stylesheet" href="assets/datatable/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="assets/datepicker/datepicker3.css">
+    <link rel="stylesheet" type="text/css" href="assets/select2/css/select2.min.css">
 </head>
 
 <body class="skin-blue fixed" data-spy="scroll" data-target="#scrollspy">
@@ -47,6 +48,8 @@
     
     <script type="text/javascript" src="assets/datepicker/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="assets/datepicker/bootstrap-datepicker.zh-CN.js"></script>
+
+    <script type="text/javascript" src="assets/select2/js/select2.min.js"></script>
     
     <!--<script type="text/javascript" src="assets/fingerprint/fingerprint.js"></script>-->
 

@@ -16,8 +16,7 @@
 		
 		$('#sysmsTile').on('click', function() {
 			g.navigateTo('sysparam/ini.html');
-		});
-		
+		});		
 	});
 	
 })(jQuery, gotoTool);
