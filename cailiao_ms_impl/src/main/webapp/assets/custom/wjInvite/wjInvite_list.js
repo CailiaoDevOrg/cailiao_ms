@@ -7,7 +7,7 @@
                 $(".mainContent").load('user/create.html');
             });
             
-            $('#usersTable').DataTable({
+            $('#inviteList').DataTable({
                 ordering: false,
                 searching: true,
                 lengthChange: true,
@@ -31,47 +31,31 @@
                 },
                 lengthMenu: [[10, 20, 50], ["10", "20", "50"]],
                 ajax: {
-                    url: 'user/getList.html',
-                    dataSrc: 'body.userList'
+                    url: 'assets/test/inviteList.json',
+                    dataSrc: 'data'
                 },
                 columns: [
-                    { data: 'accountId' },
-                    { data: 'description' },
-                    { data: 'factoryId' },
-                    { data: 'email' },
-                    { data: 'status' },
+                    { data: 'id' },
+                    { data: 'companyName' },
+                    { data: 'inviteruser' },
+                    { data: 'sendTime' },
+                    { data: 'receptor' },  
+                    { data: 'receptTime' },
                     { title: '操作' }
                 ],
                 columnDefs: [
                     {
                         targets: -1,
-                        data: {accountId: 'accountId', status: 'status'},
+                        data: {accountId: 'receptor', status: 'receptTime'},
                         render: function(data, type, full) {
-                        	var str = '<button class="btn btn-primary btn-xs btn-modify btn-flat" data-id="' + data.accountId + '">修改</button>\
-                                       <button class="btn btn-danger btn-xs btn-delete btn-flat" data-id="' + data.accountId + '">删除</button>';
-                        	if (data.status == 1) {
-                        		return '<button class="btn btn-danger btn-xs btn-freeze btn-flat" data-id="' + data.accountId + '">冻结</button> ' + str;
-                        	} else if (data.status == 2) {
-                        		return '<button class="btn btn-success btn-xs btn-active btn-flat" data-id="' + data.accountId + '">激活</button> ' + str;
-                        	} else {
-                        		return '用户状态异常，请联系管理员';
-                        	}
+                            if(data.receptor == ''){
+                                var str = '<button class="btn btn-primary btn-xs btn-modify btn-flat" data-id="' + data.id + '">确认接受</button>'; 
+                                return str;
+                            }else{
+                                return '';
+                            }
                         }
-                    },
-                    {
-                        targets: 4,
-                        data: 'status',
-                        render: function(data, type, full) {
-                        	if (data == 1) {
-                        		return '已激活';
-                        	} else if (data == 2) {
-                        		return '未激活';
-                        	} else {
-                        		return '状态错误，请联系系统管理员';
-                        	}
-                        }
-                    }
-                ]
+                    }]
             });
             
             $('#usersTable tbody').on('click', 'button.btn-delete', function() {
