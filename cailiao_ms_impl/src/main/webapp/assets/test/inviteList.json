@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "companyName": "北京水泥厂有限责任公司",
+            "inviteruser": "Roshine",
+            "sendTime": "2016-0501",
+            "receptor": "宋仲基",
+            "receptTime": "2016-0601"
+        },
+        {
+            "id": 2,
+            "companyName": "北京市琉璃河水泥有限公司",
+            "inviteruser": "小王",
+            "sendTime": "2016-0501",
+            "receptor": "",
+            "receptTime": ""
+        },
+        {
+            "id": 3,
+            "companyName": "保定太行和益水泥有限公司",
+            "inviteruser": "张三",
+            "sendTime": "2016-0501",
+            "receptor": "小六",
+            "receptTime": "2016-0601"
+        },
+        {
+            "id": 4,
+            "companyName": "北京水泥厂有限责任公司",
+            "inviteruser": "李四",
+            "sendTime": "2016-0501",
+            "receptor": "用户2",
+            "receptTime": "2016-0601"
+        },
+        {
+            "id": 5,
+            "companyName": "河北承德冀东水泥有限公司",
+            "inviteruser": "小周",
+            "sendTime": "2016-0501",
+            "receptor": "课题组1",
+            "receptTime": "2016-0601"
+        },
+        {
+            "id": 6,
+            "companyName": "兴隆福成水泥有限公司",
+            "inviteruser": "三星",
+            "sendTime": "2016-0501",
+            "receptor": "赵老师",
+            "receptTime": "2016-0601"
+        }
+    ]
+}
