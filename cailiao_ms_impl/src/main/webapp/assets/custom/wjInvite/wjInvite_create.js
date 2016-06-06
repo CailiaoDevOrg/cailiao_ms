@@ -1,12 +1,12 @@
 (function($) {    
     $(function() {
         var data_all=[];
-        var province_all=[{"id":"-1","text":"全部"}];
-        var city_all=[{"id":"-1","text":"全部"}]
+        var province_all=[{"id":"-1","text":"请选择"}];
+        var city_all=[{"id":"-1","text":"请选择"}]
         var area=[
                 {
                 "id":"-1",
-                "text":"全部"
+                "text":"请选择"
                 },
                 {
                 "id":"0",
@@ -37,17 +37,6 @@
         $("#area").select2({
             data:area
         });
-        $('#province_select').select2({
-            data:[{id:0,text:"全部"}]
-        });
-        $('#city_select').select2({
-           data:[{id:0,text:"全部"}]
-        });
-
-        $('#company_select').select2({
-            data:[{id:0,text:"全部"}]
-        });
-
         $.ajax({
             url : 'assets/test/test.json',
             method: 'GET',
@@ -57,38 +46,24 @@
                 for (var i = 0; i < data_all.length; i++) {
                     province_all.push({id:data_all[i].id,text:data_all[i].name});
                 };
-                console.log(province_all);
+                $("#province_select").select2({
+                    data:province_all
+                });
+                $('#city_select').select2({
+                        data:[{id:-1,text:" 请选择"}]
+                });
+                $('#company_select').select2({
+                        data:[{id:-1,text:"请选择"}]
+                    });
             },
             error : function(data){
                  alert('网络出现问题，请稍后重试');
             }
         })
 
-        //对象转为数组
-        function transToArry(jsonobj){
-            var select_data=[];
-            for (var i = 0; i < jsonobj.length; i++) {
-                   select_data.push({id:jsonobj[i].id,text:jsonobj[i].text});
-                };
-            return select_data;
-        };
-
-        //划分地区
-        /*function dividearea(obj,area){
-            var province=[];
-            province.push({id:-1,text:"全部"});
-            for (var i = 0; i < obj.length; i++) {
-                if(obj[i].area==area){
-                    province.push({id:obj[i].id,text:obj[i].text});
-                }
-            };
-            return province;
-        }*/
-
         $('#area').on("change", function (e) {
             var area_id = $('#area').val();
             var province=[];
-            province.push({id:-1,text:"全部"});
             for (var i = 0; i < data_all.length; i++) {
                 if(data_all[i].area==area_id){
                     province.push({id:i,text:data_all[i].name});
@@ -97,7 +72,7 @@
             $("#province_select").select2('destroy');
             $("#province_select").children().remove();
             console.log(province);
-            if(province.length == 1) {
+            if(province.length == -1) {
                     $('#province_select').select2({
                         data:province_all
                     }); 
@@ -108,62 +83,14 @@
                     $("#city_select").select2('destroy');
                     $("#city_select").children().remove();
                     $('#city_select').select2({
-                        data:[{id:0,text:"全部"}]
+                        data:[{id:"-1",text:"请选择"}]
                     });
                 }
-            
-            $("#city_select").select2('destroy');
-            $("#city_select").children().remove();
-            $('#city_select').select2({
-                data:[{id:0,text:"全部"}]
-             });
             $("#company_select").select2('destroy');
             $("#company_select").children().remove();
             $('#company_select').select2({
-                data:[{id:0,text:"全部"}]
-             });
-
-
-           // var province_name = $('#area>option[value="' + province_id + '"]').text();
-            /*$.ajax({
-                url: 'assets/test/province.json',
-                method: 'GET',
-                dataType:"json",
-                success: function(data){
-                    var province=data.data;
-                    if (area_id == '-1') {//如果为全部，则返回所有省份
-                    var province_all=transToArry(province);
-                    $("#province_select").select2('destroy');
-                        $("#province_select").children().remove();
-                        $('#province_select').select2({
-                           data:province_all
-                        }); 
-
-                        $("#city_select").select2('destroy');
-                        $("#city_select").children().remove();
-                        $('#city_select').select2({
-                            data:[{id:0,text:"全部"}]
-                         });
-
-                    }else{
-                        var province_data=dividearea(province,area_id);
-                        $("#province_select").select2('destroy');
-                        $("#province_select").children().remove();
-                        $('#province_select').select2({
-                           data:province_data
-                        });
-
-                        $("#city_select").select2('destroy');
-                        $("#city_select").children().remove();
-                        $('#city_select').select2({
-                            data:[{id:0,text:"全部"}]
-                         });
-                    }
-                },
-                error: function(data) {
-                                alert('网络出现问题，请稍后重试');
-                }
-            });*/
+                data:[{id:"-1",text:"请选择"}]
+            });           
         });
 
         $('#province_select').on("change", function (e) {
@@ -178,19 +105,21 @@
                     success: function(data){
                         var city=data.data;
                         var city_list=city[province_id].cities;
-                        var city_data=[{id:'-1',text:'全部'}];
+                        var city_data=[{id:'-1',text:'请选择'}];
                         for (var i = 0; i < city_list.length; i++) {
                             city_data.push({id:i,text:city_list[i]})
                         };
 
                         $("#city_select").select2('destroy');
                         $("#city_select").children().remove();
+                        $("#company_select").select2('destroy');
+                        $("#company_select").children().remove();
 
                         $("#city_select").select2({
                             data:city_data
                         });
-                        $('#city_select').select2({
-                        data:[{id:0,text:"全部"}]
+                        $('#company_select').select2({
+                        data:[{id:"-1",text:" 请选择"}]
                         });
                     },
                     error : function(data){
@@ -200,32 +129,27 @@
             };
         });
 
-        /*$('#city_select').on("change", function (e) {
-            var city_id = $('#city_select').val();
-            if(city_id == 0){
-                $('#county_select').val(0).trigger('change');
-                return;
-            }
-
+        $('#city_select').on("change", function (e) {
             var city_id = $('#city_select').val();
             var city_name = $('#city_select>option[value="' + city_id + '"]').text();
-            console.log(city_name);
-            if(city_name=="全部"){
+            if(city_id == 0){
                 city_name='';
             }
-
+            console.log(city_name);
             $.ajax({
-                url :'assets/test/company.json',
-                dataType : 'json',
-                method : 'GET',
+                url:'/company/getCompanyByAddress.html?address='+city_name,
+                method:'GET',
+                contentType:'application/json',
                 success : function(data){
-                    var company_data=transToArry(data.data);
-                   // var companys=data.body.companys;
-                   // var company_data=[];
-                    console.log(data);
+                    var company_data_obj=JSON.parse(data);
+                    var companys=company_data_obj.body.companys;
+                    var company_data=[];
                     for (var i = 0; i < companys.length; i++) {
-                        company_data.push({id:companys[i].id,text:companys[i].text}})
+                        company_data.push({id:companys[i].id,text:companys[i].name})
                     };
+                    console.log(company_data);
+                    $("#company_select").select2('destroy');
+                    $("#company_select").children().remove();
                     $("#company_select").select2({
                         data:company_data
                     })
@@ -234,47 +158,38 @@
 
                 }
             })
-        });*/
-
-
-        $('#wj_version').select2({
-            data:[{id:0,text:"2015水泥工业简表"},{id:1,text:"2016水泥工业简表"}]
         });
 
-        $("#submit").on("click",function(){
-            alert("记录已保存！");
-            var city_id = $('#city_select').val();
-            var city_name = $('#city_select>option[value="' + city_id + '"]').text();
-            console.log(city_name);
-           /* $.ajax({
-                url :'assets/test/company.json',
-                dataType : 'json',
-                method : 'GET',
-                success : function(data){
-                    var company_data=transToArry(data.data);
-                   // var companys=data.body.companys;
-                    //var company_data=[];
-                    console.log(data);
-                    for (var i = 0; i < companys.length; i++) {
-                        company_data.push({id:companys[i].id,text:companys[i].text}})
-                    };
-                    $("#company_select").select2({
-                        data:company_data
-                    })
+
+        $.ajax({
+                url: 'online/news/getList.html',
+                method: 'GET',
+                contentType: 'application/json',
+                success: function(data) {
+                    data = JSON.parse(data);
+                    if (data.retCode == 200) {
+                        var newsList = data.body.newsList;
+                        var wj_version=[{id:"-1",text:" 请选择"}];
+                        for (var i = 0; i < newsList.length; i++) {
+                            wj_version.push({id:i,text:newsList[i].title});
+                        };
+                        $('#wj_version').select2({
+                            data:wj_version
+                        });
+                    } else {
+                        alert('系统忙，新闻无法加载');
+                    }
                 },
-                error : function(data){
-
+                error: function(data) {
+                    alert('网络出现问题，新闻无法加载');
                 }
-            })*/
-             $.ajax({
-            	 url:'/company/getCompanyByAddress.html?address='+city_name,
-            	 method:'GET',
-            	 contentType:'application/json',
-            	 success:function(data) {
-            		 console.log(data);
-            	 }
-             });
-        })
+            });
 
+        $("#submit").on("click",function(){
+            var company_id = $('#city_select').val();
+            var company_name = $('#city_select>option[value="' + company_id + '"]').text();
+
+            alert("提交成功")
+        })
     });
 })(jQuery);
