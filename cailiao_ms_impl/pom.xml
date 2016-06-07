@@ -30,6 +30,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- redis -->
@@ -149,6 +155,10 @@
             </snapshots>
         </repository>
     </repositories>
+    
+    <properties>
+        <start-class>com.whut.cailiao.ms.impl.MSApplication</start-class>
+    </properties>
     
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>

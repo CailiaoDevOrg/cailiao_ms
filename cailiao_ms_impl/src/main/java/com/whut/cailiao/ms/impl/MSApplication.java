@@ -28,11 +28,13 @@ public class MSApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(MSApplication.class);
+        return builder.sources(applicationClass);
     }
 
     public static void main(String[] args) {
         SpringApplication.run(MSApplication.class, args);
     }
+    
+    private static Class<MSApplication> applicationClass = MSApplication.class;
 
 }
