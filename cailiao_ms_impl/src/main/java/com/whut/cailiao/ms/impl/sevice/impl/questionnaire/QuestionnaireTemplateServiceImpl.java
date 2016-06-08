@@ -68,6 +68,7 @@ public class QuestionnaireTemplateServiceImpl extends RedisSupport implements Qu
         questionnaireTemplate.setLastModifyTime(questionnaireTemplate.getModifyTime());
         questionnaireTemplate.setModifyTime(new Timestamp(System.currentTimeMillis()));
         questionnaireTemplate.setStatus(status.value());
+        questionnaireTemplate.setPublishedPerson((questionnaireTemplate.getPublishedPerson()));
         if (questionnaireTemplate.getId() == null) {
             // 多人重复创建则会产生多条记录,不会有影响
             this.questionnaireTemplateEditDao.insertQuestionnaireTemplate(questionnaireTemplate);

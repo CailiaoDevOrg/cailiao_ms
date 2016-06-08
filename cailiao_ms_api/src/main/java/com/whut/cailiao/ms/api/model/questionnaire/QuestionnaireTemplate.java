@@ -27,6 +27,8 @@ public class QuestionnaireTemplate implements Serializable {
     private Timestamp endTime;
     /** 问卷模板jsp页面 */
     private String templateUrl;
+    /** 问卷模板发布人 */
+    private String publishedPerson;
     
     /**
      * 问卷控制状态
@@ -107,19 +109,20 @@ public class QuestionnaireTemplate implements Serializable {
         this.templateUrl = templateUrl;
     }
 
+	public String getPublishedPerson() {
+		return publishedPerson;
+	}
 
-    @Override
-    public String toString() {
-        return "QuestionnaireTemplate{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", modifyTime=" + modifyTime +
-                ", lastModifyTime=" + lastModifyTime +
-                ", beginTime=" + beginTime +
-                ", endTime=" + endTime +
-                ", templateUrl='" + templateUrl + '\'' +
-                ", status=" + status +
-                '}';
-    }
+	public void setPublishedPerson(String publishedPerson) {
+		this.publishedPerson = publishedPerson;
+	}
+
+	@Override
+	public String toString() {
+		return "QuestionnaireTemplate [id=" + id + ", name=" + name + ", description=" + description + ", modifyTime="
+				+ modifyTime + ", lastModifyTime=" + lastModifyTime + ", beginTime=" + beginTime + ", endTime="
+				+ endTime + ", templateUrl=" + templateUrl + ", publishedPerson=" + publishedPerson + ", status="
+				+ status + "]";
+	}   
+    
 }

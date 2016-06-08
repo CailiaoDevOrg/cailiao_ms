@@ -13,7 +13,8 @@
             beginTime,
             endTime,
             templateUrl,
-            status
+            status,
+            publishedPerson
         )
         VALUES
         (
@@ -25,12 +26,13 @@
             #{beginTime, jdbcType=TIMESTAMP},
             #{endTime, jdbcType=TIMESTAMP},
             #{templateUrl, jdbcType=VARCHAR},
-            2
+            2,
+            #{publishedPerson,jdbcType=VARCHAR}
         )
     </insert>
 
     <select id="getQuestionnaireTemplate" parameterType="java.lang.Integer" resultType="QuestionnaireTemplate">
-        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
+        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status,publishedPerson
         FROM tb_questionnaire_template
         WHERE id = #{questionnaireTemplateId, jdbcType=INTEGER} AND status = 2
     </select>
@@ -47,6 +49,7 @@
             beginTime = #{beginTime, jdbcType=TIMESTAMP},
             endTime = #{endTime, jdbcType=TIMESTAMP},
             templateUrl = #{templateUrl, jdbcType=VARCHAR},
+            publishedPerson = #{publishedPerson,jdbcType=VARCHAR},
         </set>
         WHERE id = #{id, jdbcType=INTEGER} AND status = 2
     </update>
@@ -56,13 +59,13 @@
     </delete>
 
     <select id="getUsingQuestionnaireTemplateList" resultType="QuestionnaireTemplate">
-        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
+        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status,publishedPerson
         FROM tb_questionnaire_template
         WHERE status = 2 AND unix_timestamp(now()) >= unix_timestamp(beginTime) AND unix_timestamp(endTime) >= unix_timestamp(now())
     </select>
     
     <select id="getPublishedQuestionnaireTemplateList" resultType="QuestionnaireTemplate">
-        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
+        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status,publishedPerson
         FROM tb_questionnaire_template
         WHERE status = 2
     </select>

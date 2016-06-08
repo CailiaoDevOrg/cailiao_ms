@@ -14,7 +14,8 @@
                     description: $('#desc').val(),
                     beginTime: $('#beginTime').val(),
                     endTime: $('#endTime').val(),
-                    templateUrl: $('#pageUrl').val()
+                    templateUrl: $('#pageUrl').val(),
+                    publishedPerson: $('#publishedPerson').val()
                 };
                 if (_validIsNotNull(data)) {
                     $.ajax({

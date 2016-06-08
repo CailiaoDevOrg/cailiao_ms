@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.dubbo.common.utils.CollectionUtils;
 import com.whut.cailiao.ms.api.commons.ApiResponse;
+import com.whut.cailiao.ms.api.commons.ApiResponseCode;
 import com.whut.cailiao.ms.api.model.company.Company;
 import com.whut.cailiao.ms.api.model.company.CompanyFacade;
 import com.whut.cailiao.ms.api.service.company.CompanyService;
@@ -43,6 +44,17 @@ public class CompanyServiceImpl implements CompanyService {
 			return companyFacadeList;
 		}
 		return Collections.emptyList();
+	}
+
+	@Override
+	public ApiResponse remarkInvited(int id) throws Exception {
+		ApiResponse response = ApiResponse.createDefaultApiResponse();
+		if (id <= 0) {
+            response.setRetCode(ApiResponseCode.PARAM_ERROR);
+            return response;
+        }
+		this.companyDao.markInvited(id);
+		return response;
 	}
 
 }

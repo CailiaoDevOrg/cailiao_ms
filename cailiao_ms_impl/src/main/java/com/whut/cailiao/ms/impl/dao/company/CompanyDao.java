@@ -7,4 +7,6 @@ import com.whut.cailiao.ms.api.model.company.Company;
 public interface CompanyDao {
 	public List<Company> getCompanyByAddress(String address) throws Exception;
 	public List<Company> getAllCompany()throws Exception;
+	public void markInvited(int id) throws Exception;
+	public List<Company> getCompanyList() throws Exception;
 }

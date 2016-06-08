@@ -35,6 +35,9 @@
                                 <label for="pageUrl">pageUrl</label>
                                 <input type="text" class="form-control" id="pageUrl" placeholder="页面Url">
                             </div>
+                            <div class="form-group">
+                            	<input id="publishedPerson" type="hidden"  value="${user.accountId}">
+                            </div>
                         </div>
                         <div class="box-footer">
                             <input type="button" class="btn btn-primary btn-flat" id="submit" value="提交">

@@ -8,4 +8,12 @@
 	<select id="getAllCompany"  resultType="Company">
 		SELECT * FROM tb_com 
 	</select>
+	
+	<insert id="markInvited" parameterType="java.lang.Integer">
+		UPDATE　tb_com SET remark = '已经反馈' WHERE id = #{id} 
+	</insert>
+	
+	<select id="getCompanyList" resultType="Company">
+		SELECT * FROM tb_com
+	</select>
 </mapper>

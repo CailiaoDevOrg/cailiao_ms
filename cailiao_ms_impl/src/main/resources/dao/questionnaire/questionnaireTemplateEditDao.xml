@@ -11,7 +11,8 @@
             beginTime,
             endTime,
             templateUrl,
-            status
+            status,
+            publishedPerson
         )
         VALUES
         (
@@ -21,12 +22,13 @@
             #{beginTime, jdbcType=TIMESTAMP},
             #{endTime, jdbcType=TIMESTAMP},
             #{templateUrl, jdbcType=VARCHAR},
-            #{status, jdbcType=INTEGER}
+            #{status, jdbcType=INTEGER},
+            #{publishedPerson,jdbcType=VARCHAR}
         )
     </insert>
 
     <select id="getQuestionnaireTemplate" parameterType="java.lang.Integer" resultType="QuestionnaireTemplate">
-        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
+        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status,publishedPerson
         FROM tb_questionnaire_template_edit
         WHERE id = #{questionnaireTemplateId, jdbcType=INTEGER}
     </select>
@@ -53,7 +55,7 @@
     </delete>
 
     <select id="getQuestionnaireTemplateList" resultType="QuestionnaireTemplate">
-        SELECT id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
+        SELECT publishedPerson ,id, name, description, modifyTime, lastModifyTime, beginTime, endTime, templateUrl, status
         FROM tb_questionnaire_template_edit
         LIMIT #{offset, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER}
     </select>

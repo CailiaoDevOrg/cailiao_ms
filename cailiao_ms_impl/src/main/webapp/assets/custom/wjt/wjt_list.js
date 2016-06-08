@@ -1,10 +1,21 @@
 (function($, $$){
     
     $(function() {
+    	
         
         (function() {
             $("#createNewTemplateBtn").on('click', function() {
                 $(".mainContent").load('wjt/create.html');
+            });
+            
+            $('#test').on('click',function(){
+            	$.ajax({
+            		url: 'wjt/getWJTList/1.html',
+            		method: 'GET',
+            		success:function(data){
+            			console.log(data);
+            		}
+            	});
             });
             
             $('#wjTemplateTable').DataTable({
@@ -34,8 +45,8 @@
                     { data: 'name' },
                     { data: 'description' },
                     { data: 'beginTime' },
-                    { data: 'endTime' },
-                    { data: 'status' },
+                    { data: 'endTime' },                    
+                    { data: 'status' },               
                     { title: '操作' }
                 ],
                 columnDefs: [
