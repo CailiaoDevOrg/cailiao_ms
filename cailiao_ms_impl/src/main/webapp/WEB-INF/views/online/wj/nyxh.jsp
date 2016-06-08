@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="nyxh_slfmdh">生料粉末工段电耗(kWh/t)<span class="redtag">*</span></label> 
+					<label for="nyxh_slfmdh">生料粉磨工段电耗(kWh/t)<span class="redtag">*</span></label> 
 					<input type="text" class="form-control" id="nyxh_slfmdh" placeholder="单位：kWh/t">
 				</div>
 				<div class="form-group">

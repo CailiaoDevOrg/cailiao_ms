@@ -53,8 +53,8 @@
 						<table class="table">
 							<tr>
 								<th>项目</th>
-								<th>SO<sub>2</sub>窑尾<span class="redtag">*</span></th>
-								<th>NO<sub>x</sub>窑尾<span class="redtag">*</span></th>
+								<th>SO<sub>2</sub>(窑尾)<span class="redtag">*</span></th>
+								<th>NO<sub>x</sub>(窑尾)<span class="redtag">*</span></th>
 							</tr>
 							<tr>
 								<td>年排放量，吨/年</td>

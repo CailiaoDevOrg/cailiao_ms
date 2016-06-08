@@ -3,6 +3,7 @@
         {
             "id": 1,
             "companyName": "北京水泥厂有限责任公司",
+            "address":"2222",
             "inviteruser": "Roshine",
             "sendTime": "2016-0501",
             "receptor": "宋仲基",
