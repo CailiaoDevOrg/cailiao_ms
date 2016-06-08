@@ -36,10 +36,10 @@
 				<li><a href="#">支持</a></li>
 				<li><a href="main/home.html">后台管理系统</a></li>
 				<c:if test="${user==null}">
-					 <li><a href="login.html">登录</a></li>
+					 <li><a href="login.html" style="border-right:1px solid #fff">登录</a></li>
 				</c:if>               
                 <c:if test="${user!=null}">
-					<li><a href="signout.html" onclick="alert('注销成功')">注销</a></li>
+					<li><a href="signout.html" onclick="alert('注销成功')" style="border-right:1px solid #fff">注销</a></li>
 				</c:if>
 			</div>
 		</ul>
