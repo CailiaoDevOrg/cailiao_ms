@@ -382,10 +382,10 @@
 	    		if (flag) {
 	    			if (i == 1) {
 	    				if ($('#fqpf_fq_npfl_' + title[i - 1]).val().trim() == '') {
-		    				alert('年排放量的SO2不能为空');
+		    				alert('SO2的年排放量不能为空');
 		    				return false;
 		    			} else if ($('#fqpf_fq_pfnd_' + title[i - 1]).val().trim() == '') {
-		    				alert('排放浓度的SO2不能为空');
+		    				alert("SO2的排放浓度不能为空");
 		    				return false;
 		    			} else {
 		    				fqTable.push({
@@ -397,10 +397,10 @@
 		    			}
 	    			} else if (i == 2) {
 	    				if ($('#fqpf_fq_npfl_' + title[i - 1]).val().trim() == '') {
-		    				alert('年排放量的NO2不能为空');
+		    				alert('NO2的年排放量不能为空');
 		    				return false;
 		    			} else if ($('#fqpf_fq_pfnd_' + title[i - 1]).val().trim() == '') {
-		    				alert('排放浓度的NO2不能为空');
+		    				alert('NO2的排放浓度不能为空');
 		    				return false;
 		    			} else {
 		    				fqTable.push({
