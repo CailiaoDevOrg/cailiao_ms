@@ -63,7 +63,7 @@
 
         $('#area').on("change", function (e) {
             var area_id = $('#area').val();
-            var province=[];
+            var province=[{"id":"-1","text":"请选择"}];
             for (var i = 0; i < data_all.length; i++) {
                 if(data_all[i].area==area_id){
                     province.push({id:i,text:data_all[i].name});

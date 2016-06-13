@@ -37,6 +37,7 @@
                 columns: [
                     { data: 'id' },
                     { data: 'companyName' },
+                    { data:'address'},
                     { data: 'inviteruser' },
                     { data: 'sendTime' },
                     { data: 'receptor' },  
