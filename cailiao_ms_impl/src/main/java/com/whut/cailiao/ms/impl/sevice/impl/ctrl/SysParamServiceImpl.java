@@ -59,7 +59,7 @@ public class SysParamServiceImpl implements SysParamService {
                     Session[] sessions = manager.findSessions();
                     if (sessions != null) {
                         for (Session session : sessions) {
-                            if (httpSession.getId() != session.getId()) {
+                            if (!httpSession.getId().equals(session.getId())) {
                                 session.expire();
                             }
                         }

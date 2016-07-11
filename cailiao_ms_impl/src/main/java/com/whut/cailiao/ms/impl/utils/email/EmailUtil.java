@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
  */
 public class EmailUtil {
 
-    public static Executor executor = Executors.newFixedThreadPool(4);
+    public final static Executor executor = Executors.newFixedThreadPool(4);
 
     public static void sendEmail(Mail mail) {
         executor.execute(() -> {

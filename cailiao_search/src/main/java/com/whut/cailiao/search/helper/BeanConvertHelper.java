@@ -124,6 +124,7 @@ public final class BeanConvertHelper {
             fqTableItemList.add(fqTableItem);
         }
         fqpf.setFqTable(fqTableItemList);
+        questionnaireContentDetail.setFqpf(fqpf);
 
         // 创建主要设备
         JSONObject zysbObj = jsonContentObj.getJSONObject("zysb");

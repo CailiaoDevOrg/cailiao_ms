@@ -90,7 +90,10 @@ public class SearchClient {
             response.setRetCode(ApiResponseCode.IO_EXCEPTION);
         } finally {
             try {
-                indexWriter.close();
+                if (indexWriter != null) {
+                    indexWriter.close();
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
